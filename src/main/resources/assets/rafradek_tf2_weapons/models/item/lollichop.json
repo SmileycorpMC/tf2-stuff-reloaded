@@ -1,0 +1,83 @@
+{
+	"credit": "Made by dsaf with Blockbench",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/lollichop",
+		"particle": "rafradek_tf2_weapons:items/lollichop"
+	},
+	"overrides": [
+        {
+            "predicate": {
+            	"team":1
+            },
+            "model": "rafradek_tf2_weapons:item/lollichop_blu"
+		}
+	],
+	"elements": [
+		{
+			"from": [7.5, 0, 7.5],
+			"to": [8.5, 14, 8.5],
+			"faces": {
+				"north": {"uv": [0.5, 0.5, 0.5, 0.5], "texture": "#0"},
+				"east": {"uv": [0.5, 0.5, 0.5, 0.5], "texture": "#0"},
+				"south": {"uv": [0.5, 0.5, 0.5, 0.5], "texture": "#0"},
+				"west": {"uv": [0.5, 0.5, 0.5, 0.5], "texture": "#0"},
+				"up": {"uv": [0.5, 0.5, 0.5, 0.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [3.5, 14, 7.25],
+			"to": [12.5, 23, 8.75],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 18, 8]},
+			"faces": {
+				"north": {"uv": [1, 0, 16, 15], "texture": "#0"},
+				"east": {"uv": [9, 1, 9, 1], "texture": "#0"},
+				"south": {"uv": [1, 0, 16, 15], "texture": "#0"},
+				"west": {"uv": [9, 1, 9, 1], "texture": "#0"},
+				"up": {"uv": [9, 1, 9, 1], "texture": "#0"},
+				"down": {"uv": [9, 1, 9, 1], "texture": "#0"}
+			}
+		}
+	],
+	"overrides": [
+		{
+			"predicate": {
+				"team": 1
+			},
+			"model": "rafradek_tf2_weapons:item/lollichop_blu"
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 0],
+			"translation": [0, 0.5, 2],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -90, 0],
+			"translation": [0, 0.5, 2],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -90, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -90, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"rotation": [0, 0, 45],
+			"translation": [0, -0.25, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"gui": {
+			"rotation": [0, 0, 45],
+			"translation": [3, -3, 0],
+			"scale": [0.78, 0.78, 0.78]
+		},
+		"fixed": {
+			"translation": [0, -2.5, -0.25],
+			"scale": [0.76, 0.76, 0.76]
+		}
+	}
+}

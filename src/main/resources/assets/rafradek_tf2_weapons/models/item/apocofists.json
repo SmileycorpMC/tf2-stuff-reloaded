@@ -1,0 +1,18 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "rafradek_tf2_weapons:items/apocofists"
+    },
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [ 0, -90, 55 ],
+            "translation": [ 0, -1.0, 0.5 ],
+            "scale": [ 0.68, 0.68, 0.68 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ 0, 90, -55 ],
+            "translation": [ 0, -1.0, 0.5 ],
+            "scale": [ 0.68, 0.68, 0.68 ]
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/pomson6000",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/pomson_blu"
+	}
+}

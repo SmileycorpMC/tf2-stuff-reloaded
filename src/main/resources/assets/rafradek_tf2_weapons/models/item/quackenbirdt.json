@@ -1,0 +1,66 @@
+{
+	"credit": "Made by dsaf with Blockbench, Original model by Rafał",
+	"textures": {
+		"1": "rafradek_tf2_weapons:items/quackenbirdt",
+		"atlas": "rafradek_tf2_weapons:items/cloak1",
+		"particle": "rafradek_tf2_weapons:items/quackenbirdt"
+	},
+	"elements": [
+		{
+			"name": "Box1",
+			"from": [5.5, 8, 13.5],
+			"to": [11.5, 10, 19.5],
+			"faces": {
+				"north": {"uv": [6.5, 9, 9.5, 10], "texture": "#atlas"},
+				"east": {"uv": [6.5, 8, 9.5, 9], "texture": "#atlas"},
+				"south": {"uv": [9.5, 9, 12.5, 10], "texture": "#atlas"},
+				"west": {"uv": [12.5, 9, 15.5, 10], "texture": "#atlas"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [2, 3, 5, 6], "texture": "#atlas"}
+			}
+		},
+		{
+			"name": "Box1",
+			"from": [2, -3.5, 14.5],
+			"to": [15.5, 8.5, 18.5],
+			"faces": {
+				"north": {"uv": [0, 10, 6.5, 16], "texture": "#atlas"},
+				"east": {"uv": [0, 0, 2, 6], "texture": "#atlas"},
+				"south": {"uv": [6.5, 10, 13, 16], "texture": "#atlas"},
+				"west": {"uv": [13, 10, 15, 16], "texture": "#atlas"},
+				"up": {"uv": [0, 6, 6.5, 8], "texture": "#atlas"},
+				"down": {"uv": [0, 8, 6.5, 10], "texture": "#atlas"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0.25, 0, 0],
+			"scale": [-0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 180, -59],
+			"translation": [-0.695, 4.1738, 7.6587],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 180, -59],
+			"translation": [-0.695, 4.5, 7.6587],
+			"scale": [-0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 2.1739, -4.869],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [90, -135, 0],
+			"translation": [6.2608, -5.564, -3.477]
+		},
+		"fixed": {
+			"translation": [0, 0, -9.043]
+		}
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"__comment": "Designed by Rafał with Cubik Studio - https://cubik.studio",
+	"credit": "Made with Blockbench",
 	"textures": {
 		"team_captain": "rafradek_tf2_weapons:items/team_captain"
 	},
@@ -13,170 +13,183 @@
 	],
 	"elements": [
 		{
-			"__comment": "Cube1",
-			"from": [ 1, 15, 0 ],
-			"to": [ 15, 18, 15 ],
+			"name": "Cube1",
+			"from": [1, 15, 0],
+			"to": [15, 18, 15],
 			"faces": {
-				"down": { "uv": [ 8, 14.5, 16, 16 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 4.5, 0, 8, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 9, 15, 16, 16 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 9, 15, 16, 16 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 9, 15, 16, 16 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 9, 15, 16, 16 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [9, 15, 16, 16], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [9, 15, 16, 16], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [9, 15, 16, 16], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [9, 15, 16, 16], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [4.5, 0, 8, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [1.25, 6, 2.25, 6.25], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 4.5, 11, 0 ],
-			"to": [ 11.5, 18, 1 ],
-			"rotation": { "origin": [ 4.5, 18, 0 ], "axis": "x", "angle": 45 },
+			"name": "Cube1",
+			"from": [4.5, 11, 0],
+			"to": [11.5, 18, 1],
+			"rotation": {"angle": 45, "axis": "x", "origin": [4.5, 18, 0]},
 			"faces": {
-				"down": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 1.2477, 11.9518, 0 ],
-			"to": [ 10.7967, 21.5008, 1 ],
-			"rotation": { "origin": [ 1.25, 21.5, 0 ], "axis": "z", "angle": 45 },
+			"name": "Cube1",
+			"from": [1.2477, 11.9518, 0],
+			"to": [10.7967, 21.5008, 1],
+			"rotation": {"angle": 45, "axis": "z", "origin": [1.25, 21.5, 0]},
 			"faces": {
-				"down": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 1.25, 17.9996, 0 ],
-			"to": [ 14.75, 21.4996, 1 ],
+			"name": "Cube1",
+			"from": [1.25, 17.9996, 0],
+			"to": [14.75, 21.4996, 1],
 			"faces": {
-				"down": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 1.25, 18.985, 0.9624 ],
-			"to": [ 14.75, 21.485, 10.4624 ],
-			"rotation": { "origin": [ 1.25, 21.5, 1 ], "axis": "x", "angle": 22.5 },
+			"name": "Cube1",
+			"from": [1.25, 18.985, 0.9624],
+			"to": [14.75, 21.485, 10.4624],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [1.25, 21.5, 1]},
 			"faces": {
-				"down": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 1.25, 18, 0.9881 ],
-			"to": [ 14.75, 20, 3.9881 ],
+			"name": "Cube1",
+			"from": [1.25, 18, 0.9881],
+			"to": [14.75, 20, 3.9881],
 			"faces": {
-				"down": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 5, 20.9902, 0.9572 ],
-			"to": [ 11, 23.4902, 14.9572 ],
-			"rotation": { "origin": [ 5, 23.5, 1 ], "axis": "x", "angle": 22.5 },
+			"name": "Cube1",
+			"from": [5, 20.9902, 0.9572],
+			"to": [11, 23.4902, 14.9572],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [5, 23.5, 1]},
 			"faces": {
-				"down": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 8, 0, 4.5, 3.5 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [8, 0, 4.5, 3.5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 1, 16, -6.5 ],
-			"to": [ 4.5, 17, 0 ],
-			"rotation": { "origin": [ 1, 17, 0 ], "axis": "x", "angle": -45 },
+			"name": "Cube1",
+			"from": [1, 16, -6.5],
+			"to": [4.5, 17, 0],
+			"rotation": {"angle": -45, "axis": "x", "origin": [1, 17, 0]},
 			"faces": {
-				"down": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "Cube1",
-			"from": [ 11.5, 16, -6.5 ],
-			"to": [ 15, 17, 0 ],
-			"rotation": { "origin": [ 11.5, 17, 0 ], "axis": "x", "angle": -45 },
+			"name": "Cube1",
+			"from": [11.5, 16, -6.5],
+			"to": [15, 17, 0],
+			"rotation": {"angle": -45, "axis": "x", "origin": [11.5, 17, 0]},
 			"faces": {
-				"down": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"up": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"north": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"west": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" },
-				"east": { "uv": [ 4, 8, 0, 4 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"east": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"west": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"up": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0},
+				"down": {"uv": [3.25, 7.5, 0.75, 5], "texture": "#team_captain", "tintindex": 0}
 			}
 		},
 		{
-			"__comment": "PlaneZ10",
-			"from": [ 5.5, 22.5, -0.5 ],
-			"to": [ 10, 24.5, -0.499 ],
+			"name": "PlaneZ10",
+			"from": [5.5, 22.5, -0.5],
+			"to": [10, 24.5, -0.499],
 			"faces": {
-				"north": { "uv": [ 0, 12, 2.5, 13.5 ], "tintindex": 0, "texture": "#team_captain" },
-				"south": { "uv": [ 14, 10.5, 15, 11.5 ], "tintindex": 0, "texture": "#team_captain" }
+				"north": {"uv": [0, 12, 2.5, 13.5], "texture": "#team_captain", "tintindex": 0},
+				"south": {"uv": [14, 10.5, 15, 11.5], "texture": "#team_captain", "tintindex": 0}
 			}
+		}
+	],
+	"overrides": [
+		{
+			"predicate": {
+				"team": 1
+			},
+			"model": "rafradek_tf2_weapons:item/team_captain_blu"
 		}
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation":  [ 0, -90, 55 ],
-			"translation":  [ 0, -0.869, 0.5 ],
-			"scale":  [ 0.4, 0.4, 0.4 ]
+			"rotation": [0, -90, 55],
+			"translation": [0, -3.369, 2.5],
+			"scale": [0.4, 0.4, 0.4]
 		},
 		"thirdperson_lefthand": {
-			"rotation":  [ 0, -90, 55 ],
-			"translation":  [ 0, -0.869, 0.5 ],
-			"scale":  [ 0.4, 0.4, 0.4 ]
+			"rotation": [0, -90, 55],
+			"translation": [0, -3.369, 2.5],
+			"scale": [0.4, 0.4, 0.4]
 		},
 		"firstperson_righthand": {
-			"rotation":  [ 0, 90, -25 ],
-			"translation":  [ 1.13, -5.147, 1.13 ],
-			"scale":  [ 0.68, 0.68, 0.68 ]
+			"rotation": [0, 90, -25],
+			"translation": [1.13, -5.147, 1.13],
+			"scale": [0.68, 0.68, 0.68]
 		},
 		"firstperson_lefthand": {
-			"rotation":  [ 0, 90, -25 ],
-			"translation":  [ 1.13, -5.147, 1.13 ],
-			"scale":  [ 0.68, 0.68, 0.68 ]
-		},
-		"gui": {
-			"rotation":  [ 45, -135, 0 ],
-			"translation":  [ -0.695, -2.776, 0 ],
-			"scale":  [ 0.6, 0.6, 0.6 ]
-		},
-		"head": {
-			"translation":  [ 0, -2.7, 0.35 ],
-			"scale":  [ 1.12, 1.12, 1 ]
+			"rotation": [0, 90, -25],
+			"translation": [1.13, -5.147, 1.13],
+			"scale": [0.68, 0.68, 0.68]
 		},
 		"ground": {
-			"scale":  [ 0.4, 0.4, 0.4 ]
+			"translation": [0, -5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"gui": {
+			"rotation": [45, -135, 0],
+			"translation": [-0.695, -2.276, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"head": {
+			"translation": [0, -2.7, 0.35],
+			"scale": [1.12, 1.12, 1]
+		},
+		"fixed": {
+			"translation": [0, -9.5, 5],
+			"scale": [0.8, 0.8, 0.8]
 		}
 	}
 }

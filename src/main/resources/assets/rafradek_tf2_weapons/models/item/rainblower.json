@@ -1,0 +1,14 @@
+{
+	"parent": "rafradek_tf2_weapons:item/rainblowerparent",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/rainblower"
+	},
+	"overrides": [
+        {
+            "predicate": {
+            	"team":1
+            },
+            "model": "rafradek_tf2_weapons:item/rainblower_blu"
+		}
+	]
+}

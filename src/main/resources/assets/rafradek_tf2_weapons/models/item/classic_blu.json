@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/classic",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/classic_blu"
+	}
+}

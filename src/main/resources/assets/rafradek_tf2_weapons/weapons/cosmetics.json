@@ -1,208 +1,195 @@
 {
-	"monoculus": {
-		"Name": "MONOCULUS!",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:monoculus_head",
-		"Cost": 30,
-		"Wear flags": 1,
-		"Roll hidden": 1
-	},
-	"merasmushat": {
-		"Name": "Skull Island Topper",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:merasmus_hat",
-		"Cost": 30,
-		"Wear flags": 1,
-		"Roll hidden": 1
-	},
-	"billhat": {
-		"Name": "Bill's Hat",
-		"Class": "cosmetic",
-		"Slot": 
-		{
-			"scout":9,
-			"pyro":9,
-			"sniper":9
-		},
-		"Render": "rafradek_tf2_weapons:bill_hat",
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"teamcaptain": {
-		"Name": "Team Captain",
-		"Class": "cosmetic",
-		"Slot": 
-		{
-			"soldier":9,
-			"heavy":9,
-			"medic":9
-		},
-		"Render": "rafradek_tf2_weapons:team_captain",
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"texashat": {
-		"Name": "Texas Ten Gallon",
-		"Class": "cosmetic",
-		"Slot": 
-		{
-			"engineer":9
-		},
-		"Render": "rafradek_tf2_weapons:texas_hat",
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"allfather": {
-		"Name": "All-Father",
-		"Class": "cosmetic",
-		"Slot": 
-		{
-			"heavy": 9,
-			"spy": 9,
-			"demoman": 9
-		},
-		"Render": "rafradek_tf2_weapons:all_father",
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"bombinomicon": {
-		"Name": "Bombinomicon",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:bombinomicon",
-		"Cost": 30,
-		"Wear flags": 2,
-		"Roll hidden": 1,
-		"Attributes":{
-			"ExplodeDeath": 1
-		}
-	},
-	"head_prize": {
-		"Name": "Head Prize",
-		"Class": "cosmetic",
-		"Slot": 
-		{
-			"pyro": 9,
-			"scout": 9,
-			"medic": 9
-		},
-		"Render": "rafradek_tf2_weapons:head_prize",
-		"Color": 13004885,
-		"Cost": 72,
-		"Wear flags": 3,
-		"Description": "UwU"
-	},
-	"bonkboy": {
-		"Name": "Bonk Boy",
-		"Class": "cosmetic",
-		"Slot": 
-		{
-			"scout":9
-		},
-		"Render": "rafradek_tf2_weapons:bonk_boy",
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"ghostlygibus": {
-		"Name": "Ghostly Gibus",
-		"Class": "cosmetic",
-		"F2P": true,
-		"Render": "rafradek_tf2_weapons:ghostlygibus",
-		"Roll hidden": 1,
-		"Cost": 1,
-		"Wear flags": 1
-	},
-	"billycock": {
-		"Name": "Backbiter's Billycock",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:billycock",
-		"Slot": 
-		{
-			"spy":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"pyrogoggles": {
-		"Name": "Pyrovision Goggles",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:pyrogoggles",
-		"Cost": 1,
-		"F2P": true,
-		"Roll hidden": 1,
-		"Wear flags": 1,
-		"Description": "Does not feature actual pyrovision"
-	},
-	"planeswalkergoggles": {
-		"Name": "Planeswalker Goggles",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:palneswalkergoggles",
-		"Slot": 
-		{
-			"scout":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"cadetvisor": {
-		"Name": "Cadet Visor",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:cadet_visor",
-		"Slot": 
-		{
-			"scout":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"phobosfilter": {
-		"Name": "Phobos Filter",
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:fobos_filter",
-		"Slot": 
-		{
-			"pyro":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"prisonheavy": {
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:prisonheavy",
-		"Slot": 
-		{
-			"heavy":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"hoodiehat": {
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:hoodiehat",
-		"Slot": 
-		{
-			"scout":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"maxhat": {
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:maxhat",
-		"Slot": 
-		{
-			"scout":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	},
-	"pootisbird": {
-		"Class": "cosmetic",
-		"Render": "rafradek_tf2_weapons:pootisbird",
-		"Slot": 
-		{
-			"heavy":9
-		},
-		"Cost": 54,
-		"Wear flags": 1
-	}
+ "monoculus": {
+  "Name": "MONOCULUS!",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:monoculus_head",
+  "Cost": 30,
+  "Wear flags": 1,
+  "Roll hidden": 1,
+  "Description": "Celebrate the Demo's most serious childhood injury with this gruesome mask based on his missing, haunted eye."
+ },
+ "merasmushat": {
+  "Name": "Skull Island Topper",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:merasmus_hat",
+  "Cost": 30,
+  "Wear flags": 1,
+  "Roll hidden": 1,
+  "Description": "This terrifying (innocuous) witching cap was found by the all-powerful (mediocre) wizard Merasmus in the depths of the Hades Spiral (right near the entrance of the Hades Spiral)."
+ },
+ "billhat": {
+  "Name": "Bill's Hat",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:bill_hat",
+  "Cost": 54,
+  "Wear flags": 1,
+  "Description": "Left 4 You."
+ },
+ "teamcaptain": {
+  "Name": "Team Captain",
+  "Class": "cosmetic",
+  "Slot": {
+   "soldier": 9,
+   "heavy": 9,
+   "medic": 9
+  },
+  "Render": "rafradek_tf2_weapons:team_captain",
+  "Cost": 54,
+  "Wear flags": 1,
+  "Description": "Our lawyers say 'YES! YES!'"
+ },
+ "texashat": {
+  "Name": "Texas Ten Gallon",
+  "Class": "cosmetic",
+  "Slot": {
+   "engineer": 9
+  },
+  "Render": "rafradek_tf2_weapons:texas_hat",
+  "Cost": 54,
+  "Wear flags": 1,
+  "Description": "Though it looks like a simple ten-gallon hat, this modern feat of engineering actually contains more moving parts than a level 2 Sentry Gun."
+ },
+ "allfather": {
+  "Name": "All-Father",
+  "Class": "cosmetic",
+  "Slot": {
+   "heavy": 9,
+   "soldier": 9,
+   "demoman": 9,
+   "engineer": 9,
+   "medic": 9,
+   "sniper": 9
+  },
+  "Render": "rafradek_tf2_weapons:all_father",
+  "Cost": 54,
+  "Wear flags": 1,
+  "Description": "Throughout the history of civilization, the white beard has come to symbolize wisdom and status. Show the world it's possible to be bearded AND stupid with this face-nest. Shove it, civilization!"
+ },
+ "bombinomicon": {
+  "Name": "Bombinomicon",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:bombinomicon",
+  "Cost": 30,
+  "Wear flags": 2,
+  "Roll hidden": 1,
+  "Attributes": {
+   "ExplodeDeath": 1
+  },
+  "Description": "'If ye gaze upon one tome-themed badge this year, MAKE IT NOT THIS ONE!' - Merasmus the Magician'"
+ },
+ "head_prize": {
+  "Name": "Head Prize",
+  "Class": "cosmetic",
+  "Slot": {
+   "pyro": 9,
+   "scout": 9,
+   "medic": 9
+  },
+  "Render": "rafradek_tf2_weapons:head_prize",
+  "Color": 13004885,
+  "Cost": 72,
+  "Wear flags": 3
+ },
+ "bonkboy": {
+  "Name": "Bonk Boy",
+  "Class": "cosmetic",
+  "Slot": {
+   "scout": 9
+  },
+  "Render": "rafradek_tf2_weapons:bonk_boy",
+  "Cost": 54,
+  "Wear flags": 1
+ },
+ "ghostlygibus": {
+  "Name": "Ghostly Gibus",
+  "Class": "cosmetic",
+  "F2P": true,
+  "Render": "rafradek_tf2_weapons:ghostlygibus",
+  "Roll hidden": 1,
+  "Cost": 1,
+  "Wear flags": 1
+ },
+ "billycock": {
+  "Name": "Backbiter's Billycock",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:billycock",
+  "Slot": {
+   "spy": 9
+  },
+  "Cost": 54,
+  "Wear flags": 1,
+  "Description": "For when you wish your head was a little taller, \nbut just as round on top."
+ },
+ "pyrogoggles": {
+  "Name": "Pyrovision Goggles",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:pyrogoggles",
+  "Cost": 1,
+  "F2P": true,
+  "Roll hidden": 1,
+  "Wear flags": 1,
+  "Description": "Does not feature actual pyrovision"
+ },
+ "planeswalkergoggles": {
+  "Name": "Planeswalker Goggles",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:planeswalkergoggles",
+  "Slot": {
+   "scout": 9
+  },
+  "Cost": 54,
+  "Wear flags": 1,
+  "Description": "No more bugs in your eyes as you blaze across the map."
+ },
+ "cadetvisor": {
+  "Name": "Cadet Visor",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:cadet_visor",
+  "Slot": {
+   "scout": 9
+  },
+  "Cost": 54,
+  "Wear flags": 1
+ },
+ "phobosfilter": {
+  "Name": "Phobos Filter",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:phobosfilter",
+  "Slot": {
+   "pyro": 9
+  },
+  "Cost": 54,
+  "Wear flags": 1
+ },
+ "prisonheavy": {
+  "Name": "Convict Cap",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:prisonheavy",
+  "Slot": {
+   "heavy": 9
+  },
+  "Cost": 54,
+  "Wear flags": 1
+ },
+ "hoodiehat": {
+  "Name": "Brotherhood of Arms",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:hoodiehat",
+  "Slot": {
+   "scout": 9
+  },
+  "Cost": 54,
+  "Wear flags": 1,
+  "Description": "Straight outta 2Fort."
+ },
+ "pootisbird": {
+  "Name": "Chicken Kiev",
+  "Class": "cosmetic",
+  "Render": "rafradek_tf2_weapons:pootisbird",
+  "Slot": {
+   "heavy": 9
+  },
+  "Cost": 66,
+  "Wear flags": 1
+ }
 }

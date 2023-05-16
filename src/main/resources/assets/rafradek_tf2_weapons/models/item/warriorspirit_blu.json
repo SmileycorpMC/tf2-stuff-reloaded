@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/warriorspirit",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/warriorspirit_blu"
+	}
+}

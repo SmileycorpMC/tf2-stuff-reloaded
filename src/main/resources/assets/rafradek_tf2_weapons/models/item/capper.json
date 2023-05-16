@@ -4,6 +4,14 @@
         "0": "rafradek_tf2_weapons:items/capper",
         "1": "rafradek_tf2_weapons:items/capper"
     },
+	"overrides": [
+        {
+            "predicate": {
+            	"team":1
+            },
+            "model": "rafradek_tf2_weapons:item/capper_blu"
+		}
+	],
     "display": {
         "head": {
             "rotation": [ 0, 180, 0 ],

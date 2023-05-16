@@ -1,0 +1,14 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "rafradek_tf2_weapons:items/thirddegree"
+    },
+	"overrides": [
+        {
+            "predicate": {
+            	"team":1
+            },
+            "model": "rafradek_tf2_weapons:item/thirddegree_blu"
+		}
+	]
+}

@@ -1,0 +1,18 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+    	"layer0": "rafradek_tf2_weapons:items/kunai"
+    },
+    "display": {
+        "firstperson_righthand": {
+            "rotation": [ 0, -90, 175 ],
+            "translation": [ 1.13, 4.2, 1.13 ],
+            "scale": [ 0.68, 0.68, 0.68 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 90, 175 ],
+            "translation": [ 1.13, 4.2, 1.13 ],
+            "scale": [ 0.68, 0.68, 0.68 ]
+        }
+    }
+}

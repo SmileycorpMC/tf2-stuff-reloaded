@@ -1,139 +1,137 @@
 {
-    "parent": "rafradek_tf2_weapons:item/hat",
-    "textures": {
-        "0": "rafradek_tf2_weapons:items/bone_block_side",
-        "1": "rafradek_tf2_weapons:items/mushroom_block_skin_red",
-        "2": "rafradek_tf2_weapons:items/glass_orange"
-    },
-    "display": {
-        "head": {
-            "rotation": [ 0, 180, 0 ],
-            "translation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-        },
-        "firstperson_righthand": {
-            "rotation": [ 0, 315, 0 ],
-            "translation": [ 0, 2.5, 0 ],
-            "scale": [ 0.4, 0.4, 0.4 ]
-        },
-        "thirdperson_lefthand": {
-            "rotation": [ 75, 45, 0 ],
-            "translation": [ 0, 2.5, 0 ],
-            "scale": [ 0.375, 0.375, 0.375 ]
-        },
-        "firstperson_lefthand": {
-            "rotation": [ 0, 0, 45 ],
-            "translation": [ 0, 2.5, 0 ],
-            "scale": [ 0.4, 0.4, 0.4 ]
-        },
-        "gui": {
-            "rotation": [ 30, 45, 0 ],
-            "translation": [ 0, 0, 0 ],
-            "scale": [ 0.625, 0.625, 0.625 ]
-        },
-        "ground": {
-            "rotation": [ 0, 0, 0 ],
-            "translation": [ 0, 3, 0 ],
-            "scale": [ 0.25, 0.25, 0.25 ]
-        },
-        "fixed": {
-            "rotation": [ 0, 180, 0 ],
-            "translation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-        },
-        "thirdperson_righthand": {
-            "rotation": [ 75, 315, 0 ],
-            "translation": [ 0, 2.5, 0 ],
-            "scale": [ 0.375, 0.375, 0.375 ]
-        }
-    },
-    "elements": [
-        {
-            "name": "Cube",
-            "from": [ 0, 5, 10 ], 
-            "to": [ 2, 10, 18 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0, 0, 16, 3 ] },
-                "east": { "texture": "#0", "uv": [ 0, 6, 8, 11 ] },
-                "south": { "texture": "#0", "uv": [ 0, 0, 0, 0 ] },
-                "west": { "texture": "#0", "uv": [ 0, 6, 7, 11 ] },
-                "up": { "texture": "#0", "uv": [ 0, 0, 3, 8 ] },
-                "down": { "texture": "#0", "uv": [ 0, 5, 7, 13 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 14, 5, 11 ], 
-            "to": [ 16, 10, 18 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0, 0, 16, 3 ] },
-                "east": { "texture": "#0", "uv": [ 0, 6, 7, 11 ] },
-                "south": { "texture": "#0", "uv": [ 0, 0, 0, 0 ] },
-                "west": { "texture": "#0", "uv": [ 0, 6, 7, 11 ] },
-                "up": { "texture": "#0", "uv": [ 0, 0, 3, 8 ] },
-                "down": { "texture": "#1", "uv": [ 0, 5, 7, 13 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 0, 5, 9 ], 
-            "to": [ 2, 9, 10 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0, 0, 2, 4 ] },
-                "east": { "texture": "#0", "uv": [ 0, 0, 1, 4 ] },
-                "west": { "texture": "#0", "uv": [ 0, 0, 1, 4 ] },
-                "up": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] },
-                "down": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 0, 5, 8 ], 
-            "to": [ 2, 8, 9 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0, 0, 2, 3 ] },
-                "east": { "texture": "#0", "uv": [ 0, 0, 1, 3 ] },
-                "west": { "texture": "#0", "uv": [ 0, 0, 1, 3 ] },
-                "up": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] },
-                "down": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 14, 5, 10 ], 
-            "to": [ 16, 9, 11 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0, 0, 2, 4 ] },
-                "east": { "texture": "#0", "uv": [ 0, 0, 1, 4 ] },
-                "west": { "texture": "#0", "uv": [ 0, 0, 1, 4 ] },
-                "up": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] },
-                "down": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 14, 5, 9 ], 
-            "to": [ 16, 8, 10 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0, 0, 2, 3 ] },
-                "east": { "texture": "#0", "uv": [ 0, 0, 1, 3 ] },
-                "west": { "texture": "#0", "uv": [ 0, 0, 1, 3 ] },
-                "up": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] },
-                "down": { "texture": "#0", "uv": [ 0, 0, 2, 1 ] }
-            }
-        },
-        {
-            "name": "Visor",
-            "from": [ 1, 5, 18 ], 
-            "to": [ 15, 10, 19 ], 
-            "faces": {
-                "north": { "texture": "#2", "uv": [ 10, 9, 12.1, 10 ] },
-                "east": { "texture": "#2", "uv": [ 9, 6, 10, 11 ] },
-                "south": { "texture": "#2", "uv": [ 13, 2, 16, 7 ] },
-                "west": { "texture": "#2", "uv": [ 15, 3, 16, 8 ] },
-                "up": { "texture": "#2", "uv": [ 14, 5, 12, 2 ] },
-                "down": { "texture": "#2", "uv": [ 0, 0, 14, 1 ] }
-            }
-        }
-    ]
+	"credit": "Made with Blockbench",
+	"parent": "rafradek_tf2_weapons:item/hat",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/bone_block_side",
+		"1": "rafradek_tf2_weapons:items/mushroom_block_skin_red",
+		"2": "rafradek_tf2_weapons:items/glass_orange"
+	},
+	"elements": [
+		{
+			"name": "Cube",
+			"from": [0, 5, 10],
+			"to": [2, 10, 18],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 3], "texture": "#0"},
+				"east": {"uv": [0, 6, 8, 11], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 0], "texture": "#0"},
+				"west": {"uv": [0, 6, 7, 11], "texture": "#0"},
+				"up": {"uv": [0, 0, 3, 8], "texture": "#0"},
+				"down": {"uv": [0, 5, 7, 13], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [14, 5, 11],
+			"to": [16, 10, 18],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 3], "texture": "#0"},
+				"east": {"uv": [0, 6, 7, 11], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 0], "texture": "#0"},
+				"west": {"uv": [0, 6, 7, 11], "texture": "#0"},
+				"up": {"uv": [0, 0, 3, 8], "texture": "#0"},
+				"down": {"uv": [0, 5, 7, 13], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [0, 5, 9],
+			"to": [2, 9, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 4], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 4], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 4], "texture": "#0"},
+				"up": {"uv": [0, 0, 2, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 2, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [0, 5, 8],
+			"to": [2, 8, 9],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 3], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 3], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 3], "texture": "#0"},
+				"up": {"uv": [0, 0, 2, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 2, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [14, 5, 10],
+			"to": [16, 9, 11],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 4], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 4], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 4], "texture": "#0"},
+				"up": {"uv": [0, 0, 2, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 2, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [14, 5, 9],
+			"to": [16, 8, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 3], "texture": "#0"},
+				"east": {"uv": [0, 0, 1, 3], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 3], "texture": "#0"},
+				"up": {"uv": [0, 0, 2, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 2, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Visor",
+			"from": [1, 5, 18],
+			"to": [15, 10, 19],
+			"faces": {
+				"north": {"uv": [10, 9, 12.1, 10], "texture": "#2"},
+				"east": {"uv": [9, 6, 10, 11], "texture": "#2"},
+				"south": {"uv": [13, 2, 16, 7], "texture": "#2"},
+				"west": {"uv": [15, 3, 16, 8], "texture": "#2"},
+				"up": {"uv": [14, 5, 12, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 14, 1], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 315, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, -2, -2.5],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 45, 0],
+			"translation": [-2.5, 2, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"head": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 0.75, 2.5]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 0.25, 7.5]
+		}
+	}
 }

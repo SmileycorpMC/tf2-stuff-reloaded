@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/rocketlauncher2",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/superrocketjumper"
+	}
+}

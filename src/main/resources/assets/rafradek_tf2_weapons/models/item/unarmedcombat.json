@@ -1,0 +1,65 @@
+{
+	"credit": "Made by dsaf with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/unarmedcombat",
+		"particle": "rafradek_tf2_weapons:items/unarmedcombat"
+	},
+	"overrides": [
+        {
+            "predicate": {
+            	"team":1
+            },
+            "model": "rafradek_tf2_weapons:item/unarmedcombat_blu"
+		}
+	],
+	"elements": [
+		{
+			"from": [6, 8, 6],
+			"to": [10, 18, 10],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 9, 8]},
+			"faces": {
+				"north": {"uv": [2, 3, 4, 8], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [4, 3, 6, 8], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [6, 3, 8, 8], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [0, 3, 2, 8], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [4, 0, 6, 2], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [2, 0, 4, 2], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.25, 2, 7.25],
+			"to": [8.75, 8.1, 8.75],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 9, 8]},
+			"faces": {
+				"north": {"uv": [15, 0, 16, 5], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [15, 0, 16, 5], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [15, 0, 16, 5], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [15, 0, 16, 5], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [15, 0, 16, 5], "rotation": 180, "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 1.25, 2]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 1.25, 2]
+		},
+		"ground": {
+			"rotation": [0, 0, 45],
+			"translation": [0, 1.25, 0]
+		},
+		"gui": {
+			"rotation": [0, 0, 45],
+			"translation": [2.25, -2, 0],
+			"scale": [1.15, 1.15, 1.15]
+		},
+		"fixed": {
+			"rotation": [0, 0, -45],
+			"translation": [-2.5, -2.25, 0],
+			"scale": [1.4, 1.4, 1.4]
+		}
+	}
+}

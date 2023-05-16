@@ -8,7 +8,7 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["rafradek", "smileycorp"],
+  "authorList": ["rafradek", "smileycorp", "dsaf"],
   "logoFile": "",
   "screenshots": [],
   "dependencies": [],

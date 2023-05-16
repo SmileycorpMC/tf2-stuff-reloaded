@@ -1,7 +1,7 @@
 {
-	"credit": "Made by Wolfkann with Blockbench",
+	"credit": "Made with Blockbench",
 	"textures": {
-        "0": "rafradek_tf2_weapons:items/gunslinger"
+		"0": "rafradek_tf2_weapons:items/gunslinger"
 	},
 	"elements": [
 		{
@@ -204,5 +204,33 @@
 				"down": {"uv": [7, 8, 8, 9.3], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [37, 0, 0],
+			"translation": [0, 2, 0.75],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [37, 0, 0],
+			"translation": [0, 2, 0.75],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"translation": [0, 4.5, 0]
+		},
+		"gui": {
+			"rotation": [11, 166, 0],
+			"translation": [0, 5.5, 0],
+			"scale": [1.44, 1.44, 1.44]
+		},
+		"head": {
+			"translation": [0, 6.5, 0],
+			"scale": [1.61, 1.63, 1.61]
+		},
+		"fixed": {
+			"translation": [0, 5.5, 3.5],
+			"scale": [1.4, 1.4, 1.4]
+		}
+	}
 }

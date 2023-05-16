@@ -1,86 +1,115 @@
 {
+	"credit": "Made with Blockbench",
 	"parent": "rafradek_tf2_weapons:item/hat",
-    "textures": {
-        "0": "rafradek_tf2_weapons:items/anvil_base"
-    },
-    "elements": [
-        {
-            "name": "Hat1",
-            "from": [ 1.0, 14.0, 0.0 ], 
-            "to": [ 15.0, 15.0, 16.0 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 14.0, 1.0 ] },
-                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 1.0 ] },
-                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 14.0, 1.0 ] },
-                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 1.0 ] },
-                "up": { "texture": "#0", "uv": [ 0.0, -1.0, 14.0, 15.0 ] },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 14.0, 16.0 ] }
-            }
-        },
-        {
-            "name": "Hat2",
-            "from": [ 5.0, 14.0, 4.0 ], 
-            "to": [ 11.0, 24.0, 12.0 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 6.0, 10.0 ] },
-                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 10.0 ] },
-                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 6.0, 10.0 ] },
-                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 10.0 ] },
-                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 6.0, 8.0 ] },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 6.0, 8.0 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 5.0, 24.0, 4.0 ], 
-            "to": [ 6.0, 25.0, 12.0 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 6.0, 25.0, 4.0 ], 
-            "to": [ 7.0, 26.0, 12.0 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 7.0, 26.0, 4.0 ], 
-            "to": [ 8.0, 27.0, 12.0 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] }
-            }
-        },
-        {
-            "name": "Cube",
-            "from": [ 8.0, 27.0, 4.0 ], 
-            "to": [ 9.0, 28.0, 12.0 ], 
-            "faces": {
-                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
-                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 1.0 ] },
-                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 8.0 ] }
-            }
-        }
-    ]
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/anvil_base"
+	},
+	"elements": [
+		{
+			"name": "Hat1",
+			"from": [1, 14, 0],
+			"to": [15, 15, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 14, 1], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 1], "texture": "#0"},
+				"south": {"uv": [0, 0, 14, 1], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 1], "texture": "#0"},
+				"up": {"uv": [0, -1, 14, 15], "texture": "#0"},
+				"down": {"uv": [0, 0, 14, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Hat2",
+			"from": [5, 14, 4],
+			"to": [11, 24, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 6, 10], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 10], "texture": "#0"},
+				"south": {"uv": [0, 0, 6, 10], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 10], "texture": "#0"},
+				"up": {"uv": [0, 0, 6, 8], "texture": "#0"},
+				"down": {"uv": [0, 0, 6, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [5, 24, 4],
+			"to": [6, 25, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [6, 25, 4],
+			"to": [7, 26, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [7, 26, 4],
+			"to": [8, 27, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [8, 27, 4],
+			"to": [9, 28, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 1], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 8], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 8], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -2.25, 0],
+			"scale": [0.36, 0.36, 0.36]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -2.25, 0],
+			"scale": [0.36, 0.36, 0.36]
+		},
+		"firstperson_righthand": {
+			"translation": [0, -5, 0],
+			"scale": [0.69, 0.69, 0.69]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, -5, 0],
+			"scale": [0.69, 0.69, 0.69]
+		},
+		"ground": {
+			"translation": [0, -8, 0],
+			"scale": [0.69, 0.69, 0.691]
+		},
+		"gui": {
+			"translation": [0, -12.75, 0]
+		},
+		"fixed": {
+			"translation": [0, -11.5, 2.5]
+		}
+	}
 }

@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/lollichop",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/lollichop_blu"
+	}
+}

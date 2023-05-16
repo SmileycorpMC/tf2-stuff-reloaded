@@ -1,0 +1,21 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "rafradek_tf2_weapons:items/hook"
+	},
+	"display": {
+		"firstperson_righthand": {
+			"rotation": [7, -85, 25],
+			"translation": [0, 3, -2.5],
+			"scale": [-1, 1, -1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [7, -85, 25],
+			"translation": [0, 3, -3]
+		},
+		"gui": {
+			"translation": [-2.75, 2.75, 0],
+			"scale": [-1.335, 1.33, 1.33]
+		}
+	}
+}

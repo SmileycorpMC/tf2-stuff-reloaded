@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/cozycamper",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/cozycamper_blu"
+	}
+}

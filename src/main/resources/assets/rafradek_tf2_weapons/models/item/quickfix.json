@@ -1,0 +1,14 @@
+{
+	"parent": "rafradek_tf2_weapons:item/quickfixparent",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/quickfix"
+	},
+	"overrides": [
+        {
+            "predicate": {
+            	"team":1
+            },
+            "model": "rafradek_tf2_weapons:item/quickfix_blu"
+		}
+	]
+}

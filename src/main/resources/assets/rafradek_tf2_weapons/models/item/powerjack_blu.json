@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/powerjack",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/powerjack_blu"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "rafradek_tf2_weapons:item/cowmangler",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/cowmanglerblu"
+	}
+}

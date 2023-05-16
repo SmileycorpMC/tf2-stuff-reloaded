@@ -1,0 +1,14 @@
+{
+	"parent": "rafradek_tf2_weapons:item/overdoseparent",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/overdose"
+	},
+	"overrides": [
+        {
+            "predicate": {
+            	"team":1
+            },
+            "model": "rafradek_tf2_weapons:item/overdose_blu"
+		}
+	]
+}

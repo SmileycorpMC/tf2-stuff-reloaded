@@ -1,0 +1,51 @@
+{
+	"credit": "Made by dsaf with Blockbench",
+	"textures": {
+		"0": "rafradek_tf2_weapons:items/fists",
+		"particle": "rafradek_tf2_weapons:items/fists"
+	},
+	"elements": [
+		{
+			"from": [6, 0, 5],
+			"to": [10, 3, 9],
+			"faces": {
+				"north": {"uv": [4, 4, 8, 7], "texture": "#0"},
+				"east": {"uv": [0, 4, 4, 7], "texture": "#0"},
+				"south": {"uv": [12, 4, 16, 7], "texture": "#0"},
+				"west": {"uv": [8, 4, 12, 7], "texture": "#0"},
+				"down": {"uv": [0, 0, 4, 4], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, -3, 8],
+			"scale": [1.00195, 1.00195, 1.00195]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, -3, 8],
+			"scale": [-1.00195, 1.00195, 1.00195]
+		},
+		"firstperson_righthand": {
+			"rotation": [123.25, -105.25, -2.75],
+			"translation": [5.25, -5.75, 1.75]
+		},
+		"firstperson_lefthand": {
+			"rotation": [123.25, -105.25, -2.75],
+			"translation": [5.25, -5.75, 1.75]
+		},
+		"ground": {
+			"translation": [0, 4.25, 0]
+		},
+		"gui": {
+			"rotation": [0, -53, -140],
+			"translation": [3.5, -9.75, 0],
+			"scale": [2, 2, 2]
+		},
+		"fixed": {
+			"translation": [0, 7, 0]
+		}
+	}
+}

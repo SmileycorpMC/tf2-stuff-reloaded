@@ -858,6 +858,7 @@
 		}
 	},
 	"equalizer": {
+		"_comments": "Needs damage health bonus",
 		"Name": "Equalizer",
 		"Class": "melee",
 		"Based on": "shovel",
@@ -874,7 +875,7 @@
 		}
 	},
 	"paintrain": {
-		"_comment": "capture points not fully added and effect is only downside is survival, may need an extra survival effect?",
+		"_comments": "capture points not fully added and effect is only downside is survival, may need an extra survival effect?",
 		"Name": "Pain Train",
 		"Class": "melee",
 		"Based on": "shovel",
@@ -908,6 +909,7 @@
 		"Stock": true
 	},
 	"axtinguisher": {
+		"_comments": "Needs updated perks",
 		"Name": "Axtinguisher",
 		"Class": "melee",
 		"Based on": "fireaxe",
@@ -937,7 +939,7 @@
 		}
 	},
 	"hothand": {
-		"_comment": "need to add second attack, first person model might need changing  or custom rendering",
+		"_comments": "need to add second attack, first person model might need changing  or custom rendering",
 		"Class": "melee",
 		"Based on": "fireaxe",
 		"Render": "rafradek_tf2_weapons:hothand",
@@ -967,7 +969,7 @@
 		}
 	},
 	"thirddegree": {
-		"_comment": "needs effect added",
+		"_comments": "needs effect added",
 		"Class": "melee",
 		"Based on": "fireaxe",
 		"Render": "rafradek_tf2_weapons:thirddegree",
@@ -1055,6 +1057,7 @@
 		}
 	},
 	"fists": {
+		"_comments": "model needs big improvements",
 		"Name": "Fist",
 		"Class": "melee",
 		"Based on": "meleebase",
@@ -1087,7 +1090,7 @@
 		}
 	},
 	"gru": {
-		"Name": "Glove of running urgently",
+		"Name": "Glove of Running Urgently",
 		"Class": "melee",
 		"Based on": "fists",
 		"Render": "rafradek_tf2_weapons:gru",
@@ -1136,7 +1139,7 @@
 		}
 	},
 	"candycane": {
-		"_comment": "need to add healthpack drop stat",
+		"_comments": "need to add healthpack drop stat",
 		"Name": "Candy Cane",
 		"Class": "melee",
 		"Based on": "bat",
@@ -1154,7 +1157,7 @@
 		}
 	},
 	"bostonbasher": {
-		"_comment": "need to add self damage",
+		"_comments": "need to add self damage",
 		"Name": "Boston Basher",
 		"Class": "melee",
 		"Based on": "bat",
@@ -1270,7 +1273,7 @@
 		"Efficient range": 60,
 		"Minimal range": 3,
 		"Cost": 22,
-		"Description": "Allows you to control the nearest sentry"
+		"Description": "Take manual control of your Sentry Gun.\nWrangled sentries gain a shield that\nreduces\ndamage and repairs by 66%.\nSentries are disabled for 3 seconds after\nbecoming unwrangled."
 	},
 	"mnceye": {
 		"Name": "mnceye",
@@ -1361,7 +1364,7 @@
 		}
 	},
 	"halfzatoichi": {
-		"_comment": "needs custom health gaining code and sheathing effect",
+		"_comments": "needs custom health gaining code and sheathing effect",
 		"Class": "melee",
 		"Slot": {
 			"demoman": 2,
@@ -1931,7 +1934,7 @@
 		}
 	},
 	"bigone": {
-		"Name": "Big one",
+		"Name": "Big One",
 		"Class": "projectile",
 		"Based on": "rocketlauncher",
 		"Drop chance": 0,
@@ -2067,14 +2070,14 @@
 			"HolsterTimePenalty": 1.75
 		}
 	},
-	"gunsligner": {
+	"gunslinger": {
 		"Name": "Gunslinger",
 		"Class": "wrench",
 		"Based on": "wrench",
 		"Render": "rafradek_tf2_weapons:gunslinger",
 		"Fire sound": "rafradek_tf2_weapons:weapon.hit.gunslinger",
 		"Special 1 sound": "rafradek_tf2_weapons:weapon.hit.gunslinger.special",
-		"Description": "Allows the user to construct Mini-Sentries",
+		"Description": "§cReplaces the Sentry with a Mini-Sentry",
 		"Drop chance": 0.11,
 		"Cost": 22,
 		"Stock": false,
@@ -2808,6 +2811,7 @@
 		"Pellets": 1
 	},
 	"sodapopper": {
+		"_comments": "Altered perks",
 		"Name": "Soda Popper",
 		"Class": "bullet",
 		"Based on": "scattergun",
@@ -2827,6 +2831,7 @@
 		}
 	},
 	"babyfaceblaster": {
+		"_comments": "Altered perks",
 		"Class": "bullet",
 		"Based on": "scattergun",
 		"Fire sound": "rafradek_tf2_weapons:weapon.fire.babyfaceblaster",
@@ -2842,6 +2847,7 @@
 		}
 	},
 	"winger": {
+		"_comments": "Altered perks",
 		"Class": "bullet",
 		"Based on": "pistol",
 		"Slot": {
@@ -2874,6 +2880,7 @@
 		}
 	},
 	"quickiebomblauncher": {
+		"_comments": "Altered perks",
 		"Class": "stickybomb",
 		"Based on": "stickybomblauncher",
 		"Render": "rafradek_tf2_weapons:quickiebomblauncher",
@@ -2973,6 +2980,7 @@
 		}
 	},
 	"evictionnotice": {
+		"_comments": "Old perks",
 		"Class": "melee",
 		"Based on": "fists",
 		"Render": "rafradek_tf2_weapons:evictionnotice",
@@ -3053,6 +3061,7 @@
 		}
 	},
 	"classic": {
+		"_comments": "Altered perks",
 		"Class": "sniperrifle",
 		"Based on": "sniperrifle",
 		"Render": "rafradek_tf2_weapons:classic",
@@ -3069,6 +3078,7 @@
 		}
 	},
 	"cozycamper": {
+		"_comments": "Needs reduced flinching and knockback",
 		"Class": "backpackgeneric",
 		"Slot": {
 			"sniper": 1
@@ -3083,6 +3093,7 @@
 		}
 	},
 	"enforcer": {
+		"_comments": "Old perks",
 		"Class": "bullet",
 		"Based on": "revolver",
 		"Render": "rafradek_tf2_weapons:enforcer",
@@ -3097,6 +3108,7 @@
 		}
 	},
 	"diamondback": {
+		"_comments": "Altered perks",
 		"Class": "bullet",
 		"Based on": "revolver",
 		"Render": "rafradek_tf2_weapons:diamondback",
@@ -3113,6 +3125,7 @@
 		}
 	},
 	"grapplinghook": {
+		"_comments": "Needs the wire",
 		"Name": "Grappling Hook",
 		"Class": "grapplinghook",
 		"Projectile": "grapplinghook",
@@ -3150,6 +3163,7 @@
 		}
 	},
 	"shortcircuit": {
+		"_comments": "Old perks",
 		"Name": "Short Circuit",
 		"Class": "bullet",
 		"Based on": "pistol",
@@ -3338,6 +3352,7 @@
 		}
 	},
 	"threeruneblade": {
+		"_comments": "Same as bostonbasher",
 		"Name": "Three-Rune Blade",
 		"Class": "melee",
 		"Based on": "meleebase",
@@ -3359,6 +3374,7 @@
 		}
 	},
 	"original": {
+		"_comments": "Doesn't shoot from center of screen",
 		"Name": "Original",
 		"Class": "projectile",
 		"Based on": "rocketlauncher",
@@ -3369,6 +3385,7 @@
 		"Render": "rafradek_tf2_weapons:original"
 	},
 	"rainblower": {
+		"_comments": "Needs to shoot bubbles instead of fire",
 		"Name": "Rainblower",
 		"Class": "flamethrower",
 		"Based on": "flamethrower",
@@ -3414,6 +3431,7 @@
 		"Stock": false
 	},
 	"apocofists": {
+		"_comments": "needs the exploding perk",
 		"Name": "Apoco-Fist",
 		"Class": "melee",
 		"Based on": "fists",
@@ -3523,6 +3541,7 @@
 		"Description": "A marvel of German engineering, the\nQuäckenbirdt is a classically handsome\ntwo-tone Australium and tungsten\nspywatch for the European assassin who\nlikes to be reminded how rich he is every\ntime he turns invisible."
 	},
 	"kunai": {
+		"_comments": "Altered perks",
 		"Name": "Conniver's Kunai",
 		"Class": "knife",
 		"Render": "rafradek_tf2_weapons:kunai",
@@ -3563,6 +3582,7 @@
 		"Description": "Combines style with stopping power. Long\nexclusive to Freelance Police, now available\nfor other blood-thirsty mercenaries."
 	},
 	"cowmangler": {
+		"_comments": "Altered perks, needs the charged shot",
 		"Class": "projectile",
 		"Based on": "rocketlauncher",
 		"Stock": false,

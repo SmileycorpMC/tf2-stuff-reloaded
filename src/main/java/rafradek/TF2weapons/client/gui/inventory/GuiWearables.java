@@ -54,7 +54,7 @@ public class GuiWearables extends InventoryEffectRenderer {
 	 */
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		this.fontRenderer.drawString(I18n.format("item.ammoBelt.name", new Object[0]), 97, 8, 4210752);
+		this.fontRenderer.drawString(I18n.format("item.rafradek_tf2_weapons.ammoBelt.name", new Object[0]), 97, 8, 4210752);
 	}
 
 	/**

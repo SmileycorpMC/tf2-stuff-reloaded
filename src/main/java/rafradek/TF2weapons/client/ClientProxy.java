@@ -254,7 +254,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit() {
 		MinecraftForge.EVENT_BUS.register(new TF2EventsClient());
-		MinecraftForge.EVENT_BUS.register(PyrovisionRenderer.INSTANCE);
+		MinecraftForge.EVENT_BUS.register(PyrolandRenderer.INSTANCE);
 		OBJLoader.INSTANCE.addDomain(TF2weapons.MOD_ID.toLowerCase());
 
 		for (int i = 1; i < ItemAmmo.AMMO_TYPES.length; i++) {

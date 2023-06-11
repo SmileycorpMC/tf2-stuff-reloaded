@@ -9,18 +9,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemPyrovision;
 
-public class PyrovisionRenderer {
+public class PyrolandRenderer {
 
-    private static final ResourceLocation PYROVISION_SHADER = new ResourceLocation("rafradek_tf2_weapons", "shaders/post/pyrovision.json");
+    private static final ResourceLocation PYROLAND_SHADER = new ResourceLocation("rafradek_tf2_weapons", "shaders/post/pyrovision.json");
 
-    public static PyrovisionRenderer INSTANCE = new PyrovisionRenderer();
+    public static PyrolandRenderer INSTANCE = new PyrolandRenderer();
 
     @SubscribeEvent
     public void clientTick(TickEvent.ClientTickEvent event) {
@@ -66,11 +65,11 @@ public class PyrovisionRenderer {
 
     private boolean isShaderLoaded() {
         ShaderGroup shader = Minecraft.getMinecraft().entityRenderer.getShaderGroup();
-        return shader != null && PYROVISION_SHADER.toString().equals(shader.getShaderGroupName());
+        return shader != null && PYROLAND_SHADER.toString().equals(shader.getShaderGroupName());
     }
 
     private void enableShader() {
-        Minecraft.getMinecraft().entityRenderer.loadShader(PYROVISION_SHADER);
+        Minecraft.getMinecraft().entityRenderer.loadShader(PYROLAND_SHADER);
     }
 
     private void disableShader() {

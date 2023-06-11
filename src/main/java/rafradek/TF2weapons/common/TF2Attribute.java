@@ -457,6 +457,7 @@ public class TF2Attribute {
 		new TF2Attribute(241, "ProvideWhenActive", "Provide When Active", Type.ADDITIVE, 0f, State.NEUTRAL);
 		new TF2Attribute(242, "ReverseBuilding", "ReverseBuilding", Type.ADDITIVE, 0f, State.POSITIVE);
 		new TF2Attribute(243, "HealthDegen", "Health Regen", Type.ADDITIVE, 0f, State.NEGATIVE);
+		new TF2Attribute(244, "Pyroland", "Enter Pyroland", Type.ADDITIVE, 0f, State.HIDDEN);
 
 		/*
 		 * new TF2Attribute(139, "ChargeStep", "Charge Step", Type.ADDITIVE, 0,
@@ -477,18 +478,6 @@ public class TF2Attribute {
 						value *= ((NBTTagFloat) tag).getFloat();
 			}
 		}
-		return value;
-	}
-
-	private static float getModifierStack(String effect, ItemStack stack, float initial, EntityLivingBase entity) {
-
-		if (!stack.hasCapability(TF2weapons.WEAPONS_DATA_CAP, null))
-			return initial;
-		float value = stack.getCapability(TF2weapons.WEAPONS_DATA_CAP, null).getAttributeValue(stack, effect, initial);
-
-		if (entity != null && entity instanceof EntityTF2Character)
-			value *= ((EntityTF2Character) entity).getAttributeModifier(effect);
-
 		return value;
 	}
 

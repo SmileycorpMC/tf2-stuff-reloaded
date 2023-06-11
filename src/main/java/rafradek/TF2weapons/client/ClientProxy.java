@@ -150,6 +150,7 @@ public class ClientProxy extends CommonProxy {
 
 	public static HashMap<String, ModelBase> entityModel = new HashMap<>();
 	public static HashMap<String, ResourceLocation> textureDisguise = new HashMap<>();
+
 	public static RenderCustomModel disguiseRender;
 	public static RenderLivingBase disguiseRenderPlayer;
 	public static RenderLivingBase disguiseRenderPlayerSmall;
@@ -312,6 +313,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit() {
 		MinecraftForge.EVENT_BUS.register(new TF2EventsClient());
+		MinecraftForge.EVENT_BUS.register(new PyrovisionRenderer());
 		OBJLoader.INSTANCE.addDomain(TF2weapons.MOD_ID.toLowerCase());
 
 		for (int i = 1; i < ItemAmmo.AMMO_TYPES.length; i++) {

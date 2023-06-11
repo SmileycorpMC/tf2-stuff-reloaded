@@ -18,7 +18,6 @@ public class RenderMerasmus extends RenderBiped<EntityMerasmus> {
 	public RenderMerasmus(RenderManager renderManagerIn) {
 		super(renderManagerIn, new ModelMerasmus(), 0.8F);
 		// this.addLayer(new LayerHeldItem(this));
-		// TODO Auto-generated constructor stub
 
 	}
 

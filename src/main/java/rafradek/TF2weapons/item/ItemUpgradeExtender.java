@@ -1,11 +1,11 @@
 package rafradek.TF2weapons.item;
 
-import java.util.Collections;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import rafradek.TF2weapons.TF2weapons;
+
+import java.util.Collections;
 
 public class ItemUpgradeExtender extends Item {
 

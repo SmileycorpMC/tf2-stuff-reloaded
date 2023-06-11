@@ -1,10 +1,7 @@
 package rafradek.TF2weapons.entity;
 
-import javax.annotation.Nullable;
-
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.network.NetworkPlayerInfo;
@@ -26,6 +23,8 @@ import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.item.ItemStatue;
+
+import javax.annotation.Nullable;
 
 public class EntityStatue extends Entity implements IEntityAdditionalSpawnData {
 

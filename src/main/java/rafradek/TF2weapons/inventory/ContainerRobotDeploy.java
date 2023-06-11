@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.inventory;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -16,6 +14,8 @@ import rafradek.TF2weapons.item.ItemMoney;
 import rafradek.TF2weapons.item.ItemRobotPart;
 import rafradek.TF2weapons.tileentity.TileEntityRobotDeploy;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
 
 public class ContainerRobotDeploy extends Container {
 

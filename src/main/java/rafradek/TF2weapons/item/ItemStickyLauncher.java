@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.ArrayList;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +17,8 @@ import rafradek.TF2weapons.entity.mercenary.EntityEngineer;
 import rafradek.TF2weapons.entity.projectile.EntityStickybomb;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.ArrayList;
 
 public class ItemStickyLauncher extends ItemProjectileWeapon {
 

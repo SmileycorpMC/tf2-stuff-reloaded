@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,6 +19,9 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
 import rafradek.TF2weapons.util.PropertyType;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemJar extends ItemProjectileWeapon {
 

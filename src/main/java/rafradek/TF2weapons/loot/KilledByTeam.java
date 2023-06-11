@@ -1,11 +1,8 @@
 package rafradek.TF2weapons.loot;
 
-import java.util.Random;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityOwnable;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +11,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import rafradek.TF2weapons.TF2ConfigVars;
+
+import java.util.Random;
 
 public class KilledByTeam implements LootCondition {
 

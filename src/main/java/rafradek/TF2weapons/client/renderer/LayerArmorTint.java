@@ -1,9 +1,6 @@
 package rafradek.TF2weapons.client.renderer;
 
-import java.util.Map;
-
 import com.google.common.collect.Maps;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -17,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import rafradek.TF2weapons.client.ClientProxy;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.Map;
 
 public class LayerArmorTint implements LayerRenderer<EntityLivingBase> {
 	protected static final ResourceLocation ENCHANTED_ITEM_GLINT_RES = new ResourceLocation(

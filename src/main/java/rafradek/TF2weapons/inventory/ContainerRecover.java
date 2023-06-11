@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.inventory;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -11,6 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import rafradek.TF2weapons.TF2weapons;
+
+import javax.annotation.Nullable;
 
 public class ContainerRecover extends Container {
 

@@ -1,8 +1,5 @@
 package rafradek.TF2weapons.message.udp;
 
-import java.net.InetSocketAddress;
-import java.util.HashMap;
-
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
@@ -10,6 +7,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.DatagramChannel;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 import net.minecraft.entity.player.EntityPlayerMP;
+
+import java.net.InetSocketAddress;
+import java.util.HashMap;
 
 public class TF2UdpServer extends Thread {
 

@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.client;
 
-import java.util.List;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
@@ -18,6 +16,8 @@ import rafradek.TF2weapons.message.TF2Message.GuiConfigMessage;
 import rafradek.TF2weapons.message.TF2Message.ParticleSpawnMessage;
 import rafradek.TF2weapons.message.TF2Message.ShowGuiMessage;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.List;
 
 public class ClientHandler {
 

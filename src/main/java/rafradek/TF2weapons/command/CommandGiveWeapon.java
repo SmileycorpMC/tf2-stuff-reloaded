@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.command;
 
-import java.util.Collections;
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -20,6 +15,10 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemFromData;
+
+import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.List;
 
 public class CommandGiveWeapon extends CommandBase {
 

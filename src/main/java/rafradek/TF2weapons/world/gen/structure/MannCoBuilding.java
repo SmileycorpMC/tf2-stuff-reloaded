@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.world.gen.structure;
 
-import java.util.Random;
-
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
@@ -11,16 +9,14 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.structure.MapGenStructure;
-import net.minecraft.world.gen.structure.MapGenVillage;
-import net.minecraft.world.gen.structure.StructureBoundingBox;
-import net.minecraft.world.gen.structure.StructureComponent;
-import net.minecraft.world.gen.structure.StructureStart;
+import net.minecraft.world.gen.structure.*;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.block.BlockUpgradeStation;
 import rafradek.TF2weapons.entity.mercenary.EntitySaxtonHale;
+
+import java.util.Random;
 
 public class MannCoBuilding extends StructureComponent {
 

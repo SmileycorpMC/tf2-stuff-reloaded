@@ -1,14 +1,7 @@
 package rafradek.TF2weapons.item.crafting;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -31,6 +24,11 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemFromData;
+
+import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TF2CraftingManager {
 	public static final ShapelessOreRecipe[] AMMO_RECIPES = new ShapelessOreRecipe[14];

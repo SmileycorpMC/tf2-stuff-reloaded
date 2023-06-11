@@ -1,15 +1,7 @@
 package rafradek.TF2weapons.entity.mercenary;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IMerchant;
-import net.minecraft.entity.INpc;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -50,6 +42,9 @@ import rafradek.TF2weapons.item.ItemMonsterPlacerPlus;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2DamageSource;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EntitySaxtonHale extends EntityCreature implements INpc, IMerchant {
 

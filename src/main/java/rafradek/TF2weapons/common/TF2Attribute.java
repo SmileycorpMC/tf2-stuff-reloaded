@@ -1,13 +1,7 @@
 package rafradek.TF2weapons.common;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,27 +15,15 @@ import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.projectile.EntityProjectileSimple;
-import rafradek.TF2weapons.item.ItemAirblast;
-import rafradek.TF2weapons.item.ItemBackpack;
-import rafradek.TF2weapons.item.ItemBulletWeapon;
-import rafradek.TF2weapons.item.ItemChargingTarge;
-import rafradek.TF2weapons.item.ItemCloak;
-import rafradek.TF2weapons.item.ItemFlameThrower;
-import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemJetpack;
-import rafradek.TF2weapons.item.ItemKnife;
-import rafradek.TF2weapons.item.ItemMedigun;
-import rafradek.TF2weapons.item.ItemMinigun;
-import rafradek.TF2weapons.item.ItemPDA;
-import rafradek.TF2weapons.item.ItemProjectileWeapon;
-import rafradek.TF2weapons.item.ItemSniperRifle;
-import rafradek.TF2weapons.item.ItemSoldierBackpack;
-import rafradek.TF2weapons.item.ItemUsable;
-import rafradek.TF2weapons.item.ItemWeapon;
-import rafradek.TF2weapons.item.ItemWrench;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class TF2Attribute {
 

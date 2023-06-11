@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.util.ArrayList;
-
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -9,6 +7,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.message.TF2Message.ContractMessage;
 import rafradek.TF2weapons.util.Contract;
+
+import java.util.ArrayList;
 
 public class TF2ContractHandler implements IMessageHandler<TF2Message.ContractMessage, IMessage> {
 

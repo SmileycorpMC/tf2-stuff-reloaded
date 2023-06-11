@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -41,17 +37,14 @@ import rafradek.TF2weapons.entity.mercenary.EntityMedic;
 import rafradek.TF2weapons.entity.mercenary.EntitySoldier;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character.Order;
-import rafradek.TF2weapons.item.IItemSlotNumber;
-import rafradek.TF2weapons.item.ItemBackpack;
-import rafradek.TF2weapons.item.ItemGrapplingHook;
-import rafradek.TF2weapons.item.ItemJetpack;
-import rafradek.TF2weapons.item.ItemParachute;
-import rafradek.TF2weapons.item.ItemSoldierBackpack;
-import rafradek.TF2weapons.item.ItemUsable;
-import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.util.Contract;
 import rafradek.TF2weapons.util.PlayerPersistStorage;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class TF2ActionHandler implements IMessageHandler<TF2Message.ActionMessage, IMessage> {
 

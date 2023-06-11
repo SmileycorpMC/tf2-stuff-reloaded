@@ -1,10 +1,6 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-import java.util.UUID;
-
 import com.google.common.collect.Multimap;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -14,6 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
+import java.util.UUID;
 
 public class ItemArmorTF2 extends ItemArmor {
 

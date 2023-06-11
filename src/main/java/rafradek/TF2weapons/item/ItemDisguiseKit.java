@@ -82,13 +82,11 @@ public class ItemDisguiseKit extends Item implements IItemSlotNumber, IItemOverl
 
 	@Override
 	public boolean showInfoBox(ItemStack stack, EntityPlayer player) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public String[] getInfoBoxLines(ItemStack stack, EntityPlayer player) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -119,7 +117,6 @@ public class ItemDisguiseKit extends Item implements IItemSlotNumber, IItemOverl
 
 	@Override
 	public boolean catchSlotHotkey(ItemStack stack, EntityPlayer player) {
-		// TODO Auto-generated method stub
 		return TF2ConfigVars.limitedDisguise;
 	}
 

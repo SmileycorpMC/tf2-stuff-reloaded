@@ -1,14 +1,14 @@
 package rafradek.TF2weapons.contract;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.Proxy;
-
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.GameType;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.Proxy;
 
 public class ContractManagerProxy extends MinecraftServer {
 

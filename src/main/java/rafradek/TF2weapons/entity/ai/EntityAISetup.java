@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.entity.ai;
 
-import java.util.List;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,6 +18,8 @@ import rafradek.TF2weapons.entity.mercenary.EntityEngineer;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character.Order;
 import rafradek.TF2weapons.item.ItemPDA;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.List;
 
 public class EntityAISetup extends EntityAIBase {
 

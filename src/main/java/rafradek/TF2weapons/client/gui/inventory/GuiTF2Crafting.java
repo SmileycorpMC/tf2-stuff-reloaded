@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.client.gui.inventory;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.lwjgl.input.Mouse;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -25,11 +20,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import org.lwjgl.input.Mouse;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.gui.GuiButtonToggleItem;
 import rafradek.TF2weapons.inventory.ContainerTF2Workbench;
 import rafradek.TF2weapons.item.crafting.IRecipeTF2;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
+
+import java.io.IOException;
+import java.util.List;
 
 public class GuiTF2Crafting extends GuiContainer {
 	private static final ResourceLocation CRAFTING_TABLE_GUI_TEXTURES = new ResourceLocation(TF2weapons.MOD_ID,

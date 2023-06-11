@@ -1,8 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.Set;
-import java.util.UUID;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,6 +26,9 @@ import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.util.Set;
+import java.util.UUID;
 
 public abstract class ItemUsable extends ItemFromData {
 	// public ConfigCategory data;
@@ -269,7 +269,6 @@ public abstract class ItemUsable extends ItemFromData {
 	}
 
 	public boolean canAltFire(World worldObj, EntityLivingBase player, ItemStack item) {
-		// TODO Auto-generated method stub
 		return item.getCapability(TF2weapons.WEAPONS_DATA_CAP, null).active > 0
 				&& player.getCapability(TF2weapons.WEAPONS_CAP, null).invisTicks == 0
 				&& ItemToken.allowUse(player, this.getUsableClasses(item))

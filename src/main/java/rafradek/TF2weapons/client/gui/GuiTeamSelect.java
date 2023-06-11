@@ -1,12 +1,12 @@
 package rafradek.TF2weapons.client.gui;
 
-import java.io.IOException;
-import java.util.List;
-
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.message.TF2Message;
+
+import java.io.IOException;
+import java.util.List;
 
 public class GuiTeamSelect extends GuiScreen {
 

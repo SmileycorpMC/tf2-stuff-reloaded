@@ -1,16 +1,8 @@
 package rafradek.TF2weapons.util;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -33,6 +25,8 @@ import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.client.particle.EnumTF2Particles;
 import rafradek.TF2weapons.entity.projectile.EntityProjectileBase;
+
+import java.util.*;
 
 public class TF2Explosion extends Explosion {
 

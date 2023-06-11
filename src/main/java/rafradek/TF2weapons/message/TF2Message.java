@@ -1,17 +1,7 @@
 package rafradek.TF2weapons.message;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -40,6 +30,11 @@ import rafradek.TF2weapons.arena.GameArena;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.util.Contract;
 import rafradek.TF2weapons.util.Contract.Objective;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.Map.Entry;
 
 public abstract class TF2Message implements IMessage {
 

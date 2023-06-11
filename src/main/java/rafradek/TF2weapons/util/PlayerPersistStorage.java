@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.util;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.UUID;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
@@ -20,6 +16,10 @@ import rafradek.TF2weapons.entity.building.EntityBuilding;
 import rafradek.TF2weapons.entity.building.EntityDispenser;
 import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.entity.building.EntityTeleporter;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.UUID;
 
 public class PlayerPersistStorage implements INBTSerializable<NBTTagCompound> {
 

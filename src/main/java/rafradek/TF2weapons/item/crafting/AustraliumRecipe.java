@@ -11,11 +11,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
-import rafradek.TF2weapons.item.ItemBackpack;
-import rafradek.TF2weapons.item.ItemCloak;
-import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemPDA;
-import rafradek.TF2weapons.item.ItemUsable;
+import rafradek.TF2weapons.item.*;
 
 public class AustraliumRecipe implements IRecipe, IRecipeTF2 {
 

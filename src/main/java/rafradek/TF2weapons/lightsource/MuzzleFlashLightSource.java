@@ -2,7 +2,9 @@ package rafradek.TF2weapons.lightsource;
 
 import atomicstryker.dynamiclights.client.IDynamicLightSource;
 import net.minecraft.entity.Entity;
-import net.minecraftforge.fml.common.Optional;;
+import net.minecraftforge.fml.common.Optional;
+
+;
 
 @Optional.Interface(iface = "atomicstryker.dynamiclights.client.IDynamicLightSource", modid = "dynamiclights", striprefs = true)
 public class MuzzleFlashLightSource implements IDynamicLightSource {

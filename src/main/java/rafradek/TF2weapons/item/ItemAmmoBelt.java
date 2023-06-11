@@ -45,7 +45,6 @@ public class ItemAmmoBelt extends Item {
 
 		@Override
 		public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-			// TODO Auto-generated method stub
 			return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
 		}
 

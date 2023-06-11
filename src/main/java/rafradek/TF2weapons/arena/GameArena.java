@@ -1,15 +1,6 @@
 package rafradek.TF2weapons.arena;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
-
 import com.google.common.base.Optional;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -37,6 +28,9 @@ import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.tileentity.TileEntityGameConfigure;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 public class GameArena implements INBTSerializable<NBTTagCompound> {
 

@@ -1,10 +1,6 @@
 package rafradek.TF2weapons.item;
 
-import java.util.Set;
-import java.util.UUID;
-
 import com.google.common.collect.Sets;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,6 +17,9 @@ import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
+
+import java.util.Set;
+import java.util.UUID;
 
 public class ItemToken extends Item {
 

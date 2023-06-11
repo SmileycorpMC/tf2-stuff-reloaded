@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +17,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.EntityStatue;
+
+import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class ItemStatue extends Item {

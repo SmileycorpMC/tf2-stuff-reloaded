@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.tileentity;
 
-import java.util.UUID;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityList;
 import net.minecraft.inventory.InventoryHelper;
@@ -30,6 +25,10 @@ import rafradek.TF2weapons.item.ItemMoney;
 import rafradek.TF2weapons.item.ItemRobotPart;
 import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class TileEntityRobotDeploy extends TileEntity implements ITickable {
 

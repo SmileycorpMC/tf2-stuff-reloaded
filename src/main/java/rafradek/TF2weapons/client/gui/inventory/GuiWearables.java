@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.client.gui.inventory;
 
-import java.io.IOException;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.achievement.GuiStats;
@@ -15,6 +13,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.inventory.ContainerWearables;
+
+import java.io.IOException;
 
 public class GuiWearables extends InventoryEffectRenderer {
 	/** The old x position of the mouse pointer */

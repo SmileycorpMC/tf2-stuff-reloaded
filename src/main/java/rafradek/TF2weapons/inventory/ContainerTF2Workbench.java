@@ -1,14 +1,8 @@
 package rafradek.TF2weapons.inventory;
 
-import java.util.List;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCraftResult;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.*;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemBanner;
 import net.minecraft.item.ItemStack;
@@ -24,6 +18,8 @@ import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemWrench;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.List;
 
 public class ContainerTF2Workbench extends Container implements IRecipeContainer {
 	/** The crafting matrix inventory (3x3). */

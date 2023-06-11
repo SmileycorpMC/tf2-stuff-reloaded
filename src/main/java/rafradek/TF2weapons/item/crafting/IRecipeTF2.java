@@ -1,8 +1,8 @@
 package rafradek.TF2weapons.item.crafting;
 
-import javax.annotation.Nonnull;
-
 import net.minecraft.item.ItemStack;
+
+import javax.annotation.Nonnull;
 
 public interface IRecipeTF2 {
 

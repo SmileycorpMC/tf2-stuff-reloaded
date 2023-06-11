@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +14,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
 
 public class ItemChargingTarge extends ItemFromData {
 

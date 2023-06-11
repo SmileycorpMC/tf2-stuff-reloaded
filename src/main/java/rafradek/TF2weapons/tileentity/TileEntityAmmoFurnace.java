@@ -1,19 +1,10 @@
 package rafradek.TF2weapons.tileentity;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Lists;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.SlotFurnaceFuel;
+import net.minecraft.inventory.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -34,6 +25,9 @@ import rafradek.TF2weapons.block.BlockAmmoFurnace;
 import rafradek.TF2weapons.inventory.ContainerAmmoFurnace;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class TileEntityAmmoFurnace extends TileEntityLockable implements ITickable, ISidedInventory {
 	private static final int[] SLOTS_TOP = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };

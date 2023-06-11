@@ -1,11 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.util.zip.GZIPInputStream;
-
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -15,6 +9,12 @@ import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.message.TF2Message.WeaponDataMessage;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.util.zip.GZIPInputStream;
 
 public class TF2WeaponDataHandler implements IMessageHandler<TF2Message.WeaponDataMessage, IMessage> {
 
@@ -44,9 +44,7 @@ public class TF2WeaponDataHandler implements IMessageHandler<TF2Message.WeaponDa
 
 			}
 			input.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-		}
+		} catch (IOException e) {}
 		return null;
 	}
 

@@ -1,22 +1,10 @@
 package rafradek.TF2weapons.entity.building;
 
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.google.common.base.Optional;
-
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityOwnable;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -44,6 +32,8 @@ import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.ItemStackHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2PlayerCapability;
 import rafradek.TF2weapons.TF2weapons;
@@ -58,6 +48,9 @@ import rafradek.TF2weapons.item.ItemPDA;
 import rafradek.TF2weapons.item.ItemSapper;
 import rafradek.TF2weapons.util.PlayerPersistStorage;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class EntityBuilding extends EntityLiving implements IEntityOwnable, IEntityTF2 {
 

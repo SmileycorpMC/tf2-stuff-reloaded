@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.entity.building;
 
-import java.util.List;
-import java.util.UUID;
-
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -32,6 +27,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2EventsCommon;
 import rafradek.TF2weapons.TF2weapons;
@@ -53,6 +49,9 @@ import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.ReflectionAccess;
 import rafradek.TF2weapons.util.TF2DamageSource;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.List;
+import java.util.UUID;
 
 public class EntitySentry extends EntityBuilding {
 

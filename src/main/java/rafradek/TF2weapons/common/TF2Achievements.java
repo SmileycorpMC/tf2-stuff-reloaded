@@ -166,7 +166,7 @@ public class TF2Achievements {
 	 * StatList.ALL_STATS.add(achievement); return achievement; }
 	 * 
 	 * public TF2Achievements() { super("TF2 Stuff", ACHIEVEMENTS.toArray(new
-	 * Achievement[ACHIEVEMENTS.size()])); // TODO Auto-generated constructor stub }
+	 * Achievement[ACHIEVEMENTS.size()])); }
 	 */
 
 }

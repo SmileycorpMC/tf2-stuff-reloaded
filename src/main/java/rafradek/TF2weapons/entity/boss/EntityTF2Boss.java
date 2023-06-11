@@ -1,18 +1,8 @@
 package rafradek.TF2weapons.entity.boss;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.EntityMob;
@@ -47,6 +37,11 @@ import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemMinigun;
 import rafradek.TF2weapons.util.TF2DamageSource;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.UUID;
 
 public abstract class EntityTF2Boss extends EntityMob implements IEntityTF2 {
 

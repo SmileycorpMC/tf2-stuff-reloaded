@@ -1,12 +1,6 @@
 package rafradek.TF2weapons;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
-
 import com.google.common.collect.Multimap;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
@@ -46,18 +40,18 @@ import rafradek.TF2weapons.entity.boss.EntityMonoculus;
 import rafradek.TF2weapons.entity.boss.EntityTF2Boss;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character.Order;
-import rafradek.TF2weapons.item.ItemAmmo;
-import rafradek.TF2weapons.item.ItemBackpack;
-import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemMoney;
-import rafradek.TF2weapons.item.ItemPDA;
-import rafradek.TF2weapons.item.ItemWrench;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.util.Contract;
 import rafradek.TF2weapons.util.Contract.Objective;
 import rafradek.TF2weapons.util.PlayerPersistStorage;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class TF2PlayerCapability implements ICapabilityProvider, INBTSerializable<NBTTagCompound> {
 

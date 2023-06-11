@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -31,6 +27,9 @@ import rafradek.TF2weapons.entity.projectile.EntityProjectileBase;
 import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class ItemHuntsman extends ItemProjectileWeapon {
 

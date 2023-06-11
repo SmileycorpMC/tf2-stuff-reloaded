@@ -1,8 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.util.ArrayList;
-import java.util.Deque;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
@@ -15,6 +12,9 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
+
+import java.util.ArrayList;
+import java.util.Deque;
 
 public class TF2ProjectileHandler implements IMessageHandler<TF2Message.PredictionMessage, IMessage> {
 

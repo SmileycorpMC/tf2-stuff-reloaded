@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -17,6 +15,8 @@ import rafradek.TF2weapons.common.WeaponsCapability.RageType;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
 
 public class ItemSoldierBackpack extends ItemBackpack {
 

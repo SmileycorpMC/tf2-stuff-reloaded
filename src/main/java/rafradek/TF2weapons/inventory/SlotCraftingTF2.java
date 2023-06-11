@@ -1,7 +1,6 @@
 package rafradek.TF2weapons.inventory;
 
 import com.google.common.base.Predicates;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;

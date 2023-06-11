@@ -1,16 +1,12 @@
 package rafradek.TF2weapons.jei;
 
-import javax.annotation.Nonnull;
-
-import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.IJeiHelpers;
-import mezz.jei.api.IModPlugin;
-import mezz.jei.api.IModRegistry;
-import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.*;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import net.minecraft.item.ItemStack;
 import rafradek.TF2weapons.TF2weapons;
+
+import javax.annotation.Nonnull;
 
 @JEIPlugin
 public class TF2Plugin implements IModPlugin {

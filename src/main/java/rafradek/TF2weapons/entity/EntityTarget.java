@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.entity;
 
-import java.text.DecimalFormat;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,6 +14,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
 import rafradek.TF2weapons.TF2weapons;
+
+import java.text.DecimalFormat;
 
 public class EntityTarget extends EntityArmorStand {
 

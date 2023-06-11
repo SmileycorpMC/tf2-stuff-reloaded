@@ -19,7 +19,6 @@ public class ItemDoorController extends Item {
 
 	public ItemDoorController() {
 		this.setHasSubtypes(true);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

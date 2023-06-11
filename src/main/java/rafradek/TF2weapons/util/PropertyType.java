@@ -1,20 +1,19 @@
 package rafradek.TF2weapons.util;
 
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import rafradek.TF2weapons.common.MapList;
+import rafradek.TF2weapons.item.ItemCrate;
+import rafradek.TF2weapons.item.ItemFromData;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
-
-import rafradek.TF2weapons.common.MapList;
-import rafradek.TF2weapons.item.ItemCrate;
-import rafradek.TF2weapons.item.ItemFromData;
 
 public class PropertyType<T> implements JsonDeserializer<T> {
 

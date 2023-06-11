@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.pattern.BlockMaterialMatcher;
@@ -31,6 +29,8 @@ import rafradek.TF2weapons.entity.boss.EntityHHH;
 import rafradek.TF2weapons.entity.boss.EntityMerasmus;
 import rafradek.TF2weapons.entity.boss.EntityMonoculus;
 import rafradek.TF2weapons.entity.boss.EntityTF2Boss;
+
+import java.util.List;
 
 public class ItemBossSpawner extends Item {
 

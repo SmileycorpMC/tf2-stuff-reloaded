@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +8,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+
+import javax.annotation.Nullable;
 
 public class ItemParachute extends ItemBackpack implements ISpecialArmor {
 

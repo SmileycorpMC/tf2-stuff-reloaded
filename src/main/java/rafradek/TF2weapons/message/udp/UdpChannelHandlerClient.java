@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.message.udp;
 
-import java.lang.reflect.Constructor;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -13,6 +11,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import rafradek.TF2weapons.TF2weapons;
+
+import java.lang.reflect.Constructor;
 
 public class UdpChannelHandlerClient extends SimpleChannelInboundHandler<DatagramPacket> {
 

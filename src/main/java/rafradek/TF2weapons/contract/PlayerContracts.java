@@ -1,14 +1,13 @@
 package rafradek.TF2weapons.contract;
 
-import java.io.File;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.server.MinecraftServer;
+
+import javax.annotation.Nullable;
+import java.io.File;
 
 public class PlayerContracts extends PlayerAdvancements {
 

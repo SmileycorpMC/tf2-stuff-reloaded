@@ -1,11 +1,8 @@
 package rafradek.TF2weapons.loot;
 
-import java.util.Random;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
@@ -17,6 +14,8 @@ import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemWeapon;
 import rafradek.TF2weapons.util.PropertyType;
+
+import java.util.Random;
 
 public class RandomWeaponFunction extends LootFunction {
 

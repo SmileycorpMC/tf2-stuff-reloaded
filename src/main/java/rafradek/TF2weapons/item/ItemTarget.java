@@ -1,8 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,6 +18,9 @@ import net.minecraft.util.math.Rotations;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.EntityTarget;
+
+import java.util.List;
+import java.util.Random;
 
 public class ItemTarget extends Item {
 

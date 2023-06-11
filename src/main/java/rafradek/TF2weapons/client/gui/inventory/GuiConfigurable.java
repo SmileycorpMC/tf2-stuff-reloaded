@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.client.gui.inventory;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.lwjgl.input.Mouse;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
@@ -19,10 +14,14 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import org.lwjgl.input.Mouse;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.inventory.ContainerConfigurable;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.tileentity.IEntityConfigurable;
+
+import java.io.IOException;
+import java.util.List;
 
 public class GuiConfigurable extends GuiContainer {
 	public GuiConfigurable(Container inventorySlotsIn) {

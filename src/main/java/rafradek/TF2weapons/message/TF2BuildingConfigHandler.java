@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.util.HashMap;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -12,6 +10,8 @@ import rafradek.TF2weapons.entity.building.EntityBuilding;
 import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.entity.building.EntityTeleporter;
 import rafradek.TF2weapons.message.TF2Message.BuildingConfigMessage;
+
+import java.util.HashMap;
 
 public class TF2BuildingConfigHandler implements IMessageHandler<TF2Message.BuildingConfigMessage, IMessage> {
 

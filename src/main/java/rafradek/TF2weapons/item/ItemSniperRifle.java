@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.UUID;
-
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -23,6 +19,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.ClientProxy;
 import rafradek.TF2weapons.common.TF2Attribute;
@@ -33,6 +30,8 @@ import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2DamageSource;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.UUID;
 
 public class ItemSniperRifle extends ItemBulletWeapon {
 	public static UUID slowdownUUID = UUID.fromString("12843092-A5D6-BBCD-3D4F-A3DD4D8C65A9");

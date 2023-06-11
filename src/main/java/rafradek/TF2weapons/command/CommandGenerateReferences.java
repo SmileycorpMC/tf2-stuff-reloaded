@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.command;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -16,6 +11,11 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class CommandGenerateReferences extends CommandBase {
 

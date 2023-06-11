@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -29,6 +24,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2EventsCommon;
 import rafradek.TF2weapons.TF2weapons;
@@ -44,6 +40,9 @@ import rafradek.TF2weapons.util.Contract.Objective;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.ReflectionAccess;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemMedigun extends ItemUsable {
 

@@ -1,19 +1,17 @@
 package rafradek.TF2weapons;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import net.minecraft.profiler.Profiler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-
-import net.minecraft.profiler.Profiler;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class FastProfiler extends Profiler {
 	private static final Logger LOGGER = LogManager.getLogger();

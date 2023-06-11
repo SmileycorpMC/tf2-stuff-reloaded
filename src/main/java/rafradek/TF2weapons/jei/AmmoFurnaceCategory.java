@@ -1,17 +1,8 @@
 package rafradek.TF2weapons.jei;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Lists;
-
 import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.gui.IDrawable;
-import mezz.jei.api.gui.IDrawableAnimated;
-import mezz.jei.api.gui.IDrawableStatic;
-import mezz.jei.api.gui.IGuiItemStackGroup;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.*;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IFocus;
@@ -25,6 +16,9 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class AmmoFurnaceCategory implements IRecipeCategory<AmmoFurnaceCategory.Wrapper> {
 

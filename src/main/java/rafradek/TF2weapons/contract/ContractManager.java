@@ -1,30 +1,7 @@
 package rafradek.TF2weapons.contract;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.google.common.collect.Maps;
 import com.google.gson.JsonParseException;
-
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementManager;
@@ -32,6 +9,22 @@ import net.minecraft.advancements.AdvancementTreeNode;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.annotation.Nullable;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.*;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ContractManager extends AdvancementManager {
 	private static final Logger LOGGER = LogManager.getLogger();

@@ -1,7 +1,6 @@
 package rafradek.TF2weapons.entity.mercenary;
 
 import com.google.common.base.Predicates;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityOwnable;
 import net.minecraft.entity.SharedMonsterAttributes;

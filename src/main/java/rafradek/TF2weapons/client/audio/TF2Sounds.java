@@ -1,10 +1,10 @@
 package rafradek.TF2weapons.client.audio;
 
-import java.util.HashMap;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import rafradek.TF2weapons.TF2weapons;
+
+import java.util.HashMap;
 
 public class TF2Sounds {
 

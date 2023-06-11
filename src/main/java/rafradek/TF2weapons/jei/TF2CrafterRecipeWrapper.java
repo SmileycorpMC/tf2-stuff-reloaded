@@ -1,10 +1,6 @@
 package rafradek.TF2weapons.jei;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.function.Function;
-
+import com.google.common.collect.Lists;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
@@ -17,23 +13,15 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.common.TF2Attribute;
-import rafradek.TF2weapons.item.ItemApplicableEffect;
-import rafradek.TF2weapons.item.ItemBackpack;
-import rafradek.TF2weapons.item.ItemCloak;
-import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemKillstreakKit;
-import rafradek.TF2weapons.item.ItemPDA;
-import rafradek.TF2weapons.item.ItemToken;
-import rafradek.TF2weapons.item.ItemUsable;
-import rafradek.TF2weapons.item.crafting.AustraliumRecipe;
-import rafradek.TF2weapons.item.crafting.JumperRecipe;
-import rafradek.TF2weapons.item.crafting.OpenCrateRecipe;
-import rafradek.TF2weapons.item.crafting.RecipeApplyEffect;
-import rafradek.TF2weapons.item.crafting.RecipeToScrap;
+import rafradek.TF2weapons.item.*;
+import rafradek.TF2weapons.item.crafting.*;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.WeaponData;
 
-import com.google.common.collect.Lists;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.function.Function;
 
 public class TF2CrafterRecipeWrapper implements IRecipeWrapper {
 

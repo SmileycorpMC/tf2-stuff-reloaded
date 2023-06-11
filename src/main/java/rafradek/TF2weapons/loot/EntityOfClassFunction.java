@@ -1,17 +1,16 @@
 package rafradek.TF2weapons.loot;
 
-import java.util.Random;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import rafradek.TF2weapons.item.ItemFromData;
+
+import java.util.Random;
 
 public class EntityOfClassFunction extends LootFunction {
 

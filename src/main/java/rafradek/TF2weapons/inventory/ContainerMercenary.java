@@ -1,8 +1,5 @@
 package rafradek.TF2weapons.inventory;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -24,12 +21,11 @@ import net.minecraftforge.items.SlotItemHandler;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character.Order;
-import rafradek.TF2weapons.item.ItemAmmo;
-import rafradek.TF2weapons.item.ItemToken;
-import rafradek.TF2weapons.item.ItemUsable;
-import rafradek.TF2weapons.item.ItemWeapon;
-import rafradek.TF2weapons.item.ItemWearable;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class ContainerMercenary extends ContainerMerchant {
 

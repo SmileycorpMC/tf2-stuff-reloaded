@@ -1,10 +1,6 @@
 package rafradek.TF2weapons.entity.ai;
 
-import java.util.Collections;
-import java.util.List;
-
 import com.google.common.base.Predicate;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityOwnable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,6 +14,9 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.building.EntityBuilding;
 import rafradek.TF2weapons.item.ItemDisguiseKit;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.Collections;
+import java.util.List;
 
 public class EntityAISpotTarget<T extends EntityLivingBase> extends EntityAIBase {
 

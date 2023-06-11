@@ -1,11 +1,8 @@
 package rafradek.TF2weapons.loot;
 
-import java.util.Random;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
@@ -16,6 +13,8 @@ import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootContext.EntityTarget;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import rafradek.TF2weapons.TF2weapons;
+
+import java.util.Random;
 
 public class EntityNBTCondition implements LootCondition {
 
@@ -61,9 +60,7 @@ public class EntityNBTCondition implements LootCondition {
 				return new EntityNBTCondition(JsonToNBT.getTagFromJson(JsonUtils.getString(json, "test", "{}")),
 						JsonUtils.getBoolean(json, "negate", false));
 			} catch (NBTException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-
 			}
 			return new EntityNBTCondition(new NBTTagCompound(), false);
 		}

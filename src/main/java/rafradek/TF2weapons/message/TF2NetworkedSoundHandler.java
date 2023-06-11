@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.util.HashMap;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.entity.Entity;
@@ -10,6 +8,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import rafradek.TF2weapons.client.audio.NetworkedSound;
 import rafradek.TF2weapons.message.TF2Message.NetworkedSoundMessage;
+
+import java.util.HashMap;
 
 public class TF2NetworkedSoundHandler implements IMessageHandler<TF2Message.NetworkedSoundMessage, IMessage> {
 

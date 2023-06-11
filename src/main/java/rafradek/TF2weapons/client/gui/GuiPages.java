@@ -1,12 +1,5 @@
 package rafradek.TF2weapons.client.gui;
 
-import java.io.IOException;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-
-import org.lwjgl.input.Mouse;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -17,13 +10,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import org.lwjgl.input.Mouse;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
-import rafradek.TF2weapons.item.ItemMedigun;
-import rafradek.TF2weapons.item.ItemMinigun;
-import rafradek.TF2weapons.item.ItemSniperRifle;
-import rafradek.TF2weapons.item.ItemStickyLauncher;
-import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.item.*;
+
+import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class GuiPages extends GuiScreen {
 

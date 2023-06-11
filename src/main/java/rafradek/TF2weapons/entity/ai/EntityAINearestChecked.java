@@ -1,10 +1,6 @@
 package rafradek.TF2weapons.entity.ai;
 
-import java.util.Collections;
-import java.util.List;
-
 import com.google.common.base.Predicate;
-
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityOwnable;
@@ -19,6 +15,9 @@ import rafradek.TF2weapons.entity.mercenary.EntityMedic;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.item.ItemDisguiseKit;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.Collections;
+import java.util.List;
 
 public class EntityAINearestChecked<T extends EntityLivingBase> extends EntityAITarget {
 	public int targetChoosen = 0;

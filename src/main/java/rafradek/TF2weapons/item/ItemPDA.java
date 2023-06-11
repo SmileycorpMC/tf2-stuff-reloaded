@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -20,12 +18,7 @@ import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -41,6 +34,8 @@ import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.entity.building.EntityTeleporter;
 import rafradek.TF2weapons.util.PlayerPersistStorage;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
 
 public class ItemPDA extends ItemFromData implements IItemSlotNumber, IItemOverlay, IItemNoSwitch {
 

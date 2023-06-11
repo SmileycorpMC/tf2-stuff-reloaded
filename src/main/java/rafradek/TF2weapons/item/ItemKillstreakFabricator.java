@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +12,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.NBTLiterals;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ItemKillstreakFabricator extends ItemFabricator {
 

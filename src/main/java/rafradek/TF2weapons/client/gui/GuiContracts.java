@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.client.gui;
 
-import java.io.IOException;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -14,6 +12,8 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Achievements;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.util.Contract;
+
+import java.io.IOException;
 
 public class GuiContracts extends GuiScreen {
 

@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.client.gui.inventory;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.regex.Pattern;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
@@ -17,6 +13,10 @@ import rafradek.TF2weapons.client.ClientProxy;
 import rafradek.TF2weapons.entity.building.EntityTeleporter;
 import rafradek.TF2weapons.inventory.ContainerEnergy;
 import rafradek.TF2weapons.message.TF2Message;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class GuiTeleporter extends GuiContainer {
 

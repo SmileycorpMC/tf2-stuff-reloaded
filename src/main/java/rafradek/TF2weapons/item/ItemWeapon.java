@@ -1,16 +1,7 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
-import org.lwjgl.opengl.GL11;
-
-import com.google.common.collect.Multimap;
-
 import atomicstryker.dynamiclights.client.DynamicLights;
+import com.google.common.collect.Multimap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiIngame;
@@ -34,11 +25,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
@@ -46,6 +33,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.GL11;
 import rafradek.TF2weapons.NBTLiterals;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2PlayerCapability;
@@ -62,11 +50,12 @@ import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.lightsource.MuzzleFlashLightSource;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
-import rafradek.TF2weapons.util.PropertyType;
-import rafradek.TF2weapons.util.ReflectionAccess;
-import rafradek.TF2weapons.util.TF2DamageSource;
-import rafradek.TF2weapons.util.TF2Util;
-import rafradek.TF2weapons.util.WeaponData;
+import rafradek.TF2weapons.util.*;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.UUID;
 
 public abstract class ItemWeapon extends ItemUsable implements IItemNoSwitch {
 	/*

@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.HashMap;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -27,6 +23,9 @@ import rafradek.TF2weapons.entity.IEntityTF2;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.util.TF2DamageSource;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.HashMap;
 
 public class ItemKnife extends ItemMeleeWeapon {
 

@@ -1,10 +1,10 @@
 package rafradek.TF2weapons.item.crafting;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import rafradek.TF2weapons.item.ItemFromData;
+
+import javax.annotation.Nullable;
 
 public class IngredientWeapon extends Ingredient {
 

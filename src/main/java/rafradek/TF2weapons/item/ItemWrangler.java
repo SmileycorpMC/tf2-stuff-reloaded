@@ -1,8 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.Collections;
-import java.util.List;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.item.ItemStack;
@@ -12,6 +9,9 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
+
+import java.util.Collections;
+import java.util.List;
 
 public class ItemWrangler extends ItemUsable {
 

@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.tileentity;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -12,6 +10,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
+
+import javax.annotation.Nullable;
 
 public class TileEntityCapturePoint extends TileEntity implements ITickable, IEntityConfigurable {
 

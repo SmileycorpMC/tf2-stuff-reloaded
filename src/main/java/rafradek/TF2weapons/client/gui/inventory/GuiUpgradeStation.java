@@ -1,11 +1,5 @@
 package rafradek.TF2weapons.client.gui.inventory;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.lwjgl.input.Mouse;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -19,6 +13,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import org.lwjgl.input.Mouse;
 import rafradek.TF2weapons.NBTLiterals;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.gui.GuiTooltip;
@@ -26,6 +21,10 @@ import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.common.TF2Attribute.Type;
 import rafradek.TF2weapons.inventory.ContainerUpgrades;
 import rafradek.TF2weapons.tileentity.TileEntityUpgrades;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GuiUpgradeStation extends GuiContainer {
 	public GuiUpgradeStation(Container inventorySlotsIn) {

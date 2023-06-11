@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.net.InetSocketAddress;
-import java.util.HashMap;
-import java.util.HashSet;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.socket.DatagramPacket;
@@ -15,6 +11,10 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.message.udp.TF2UdpClient;
+
+import java.net.InetSocketAddress;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class TF2NetworkWrapper extends SimpleNetworkWrapper {
 

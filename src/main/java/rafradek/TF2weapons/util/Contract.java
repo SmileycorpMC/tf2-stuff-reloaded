@@ -1,12 +1,12 @@
 package rafradek.TF2weapons.util;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemFromData;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Contract {
 

@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.block;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -29,6 +27,8 @@ import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.tileentity.TileEntityOverheadDoor;
 import rafradek.TF2weapons.tileentity.TileEntityOverheadDoor.Allow;
+
+import java.util.Random;
 
 public class BlockOverheadDoor extends BlockContainer {
 

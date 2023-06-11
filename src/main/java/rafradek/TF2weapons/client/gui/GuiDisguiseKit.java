@@ -1,16 +1,7 @@
 package rafradek.TF2weapons.client.gui;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.MinecraftProfileTexture.Type;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.gui.GuiButton;
@@ -32,10 +23,17 @@ import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.entity.mercenary.EntitySpy;
 import rafradek.TF2weapons.message.TF2Message;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class GuiDisguiseKit extends GuiScreen {
 

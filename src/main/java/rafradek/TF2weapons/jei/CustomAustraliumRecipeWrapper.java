@@ -1,9 +1,6 @@
 package rafradek.TF2weapons.jei;
 
-import java.util.List;
-
 import com.google.common.collect.Lists;
-
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import net.minecraft.item.Item;
@@ -12,6 +9,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.crafting.AustraliumRecipe;
+
+import java.util.List;
 
 public class CustomAustraliumRecipeWrapper extends TF2CrafterRecipeWrapper {
 

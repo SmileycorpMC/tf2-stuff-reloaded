@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.client.renderer.entity;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,6 +7,7 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.model.ModelJar;
 import rafradek.TF2weapons.entity.projectile.EntityJar;

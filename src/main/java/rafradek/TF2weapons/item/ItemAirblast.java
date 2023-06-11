@@ -1,12 +1,6 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EntityTracker;
-import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -30,6 +24,8 @@ import rafradek.TF2weapons.entity.projectile.EntityRocket;
 import rafradek.TF2weapons.entity.projectile.EntityStickybomb;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.List;
 
 public class ItemAirblast extends ItemProjectileWeapon {
 

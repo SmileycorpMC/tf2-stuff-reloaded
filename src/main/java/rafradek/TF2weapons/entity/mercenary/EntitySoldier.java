@@ -13,12 +13,7 @@ import rafradek.TF2weapons.client.audio.TF2Sounds;
 import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.common.WeaponsCapability.RageType;
-import rafradek.TF2weapons.item.ItemBackpack;
-import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemHorn;
-import rafradek.TF2weapons.item.ItemParachute;
-import rafradek.TF2weapons.item.ItemSoldierBackpack;
-import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
 
@@ -264,8 +259,6 @@ public class EntitySoldier extends EntityTF2Character {
 
 		@Override
 		public boolean shouldExecute() {
-			// TODO Auto-generated method stub
-
 			if (getOwner() == null && getDiff() > 1 && (getAttackTarget() != null || isGiant())
 					&& activeItemStack.isEmpty()) {
 				ItemStack backpack = ItemBackpack.getBackpack(EntitySoldier.this);

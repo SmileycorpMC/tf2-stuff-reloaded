@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.client.renderer.entity;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -10,6 +8,7 @@ import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.ClientProxy;
 import rafradek.TF2weapons.client.model.ModelMonoculus;
@@ -24,8 +23,6 @@ public class RenderMonoculus extends RenderLivingBase<EntityMonoculus> {
 
 	public RenderMonoculus(RenderManager renderManagerIn) {
 		super(renderManagerIn, new ModelMonoculus(), 0f);
-		// TODO Auto-generated constructor stub
-
 	}
 
 	@Override

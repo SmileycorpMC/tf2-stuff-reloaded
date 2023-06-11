@@ -1,9 +1,6 @@
 package rafradek.TF2weapons.inventory;
 
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Multimap;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -24,15 +21,11 @@ import net.minecraftforge.items.SlotItemHandler;
 import rafradek.TF2weapons.TF2PlayerCapability;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
-import rafradek.TF2weapons.item.ItemAmmo;
-import rafradek.TF2weapons.item.ItemAmmoBelt;
-import rafradek.TF2weapons.item.ItemBackpack;
-import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemMoney;
-import rafradek.TF2weapons.item.ItemToken;
-import rafradek.TF2weapons.item.ItemWearable;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
 
 public class ContainerWearables extends Container {
 

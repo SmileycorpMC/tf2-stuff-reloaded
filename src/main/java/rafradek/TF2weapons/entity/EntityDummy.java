@@ -1,11 +1,11 @@
 package rafradek.TF2weapons.entity;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
+
+import javax.annotation.Nullable;
 
 public class EntityDummy extends EntityLiving {
 

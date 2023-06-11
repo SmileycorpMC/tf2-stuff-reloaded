@@ -2,12 +2,7 @@ package rafradek.TF2weapons.tileentity;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
-import net.minecraft.block.BlockButton;
-import net.minecraft.block.BlockDirectional;
-import net.minecraft.block.BlockLever;
-import net.minecraft.block.BlockRedstoneComparator;
-import net.minecraft.block.BlockRedstoneWire;
+import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagIntArray;

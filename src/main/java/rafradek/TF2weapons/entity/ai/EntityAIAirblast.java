@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.entity.ai;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
@@ -20,6 +18,8 @@ import rafradek.TF2weapons.item.ItemFlameThrower;
 import rafradek.TF2weapons.item.ItemMeleeWeapon;
 import rafradek.TF2weapons.item.ItemWeapon;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.List;
 
 public class EntityAIAirblast extends EntityAIBase {
 

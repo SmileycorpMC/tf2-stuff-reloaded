@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.ItemHandlerHelper;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.tileentity.TileEntityRobotDeploy;
+
+import java.util.List;
 
 public class ItemTF2 extends Item {
 

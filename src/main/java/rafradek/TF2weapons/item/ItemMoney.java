@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,6 +13,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.inventory.InventoryWearables;
+
+import java.util.List;
 
 public class ItemMoney extends Item {
 

@@ -1,9 +1,6 @@
 package rafradek.TF2weapons.inventory;
 
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Multimap;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -13,6 +10,8 @@ import net.minecraftforge.items.ItemStackHandler;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nonnull;
 
 public class InventoryLoadout extends ItemStackHandler {
 

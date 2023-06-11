@@ -1,13 +1,9 @@
 package rafradek.TF2weapons.entity.projectile;
 
-import java.util.HashSet;
-import java.util.List;
-
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
-
 import atomicstryker.dynamiclights.client.DynamicLights;
 import atomicstryker.dynamiclights.client.IDynamicLightSource;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
@@ -17,12 +13,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityOwnable;
-import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.MoverType;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -34,12 +25,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ReportedException;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.*;
 import net.minecraft.util.math.RayTraceResult.Type;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.Optional;
@@ -58,6 +45,9 @@ import rafradek.TF2weapons.util.DamageSourceProjectile;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2DamageSource;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.HashSet;
+import java.util.List;
 
 @Optional.Interface(iface = "atomicstryker.dynamiclights.client.IDynamicLightSource", modid = "dynamiclights", striprefs = true)
 public abstract class EntityProjectileBase extends Entity
@@ -1000,14 +990,12 @@ implements IProjectile, IThrowableEntity, IDynamicLightSource, IEntityAdditional
 	@Optional.Method(modid = "dynamiclights")
 	@Override
 	public Entity getAttachmentEntity() {
-		// TODO Auto-generated method stub
 		return this;
 	}
 
 	@Optional.Method(modid = "dynamiclights")
 	@Override
 	public int getLightLevel() {
-		// TODO Auto-generated method stub
 		return 9;
 	}
 

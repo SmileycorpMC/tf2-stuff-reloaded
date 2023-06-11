@@ -1,9 +1,5 @@
 package rafradek.TF2weapons.client.gui.inventory;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.regex.Pattern;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -15,6 +11,10 @@ import rafradek.TF2weapons.client.ClientProxy;
 import rafradek.TF2weapons.entity.building.EntityDispenser;
 import rafradek.TF2weapons.inventory.ContainerDispenser;
 import rafradek.TF2weapons.message.TF2Message;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class GuiDispenser extends GuiContainer {
 

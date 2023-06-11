@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -15,6 +13,8 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.util.List;
 
 public class ItemKillstreakKit extends ItemApplicableEffect {
 

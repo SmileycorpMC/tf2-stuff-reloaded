@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.util.Map.Entry;
-
 import io.netty.util.internal.SocketUtils;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -11,6 +9,8 @@ import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.ClientProxy;
 import rafradek.TF2weapons.message.udp.TF2UdpClient;
+
+import java.util.Map.Entry;
 
 public class TF2InitHandler implements IMessageHandler<TF2Message.InitMessage, IMessage> {
 

@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.message;
 
-import java.util.HashMap;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
@@ -13,6 +11,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import rafradek.TF2weapons.client.ClientHandler;
 import rafradek.TF2weapons.message.TF2Message.GuiConfigMessage;
 import rafradek.TF2weapons.tileentity.IEntityConfigurable;
+
+import java.util.HashMap;
 
 public class TF2GuiConfigHandler implements IMessageHandler<TF2Message.GuiConfigMessage, IMessage> {
 

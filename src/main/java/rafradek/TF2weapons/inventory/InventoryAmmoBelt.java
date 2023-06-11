@@ -14,7 +14,6 @@ public class InventoryAmmoBelt extends InventoryBasic implements ICapabilityProv
 
 	public InventoryAmmoBelt() {
 		super("AmmoBelt", false, 9);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -27,7 +26,6 @@ public class InventoryAmmoBelt extends InventoryBasic implements ICapabilityProv
 
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		// TODO Auto-generated method stub
 		return TF2weapons.INVENTORY_BELT_CAP != null && capability == TF2weapons.INVENTORY_BELT_CAP;
 	}
 

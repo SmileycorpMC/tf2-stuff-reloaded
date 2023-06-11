@@ -1,16 +1,8 @@
 package rafradek.TF2weapons.inventory;
 
-import java.util.ArrayList;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IContainerListener;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryBasic;
-import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -24,6 +16,9 @@ import rafradek.TF2weapons.item.ItemCleaver;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.tileentity.TileEntityUpgrades;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
 
 public class ContainerUpgrades extends Container {
 	/** The crafting matrix inventory (3x3). */

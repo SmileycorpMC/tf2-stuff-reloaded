@@ -1,15 +1,6 @@
 package rafradek.TF2weapons.command;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Iterables;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -20,6 +11,13 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.mercenary.InvasionEvent;
+
+import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.UUID;
 
 public class CommandInvasion extends CommandBase {
 

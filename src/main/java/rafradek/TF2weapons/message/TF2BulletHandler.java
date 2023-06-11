@@ -1,12 +1,12 @@
 package rafradek.TF2weapons.message;
 
-import java.util.HashMap;
-
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import rafradek.TF2weapons.message.TF2Message.BulletMessage;
+
+import java.util.HashMap;
 
 public class TF2BulletHandler implements IMessageHandler<TF2Message.BulletMessage, IMessage> {
 

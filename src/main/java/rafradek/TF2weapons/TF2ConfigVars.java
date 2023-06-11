@@ -1,26 +1,18 @@
 package rafradek.TF2weapons;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.Loader;
-import rafradek.TF2weapons.entity.mercenary.EntityDemoman;
-import rafradek.TF2weapons.entity.mercenary.EntityEngineer;
-import rafradek.TF2weapons.entity.mercenary.EntityHeavy;
-import rafradek.TF2weapons.entity.mercenary.EntityPyro;
-import rafradek.TF2weapons.entity.mercenary.EntityScout;
-import rafradek.TF2weapons.entity.mercenary.EntitySniper;
-import rafradek.TF2weapons.entity.mercenary.EntitySoldier;
-import rafradek.TF2weapons.entity.mercenary.EntitySpy;
+import rafradek.TF2weapons.entity.mercenary.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TF2ConfigVars {
 

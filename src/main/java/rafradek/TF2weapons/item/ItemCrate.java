@@ -1,16 +1,8 @@
 package rafradek.TF2weapons.item;
 
-import java.io.DataInput;
-import java.io.DataOutput;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map.Entry;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
-
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +17,13 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
 
 public class ItemCrate extends ItemFromData {
 

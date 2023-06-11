@@ -1,12 +1,5 @@
 package rafradek.TF2weapons.tileentity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,6 +20,12 @@ import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemWeapon;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class TileEntityResupplyCabinet extends TileEntity implements ITickable, IEntityConfigurable {
 

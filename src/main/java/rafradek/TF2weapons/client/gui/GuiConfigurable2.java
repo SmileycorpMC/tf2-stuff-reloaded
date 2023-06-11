@@ -1,20 +1,9 @@
 package rafradek.TF2weapons.client.gui;
 
-import java.util.ArrayList;
-import java.util.Map.Entry;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.nbt.NBTPrimitive;
-import net.minecraft.nbt.NBTTagByte;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagDouble;
-import net.minecraft.nbt.NBTTagFloat;
-import net.minecraft.nbt.NBTTagInt;
-import net.minecraft.nbt.NBTTagIntArray;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
+import net.minecraft.nbt.*;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.util.math.BlockPos;
@@ -27,6 +16,9 @@ import net.minecraftforge.fml.client.config.IConfigElement;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.tileentity.IEntityConfigurable;
+
+import java.util.ArrayList;
+import java.util.Map.Entry;
 
 public class GuiConfigurable2 extends GuiConfig {
 

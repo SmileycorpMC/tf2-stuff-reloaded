@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.tileentity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagInt;
@@ -15,6 +10,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.block.BlockOverheadDoor;
 import rafradek.TF2weapons.common.TF2Attribute;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 public class TileEntityUpgrades extends TileEntity {
 

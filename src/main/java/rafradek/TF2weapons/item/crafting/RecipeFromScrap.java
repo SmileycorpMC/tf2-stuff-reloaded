@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.item.crafting;
 
-import java.util.ArrayList;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -11,6 +9,8 @@ import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemTF2;
 import rafradek.TF2weapons.item.ItemToken;
+
+import java.util.ArrayList;
 
 public class RecipeFromScrap extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe>
 		implements IRecipe, IRecipeTF2 {

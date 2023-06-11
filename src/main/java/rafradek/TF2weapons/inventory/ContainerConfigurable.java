@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.inventory;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -12,6 +10,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.tileentity.IEntityConfigurable;
+
+import javax.annotation.Nullable;
 
 public class ContainerConfigurable extends Container {
 	private final World world;

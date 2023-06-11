@@ -1,7 +1,6 @@
 package rafradek.TF2weapons.item;
 
 import com.google.common.collect.Iterables;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;

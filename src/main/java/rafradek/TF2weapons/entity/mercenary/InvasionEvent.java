@@ -1,19 +1,7 @@
 package rafradek.TF2weapons.entity.mercenary;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.UUID;
-
 import com.google.common.base.Predicates;
 import com.google.common.collect.Multimap;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
@@ -32,11 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.BossInfoServer;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldEntitySpawner;
-import net.minecraft.world.WorldServer;
+import net.minecraft.world.*;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.util.INBTSerializable;
@@ -52,6 +36,9 @@ import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 public class InvasionEvent implements INBTSerializable<NBTTagCompound> {
 

@@ -1,10 +1,5 @@
 package rafradek.TF2weapons.command;
 
-import java.util.Collections;
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -19,6 +14,10 @@ import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.arena.GameArena;
 import rafradek.TF2weapons.item.ItemToken;
+
+import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.List;
 
 public class CommandGameArena extends CommandBase {
 

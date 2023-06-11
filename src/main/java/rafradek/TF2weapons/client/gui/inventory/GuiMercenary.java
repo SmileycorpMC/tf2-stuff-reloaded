@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.client.gui.inventory;
 
-import java.io.IOException;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMerchant;
@@ -15,6 +13,8 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character.Order;
 import rafradek.TF2weapons.inventory.ContainerMercenary;
+
+import java.io.IOException;
 
 public class GuiMercenary extends GuiMerchant {
 

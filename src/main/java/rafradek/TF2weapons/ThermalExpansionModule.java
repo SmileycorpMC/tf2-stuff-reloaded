@@ -1,8 +1,7 @@
 package rafradek.TF2weapons;
 
-import com.google.common.collect.Lists;
-
 import cofh.api.util.ThermalExpansionHelper;
+import com.google.common.collect.Lists;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

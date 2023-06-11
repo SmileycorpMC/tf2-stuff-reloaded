@@ -1,27 +1,14 @@
 package rafradek.TF2weapons.common;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
-import rafradek.TF2weapons.entity.projectile.EntityBall;
-import rafradek.TF2weapons.entity.projectile.EntityCleaver;
-import rafradek.TF2weapons.entity.projectile.EntityFlame;
-import rafradek.TF2weapons.entity.projectile.EntityFlare;
-import rafradek.TF2weapons.entity.projectile.EntityFuryFireball;
-import rafradek.TF2weapons.entity.projectile.EntityGrapplingHook;
-import rafradek.TF2weapons.entity.projectile.EntityGrenade;
-import rafradek.TF2weapons.entity.projectile.EntityJar;
-import rafradek.TF2weapons.entity.projectile.EntityOnyx;
-import rafradek.TF2weapons.entity.projectile.EntityProjectileBase;
-import rafradek.TF2weapons.entity.projectile.EntityProjectileEnergy;
-import rafradek.TF2weapons.entity.projectile.EntityProjectileSimple;
-import rafradek.TF2weapons.entity.projectile.EntityRocket;
-import rafradek.TF2weapons.entity.projectile.EntityStickProjectile;
+import rafradek.TF2weapons.entity.projectile.*;
 import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MapList {
 

@@ -1,11 +1,6 @@
 package rafradek.TF2weapons.item;
 
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Multimap;
-
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -29,6 +24,9 @@ import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
+
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class ItemBackpack extends ItemFromData {
 

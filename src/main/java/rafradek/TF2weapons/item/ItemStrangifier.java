@@ -1,9 +1,6 @@
 package rafradek.TF2weapons.item;
 
-import java.util.List;
-
 import com.google.common.base.Predicates;
-
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -11,6 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.util.PropertyType;
+
+import java.util.List;
 
 public class ItemStrangifier extends ItemApplicableEffect {
 

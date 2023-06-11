@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.tileentity;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -10,6 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.arena.GameArena;
+
+import javax.annotation.Nullable;
 
 public class TileEntityGameConfigure extends TileEntity implements ITickable, IEntityConfigurable {
 

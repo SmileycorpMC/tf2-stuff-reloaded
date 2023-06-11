@@ -13,12 +13,10 @@ public class EntityAIOwnerHurt extends EntityAITarget {
 
 	public EntityAIOwnerHurt(EntityCreature creature) {
 		super(creature, false, false);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean shouldExecute() {
-		// TODO Auto-generated method stub
 		EntityPlayer owner=(EntityPlayer) ((EntityTF2Character) this.taskOwner).getOwner();
 		return owner != null && (owner.getRevengeTarget() != null || owner.getLastAttackedEntity() != null);
 	}

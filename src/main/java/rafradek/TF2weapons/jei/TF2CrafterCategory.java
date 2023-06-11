@@ -1,10 +1,6 @@
 package rafradek.TF2weapons.jei;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.common.collect.Lists;
-
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.ICraftingGridHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -15,12 +11,7 @@ import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IFocus;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.config.Constants;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBow;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -29,6 +20,9 @@ import rafradek.TF2weapons.item.ItemApplicableEffect;
 import rafradek.TF2weapons.item.ItemTF2;
 import rafradek.TF2weapons.item.crafting.AustraliumRecipe;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TF2CrafterCategory implements IRecipeCategory<TF2CrafterRecipeWrapper> {
 

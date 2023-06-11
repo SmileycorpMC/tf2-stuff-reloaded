@@ -1,21 +1,7 @@
 package rafradek.TF2weapons.common;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.MinecraftProfileTexture.Type;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.DefaultPlayerSkin;
@@ -58,21 +44,19 @@ import rafradek.TF2weapons.entity.mercenary.EntityScout;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.projectile.EntityGrapplingHook;
 import rafradek.TF2weapons.entity.projectile.EntityStickybomb;
-import rafradek.TF2weapons.item.ItemChargingTarge;
-import rafradek.TF2weapons.item.ItemCloak;
-import rafradek.TF2weapons.item.ItemHuntsman;
-import rafradek.TF2weapons.item.ItemMinigun;
-import rafradek.TF2weapons.item.ItemParachute;
-import rafradek.TF2weapons.item.ItemSapper;
-import rafradek.TF2weapons.item.ItemSniperRifle;
-import rafradek.TF2weapons.item.ItemToken;
-import rafradek.TF2weapons.item.ItemUsable;
-import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.potion.PotionTF2;
 import rafradek.TF2weapons.potion.PotionTF2Item;
 import rafradek.TF2weapons.util.TF2Util;
 import rafradek.TF2weapons.util.WeaponData;
+
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class WeaponsCapability implements ICapabilityProvider, INBTSerializable<NBTTagCompound> {
 

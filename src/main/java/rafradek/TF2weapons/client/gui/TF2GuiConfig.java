@@ -1,13 +1,13 @@
 package rafradek.TF2weapons.client.gui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
 import rafradek.TF2weapons.TF2weapons;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TF2GuiConfig extends GuiConfig {
 

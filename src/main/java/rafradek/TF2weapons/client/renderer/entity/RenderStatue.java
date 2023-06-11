@@ -1,7 +1,5 @@
 package rafradek.TF2weapons.client.renderer.entity;
 
-import java.nio.FloatBuffer;
-
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -11,6 +9,8 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.util.ResourceLocation;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.entity.EntityStatue;
+
+import java.nio.FloatBuffer;
 
 public class RenderStatue extends Render<EntityStatue> {
 
@@ -136,7 +136,6 @@ public class RenderStatue extends Render<EntityStatue> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityStatue entity) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

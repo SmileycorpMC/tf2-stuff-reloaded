@@ -431,6 +431,8 @@ weaponAttribute.DamageWhenDisguisedBonus=+%1$s damage bonus when disguised
 weaponAttribute.ProvideWhenActive=Provide attributes when active
 weaponAttribute.ReverseBuilding=Reverse building progress
 weaponAttribute.HealthDegen=Lose %1$s health per second
+weaponAttribute.Pyrovision=Visit Pyroland
+weaponAttribute.VisiblePyroland=Only Visible in Pyroland
 
 container.upgrades=Upgrades station
 container.currency=Credits: %1$s

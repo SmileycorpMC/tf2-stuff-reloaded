@@ -8,6 +8,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import rafradek.TF2weapons.client.PyrolandRenderer;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemProjectileWeapon;
 
@@ -20,9 +21,16 @@ public class EntityFlameEffect extends Particle {
 		this.motionY = motionY;
 		this.motionZ = motionZ;
 		// this.noClip=false;
-		this.particleRed = this.particleGreen = this.particleBlue = 1.0F;
 		this.particleMaxAge = time;
-		this.setParticleTextureIndex(48);
+		if (PyrolandRenderer.INSTANCE.shouldRenderPyrovision() && rand.nextInt(5)>1) {
+			this.setParticleTextureIndex(65);
+			particleRed = rand.nextFloat();
+			particleGreen = rand.nextFloat();
+			particleBlue = rand.nextFloat();
+		} else {
+			this.particleRed = this.particleGreen = this.particleBlue = 1.0F;
+			this.setParticleTextureIndex(48);
+		}
 	}
 
 	@Override

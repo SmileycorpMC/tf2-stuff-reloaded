@@ -56,7 +56,6 @@ public class MapList {
 		weaponClasses.put("wrench", new ItemWrench());
 		weaponClasses.put("bonk", new ItemBonk());
 		weaponClasses.put("cosmetic", new ItemWearable());
-		weaponClasses.put("pyrovision", new ItemPyrovision());
 		weaponClasses.put("melee", new ItemMeleeWeapon());
 		weaponClasses.put("sapper", new ItemSapper());
 		weaponClasses.put("backpack", new ItemSoldierBackpack());

@@ -439,7 +439,9 @@ public class TF2Attribute {
 		new TF2Attribute(241, "ProvideWhenActive", "Provide When Active", Type.ADDITIVE, 0f, State.NEUTRAL);
 		new TF2Attribute(242, "ReverseBuilding", "ReverseBuilding", Type.ADDITIVE, 0f, State.POSITIVE);
 		new TF2Attribute(243, "HealthDegen", "Health Regen", Type.ADDITIVE, 0f, State.NEGATIVE);
-		new TF2Attribute(244, "Pyroland", "Enter Pyroland", Type.ADDITIVE, 0f, State.HIDDEN);
+		new TF2Attribute(244, "Pyrovision", "Pyrovision", Type.ADDITIVE, 0f, State.POSITIVE);
+		new TF2Attribute(245, "VisiblePyroland", "Visible in Pyroland", Type.ADDITIVE, 0f, State.NEGATIVE);
+		new TF2Attribute(246, "SpawnBubbles", "Spawns Bubbles", Type.ADDITIVE, 0f, State.HIDDEN);
 
 		/*
 		 * new TF2Attribute(139, "ChargeStep", "Charge Step", Type.ADDITIVE, 0,

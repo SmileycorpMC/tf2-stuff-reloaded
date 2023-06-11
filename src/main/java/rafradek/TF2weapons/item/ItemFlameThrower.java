@@ -69,6 +69,11 @@ public class ItemFlameThrower extends ItemAirblast {
 			else {
 				ClientProxy.spawnFlameParticle(world, living, 0f, false);
 				ClientProxy.spawnFlameParticle(world, living, 0.5f, false);
+				if (TF2Attribute.getModifier("Spawns Bubbles", stack, 0, living) > 0) {
+					world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, living.posX,
+							living.posY + living.getEyeHeight() - 0.1, living.posZ, living.motionX, 0.2D + living.motionY,
+							living.motionZ, new int[0]);
+				}
 			}
 			// System.out.println("to:
 			// "+ClientProxy.fireSounds.containsKey(living));

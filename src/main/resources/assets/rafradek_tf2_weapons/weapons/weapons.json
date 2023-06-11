@@ -3391,22 +3391,32 @@
 		"Based on": "flamethrower",
 		"Stock": "false",
 		"Cost": 19,
+		"Description": "Your friends (enemies) will squeal with delight (be consumed with fire) when you cover them in sparkly rainbows (all-consuming fire).",
 		"Render": "rafradek_tf2_weapons:rainblower",
 		"Fire start sound": "rafradek_tf2_weapons:weapon.start.rainblower",
 		"Fire stop sound": "rafradek_tf2_weapons:weapon.end.rainblower",
-		"Fire loop sound": "rafradek_tf2_weapons:weapon.fire.rainblower"
+		"Fire loop sound": "rafradek_tf2_weapons:weapon.fire.rainblower",
+		"Attributes": {
+			"Pyrovision": 1,
+			"VisiblePyroland": 1,
+			"SpawnBubbles": 1
+		}
 	},
 	"lollichop": {
 		"Name": "Lollichop",
 		"Class": "melee",
-		"Based on": "bottle",
+		"Based on": "fireaxe",
 		"Slot": {
 			"pyro": 2
 		},
 		"Cost": 10,
 		"Description": "Fill (split) your buddies' tummies (skulls)\nwith delicious candy (cold steel) with this\noversized sugary treat.",
 		"Render": "rafradek_tf2_weapons:lollichop",
-		"Hit sound": "rafradek_tf2_weapons:weapon.hit.axe"
+		"Hit sound": "rafradek_tf2_weapons:weapon.hit.axe",
+		"Attributes": {
+			"Pyrovision": 1,
+			"VisiblePyroland": 1
+		}
 	},
 	"scottishhandshake": {
 		"Name": "Scottish Handshake",

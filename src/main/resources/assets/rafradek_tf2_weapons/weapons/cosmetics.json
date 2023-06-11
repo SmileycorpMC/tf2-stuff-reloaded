@@ -122,13 +122,16 @@
  },
  "pyrogoggles": {
   "Name": "Pyrovision Goggles",
-  "Class": "pyrovision",
+  "Class": "cosmetic",
   "Render": "rafradek_tf2_weapons:pyrogoggles",
   "Cost": 1,
   "F2P": true,
   "Roll hidden": 1,
+  "Attributes": {
+   "Pyrovision": 1
+  },
   "Wear flags": 1,
-  "Description": "Now featuring actual pyrovision!"
+  "Description": "Enter a world of imagination that's far superior to the crap-ass worlds of imagination you get from books."
  },
  "planeswalkergoggles": {
   "Name": "Planeswalker Goggles",

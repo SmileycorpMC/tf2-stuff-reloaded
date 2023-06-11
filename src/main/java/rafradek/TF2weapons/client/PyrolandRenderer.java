@@ -8,12 +8,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import rafradek.TF2weapons.TF2weapons;
-import rafradek.TF2weapons.item.ItemPyrovision;
+import rafradek.TF2weapons.common.TF2Attribute;
+import rafradek.TF2weapons.item.ItemWearable;
 
 public class PyrolandRenderer {
 
@@ -50,17 +52,19 @@ public class PyrolandRenderer {
 
     private boolean shouldRenderPyrovision(EntityLivingBase entity) {
         if (entity == null) return false;
-        if (shouldRenderPyrovision(entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD))) return true;
+        for (EnumHand hand : EnumHand.values()) if (shouldRenderPyrovision(entity.getHeldItem(hand), entity, false)) return true;
+        if (shouldRenderPyrovision(entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD), entity, true)) return true;
         if (!entity.hasCapability(TF2weapons.INVENTORY_CAP, null)) return false;
         for (int i = 0; i < 2; i++) {
-            if (shouldRenderPyrovision(entity.getCapability(TF2weapons.INVENTORY_CAP, null).getStackInSlot(i))) return true;
+            if (shouldRenderPyrovision(entity.getCapability(TF2weapons.INVENTORY_CAP, null).getStackInSlot(i), entity, true)) return true;
         }
         return false;
     }
 
-    private boolean shouldRenderPyrovision(ItemStack stack) {
+    private boolean shouldRenderPyrovision(ItemStack stack, EntityLivingBase entity, boolean isWorn) {
         if (stack == null) return false;
-        return stack.getItem() instanceof ItemPyrovision;
+        return (!(stack.getItem() instanceof ItemWearable) || isWorn)
+                && TF2Attribute.getModifier("Pyrovision", stack, 0, entity) > 0;
     }
 
     private boolean isShaderLoaded() {

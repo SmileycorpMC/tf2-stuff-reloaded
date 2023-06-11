@@ -573,25 +573,24 @@ public abstract class TF2Message implements IMessage {
 
 	public static class GuiConfigMessage extends TF2Message {
 		// public int shooter;
-		NBTTagCompound tag;
+		private NBTTagCompound tag;
 		int containerid;
-		BlockPos pos;
+		private BlockPos pos;
 
 		public GuiConfigMessage() {
 
 		}
 
 		public GuiConfigMessage(NBTTagCompound tag, BlockPos pos) {
-			// this.shooter=shooter.getEntityId();
 			this.tag = tag;
 			this.pos = pos;
 		}
 
 		@Override
 		public void fromBytes(ByteBuf buf) {
-			this.pos = new PacketBuffer(buf).readBlockPos();
+			pos = new PacketBuffer(buf).readBlockPos();
 			try {
-				this.tag = new PacketBuffer(buf).readCompoundTag();
+				tag = new PacketBuffer(buf).readCompoundTag();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -601,6 +600,14 @@ public abstract class TF2Message implements IMessage {
 		public void toBytes(ByteBuf buf) {
 			new PacketBuffer(buf).writeBlockPos(pos);
 			new PacketBuffer(buf).writeCompoundTag(tag);
+		}
+
+		public NBTTagCompound getTag() {
+			return tag;
+		}
+
+		public BlockPos getPos() {
+			return pos;
 		}
 
 	}

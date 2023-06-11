@@ -31,6 +31,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.items.ItemHandlerHelper;
 import rafradek.TF2weapons.TF2PlayerCapability;
 import rafradek.TF2weapons.TF2weapons;
+import rafradek.TF2weapons.client.ClientHandler;
 import rafradek.TF2weapons.common.TF2Achievements;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.common.WeaponsCapability;
@@ -95,7 +96,7 @@ public class TF2ActionHandler implements IMessageHandler<TF2Message.ActionMessag
 				} else if (message.value == 18 && player.openContainer != null
 						&& player.openContainer instanceof ContainerMerchant
 						&& player.world.getCapability(TF2weapons.WORLD_CAP, null).lostItems
-								.containsKey(player.getName())) {
+						.containsKey(player.getName())) {
 					player.closeScreen();
 					final MerchantRecipeList listg = player.world.getCapability(TF2weapons.WORLD_CAP, null).lostItems
 							.get(player.getName());
@@ -186,7 +187,7 @@ public class TF2ActionHandler implements IMessageHandler<TF2Message.ActionMessag
 						if (player.getHeldItemMainhand().getItem() instanceof ItemGrapplingHook) {
 							WeaponsCapability.get(player).setPrimaryCooldown(EnumHand.MAIN_HAND,
 									((ItemGrapplingHook) player.getHeldItemMainhand().getItem())
-											.getFiringSpeed(player.getHeldItemMainhand(), player));
+									.getFiringSpeed(player.getHeldItemMainhand(), player));
 							player.motionY += 0.42;
 							player.velocityChanged = true;
 						}
@@ -234,7 +235,7 @@ public class TF2ActionHandler implements IMessageHandler<TF2Message.ActionMessag
 					int id4 = message.value - 100;
 					if (player != null && player.getHeldItemMainhand().getItem() instanceof IItemSlotNumber) {
 						((IItemSlotNumber) player.getHeldItemMainhand().getItem())
-								.onSlotSelection(player.getHeldItemMainhand(), player, id4);
+						.onSlotSelection(player.getHeldItemMainhand(), player, id4);
 
 					}
 				} else if (message.value >= 110 && message.value < 119) {
@@ -279,7 +280,7 @@ public class TF2ActionHandler implements IMessageHandler<TF2Message.ActionMessag
 							boolean success2 = false;
 							for (EntityTF2Character living1 : player.world.getEntities(EntityTF2Character.class,
 									test3 -> (test3.getOwner() == player
-											&& !(test3 instanceof EntityMedic || test3 instanceof EntityEngineer)))) {
+									&& !(test3 instanceof EntityMedic || test3 instanceof EntityEngineer)))) {
 								if (TF2Util.teleportSafe(living1, player)) {
 									success2 = true;
 									living1.setOrder(Order.FOLLOW);
@@ -368,8 +369,7 @@ public class TF2ActionHandler implements IMessageHandler<TF2Message.ActionMessag
 				}
 			});
 		} else {
-			final EntityLivingBase player = (EntityLivingBase) Minecraft.getMinecraft().world
-					.getEntityByID(message.entity);
+			final EntityLivingBase player = ClientHandler.getClientEntity(message.entity);
 			Minecraft.getMinecraft().addScheduledTask(() -> {
 				if (message.value <= 15)
 					handleMessage(message, player, true);

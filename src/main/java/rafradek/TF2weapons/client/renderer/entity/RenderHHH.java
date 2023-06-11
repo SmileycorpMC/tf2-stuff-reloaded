@@ -16,7 +16,6 @@ public class RenderHHH extends RenderBiped<EntityHHH> {
 	public RenderHHH(RenderManager renderManagerIn) {
 		super(renderManagerIn, new ModelBiped(), 0.8F);
 		this.addLayer(new LayerHeldItem(this));
-		// TODO Auto-generated constructor stub
 
 	}
 

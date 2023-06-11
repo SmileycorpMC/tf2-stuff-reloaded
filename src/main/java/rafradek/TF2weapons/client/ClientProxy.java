@@ -1,24 +1,7 @@
 package rafradek.TF2weapons.client;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
-import org.lwjgl.input.Keyboard;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -44,12 +27,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBow;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.MovementInput;
 import net.minecraft.util.ResourceLocation;
@@ -66,47 +44,19 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+import org.lwjgl.input.Keyboard;
 import rafradek.TF2weapons.TF2weapons;
-import rafradek.TF2weapons.client.audio.BuildingSound;
-import rafradek.TF2weapons.client.audio.OnFireSound;
-import rafradek.TF2weapons.client.audio.ReloadSound;
-import rafradek.TF2weapons.client.audio.WeaponLoopSound;
-import rafradek.TF2weapons.client.audio.WeaponSound;
+import rafradek.TF2weapons.client.audio.*;
 import rafradek.TF2weapons.client.gui.GuiConfirm;
 import rafradek.TF2weapons.client.gui.GuiDisguiseKit;
 import rafradek.TF2weapons.client.gui.inventory.GuiSentry;
 import rafradek.TF2weapons.client.gui.inventory.GuiTeleporter;
 import rafradek.TF2weapons.client.model.ModelRocket;
-import rafradek.TF2weapons.client.particle.EntityBisonEffect;
-import rafradek.TF2weapons.client.particle.EntityBulletTracer;
-import rafradek.TF2weapons.client.particle.EntityCritEffect;
-import rafradek.TF2weapons.client.particle.EntityFlameEffect;
-import rafradek.TF2weapons.client.particle.EntityMuzzleFlash;
-import rafradek.TF2weapons.client.particle.EnumTF2Particles;
-import rafradek.TF2weapons.client.particle.ParticleBulletHole;
-import rafradek.TF2weapons.client.particle.ParticleExplosion;
-import rafradek.TF2weapons.client.particle.ParticleGasSmoke;
+import rafradek.TF2weapons.client.particle.*;
 import rafradek.TF2weapons.client.renderer.LayerWearables;
-import rafradek.TF2weapons.client.renderer.entity.RenderBall;
-import rafradek.TF2weapons.client.renderer.entity.RenderDispenser;
-import rafradek.TF2weapons.client.renderer.entity.RenderFlare;
-import rafradek.TF2weapons.client.renderer.entity.RenderGrenade;
-import rafradek.TF2weapons.client.renderer.entity.RenderHHH;
-import rafradek.TF2weapons.client.renderer.entity.RenderJar;
-import rafradek.TF2weapons.client.renderer.entity.RenderMerasmus;
-import rafradek.TF2weapons.client.renderer.entity.RenderMonoculus;
-import rafradek.TF2weapons.client.renderer.entity.RenderPickup;
-import rafradek.TF2weapons.client.renderer.entity.RenderPlayerDisguised;
-import rafradek.TF2weapons.client.renderer.entity.RenderPlayerForceTexture;
-import rafradek.TF2weapons.client.renderer.entity.RenderProjectile;
-import rafradek.TF2weapons.client.renderer.entity.RenderProjectileSimple;
-import rafradek.TF2weapons.client.renderer.entity.RenderRocket;
-import rafradek.TF2weapons.client.renderer.entity.RenderSentry;
-import rafradek.TF2weapons.client.renderer.entity.RenderSprite;
-import rafradek.TF2weapons.client.renderer.entity.RenderStatue;
-import rafradek.TF2weapons.client.renderer.entity.RenderStickybomb;
-import rafradek.TF2weapons.client.renderer.entity.RenderTF2Character;
-import rafradek.TF2weapons.client.renderer.entity.RenderTeleporter;
+import rafradek.TF2weapons.client.renderer.entity.*;
 import rafradek.TF2weapons.client.renderer.tileentity.RenderDoor;
 import rafradek.TF2weapons.client.renderer.tileentity.RenderRobotDeploy;
 import rafradek.TF2weapons.common.CommonProxy;
@@ -122,22 +72,8 @@ import rafradek.TF2weapons.entity.building.EntityTeleporter;
 import rafradek.TF2weapons.entity.mercenary.EntitySaxtonHale;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.mercenary.InvasionEvent;
-import rafradek.TF2weapons.entity.projectile.EntityBall;
-import rafradek.TF2weapons.entity.projectile.EntityFlare;
-import rafradek.TF2weapons.entity.projectile.EntityFuryFireball;
-import rafradek.TF2weapons.entity.projectile.EntityGrenade;
-import rafradek.TF2weapons.entity.projectile.EntityJar;
-import rafradek.TF2weapons.entity.projectile.EntityOnyx;
-import rafradek.TF2weapons.entity.projectile.EntityProjectileSimple;
-import rafradek.TF2weapons.entity.projectile.EntityRocket;
-import rafradek.TF2weapons.entity.projectile.EntityRocketEffect;
-import rafradek.TF2weapons.entity.projectile.EntityStickybomb;
-import rafradek.TF2weapons.item.ItemAmmo;
-import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemKillstreakFabricator;
-import rafradek.TF2weapons.item.ItemKillstreakKit;
-import rafradek.TF2weapons.item.ItemRobotPart;
-import rafradek.TF2weapons.item.ItemUsable;
+import rafradek.TF2weapons.entity.projectile.*;
+import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.tileentity.TileEntityOverheadDoor;
 import rafradek.TF2weapons.tileentity.TileEntityRobotDeploy;
@@ -145,11 +81,17 @@ import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Util;
 import rafradek.TF2weapons.util.WeaponData;
 
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
 @SuppressWarnings("rawtypes")
 public class ClientProxy extends CommonProxy {
 
 	public static HashMap<String, ModelBase> entityModel = new HashMap<>();
 	public static HashMap<String, ResourceLocation> textureDisguise = new HashMap<>();
+
 	public static RenderCustomModel disguiseRender;
 	public static RenderLivingBase disguiseRenderPlayer;
 	public static RenderLivingBase disguiseRenderPlayerSmall;
@@ -312,6 +254,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit() {
 		MinecraftForge.EVENT_BUS.register(new TF2EventsClient());
+		MinecraftForge.EVENT_BUS.register(PyrovisionRenderer.INSTANCE);
 		OBJLoader.INSTANCE.addDomain(TF2weapons.MOD_ID.toLowerCase());
 
 		for (int i = 1; i < ItemAmmo.AMMO_TYPES.length; i++) {

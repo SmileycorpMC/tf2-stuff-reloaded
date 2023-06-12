@@ -11,10 +11,6 @@
 				{
                     "name": "Saturation",
                     "values": [ 2 ]
-                },
-                {
-                    "name": "BlueMatrix",
-                    "values": [ 0, 0.3, 0.3 ]
                 }
             ]
         },

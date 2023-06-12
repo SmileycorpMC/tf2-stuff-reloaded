@@ -3385,7 +3385,6 @@
 		"Render": "rafradek_tf2_weapons:original"
 	},
 	"rainblower": {
-		"_comments": "Needs to shoot bubbles instead of fire",
 		"Name": "Rainblower",
 		"Class": "flamethrower",
 		"Based on": "flamethrower",

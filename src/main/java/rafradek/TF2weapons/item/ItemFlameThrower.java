@@ -9,7 +9,10 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.lwjgl.util.vector.Vector3f;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.ClientProxy;
 import rafradek.TF2weapons.common.TF2Attribute;
@@ -62,27 +65,28 @@ public class ItemFlameThrower extends ItemAirblast {
 				SoundEvent playSound = ItemFromData.getSound(stack, PropertyType.FIRE_START_SOUND);
 				ClientProxy.playWeaponSound(living, playSound, false, 2, stack);
 			}
-			if (living.isInsideOfMaterial(Material.WATER))
-				world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, living.posX,
-						living.posY + living.getEyeHeight() - 0.1, living.posZ, living.motionX, 0.2D + living.motionY,
+			if (living.isInsideOfMaterial(Material.WATER)) {
+				Vec3d look = living.getLookVec();
+				Vec3d tangent = new Vec3d(-look.z, 0, look.x);
+				Vec3d pos = living.getPositionVector().addVector(tangent.x*0.3, living.getEyeHeight(), tangent.z*0.3)
+						.add(look.scale(0.5));
+				world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, pos.x,
+						pos.y, pos.z, living.motionX, 0.2D + living.motionY,
 						living.motionZ, new int[0]);
-			else {
+			} else {
 				ClientProxy.spawnFlameParticle(world, living, 0f, false);
 				ClientProxy.spawnFlameParticle(world, living, 0.5f, false);
 				if (TF2Attribute.getModifier("Spawns Bubbles", stack, 0, living) > 0) {
-					world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, living.posX,
-							living.posY + living.getEyeHeight() - 0.1, living.posZ, living.motionX, 0.2D + living.motionY,
-							living.motionZ, new int[0]);
+					Vec3d look = living.getLookVec();
+					Vec3d tangent = new Vec3d(-look.z, 0, look.x);
+					ClientProxy.spawnBubbleParticle(world, living, living.getPositionVector()
+							.addVector(tangent.x*0.25, living.getEyeHeight(), tangent.z*0.25)
+							.add(look.scale(0.5)));
+					ClientProxy.spawnBubbleParticle(world, living, living.getPositionVector()
+							.addVector(tangent.x*0.35, living.getEyeHeight(), tangent.z*0.35)
+							.add(look.scale(0.5)));
 				}
 			}
-			// System.out.println("to:
-			// "+ClientProxy.fireSounds.containsKey(living));
-			/*
-			 * if(ClientProxy.fireSounds.containsKey(living)){
-			 * System.out.println("to2: "+Minecraft.getMinecraft().
-			 * getSoundHandler().isSoundPlaying(ClientProxy.fireSounds.get(
-			 * living))+" "+ClientProxy.fireSounds.get(living).type); }
-			 */
 			if (TF2Util.calculateCritPre(stack, living) != 2 && (!ClientProxy.fireSounds.containsKey(living)
 					|| !Minecraft.getMinecraft().getSoundHandler().isSoundPlaying(ClientProxy.fireSounds.get(living))
 					|| (ClientProxy.fireSounds.get(living).type != 0 && ClientProxy.fireSounds.get(living).type != 2)))

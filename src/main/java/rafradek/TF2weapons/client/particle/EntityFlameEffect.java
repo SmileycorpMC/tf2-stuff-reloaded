@@ -4,7 +4,9 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -56,9 +58,10 @@ public class EntityFlameEffect extends Particle {
 
 	public static EntityFlameEffect createNewEffect(World world, EntityLivingBase living, float step, boolean heater) {
 		if (!heater) {
-			double posX = living.posX - MathHelper.cos(living.rotationYawHead / 180.0F * (float) Math.PI) * 0.16F;
-			double posY = living.posY + living.getEyeHeight() - 0.1;
-			double posZ = living.posZ - MathHelper.sin(living.rotationYawHead / 180.0F * (float) Math.PI) * 0.16F;
+			Vec3d look = living.getLookVec();
+			Vec3d tangent = new Vec3d(-look.z, 0, look.x);
+			Vec3d pos = living.getPositionVector().addVector(tangent.x*0.3, living.getEyeHeight(), tangent.z*0.3)
+					.add(look.scale(0.5));
 			double motionX = -MathHelper.sin(living.rotationYawHead / 180.0F * (float) Math.PI)
 					* MathHelper.cos(living.rotationPitch / 180.0F * (float) Math.PI);
 			double motionZ = MathHelper.cos(living.rotationYawHead / 180.0F * (float) Math.PI)
@@ -74,7 +77,7 @@ public class EntityFlameEffect extends Particle {
 			motionZ = (motionZ / f2 + world.rand.nextGaussian() * (world.rand.nextBoolean() ? -1 : 1) * 0.045D) * speed
 					+ living.motionZ;
 
-			return new EntityFlameEffect(world, posX + motionX * step, posY + motionY * step, posZ + motionZ * step,
+			return new EntityFlameEffect(world, pos.x + motionX * step, pos.y + motionY * step, pos.z + motionZ * step,
 					motionX, motionY, motionZ,
 					Math.round(3 + (TF2Attribute.getModifier("Flame Range", living.getHeldItemMainhand(), 2, null))));
 		} else {

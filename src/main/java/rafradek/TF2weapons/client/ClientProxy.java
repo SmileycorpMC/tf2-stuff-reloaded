@@ -35,6 +35,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
@@ -542,6 +543,11 @@ public class ClientProxy extends CommonProxy {
 
 	public static void spawnFlameParticle(World world, EntityLivingBase ent, float step, boolean heater) {
 		Particle entity = EntityFlameEffect.createNewEffect(world, ent, step, heater);
+		spawnParticle(world, entity);
+	}
+
+	public static void spawnBubbleParticle(World world, EntityLivingBase ent, Vec3d pos) {
+		Particle entity = EntityBubbleEffect.createNewEffect(world, ent, pos);
 		spawnParticle(world, entity);
 	}
 

@@ -10,6 +10,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -38,6 +39,8 @@ public class PyrolandRenderer {
     @SubscribeEvent
     public void playSound(PlaySoundEvent event) {
         ISound sound = event.getSound();
+        SoundCategory cat = sound.getCategory();
+        if (!(cat == SoundCategory.HOSTILE || cat == SoundCategory.PLAYERS || cat == SoundCategory.NEUTRAL)) return;
         if (sound instanceof PositionedSound && shouldRenderPyrovision()) {
             ((PositionedSound)sound).pitch = ((PositionedSound)sound).pitch * 1.5f;
         }

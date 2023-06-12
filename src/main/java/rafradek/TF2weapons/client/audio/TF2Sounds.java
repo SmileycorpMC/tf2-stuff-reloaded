@@ -20,41 +20,59 @@ public class TF2Sounds {
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.engineer.death"));
 	public static final SoundEvent MOB_ENGINEER_SAY = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.engineer.say"));
+	public static final SoundEvent MOB_ENGINEER_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.engineer.laughshort"));
+	public static final SoundEvent MOB_ENGINEER_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.engineer.laughhappy"));
 	public static final SoundEvent MOB_DEMOMAN_HURT = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.demoman.hurt"));
 	public static final SoundEvent MOB_DEMOMAN_DEATH = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.demoman.death"));
 	public static final SoundEvent MOB_DEMOMAN_SAY = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.demoman.say"));
+	public static final SoundEvent MOB_DEMOMAN_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.demoman.laughshort"));
+	public static final SoundEvent MOB_DEMOMAN_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.demoman.laughhappy"));
 	public static final SoundEvent MOB_HEAVY_HURT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.heavy.hurt"));
 	public static final SoundEvent MOB_HEAVY_DEATH = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.heavy.death"));
+	public static final SoundEvent MOB_HEAVY_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.heavy.laughshort"));
+	public static final SoundEvent MOB_HEAVY_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.heavy.laughhappy"));
 	public static final SoundEvent MOB_HEAVY_SAY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.heavy.say"));
 	public static final SoundEvent MOB_MEDIC_HURT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.medic.hurt"));
 	public static final SoundEvent MOB_MEDIC_DEATH = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.medic.death"));
+	public static final SoundEvent MOB_MEDIC_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.medic.laughshort"));
+	public static final SoundEvent MOB_MEDIC_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.medic.laughhappy"));
 	public static final SoundEvent MOB_MEDIC_SAY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.medic.say"));
 	public static final SoundEvent MOB_PYRO_HURT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.pyro.hurt"));
 	public static final SoundEvent MOB_PYRO_DEATH = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.pyro.death"));
 	public static final SoundEvent MOB_PYRO_SAY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.pyro.say"));
+	public static final SoundEvent MOB_PYRO_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.pyro.laughshort"));
+	public static final SoundEvent MOB_PYRO_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.pyro.laughhappy"));
 	public static final SoundEvent MOB_SCOUT_HURT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.scout.hurt"));
 	public static final SoundEvent MOB_SCOUT_DEATH = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.scout.death"));
 	public static final SoundEvent MOB_SCOUT_SAY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.scout.say"));
+	public static final SoundEvent MOB_SCOUT_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.scout.laughshort"));
+	public static final SoundEvent MOB_SCOUT_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.scout.laughhappy"));
 	public static final SoundEvent MOB_SNIPER_HURT = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.sniper.hurt"));
 	public static final SoundEvent MOB_SNIPER_DEATH = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.sniper.death"));
 	public static final SoundEvent MOB_SNIPER_SAY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.sniper.say"));
+	public static final SoundEvent MOB_SNIPER_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.sniper.laughshort"));
+	public static final SoundEvent MOB_SNIPER_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.sniper.laughhappy"));
 	public static final SoundEvent MOB_SOLDIER_HURT = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.soldier.hurt"));
 	public static final SoundEvent MOB_SOLDIER_DEATH = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.soldier.death"));
 	public static final SoundEvent MOB_SOLDIER_SAY = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.soldier.say"));
+	public static final SoundEvent MOB_SOLDIER_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.soldier.laughshort"));
+	public static final SoundEvent MOB_SOLDIER_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.soldier.laughhappy"));
 	public static final SoundEvent MOB_SPY_HURT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.spy.hurt"));
 	public static final SoundEvent MOB_SPY_DEATH = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.spy.death"));
-	public static final SoundEvent MOB_SPY_SAY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.spy.say"));
+	public static final SoundEvent MOB_SPY_SAY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.spy.laughshort"));
+	public static final SoundEvent MOB_SPY_LAUGH_SHORT = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.spy.laughshort"));
+	public static final SoundEvent MOB_SPY_LAUGH_HAPPY = register(new ResourceLocation(TF2weapons.MOD_ID, "mob.spy.laughhappy"));
 	public static final SoundEvent MOB_SAXTON_DEATH = register(
 			new ResourceLocation(TF2weapons.MOD_ID, "mob.saxton.death"));
 	public static final SoundEvent MOB_SAXTON_START = register(

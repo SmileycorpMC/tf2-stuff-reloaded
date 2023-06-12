@@ -1,5 +1,6 @@
 package rafradek.TF2weapons.client;
 
+import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.PositionedSound;
@@ -11,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -18,11 +20,28 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemWearable;
 
+import java.util.Map;
+
 public class PyrolandRenderer {
 
     private static final ResourceLocation PYROLAND_SHADER = new ResourceLocation("rafradek_tf2_weapons", "shaders/post/pyrovision.json");
 
     public static PyrolandRenderer INSTANCE = new PyrolandRenderer();
+
+    private static final Map<ResourceLocation, ResourceLocation> SOUND_MAP = createMap();
+
+    private static final Map<ResourceLocation, ResourceLocation> createMap() {
+        Map<ResourceLocation, ResourceLocation> map = Maps.newHashMap();
+        String[] classes = {"demoman", "engineer", "heavy", "medic", "pyro", "scout", "soldier", "sniper", "spy"};
+        for (String name : classes) {
+            map.put(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".hurt"),
+                    new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".laughshort"));
+            map.put(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".death"),
+                    new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".laughhappy"));
+        }
+        return map;
+    }
+
 
     @SubscribeEvent
     public void clientTick(TickEvent.ClientTickEvent event) {
@@ -42,7 +61,10 @@ public class PyrolandRenderer {
         SoundCategory cat = sound.getCategory();
         if (!(cat == SoundCategory.HOSTILE || cat == SoundCategory.PLAYERS || cat == SoundCategory.NEUTRAL)) return;
         if (sound instanceof PositionedSound && shouldRenderPyrovision()) {
-            ((PositionedSound)sound).pitch = ((PositionedSound)sound).pitch * 1.5f;
+            PositionedSound positionedsound = (PositionedSound) sound;
+            positionedsound.pitch = ((PositionedSound)sound).pitch * 1.5f;
+            if (SOUND_MAP.containsKey(sound.getSoundLocation()))
+                positionedsound.positionedSoundLocation = SOUND_MAP.get(sound.getSoundLocation());
         }
     }
 

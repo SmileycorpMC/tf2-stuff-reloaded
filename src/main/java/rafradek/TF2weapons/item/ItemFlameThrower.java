@@ -76,15 +76,16 @@ public class ItemFlameThrower extends ItemAirblast {
 			} else {
 				ClientProxy.spawnFlameParticle(world, living, 0f, false);
 				ClientProxy.spawnFlameParticle(world, living, 0.5f, false);
-				if (TF2Attribute.getModifier("Spawns Bubbles", stack, 0, living) > 0) {
+				if (TF2Attribute.getModifier("Spawns Bubbles", stack, 0, living) > 0 && living.ticksExisted%3==0) {
 					Vec3d look = living.getLookVec();
 					Vec3d tangent = new Vec3d(-look.z, 0, look.x);
-					ClientProxy.spawnBubbleParticle(world, living, living.getPositionVector()
-							.addVector(tangent.x*0.25, living.getEyeHeight(), tangent.z*0.25)
-							.add(look.scale(0.5)));
-					ClientProxy.spawnBubbleParticle(world, living, living.getPositionVector()
-							.addVector(tangent.x*0.35, living.getEyeHeight(), tangent.z*0.35)
-							.add(look.scale(0.5)));
+					Vec3d motion = new Vec3d(living.motionX, 0.02, living.motionZ);
+					ClientProxy.spawnBubbleParticle(world, living.getPositionVector()
+							.addVector(tangent.x*0.25, living.getEyeHeight(), tangent.z*0.2)
+							.add(look.scale(0.5)), motion.add(tangent.scale(-0.02)));
+					ClientProxy.spawnBubbleParticle(world, living.getPositionVector()
+							.addVector(tangent.x*0.35, living.getEyeHeight(), tangent.z*0.3)
+							.add(look.scale(0.5)), motion.add(tangent.scale(0.02)));
 				}
 			}
 			if (TF2Util.calculateCritPre(stack, living) != 2 && (!ClientProxy.fireSounds.containsKey(living)

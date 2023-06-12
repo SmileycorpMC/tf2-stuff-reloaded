@@ -25,13 +25,13 @@ public class EntityBubbleEffect extends Particle {
 		this.particleMaxAge = time;
 		this.particleRed = this.particleGreen = this.particleBlue = 1.0F;
 		this.particleScale = 0.5f;
+		this.particleMaxAge = 20;
 		this.setParticleTextureIndex(32);
 	}
 
 	@Override
 	public void renderParticle(BufferBuilder p_180434_1_, Entity p_180434_2_, float p_180434_3_, float p_180434_4_,
 			float p_180434_5_, float p_180434_6_, float p_180434_7_, float p_180434_8_) {
-		float f6 = (this.particleAge + p_180434_3_) / this.particleMaxAge;
 		super.renderParticle(p_180434_1_, p_180434_2_, p_180434_3_, p_180434_4_, p_180434_5_, p_180434_6_, p_180434_7_,
 				p_180434_8_);
 	}
@@ -48,8 +48,8 @@ public class EntityBubbleEffect extends Particle {
 		return 15728880;
 	}
 
-	public static EntityBubbleEffect createNewEffect(World world, EntityLivingBase living, Vec3d pos) {
+	public static EntityBubbleEffect createNewEffect(World world, Vec3d pos, Vec3d motion) {
 		return new EntityBubbleEffect(world, pos.x, pos.y, pos.z,
-				living.motionX, living.motionY+0.2, living.motionZ, 5);
+				motion.x, motion.y, motion.z, 5);
 	}
 }

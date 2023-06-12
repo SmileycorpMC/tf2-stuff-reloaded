@@ -546,8 +546,8 @@ public class ClientProxy extends CommonProxy {
 		spawnParticle(world, entity);
 	}
 
-	public static void spawnBubbleParticle(World world, EntityLivingBase ent, Vec3d pos) {
-		Particle entity = EntityBubbleEffect.createNewEffect(world, ent, pos);
+	public static void spawnBubbleParticle(World world, Vec3d pos, Vec3d direction) {
+		Particle entity = EntityBubbleEffect.createNewEffect(world, pos, direction);
 		spawnParticle(world, entity);
 	}
 

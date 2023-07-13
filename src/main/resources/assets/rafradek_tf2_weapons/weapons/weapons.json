@@ -909,7 +909,6 @@
 		"Stock": true
 	},
 	"axtinguisher": {
-		"_comments": "Needs updated perks",
 		"Name": "Axtinguisher",
 		"Class": "melee",
 		"Based on": "fireaxe",
@@ -919,9 +918,9 @@
 		"Cost": 9,
 		"Stock": false,
 		"Attributes": {
+			"DamagePenalty": 0.667,
 			"CritBurning": 1,
-			"NoRandomCrit": 1,
-			"DamageNonBurnPenalty": 0.5
+			"NoRandomCrit": 1
 		}
 	},
 	"powerjack": {

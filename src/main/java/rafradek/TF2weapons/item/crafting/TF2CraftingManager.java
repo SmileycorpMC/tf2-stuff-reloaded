@@ -226,6 +226,223 @@ public class TF2CraftingManager {
 		addRecipe(new RecipeToken(null, new ItemStack(TF2weapons.itemTF2, 1, 9),
 				new Object[] { new ItemStack(TF2weapons.itemTF2, 1, 3),
 						new ItemStack(TF2weapons.itemToken, 1, OreDictionary.WILDCARD_VALUE) }));
+
+		//TF2 Blueprint Recipes
+		addShapelessRecipe(ItemFromData.getNewStack("cleaver"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("madmilk"), ItemFromData.getNewStack("madmilk"), ItemFromData.getNewStack("madmilk"));
+		addShapelessRecipe(ItemFromData.getNewStack("babyfaceblaster"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("shortstop"), ItemFromData.getNewStack("shortstop"));
+		addShapelessRecipe(ItemFromData.getNewStack("prettyboyspocketpistol"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("madmilk"), ItemFromData.getNewStack("winger"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("wrapassassin"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("southernhospitality"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("sodapopper"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("bonk"), ItemFromData.getNewStack("forceanature"));
+		addShapelessRecipe(ItemFromData.getNewStack("winger"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("shortstop"));
+		addShapelessRecipe(ItemFromData.getNewStack("atomizer"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("bonk"), ItemFromData.getNewStack("sandman"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("fanowar"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("madmilk"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("sunonastick"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("bostonbasher"));
+		addShapelessRecipe(ItemFromData.getNewStack("candycane"), ItemFromData.getNewStack("kritzkrieg"),
+				ItemFromData.getNewStack("paintrain"));
+		addShapelessRecipe(ItemFromData.getNewStack("shortstop"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("forceanature"));
+		addShapelessRecipe(ItemFromData.getNewStack("madmilk"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("jarate"));
+		addShapelessRecipe(ItemFromData.getNewStack("holymackerel"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("sandman"));
+		addShapelessRecipe(ItemFromData.getNewStack("critcola"), ItemFromData.getNewStack("kritzkrieg"),
+				ItemFromData.getNewStack("bonk"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("backscatter"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("shortstop"), ItemFromData.getNewStack("critcola"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("beggarbazooka"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("directhit"), ItemFromData.getNewStack("directhit"), ItemFromData.getNewStack("directhit"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("escape"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("disciplinary"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("original"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				new ItemStack(TF2weapons.itemTF2, 1, 3), new ItemStack(TF2weapons.itemTF2, 1, 4));
+		addShapelessRecipe(ItemFromData.getNewStack("cowmangler"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("blackbox"));
+		addShapelessRecipe(new ItemStack(TF2weapons.itemMantreads), new ItemStack(TF2weapons.itemTF2, 1, 5),
+				new ItemStack(TF2weapons.itemGunboats));
+		/*addShapelessRecipe(ItemFromData.getNewStack("reserveshooter"), new ItemStack(TF2weapons.itemTF2, 1, 5),
+				new ItemStack(TF2weapons.itemTF2, 1, 5), ItemFromData.getNewStack("frontierjustice"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("disciplinary"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("paintrain"));
+		addShapelessRecipe(ItemFromData.getNewStack("marketgarden"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemGunboats), ItemFromData.getNewStack("paintrain"));
+		addShapelessRecipe(ItemFromData.getNewStack("halfzatoichi"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("eyelander"), ItemFromData.getNewStack("eyelander"));
+		addShapelessRecipe(ItemFromData.getNewStack("concheror"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("battalionbackup"));
+		addShapelessRecipe(ItemFromData.getNewStack("blackbox"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("directhit"));
+		addShapelessRecipe(ItemFromData.getNewStack("battalionbackup"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("buffbanner"));
+		addShapelessRecipe(new ItemStack(TF2weapons.itemGunboats), ItemFromData.getNewStack("razorback"),
+				ItemFromData.getNewStack("chargintarge"));
+		addShapelessRecipe(ItemFromData.getNewStack("paintrain"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("sandman"));
+		addShapelessRecipe(ItemFromData.getNewStack("rocketjumper"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemMantreads), new ItemStack(TF2weapons.itemMantreads), new ItemStack(TF2weapons.itemMantreads));
+		addShapelessRecipe(ItemFromData.getNewStack("airstrike"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("beggarbazooka"), new ItemStack(TF2weapons.itemGunboats));
+		addShapelessRecipe(ItemFromData.getNewStack("basejumper"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("buffbanner"), ItemFromData.getNewStack("stickybomblauncher"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("panicattack"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("backscatter"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("neonannihilator"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("thirddegree"), ItemFromData.getNewStack("thirddegree"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("scorchshot"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("flaregun"), ItemFromData.getNewStack("degreaser"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("phlog"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("sodapopper"), ItemFromData.getNewStack("backburner"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("manmelter"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("detonator"));
+		addShapelessRecipe(ItemFromData.getNewStack("thirddegree"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("axtinguisher"), ItemFromData.getNewStack("powerjack"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("reserveshooter"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("frontierjustice"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("flaregun"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("detonator"));
+		addShapelessRecipe(ItemFromData.getNewStack("sharpenedvolcanofragment"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("axtinguisher"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("backscratcher"), ItemFromData.getNewStack("axtinguisher"),
+				ItemFromData.getNewStack("scotsmansskullcutter"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("degreaser"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("backburner"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("powerjack"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("axtinguisher"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("homewrecker"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("equalizer"));*/
+		/*addShapelessRecipe(new ItemStack(TF2weapons.itemWeeBooties), new ItemStack(TF2weapons.itemMantreads),
+				ItemFromData.getNewStack("gru"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("splendidscreen"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("chargintarge"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("persianpursuader"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("halfzatoichi"), ItemFromData.getNewStack("halfzatoichi"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("halfzatoichi"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("eyelander"), ItemFromData.getNewStack("eyelander"));
+		addShapelessRecipe(ItemFromData.getNewStack("lochnload"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("scottishresistance"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("caber"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("paintrain"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("caber"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("paintrain"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("claidheamhmor"), ItemFromData.getNewStack("homewrecker"),
+				ItemFromData.getNewStack("chargintarge"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("headtaker"), new ItemStack(TF2weapons.itemTF2, 1, 5),
+				new ItemStack(TF2weapons.itemTF2, 1, 5), new ItemStack(TF2weapons.itemTF2, 1, 8),
+				ItemFromData.getNewStack("scotsmansskullcutter"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("scotsmansskullcutter"), ItemFromData.getNewStack("axtinguisher"),
+				ItemFromData.getNewStack("jarate"));
+		addShapelessRecipe(ItemFromData.getNewStack("paintrain"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("sandman"));
+		addShapelessRecipe(ItemFromData.getNewStack("loosecannon"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("lochnload"), ItemFromData.getNewStack("lochnload"), ItemFromData.getNewStack("lochnload"));
+		addShapelessRecipe(ItemFromData.getNewStack("stickyjumper"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("caber"), ItemFromData.getNewStack("caber"), ItemFromData.getNewStack("caber"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("tideturner"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemWeeBooties), ItemFromData.getNewStack("chargintarge"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("ironbomber"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("airstrike"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("quickiebomblauncher"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("tideturner"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("heater"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("familybusiness"), ItemFromData.getNewStack("familybusiness"),
+				ItemFromData.getNewStack("familybusiness"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("holidaypunch"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("holymackerel"), ItemFromData.getNewStack("gru"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("tomislav"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("brassbeast"));
+		addShapelessRecipe(ItemFromData.getNewStack("familybusiness"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("frontierjustice"), ItemFromData.getNewStack("homewrecker"));
+		addShapelessRecipe(ItemFromData.getNewStack("evictionnotice"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("fistofsteel"));
+		addShapelessRecipe(ItemFromData.getNewStack("brassbeast"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("natascha"));
+		/*addShapelessRecipe(new ItemStack(TF2weapons.itemBuffaloSandvich), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemSandvich));*/
+		addShapelessRecipe(ItemFromData.getNewStack("warriorsspirit"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("gru"));
+		addShapelessRecipe(ItemFromData.getNewStack("fistofsteel"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("gru"));
+		addShapelessRecipe(new ItemStack(TF2weapons.itemChocolate), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				new ItemStack(TF2weapons.itemSandvich));
+		addShapelessRecipe(ItemFromData.getNewStack("pomson"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("righterousbison"), ItemFromData.getNewStack("shortcircuit"));
+		addShapelessRecipe(ItemFromData.getNewStack("eurekaeffect"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("jag"), ItemFromData.getNewStack("jag"));
+		addShapelessRecipe(ItemFromData.getNewStack("widowmaker"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("letranger"));
+		addShapelessRecipe(ItemFromData.getNewStack("shortcircuit"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("gunslinger"));
+		addShapelessRecipe(ItemFromData.getNewStack("jag"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("southernhospitality"));
+		addShapelessRecipe(ItemFromData.getNewStack("southernhospitality"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("ambassador"));
+		addShapelessRecipe(ItemFromData.getNewStack("rescueranger"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("eurekaeffect"), ItemFromData.getNewStack("eurekaeffect"),
+				ItemFromData.getNewStack("eurekaeffect"));
+		addShapelessRecipe(ItemFromData.getNewStack("overdose"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("gru"), ItemFromData.getNewStack("crossbow"));
+		addShapelessRecipe(ItemFromData.getNewStack("quickfix"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("madmilk"), ItemFromData.getNewStack("kritzkrieg"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("solemnvow"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("jarate"), ItemFromData.getNewStack("jarate"),
+				ItemFromData.getNewStack("jarate"), ItemFromData.getNewStack("jarate"),
+				ItemFromData.getNewStack("jarate"), ItemFromData.getNewStack("jarate"),
+				ItemFromData.getNewStack("jarate"), ItemFromData.getNewStack("jarate"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("crossbow"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("huntsman"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("amputator"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("vitasaw"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("vitasaw"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("ubersaw"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("vaccinator"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("quickfix"), ItemFromData.getNewStack("quickfix"), ItemFromData.getNewStack("quickfix"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("heatmaker"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("machina"), ItemFromData.getNewStack("bazaarbargain"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("cleanerscarbine"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("bushwacka"), ItemFromData.getNewStack("bushwacka"), ItemFromData.getNewStack("bushwacka"));
+		addShapelessRecipe(ItemFromData.getNewStack("cozycamper"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("jarate"), ItemFromData.getNewStack("razorback"));
+		addShapelessRecipe(ItemFromData.getNewStack("machina"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("righterousbison"), ItemFromData.getNewStack("sydneysleeper"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("bazaarbargain"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("sydneysleeper"), ItemFromData.getNewStack("eyelander"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("shahanshah"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("amputator"), ItemFromData.getNewStack("bushwacka"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("sydneysleeper"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("huntsman"));
+		addShapelessRecipe(ItemFromData.getNewStack("dangershield"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("razorback"));
+		addShapelessRecipe(ItemFromData.getNewStack("bushwacka"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("eyelander"));
+		addShapelessRecipe(ItemFromData.getNewStack("tribalmansshiv"), ItemFromData.getNewStack("deadringer"),
+				ItemFromData.getNewStack("huntsman"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("classic"),  new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("huntsman"), ItemFromData.getNewStack("bazaarbargain"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("recorder"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("spycicle"), ItemFromData.getNewStack("spycicle"),
+				ItemFromData.getNewStack("spycicle"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("spycicle"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("eternalreward"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("diamondback"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("frontierjustice"), ItemFromData.getNewStack("deadringer"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("enforcer"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("lestranger"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("bigearner"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("kunai"), ItemFromData.getNewStack("lestranger"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("kunai"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("eternalreward"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("lestranger"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("deadringer"));*/
+		/*addShapelessRecipe(ItemFromData.getNewStack("eternalreward"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("cloakanddagger"));*/
 	}
 
 	public ShapedRecipes addRecipe(ItemStack stack, Object... recipeComponents) {

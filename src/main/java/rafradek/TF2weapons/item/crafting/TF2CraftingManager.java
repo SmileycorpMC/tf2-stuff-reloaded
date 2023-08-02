@@ -294,8 +294,8 @@ public class TF2CraftingManager {
 				ItemFromData.getNewStack("buffbanner"), ItemFromData.getNewStack("stickybomblauncher"));
 		/*addShapelessRecipe(ItemFromData.getNewStack("panicattack"), new ItemStack(TF2weapons.itemTF2, 1, 4),
 				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("backscatter"));*/
-		addShapelessRecipe(ItemFromData.getNewStack("neonannihilator"), new ItemStack(TF2weapons.itemTF2, 1, 4),
-				ItemFromData.getNewStack("thirddegree"), ItemFromData.getNewStack("thirddegree"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("neonannihilator"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				ItemFromData.getNewStack("thirddegree"), ItemFromData.getNewStack("thirddegree"));*/
 		/*addShapelessRecipe(ItemFromData.getNewStack("scorchshot"), new ItemStack(TF2weapons.itemTF2, 1, 4),
 				ItemFromData.getNewStack("flaregun"), ItemFromData.getNewStack("degreaser"));*/
 		/*addShapelessRecipe(ItemFromData.getNewStack("phlog"), new ItemStack(TF2weapons.itemTF2, 1, 4),
@@ -330,8 +330,6 @@ public class TF2CraftingManager {
 				ItemFromData.getNewStack("scottishresistance"));
 		/*addShapelessRecipe(ItemFromData.getNewStack("caber"), new ItemStack(TF2weapons.itemTF2, 1, 3),
 				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("paintrain"));*/
-		addShapelessRecipe(ItemFromData.getNewStack("caber"), new ItemStack(TF2weapons.itemTF2, 1, 3),
-				new ItemStack(TF2weapons.itemTF2, 1, 3), ItemFromData.getNewStack("paintrain"));
 		/*addShapelessRecipe(ItemFromData.getNewStack("claidheamhmor"), ItemFromData.getNewStack("homewrecker"),
 				ItemFromData.getNewStack("chargintarge"));*/
 		/*addShapelessRecipe(ItemFromData.getNewStack("headtaker"), new ItemStack(TF2weapons.itemTF2, 1, 5),
@@ -347,8 +345,8 @@ public class TF2CraftingManager {
 				ItemFromData.getNewStack("caber"), ItemFromData.getNewStack("caber"), ItemFromData.getNewStack("caber"));
 		/*addShapelessRecipe(ItemFromData.getNewStack("tideturner"), new ItemStack(TF2weapons.itemTF2, 1, 4),
 				new ItemStack(TF2weapons.itemWeeBooties), ItemFromData.getNewStack("chargintarge"));*/
-		addShapelessRecipe(ItemFromData.getNewStack("ironbomber"), new ItemStack(TF2weapons.itemTF2, 1, 4),
-				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("airstrike"));
+		/*addShapelessRecipe(ItemFromData.getNewStack("ironbomber"), new ItemStack(TF2weapons.itemTF2, 1, 4),
+				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("airstrike"));*/
 		/*addShapelessRecipe(ItemFromData.getNewStack("quickiebomblauncher"), new ItemStack(TF2weapons.itemTF2, 1, 4),
 				new ItemStack(TF2weapons.itemTF2, 1, 4), ItemFromData.getNewStack("tideturner"));*/
 		addShapelessRecipe(ItemFromData.getNewStack("heater"), new ItemStack(TF2weapons.itemTF2, 1, 4),

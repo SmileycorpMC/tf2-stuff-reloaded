@@ -152,7 +152,7 @@ public class ClientProxy extends CommonProxy {
 			if (stack.getItemDamage() < 25) {
 				return stack.getItemDamage() < 9 ? 16711680 : 255;
 			} else if (stack.getItemDamage() / 2 == 13)
-				return 0xFFFFFF;
+				return 0xFFD400;
 			else if (stack.getItemDamage() == 28)
 				return 0x743501;
 			else if (stack.getItemDamage() == 29)
@@ -523,7 +523,7 @@ public class ClientProxy extends CommonProxy {
 					}
 				});
 		RenderingRegistry.registerEntityRenderingHandler(EntitySaxtonHale.class,
-				manager -> new RenderBiped<EntitySaxtonHale>(manager, new ModelBiped(), 0.5F) {
+				manager -> new RenderBiped<EntitySaxtonHale>(manager, new ModelBiped(0.1f), 0.5F) {
 					private final ResourceLocation TEXTURE = new ResourceLocation(TF2weapons.MOD_ID,
 							"textures/entity/tf2/SaxtonHale.png");
 

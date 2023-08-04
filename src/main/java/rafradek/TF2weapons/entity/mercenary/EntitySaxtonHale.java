@@ -74,6 +74,7 @@ public class EntitySaxtonHale extends EntityCreature implements INpc, IMerchant 
 		this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true));
 		this.experienceValue = 1500;
 		this.stepHeight = 1f;
+		this.setSize(0.6F, 1.99F);
 	}
 
 	@Override

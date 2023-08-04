@@ -53,7 +53,7 @@ public class ItemMoney extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
-		tooltip.add(I18n.format("item.tf2money.desc", getValue(stack)));
+		tooltip.add(I18n.format("item."+TF2weapons.MOD_ID+".tf2money.desc", getValue(stack)));
 	}
 
 	public static void collect(ItemStack stack, EntityPlayer player) {

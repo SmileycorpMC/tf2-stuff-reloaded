@@ -284,7 +284,7 @@ public class ItemMonsterPlacerPlus extends Item {
 			s1 = "merasmus";
 		s1 = I18n.translateToLocal("entity." + s1 + ".name");
 		if (p_77653_1_.getItemDamage() == 27)
-			s1 = s1.concat(" " + I18n.translateToLocal("item.placer.hostile"));
+			s1 = s1.concat(" " + I18n.translateToLocal("item." + TF2weapons.MOD_ID + ".placer.hostile"));
 		return s.concat(" " + s1);
 	}
 

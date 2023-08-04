@@ -64,7 +64,7 @@ public class ItemBossSpawner extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
-		tooltip.add(I18n.format("item." + NAMES[stack.getMetadata() % NAMES.length] + ".desc"));
+		tooltip.add(I18n.format("item." + TF2weapons.MOD_ID + NAMES[stack.getMetadata() % NAMES.length] + ".desc"));
 	}
 
 	@Override

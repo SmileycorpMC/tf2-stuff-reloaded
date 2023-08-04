@@ -433,6 +433,8 @@ weaponAttribute.ReverseBuilding=Reverse building progress
 weaponAttribute.HealthDegen=Lose %1$s health per second
 weaponAttribute.Pyrovision=Visit Pyroland
 weaponAttribute.VisiblePyroland=Only Visible in Pyroland
+weaponAttribute.MedicHealBonus=+%1$s more healing from Medic sources
+weaponAttribute.MedicHealPenalty=-%1$s less healing from Medic sources
 
 container.upgrades=Upgrades station
 container.currency=Credits: %1$s

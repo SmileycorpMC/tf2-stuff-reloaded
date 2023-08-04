@@ -858,7 +858,6 @@
 		}
 	},
 	"equalizer": {
-		"_comments": "Needs damage health bonus",
 		"Name": "Equalizer",
 		"Class": "melee",
 		"Based on": "shovel",
@@ -869,9 +868,9 @@
 		"Cost": 9,
 		"Stock": false,
 		"Attributes": {
+			"DamageHealthBonus": 0.55,
 			"DamagePenalty": 0.75,
-			"FireRateHealthBonus": 0.55,
-			"FireRatePenalty": 1.15
+			"MedicHealPenalty": 0.10
 		}
 	},
 	"paintrain": {

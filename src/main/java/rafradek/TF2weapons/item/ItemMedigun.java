@@ -382,7 +382,8 @@ public class ItemMedigun extends ItemUsable {
 			mult *= 3f;
 		}
 		return mult * TF2Attribute.getModifierGlobal("Medic Heal", TF2Attribute.getModifier("Heal", stack,
-				ItemFromData.getData(stack).getFloat(PropertyType.HEAL), living), living);
+				ItemFromData.getData(stack).getFloat(PropertyType.HEAL), living), living)
+				* TF2Attribute.getModifierGlobal("Healing From Medic", 1, target);
 	}
 
 	public int getUbers(ItemStack stack, EntityLivingBase living) {

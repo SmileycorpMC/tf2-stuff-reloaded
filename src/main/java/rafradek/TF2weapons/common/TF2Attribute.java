@@ -442,6 +442,8 @@ public class TF2Attribute {
 		new TF2Attribute(244, "Pyrovision", "Pyrovision", Type.ADDITIVE, 0f, State.POSITIVE);
 		new TF2Attribute(245, "VisiblePyroland", "Visible in Pyroland", Type.ADDITIVE, 0f, State.NEGATIVE);
 		new TF2Attribute(246, "SpawnBubbles", "Spawns Bubbles", Type.ADDITIVE, 0f, State.HIDDEN);
+		new TF2Attribute(247, "MedicHealBonus", "Healing From Medic", Type.PERCENTAGE, 1f, State.POSITIVE);
+		new TF2Attribute(248, "MedicHealPenalty", "Healing From Medic", Type.INVERTED_PERCENTAGE, 1f, State.NEGATIVE);
 
 		/*
 		 * new TF2Attribute(139, "ChargeStep", "Charge Step", Type.ADDITIVE, 0,

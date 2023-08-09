@@ -483,6 +483,7 @@ public class TF2Attribute {
 		float value = initial;
 
 		IItemHandler itemHandler = TF2Util.getLoadoutItemHandler(entity);
+		if (itemHandler == null) return initial;
 		for (int i = 0; i < itemHandler.getSlots(); i++) {
 			ItemStack stack = itemHandler.getStackInSlot(i);
 			if (!stack.hasCapability(TF2weapons.WEAPONS_DATA_CAP, null))

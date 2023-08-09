@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = "1.12.2-1.7.2"
+version = "1.12.2-1.7.2a"
 group= "rafradek.TF2weapons"
 archivesBaseName = "TF2-Stuff-Reloaded"
 

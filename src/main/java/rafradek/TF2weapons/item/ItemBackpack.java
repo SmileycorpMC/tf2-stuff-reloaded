@@ -57,6 +57,7 @@ public class ItemBackpack extends ItemFromData {
 
 	@Override
 	public boolean showDurabilityBar(ItemStack stack) {
+		if (stack.getTagCompound() == null) return false;
 		return stack.getTagCompound().getShort("Cooldown") > 0 || super.showDurabilityBar(stack);
 	}
 

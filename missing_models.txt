@@ -1,0 +1,91 @@
+missing weapons
+back scatter
+fan o' war
+wrap assassin
+escape plan
+nostromo napalmer
+backburner
+degreaser
+homewrecker
+maul
+back scratcher
+neon annihilator
+ali baba's wee booties
+bootlegger
+iron bomber
+tide turner
+ullapool caber
+claidheamh mor
+persian pursuader
+robo-sandvich
+fishcake
+second banana
+holiday punch
+frontier justice
+golden wrench
+vita-saw
+amputator
+solemn vow
+bazaar bargain
+hitman's heatmaker
+shahanshah
+l'estranger
+black rose
+big earner
+spy-cicle
+cloak and dagger
+red-tape recorder
+saxxy
+conscientious objector
+memory maker
+golden frying pan
+necro smasher
+crossing guard
+prinny machete
+
+weapons with only textures, no unique models - up to decide if they need unique models
+sandvich
+dalokoh's bar
+splendid screen
+chargin' targe
+gas passer
+mad milk
+self-aware beauty mark
+mutated milk
+jarate
+fortified compound
+huntsman
+kukri
+sharpened volvano fragment
+fire axe
+third degree
+axtinguisher
+bottle
+scottish handshake
+eyelander
+shovel
+market gardener
+killing gloves of boxing
+gloves of running urgently
+fists of steel
+apoco-fists
+breat bite
+equalizer
+ham shank
+bushwacka
+horseless headless horseman's headtaker
+frying pan
+bonesaw
+tibalman's shiv
+disciplinary action
+bonk!
+crit-a-cola
+wrangler
+flying guillotine
+wanga prick
+your eternal reward
+conniver's kunai
+sapper
+ap-sap
+snack attack
+dead ringer

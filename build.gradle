@@ -2,20 +2,24 @@ buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
 		maven { url 'https://www.cursemaven.com' }
+		maven { url "https://repo.spongepowered.org/repository/maven-public/" }
         jcenter()
         mavenCentral()
+		gradlePluginPortal()
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+		classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+		classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
     }
 }
         
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
 
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-
-version = "1.12.2-1.7.2b"
+version = "1.12.2-1.7.3"
 group= "rafradek.TF2weapons"
 archivesBaseName = "TF2-Stuff-Reloaded"
 
@@ -44,7 +48,12 @@ minecraft {
     }
 }
 
+mixin {
+    add sourceSets.main, "mixins.tf2stuff-reloaded.refmap.json"
+}
+
 repositories {
+    maven { url = 'https://repo.spongepowered.org/maven' }
     maven { url = 'https://www.cursemaven.com'}
 }
 
@@ -55,6 +64,7 @@ configurations {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+	implementation "org.spongepowered:mixin:0.8"
 	implementation 'curse.maven:jei-238222:3043174'
 	implementation 'curse.maven:dynamiclights-227874:2563244'
 	implementation 'curse.maven:cofhcore-69162:2920433'
@@ -73,13 +83,30 @@ jar {
             "Implementation-Vendor" :"rafradek",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
 			"FMLAT": "tf2_at.cfg",
-			"ForceLoadAsMod": "true"
+			"ForceLoadAsMod": "true",
+			"FMLCorePluginContainsFMLMod": true,
+			"TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
+			"MixinConfigs": "mixins.tf2stuff-reloaded.json"
         ])
         
     }
 }
 
-jar.finalizedBy('reobfJar') 
+shadowJar {
+	classifier = ''
+	exclude 'LICENSE.txt'
+	dependencies {
+		include(dependency("org.spongepowered:mixin:0.8"))
+	}
+}
+
+build.dependsOn(shadowJar)
+
+reobf {
+    shadowJar {}
+}
+
+build.dependsOn(reobf)
 
 processResources {
     inputs.property "version", project.version
@@ -92,18 +119,5 @@ processResources {
         
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
-    }
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
     }
 }

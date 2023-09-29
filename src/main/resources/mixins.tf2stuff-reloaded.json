@@ -1,0 +1,11 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "rafradek.TF2weapons.mixin",
+  "refmap": "mixins.tf2stuff-reloaded.refmap.json",
+  "mixins": [],
+  "client": [
+    "MixinItemModelMesher",
+    "MixinRenderItem"
+  ],
+  "server": []
+}

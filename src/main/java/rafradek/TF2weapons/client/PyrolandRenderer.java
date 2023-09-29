@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.PositionedSound;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -28,20 +28,18 @@ public class PyrolandRenderer {
 
     public static PyrolandRenderer INSTANCE = new PyrolandRenderer();
 
-    private static final Map<ResourceLocation, ResourceLocation> SOUND_MAP = createMap();
+    private final Map<ResourceLocation, ResourceLocation> SOUND_MAP = Maps.newHashMap();
+    private final Map<ModelResourceLocation, ModelResourceLocation> MODEL_MAP = Maps.newHashMap();
 
-    private static final Map<ResourceLocation, ResourceLocation> createMap() {
-        Map<ResourceLocation, ResourceLocation> map = Maps.newHashMap();
+    private PyrolandRenderer() {
         String[] classes = {"demoman", "engineer", "heavy", "medic", "pyro", "scout", "soldier", "sniper", "spy"};
         for (String name : classes) {
-            map.put(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".hurt"),
+            registerSoundReplacement(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".hurt"),
                     new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".laughshort"));
-            map.put(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".death"),
+            registerSoundReplacement(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".death"),
                     new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".laughhappy"));
         }
-        return map;
     }
-
 
     @SubscribeEvent
     public void clientTick(TickEvent.ClientTickEvent event) {
@@ -106,5 +104,20 @@ public class PyrolandRenderer {
         mc.entityRenderer.loadEntityShader(mc.getRenderViewEntity());
     }
 
+    public void registerSoundReplacement(ResourceLocation sound, ResourceLocation replacement) {
+        SOUND_MAP.put(sound, replacement);
+    }
+
+    public void registerModelReplacement(ModelResourceLocation model, ModelResourceLocation replacement) {
+        MODEL_MAP.put(model, replacement);
+    }
+
+    public boolean hasReplacementModel(ModelResourceLocation loc) {
+        return MODEL_MAP.containsKey(loc);
+    }
+
+    public ModelResourceLocation getReplacementModel(ModelResourceLocation loc) {
+        return loc;
+    }
 
 }

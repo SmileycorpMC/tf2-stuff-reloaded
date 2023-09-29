@@ -873,6 +873,22 @@
 			"MedicHealPenalty": 0.10
 		}
 	},
+	"escapeplan": {
+		"Name": "Escape Plan",
+		"Class": "melee",
+		"Based on": "shovel",
+		"Fire sound": "rafradek_tf2_weapons:weapon.fire.equalizer",
+		"Hit sound": "rafradek_tf2_weapons:weapon.hit.bottle",
+		"Render": "rafradek_tf2_weapons:escapeplan",
+		"Drop chance": 0.11,
+		"Cost": 9,
+		"Stock": false,
+		"Attributes": {
+			"MoveSpeedHealthBonus": 0.55,
+			"MarkForDeath": 1,
+			"MedicHealPenalty": 0.10
+		}
+	},
 	"paintrain": {
 		"_comments": "capture points not fully added and effect is only downside is survival, may need an extra survival effect?",
 		"Name": "Pain Train",

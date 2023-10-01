@@ -16,6 +16,7 @@ import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.item.crafting.*;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.WeaponData;
 
 import java.util.Collections;
@@ -54,6 +55,7 @@ public class TF2CrafterRecipeWrapper implements IRecipeWrapper {
 	public void getIngredients(IIngredients ingredients) {
 		ingredients.setOutput(VanillaTypes.ITEM, recipe.getRecipeOutput());
 		List<List<ItemStack>> inputs = Lists.newArrayList();
+
 		if (recipe instanceof AustraliumRecipe) {
 			upgradeInputSlot = 4;
 			upgradeStackFunction = (stack) -> {
@@ -131,15 +133,15 @@ public class TF2CrafterRecipeWrapper implements IRecipeWrapper {
 			inputs.add(crates);
 		} else if (recipe instanceof RecipeToScrap) {
 			int token = ((RecipeToScrap) recipe).token;
-			String tfclass = (token >= 0 && token < 9) ? ItemToken.CLASS_NAMES[token] : null;
+			TF2Class clazz = (token >= 0 && token < 9) ? TF2Class.getClass(token) : TF2Class.NONE;
 			List<ItemStack> weapons = Lists.newArrayList();
 			for (Entry<String, WeaponData> entry : MapList.nameToData.entrySet()) {
-				if (!entry.getValue().getBoolean(PropertyType.HIDDEN) && (entry.getValue().get(PropertyType.SLOT).containsKey(tfclass) || tfclass == null)
-						&! (entry.getValue().getString(PropertyType.CLASS).equals("crate")))
+				if (!entry.getValue().getBoolean(PropertyType.HIDDEN) && (entry.getValue().get(PropertyType.SLOT).containsKey(clazz.getName()) || clazz == TF2Class.NONE)
+						& !(entry.getValue().getString(PropertyType.CLASS).equals("crate")))
 					weapons.add(ItemFromData.getNewStack(entry.getValue()));
 
 			}
-			for (int i = 0; i < (tfclass == null ? 2 : 3); i ++) {
+			for (int i = 0; i < (clazz == TF2Class.NONE ? 2 : 3); i++) {
 				List<ItemStack> input = Lists.newArrayList(weapons);
 				Collections.shuffle(input);
 				inputs.add(input);

@@ -27,6 +27,7 @@ import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.tileentity.TileEntityGameConfigure;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 import java.util.*;
@@ -211,7 +212,7 @@ public class GameArena implements INBTSerializable<NBTTagCompound> {
 		if (WeaponsCapability.get(player).getUsedToken() != -1) {
 			for (int i = 0; i < 5; i++) {
 				ItemStack weapon = ItemFromData.getRandomWeaponOfSlotMob(
-						ItemToken.CLASS_NAMES[WeaponsCapability.get(player).getUsedToken()], i, player.getRNG(), false,
+						TF2Class.getClass(WeaponsCapability.get(player).getUsedToken()), i, player.getRNG(), false,
 						0xFFFFFFFF, false);
 				if (!weapon.isEmpty()) {
 					weapon.getTagCompound().setBoolean(NBTLiterals.STACK_ARENA_ASSIGNED, true);
@@ -347,7 +348,7 @@ public class GameArena implements INBTSerializable<NBTTagCompound> {
 			this.bounds = new AxisAlignedBB(boundsMin[0], boundsMin[1], boundsMin[2], boundsMax[0], boundsMax[1],
 					boundsMax[2]);
 		}
-		this.defaultClass = ItemToken.getClassID(tag.getString("C:Default Class"));
+		this.defaultClass = TF2Class.getClass(tag.getString("C:Default Class")).getIndex();
 		this.showClassSelection = tag.getBoolean("Show Class Selection");
 		this.showTeamSelection = tag.getBoolean("Show Team Selection");
 		if (tag.hasKey("T:Default Team"))
@@ -362,7 +363,7 @@ public class GameArena implements INBTSerializable<NBTTagCompound> {
 			tag.setIntArray("Min Bounds", new int[] { (int) bounds.minX, (int) bounds.minY, (int) bounds.minZ });
 			tag.setIntArray("Max Bounds", new int[] { (int) bounds.maxX, (int) bounds.maxY, (int) bounds.maxZ });
 		}
-		tag.setString("C:Default Class", this.defaultClass == -1 ? "none" : ItemToken.CLASS_NAMES[this.defaultClass]);
+		tag.setString("C:Default Class", this.defaultClass == -1 ? "none" : TF2Class.getClass(this.defaultClass).getName());
 		tag.setBoolean("Show Class Selection", this.showClassSelection);
 		if (this.defaultTeam != null)
 			tag.setString("T:Default Team", this.defaultTeam.getName());

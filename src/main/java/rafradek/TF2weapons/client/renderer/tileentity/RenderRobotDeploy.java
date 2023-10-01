@@ -9,7 +9,10 @@ import net.minecraft.util.math.BlockPos;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.model.ModelTF2Character;
 import rafradek.TF2weapons.client.renderer.entity.RenderTF2Character;
+import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.tileentity.TileEntityRobotDeploy;
+import rafradek.TF2weapons.util.TF2Class;
+import rafradek.TF2weapons.util.TF2Util;
 
 public class RenderRobotDeploy extends TileEntitySpecialRenderer<TileEntityRobotDeploy> {
 
@@ -27,7 +30,8 @@ public class RenderRobotDeploy extends TileEntitySpecialRenderer<TileEntityRobot
 		if (progress > 0) {
 			GlStateManager.pushMatrix();
 			Tessellator tessellator = Tessellator.getInstance();
-			this.bindTexture(RenderTF2Character.ROBOT_TEXTURES[te.classType]);
+			bindTexture(new ResourceLocation(RenderTF2Character.TEXTURE_PATH_BASE + "robot/" +
+					te.classType.getName() + ".png"));
 			boolean giant = te.produceGiant();
 			float f1 = (te.getBlockMetadata() & 3) * 360 / 4F;
 			GlStateManager.translate((float) x + 0.5f, (float) y + 1.2 + (giant ? 0.6f : 0), (float) z + 0.5f);

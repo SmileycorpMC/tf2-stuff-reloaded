@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.TF2weapons;
+import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class ItemBuildingBox extends ItemMonsterPlacerPlus implements IItemNoSwi
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ItemToken.allowUse(playerIn, "engineer")) {
+		if (ItemToken.allowUse(playerIn, TF2Class.ENGINEER)) {
 			return super.onItemUse(playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);
 		} else {
 			return EnumActionResult.FAIL;
@@ -54,7 +55,7 @@ public class ItemBuildingBox extends ItemMonsterPlacerPlus implements IItemNoSwi
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		if (ItemToken.allowUse(playerIn, "engineer")) {
+		if (ItemToken.allowUse(playerIn, TF2Class.ENGINEER)) {
 			return super.onItemRightClick(worldIn, playerIn, hand);
 		} else {
 			return new ActionResult<>(EnumActionResult.FAIL, playerIn.getHeldItem(hand));

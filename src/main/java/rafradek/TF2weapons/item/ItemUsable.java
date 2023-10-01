@@ -24,11 +24,13 @@ import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.message.TF2Message.PredictionMessage;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 import rafradek.TF2weapons.util.WeaponData;
 
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public abstract class ItemUsable extends ItemFromData {
 	// public ConfigCategory data;
@@ -184,11 +186,11 @@ public abstract class ItemUsable extends ItemFromData {
 				&& this.getFiringSpeed(stack, living) != Integer.MAX_VALUE;
 	}
 
-	public Set<String> getUsableClasses(ItemStack stack) {
+	public Set<TF2Class> getUsableClasses(ItemStack stack) {
 		if ((getData(stack).get(PropertyType.SLOT).isEmpty()) && getData(stack).hasProperty(PropertyType.BASED_ON)) {
 			stack = getNewStack(getData(stack).getString(PropertyType.BASED_ON));
 		}
-		return getData(stack).get(PropertyType.SLOT).keySet();
+		return getData(stack).get(PropertyType.SLOT).keySet().stream().map(TF2Class::getClass).collect(Collectors.toSet());
 	}
 
 	public abstract boolean fireTick(ItemStack stack, EntityLivingBase living, World world);

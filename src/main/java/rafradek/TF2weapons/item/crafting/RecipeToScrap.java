@@ -10,6 +10,7 @@ import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -33,7 +34,7 @@ public class RecipeToScrap extends net.minecraftforge.registries.IForgeRegistryE
 			if (!stack.isEmpty())
 				if (stack.getItem() instanceof ItemFromData
 						&& ItemFromData.getData(stack).getInt(PropertyType.COST) >= 6 && (token == -1 || ItemFromData
-								.getData(stack).get(PropertyType.SLOT).containsKey(ItemToken.CLASS_NAMES[token]))) {
+								.getData(stack).get(PropertyType.SLOT).containsKey(TF2Class.getClass(token).getName()))) {
 					stacks.add(stack);
 				} else
 					return false;

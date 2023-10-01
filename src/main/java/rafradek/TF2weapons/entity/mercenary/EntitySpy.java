@@ -22,6 +22,7 @@ import rafradek.TF2weapons.item.ItemCloak;
 import rafradek.TF2weapons.item.ItemDisguiseKit;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemMeleeWeapon;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class EntitySpy extends EntityTF2Character {
@@ -143,7 +144,7 @@ public class EntitySpy extends EntityTF2Character {
 	@Override
 	protected void addWeapons() {
 		super.addWeapons();
-		this.loadout.setStackInSlot(1, ItemFromData.getRandomWeaponOfSlotMob("spy", 1, this.rand, true,
+		this.loadout.setStackInSlot(1, ItemFromData.getRandomWeaponOfSlotMob(getTF2Class(), 1, this.rand, true,
 				this.getStockWeight(1), this.noEquipment));
 		this.loadout.getStackInSlot(1).setCount(64);
 	}
@@ -237,8 +238,8 @@ public class EntitySpy extends EntityTF2Character {
 	}
 
 	@Override
-	public int getClassIndex() {
-		return 8;
+	public TF2Class getTF2Class() {
+		return TF2Class.SPY;
 	}
 
 	@Override

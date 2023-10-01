@@ -20,6 +20,7 @@ import rafradek.TF2weapons.entity.mercenary.EntitySpy;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.ReflectionAccess;
+import rafradek.TF2weapons.util.TF2Class;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -92,7 +93,7 @@ public class ItemCloak extends ItemFromData {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer living, EnumHand hand) {
 		ItemStack stack = living.getHeldItem(hand);
-		if (ItemToken.allowUse(living, "spy")) {
+		if (ItemToken.allowUse(living, TF2Class.SPY)) {
 			if (living.isInvisible()
 					|| (!isFeignDeath(stack, living) && stack.getItemDamage() < this.getMaxDamage(stack) - 72)) {
 				this.setCloak(!WeaponsCapability.get(living).isInvisible(), stack, living, world);

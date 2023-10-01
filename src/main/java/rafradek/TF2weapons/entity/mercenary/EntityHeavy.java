@@ -11,6 +11,7 @@ import rafradek.TF2weapons.client.audio.TF2Sounds;
 import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemFromData;
+import rafradek.TF2weapons.util.TF2Class;
 
 public class EntityHeavy extends EntityTF2Character {
 
@@ -131,8 +132,8 @@ public class EntityHeavy extends EntityTF2Character {
 	}
 
 	@Override
-	public int getClassIndex() {
-		return 4;
+	public TF2Class getTF2Class() {
+		return TF2Class.HEAVY;
 	}
 
 	@Override

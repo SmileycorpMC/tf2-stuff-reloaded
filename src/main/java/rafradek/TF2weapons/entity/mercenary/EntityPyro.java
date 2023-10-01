@@ -17,6 +17,7 @@ import rafradek.TF2weapons.common.WeaponsCapability.RageType;
 import rafradek.TF2weapons.entity.ai.EntityAIAirblast;
 import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class EntityPyro extends EntityTF2Character {
@@ -189,7 +190,8 @@ public class EntityPyro extends EntityTF2Character {
 	 * super.getAttributeModifier(attribute); }
 	 */
 	@Override
-	public int getClassIndex() {
-		return 2;
+	public TF2Class getTF2Class() {
+		return TF2Class.PYRO;
 	}
+
 }

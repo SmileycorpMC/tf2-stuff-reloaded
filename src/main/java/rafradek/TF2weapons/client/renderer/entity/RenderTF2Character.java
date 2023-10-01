@@ -26,35 +26,12 @@ import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.entity.mercenary.EntityHeavy;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.item.ItemMeleeWeapon;
-import rafradek.TF2weapons.item.ItemToken;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class RenderTF2Character extends RenderBiped<EntityTF2Character> {
 
-	private static final String TEXTURE_PATH_BASE = TF2weapons.MOD_ID + ":textures/entity/tf2/";
-
-	public static final ResourceLocation[] RED_TEXTURES;
-	public static final ResourceLocation[] BLU_TEXTURES;
-	public static final ResourceLocation[] ROBOT_TEXTURES;
-	private static final ResourceLocation[] ROBOT_BLU_TEXTURES;
-	private static final ResourceLocation[] ROBOT_RED_TEXTURES;
-
-	static {
-		RED_TEXTURES = putResourcesFor("red");
-		BLU_TEXTURES = putResourcesFor("blu");
-		ROBOT_TEXTURES = putResourcesFor("robot");
-		ROBOT_RED_TEXTURES = putResourcesFor("robot_red");
-		ROBOT_BLU_TEXTURES = putResourcesFor("robot_blu");
-	}
-
-	private static ResourceLocation[] putResourcesFor(String name) {
-		ResourceLocation[] location = new ResourceLocation[9];
-		for (int i = 0; i < 9; i++) {
-			location[i] = new ResourceLocation(TEXTURE_PATH_BASE + name + "/" + ItemToken.CLASS_NAMES[i] + ".png");
-		}
-
-		return location;
-	}
+	public static final String TEXTURE_PATH_BASE = TF2weapons.MOD_ID + ":textures/entity/tf2/";
 
 	public ModelBiped modelHeavy = new ModelHeavy();
 	public ModelBiped modelMain;
@@ -69,31 +46,18 @@ public class RenderTF2Character extends RenderBiped<EntityTF2Character> {
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityTF2Character par1EntityLiving) {
-		// String clazz = null;
-		int clazz;
-		boolean sameTeam = Minecraft.getMinecraft().player != null
-				&& TF2Util.isOnSameTeam(Minecraft.getMinecraft().player, par1EntityLiving);
-		if (!sameTeam && WeaponsCapability.get(par1EntityLiving).isDisguised()
-				&& WeaponsCapability.get(par1EntityLiving).getDisguiseType().startsWith("T:"))
-			clazz = ItemToken
-					.getClassID(WeaponsCapability.get(par1EntityLiving).getDisguiseType().substring(2).toLowerCase());
-		else
-			clazz = par1EntityLiving.getClassIndex();
-		// System.out.println("class: "+clazz);
-		if (par1EntityLiving.getEntTeam() == 2 && !WeaponsCapability.get(par1EntityLiving).isDisguised()) {
-			if (par1EntityLiving.getOwnerId() != null) {
-				if (par1EntityLiving.getTeam() == par1EntityLiving.getWorld().getScoreboard().getTeam("BLU"))
-					return ROBOT_BLU_TEXTURES[clazz];
-				else
-					return ROBOT_RED_TEXTURES[clazz];
-			}
-			return ROBOT_TEXTURES[clazz];
-		} else if (par1EntityLiving.getEntTeam() == 0 || (!sameTeam && par1EntityLiving.getEntTeam() == 1
-				&& WeaponsCapability.get(par1EntityLiving).isDisguised()))
-			return RED_TEXTURES[clazz];
-		else
-			return BLU_TEXTURES[clazz];
+	protected ResourceLocation getEntityTexture(EntityTF2Character entity) {
+		StringBuilder texture = new StringBuilder(TEXTURE_PATH_BASE);
+		boolean disguised = WeaponsCapability.get(entity).isDisguised() &! TF2Util.isOnSameTeam(Minecraft.getMinecraft().player, entity);
+		if (entity.isRobot()) {
+			texture.append("robot");
+			if (entity.getOwnerId() != null) texture.append("_" + (entity.getTeam().getName().equals("BLU") ? "blu" : "red"));
+		} else texture.append((entity.getEntTeam() + (disguised ? 1 : 0)) % 2 == 0 ? "red" : "blu");
+		texture.append("/");
+		if (disguised && WeaponsCapability.get(entity).getDisguiseType().startsWith("T:"))
+			texture.append(TF2Class.getClass(WeaponsCapability.get(entity).getDisguiseType().substring(2)).getName());
+		else texture.append(entity.getTF2Class().getName());
+		return new ResourceLocation(texture.append(".png").toString());
 	}
 
 	@Override

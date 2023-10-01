@@ -33,6 +33,7 @@ import rafradek.TF2weapons.entity.building.EntityDispenser;
 import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.entity.building.EntityTeleporter;
 import rafradek.TF2weapons.util.PlayerPersistStorage;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 import javax.annotation.Nullable;
@@ -70,7 +71,7 @@ public class ItemPDA extends ItemFromData implements IItemSlotNumber, IItemOverl
 
 	@Override
 	public boolean catchSlotHotkey(ItemStack stack, EntityPlayer player) {
-		return ItemToken.allowUse(player, "engineer") && !stack.hasTagCompound()
+		return ItemToken.allowUse(player, TF2Class.ENGINEER) && !stack.hasTagCompound()
 				|| stack.getTagCompound().getByte("Building") == 0;
 	}
 

@@ -56,15 +56,12 @@ import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.entity.projectile.EntityProjectileBase;
 import rafradek.TF2weapons.inventory.InventoryLoadout;
 import rafradek.TF2weapons.item.*;
-import rafradek.TF2weapons.util.PlayerPersistStorage;
-import rafradek.TF2weapons.util.PropertyType;
-import rafradek.TF2weapons.util.TF2Util;
-import rafradek.TF2weapons.util.WeaponData;
+import rafradek.TF2weapons.util.*;
 
 import javax.annotation.Nullable;
 import java.util.*;
 
-public class EntityTF2Character extends EntityCreature implements IMob, IMerchant, IEntityTF2, IEntityOwnable {
+public abstract class EntityTF2Character extends EntityCreature implements IMob, IMerchant, IEntityTF2, IEntityOwnable {
 
 	public static final UUID SPEED_MULT_UUID = UUID.fromString("8ca1776e-72e8-4394-9d0f-0564fdec0b44");
 	public static final UUID SPEED_GIANT_MULT_UUID = UUID.fromString("8ca1776e-72e8-4394-9d0f-0564fdec0b41");
@@ -216,7 +213,7 @@ public class EntityTF2Character extends EntityCreature implements IMob, IMerchan
 	 */
 	@Override
 	public ItemStack getPickedResult(RayTraceResult target) {
-		ItemStack stack = new ItemStack(TF2weapons.itemPlacer, 1, this.getClassIndex() + 9 * (this.getEntTeam()));
+		ItemStack stack = new ItemStack(TF2weapons.itemPlacer, 1, getTF2Class().getIndex() + 9 * (this.getEntTeam()));
 
 		// stack.setTagCompound(new NBTTagCompound());
 		// stack.getTagCompound().setTag("SavedEntity", new NBTTagCompound());
@@ -233,15 +230,15 @@ public class EntityTF2Character extends EntityCreature implements IMob, IMerchan
 	}
 
 	protected void addWeapons() {
-		String className = ItemToken.CLASS_NAMES[this.getClassIndex()];
+		TF2Class clazz = getTF2Class();
 		// System.out.println("Class name: "+className);
-		this.loadout.setStackInSlot(0, ItemFromData.getRandomWeaponOfSlotMob(className, 0, this.rand, false,
+		this.loadout.setStackInSlot(0, ItemFromData.getRandomWeaponOfSlotMob(clazz, 0, this.rand, false,
 				this.getStockWeight(0), this.noEquipment));
-		this.loadout.setStackInSlot(1, ItemFromData.getRandomWeaponOfSlotMob(className, 1, this.rand, false,
+		this.loadout.setStackInSlot(1, ItemFromData.getRandomWeaponOfSlotMob(clazz, 1, this.rand, false,
 				this.getStockWeight(1), this.noEquipment));
-		this.loadout.setStackInSlot(2, ItemFromData.getRandomWeaponOfSlotMob(className, 2, this.rand, false,
+		this.loadout.setStackInSlot(2, ItemFromData.getRandomWeaponOfSlotMob(clazz, 2, this.rand, false,
 				this.getStockWeight(2), this.noEquipment));
-		this.loadout.setStackInSlot(3, ItemFromData.getRandomWeaponOfSlotMob(className, 3, this.rand, false,
+		this.loadout.setStackInSlot(3, ItemFromData.getRandomWeaponOfSlotMob(clazz, 3, this.rand, false,
 				this.getStockWeight(3), this.noEquipment));
 		if (!this.noEquipment && !this.isRobot()) {
 			if (this.rand.nextInt(Math.max(1, (int) ((14 - this.world.getDifficulty().getDifficultyId() * 3)
@@ -249,7 +246,7 @@ public class EntityTF2Character extends EntityCreature implements IMob, IMerchan
 				this.tradeLevel = 1;
 				this.difficulty = 1;
 				this.experienceValue *= 2;
-				ItemStack hat = ItemFromData.getRandomWeaponOfSlotMob(className, 9, this.rand, false,
+				ItemStack hat = ItemFromData.getRandomWeaponOfSlotMob(clazz, 9, this.rand, false,
 						this.getStockWeight(9), false);
 
 				if (!hat.isEmpty() && this.rand.nextInt(9) == 0) {
@@ -1550,8 +1547,8 @@ public class EntityTF2Character extends EntityCreature implements IMob, IMerchan
 
 			boolean buyItem = this.rand.nextBoolean();
 			int slot = getValidSlots()[this.rand.nextInt(getValidSlots().length)];
-			String className = ItemToken.CLASS_NAMES[this.getClassIndex()];
-			ItemStack item = ItemFromData.getRandomWeaponOfSlotMob(className, slot, this.getRNG(), false, 1, false);
+
+			ItemStack item = ItemFromData.getRandomWeaponOfSlotMob(getTF2Class(), slot, this.getRNG(), false, 1, false);
 
 			if (!item.isEmpty()) {
 				int cost = ItemFromData.getData(item).getInt(PropertyType.COST);
@@ -1604,7 +1601,7 @@ public class EntityTF2Character extends EntityCreature implements IMob, IMerchan
 		for (int i = 0; i < hatCount; i++) {
 
 			boolean buyItem = this.rand.nextBoolean();
-			ItemStack item = ItemFromData.getRandomWeaponOfClass("cosmetic", this.rand, false);
+			ItemStack item = ItemFromData.getRandomWeaponOfClass(TF2Class.COSMETIC, this.rand, false);
 			int cost = Math.max(1, ItemFromData.getData(item).getInt(PropertyType.COST));
 			if (i == 0 && this.tradeLevel == 2) {
 				((ItemWearable) item.getItem()).applyRandomEffect(item, rand);
@@ -2036,9 +2033,7 @@ public class EntityTF2Character extends EntityCreature implements IMob, IMerchan
 		return onTarget ? 1 : 0;
 	}
 
-	public int getClassIndex() {
-		return 0;
-	}
+	public abstract TF2Class getTF2Class();
 
 	/*
 	 * 0% - easy 50% - medium 75% - hard 87.5% - hard + hat 93.75% - hard + unusual
@@ -2125,27 +2120,4 @@ public class EntityTF2Character extends EntityCreature implements IMob, IMerchan
 		return mult;
 	}
 
-	public static EntityTF2Character createByClassId(World world, int id) {
-		switch (id) {
-		case 0:
-			return new EntityScout(world);
-		case 1:
-			return new EntitySoldier(world);
-		case 2:
-			return new EntityPyro(world);
-		case 3:
-			return new EntityDemoman(world);
-		case 4:
-			return new EntityHeavy(world);
-		case 5:
-			return new EntityEngineer(world);
-		case 6:
-			return new EntityMedic(world);
-		case 7:
-			return new EntitySniper(world);
-		case 8:
-			return new EntitySpy(world);
-		}
-		return null;
-	}
 }

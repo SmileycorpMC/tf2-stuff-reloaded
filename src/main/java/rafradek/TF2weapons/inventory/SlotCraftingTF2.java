@@ -12,6 +12,7 @@ import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.WeaponData;
 
 public class SlotCraftingTF2 extends SlotCrafting {
@@ -30,15 +31,15 @@ public class SlotCraftingTF2 extends SlotCrafting {
 	public ItemStack onTake(EntityPlayer playerIn, ItemStack stack) {
 		if (stack.getItem() == TF2weapons.itemTF2 && stack.getMetadata() == 9) {
 			if (stack.hasTagCompound()) {
-				String className = ItemToken.CLASS_NAMES[stack.getTagCompound().getByte("Token")];
+				TF2Class clazz = TF2Class.getClass(stack.getTagCompound().getByte("Token"));
 				stack = ItemFromData.getRandomWeapon(playerIn.getRNG(), Predicates.<WeaponData>and(
-						ItemFromData.VISIBLE_WEAPON, test -> test.get(PropertyType.SLOT).containsKey(className)));
+						ItemFromData.VISIBLE_WEAPON, test -> test.get(PropertyType.SLOT).containsKey(clazz.getName())));
 			} else
 				stack = ItemFromData.getRandomWeapon(playerIn.getRNG(), ItemFromData.VISIBLE_WEAPON);
 			// playerIn.addStat(TF2Achievements.HOME_MADE);
 			playerIn.inventory.setItemStack(stack);
 		} else if (stack.getItem() == TF2weapons.itemTF2 && stack.getMetadata() == 10) {
-			stack = ItemFromData.getRandomWeaponOfClass("cosmetic", playerIn.getRNG(), false);
+			stack = ItemFromData.getRandomWeaponOfClass(TF2Class.COSMETIC, playerIn.getRNG(), false);
 			playerIn.inventory.setItemStack(stack);
 		}
 		if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("Australium")) {

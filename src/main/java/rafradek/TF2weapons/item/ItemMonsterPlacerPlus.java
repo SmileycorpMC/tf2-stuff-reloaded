@@ -31,6 +31,7 @@ import rafradek.TF2weapons.entity.building.EntityDispenser;
 import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.entity.building.EntityTeleporter;
 import rafradek.TF2weapons.entity.mercenary.*;
+import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.List;
 
@@ -275,7 +276,7 @@ public class ItemMonsterPlacerPlus extends Item {
 		int i = p_77653_1_.getItemDamage();
 		String s1 = "hale";
 		if (i < 18 || (i >= 36 && i < 45))
-			s1 = ItemToken.CLASS_NAMES[i % 9];
+			s1 = TF2Class.getClass(i % 9).getName();
 		if (p_77653_1_.getItemDamage() == 28)
 			s1 = "monoculus";
 		if (p_77653_1_.getItemDamage() == 29)

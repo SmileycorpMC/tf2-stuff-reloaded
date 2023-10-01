@@ -48,6 +48,7 @@ import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.potion.PotionTF2;
 import rafradek.TF2weapons.potion.PotionTF2Item;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 import rafradek.TF2weapons.util.WeaponData;
 
@@ -950,13 +951,8 @@ public class WeaponsCapability implements ICapabilityProvider, INBTSerializable<
 				if (playerDisguise != null && TF2PlayerCapability.get(playerDisguise).isForceClassTexture()
 						&& WeaponsCapability.get(playerDisguise).getUsedToken() >= 0) {
 					this.skinType = "default";
-					if (TF2Util.getTeamForDisplay(playerDisguise) == 0) {
-						this.skinDisguise = RenderTF2Character.RED_TEXTURES[WeaponsCapability.get(playerDisguise)
-								.getUsedToken()];
-					} else {
-						this.skinDisguise = RenderTF2Character.BLU_TEXTURES[WeaponsCapability.get(playerDisguise)
-								.getUsedToken()];
-					}
+					new ResourceLocation(RenderTF2Character.TEXTURE_PATH_BASE + (TF2Util.getTeamForDisplay(playerDisguise) == 1 ? "blu" : "red")
+							+ "/" + TF2Class.getClass(WeaponsCapability.get(playerDisguise).getUsedToken()).getName() + ".png");
 				} else {
 					this.skinType = DefaultPlayerSkin.getSkinType(owner.getUniqueID());
 					THREAD_POOL.submit(() -> {
@@ -1305,7 +1301,7 @@ if (typeIn == Type.SKIN) {
 		int amount = 0;
 		if (this.owner instanceof EntityScout)
 			amount += 1;
-		else if (this.owner instanceof EntityPlayer && (this.getUsedToken() == 0 || (ItemToken.allowUse(owner, "scout")
+		else if (this.owner instanceof EntityPlayer && (this.getUsedToken() == 0 || (ItemToken.allowUse(owner, TF2Class.SCOUT)
 				&& owner.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == TF2weapons.itemScoutBoots))) {
 			amount += 1;
 		}

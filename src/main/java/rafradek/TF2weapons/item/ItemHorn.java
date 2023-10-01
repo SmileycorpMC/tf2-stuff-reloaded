@@ -16,6 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.common.WeaponsCapability.RageType;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class ItemHorn extends Item implements IBackpackItem {
@@ -53,7 +54,7 @@ public class ItemHorn extends Item implements IBackpackItem {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		ItemStack itemStackIn = playerIn.getHeldItem(hand);
 		ItemStack backpack = ItemBackpack.getBackpack(playerIn);
-		if (ItemToken.allowUse(playerIn, "soldier") && backpack.getItem() instanceof ItemSoldierBackpack
+		if (ItemToken.allowUse(playerIn, TF2Class.SOLDIER) && backpack.getItem() instanceof ItemSoldierBackpack
 				&& (WeaponsCapability.get(playerIn).getRage(RageType.BANNER) >= 1f)) {
 			playerIn.setActiveHand(hand);
 			if (TF2Util.getTeamForDisplay(playerIn) == 1)

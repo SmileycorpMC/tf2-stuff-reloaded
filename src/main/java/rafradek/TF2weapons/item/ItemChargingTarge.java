@@ -13,6 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 import javax.annotation.Nullable;
@@ -29,7 +30,7 @@ public class ItemChargingTarge extends ItemFromData {
 		// if (!living.getCapability(TF2weapons.WEAPONS_CAP,
 		// null).effectsCool.containsKey("Charging")) {
 		ItemStack stack = living.getHeldItem(hand);
-		if (ItemToken.allowUse(living, "demoman")) {
+		if (ItemToken.allowUse(living, TF2Class.DEMOMAN)) {
 
 			if (!world.isRemote)
 				living.addPotionEffect(new PotionEffect(TF2weapons.charging,

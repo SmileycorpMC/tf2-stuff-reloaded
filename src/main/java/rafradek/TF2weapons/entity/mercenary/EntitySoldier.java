@@ -15,6 +15,7 @@ import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.common.WeaponsCapability.RageType;
 import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class EntitySoldier extends EntityTF2Character {
@@ -215,6 +216,11 @@ public class EntitySoldier extends EntityTF2Character {
 	}
 
 	@Override
+	public TF2Class getTF2Class() {
+		return TF2Class.SOLDIER;
+	}
+
+	@Override
 	protected SoundEvent getAmbientSound() {
 		return TF2Sounds.MOB_SOLDIER_SAY;
 	}
@@ -248,11 +254,6 @@ public class EntitySoldier extends EntityTF2Character {
 			this.entityDropItem(ItemFromData.getNewStack("shotgun"), 0);
 		if (this.rand.nextFloat() < 0.05f + p_70628_2_ * 0.025f)
 			this.entityDropItem(ItemFromData.getNewStack("rocketlauncher"), 0);
-	}
-
-	@Override
-	public int getClassIndex() {
-		return 1;
 	}
 
 	public class UseBackpack extends EntityAIBase {

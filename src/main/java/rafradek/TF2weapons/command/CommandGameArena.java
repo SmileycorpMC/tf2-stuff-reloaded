@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.arena.GameArena;
-import rafradek.TF2weapons.item.ItemToken;
+import rafradek.TF2weapons.util.TF2Class;
 
 import javax.annotation.Nullable;
 import java.util.Collections;
@@ -145,7 +145,7 @@ public class CommandGameArena extends CommandBase {
 	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args,
 			@Nullable BlockPos targetPos) {
 		if (args.length == 1) {
-			return getListOfStringsMatchingLastWord(args, ItemToken.CLASS_NAMES);
+			return getListOfStringsMatchingLastWord(args, TF2Class.getClassNames());
 		} else if (args.length == 2) {
 			return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames());
 		} else {

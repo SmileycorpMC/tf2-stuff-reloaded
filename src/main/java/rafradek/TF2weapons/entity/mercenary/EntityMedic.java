@@ -22,6 +22,7 @@ import rafradek.TF2weapons.entity.ai.EntityAIUseMedigun;
 import rafradek.TF2weapons.entity.building.EntityBuilding;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemMedigun;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class EntityMedic extends EntityTF2Character {
@@ -251,7 +252,7 @@ public class EntityMedic extends EntityTF2Character {
 	}
 
 	@Override
-	public int getClassIndex() {
-		return 6;
+	public TF2Class getTF2Class() {
+		return TF2Class.MEDIC;
 	}
 }

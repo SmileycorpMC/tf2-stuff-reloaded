@@ -13,6 +13,7 @@ import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemSniperRifle;
 import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.util.TF2Class;
 
 public class EntitySniper extends EntityTF2Character {
 
@@ -160,8 +161,8 @@ public class EntitySniper extends EntityTF2Character {
 	}
 
 	@Override
-	public int getClassIndex() {
-		return 7;
+	public TF2Class getTF2Class() {
+		return TF2Class.SNIPER;
 	}
 
 	@Override

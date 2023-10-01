@@ -23,7 +23,7 @@ import rafradek.TF2weapons.entity.mercenary.TF2CharacterAdditionalData;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemMoney;
 import rafradek.TF2weapons.item.ItemRobotPart;
-import rafradek.TF2weapons.item.ItemToken;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 import javax.annotation.Nonnull;
@@ -44,8 +44,8 @@ public class TileEntityRobotDeploy extends TileEntity implements ITickable {
 		@Override
 		@Nonnull
 		public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-			String name = TF2Util.getWeaponUsedByClass(stack);
-			if (name == null || ItemFromData.getSlotForClass(ItemFromData.getData(stack), name) > 4
+			TF2Class name = TF2Util.getWeaponUsedByClass(stack);
+			if (name == TF2Class.NONE || ItemFromData.getSlotForClass(ItemFromData.getData(stack), name) > 4
 					|| ItemFromData.getSlotForClass(ItemFromData.getData(stack), name) == -1)
 				return stack;
 			else {
@@ -96,7 +96,7 @@ public class TileEntityRobotDeploy extends TileEntity implements ITickable {
 	int hasWeapon;
 	String weaponName;
 	public int progressClient;
-	public int classType;
+	public TF2Class classType;
 
 	public int getRequirement(int level) {
 		if (joined)
@@ -123,10 +123,10 @@ public class TileEntityRobotDeploy extends TileEntity implements ITickable {
 			ItemStack stack = this.weapon.getStackInSlot(i);
 
 			if (!stack.isEmpty()) {
-				String name = TF2Util.getWeaponUsedByClass(stack);
-				if (name != null) {
+				TF2Class clazz = TF2Util.getWeaponUsedByClass(stack);
+				if (clazz != null) {
 					hasWeapon = i;
-					weaponName = name;
+					weaponName = clazz.getName();
 					break;
 				}
 			}
@@ -160,7 +160,7 @@ public class TileEntityRobotDeploy extends TileEntity implements ITickable {
 					this.world.notifyBlockUpdate(getPos(), world.getBlockState(pos), world.getBlockState(pos), 0);
 				if (++progress >= this.maxprogress) {
 					ItemStack stack = this.weapon.extractItem(hasWeapon, 64, false);
-					String weaponName = TF2Util.getWeaponUsedByClass(stack);
+					String weaponName = TF2Util.getWeaponUsedByClass(stack).getName();
 					EnumFacing facing = this.getWorld().getBlockState(pos).getValue(BlockRobotDeploy.FACING);
 					EntityTF2Character entity = (EntityTF2Character) EntityList
 							.createEntityByIDFromName(new ResourceLocation(TF2weapons.MOD_ID, weaponName), this.world);
@@ -241,8 +241,7 @@ public class TileEntityRobotDeploy extends TileEntity implements ITickable {
 		if (this.maxprogress > 0) {
 			tag.setByte("P", (byte) ((float) this.progress / (float) this.maxprogress * 7f));
 			if (this.progress > 0)
-				tag.setByte("C", (byte) ItemToken
-						.getClassID(TF2Util.getWeaponUsedByClass(this.weapon.extractItem(hasWeapon, 64, true))));
+				tag.setByte("C", (byte) TF2Util.getWeaponUsedByClass(this.weapon.extractItem(hasWeapon, 64, true)).getIndex());
 		}
 		return new SPacketUpdateTileEntity(this.pos, 9999, tag);
 	}
@@ -251,7 +250,7 @@ public class TileEntityRobotDeploy extends TileEntity implements ITickable {
 	public void onDataPacket(net.minecraft.network.NetworkManager net,
 			net.minecraft.network.play.server.SPacketUpdateTileEntity pkt) {
 		this.progressClient = pkt.getNbtCompound().getByte("P");
-		this.classType = pkt.getNbtCompound().getByte("C");
+		this.classType = TF2Class.getClass(pkt.getNbtCompound().getByte("C"));
 	}
 
 	@Override

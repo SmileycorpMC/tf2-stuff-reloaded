@@ -21,7 +21,10 @@ import net.minecraftforge.items.SlotItemHandler;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character.Order;
-import rafradek.TF2weapons.item.*;
+import rafradek.TF2weapons.item.ItemAmmo;
+import rafradek.TF2weapons.item.ItemUsable;
+import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.item.ItemWearable;
 import rafradek.TF2weapons.util.TF2Util;
 
 import javax.annotation.Nonnull;
@@ -136,7 +139,7 @@ public class ContainerMercenary extends ContainerMerchant {
 								return false;
 							else {
 								return TF2Util.isWeaponOfClass(stack, this.getSlotIndex(),
-										ItemToken.CLASS_NAMES[merc.getClassIndex()]);
+										merc.getTF2Class());
 							}
 						}
 

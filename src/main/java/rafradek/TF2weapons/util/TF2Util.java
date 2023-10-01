@@ -435,7 +435,7 @@ public class TF2Util {
 	}
 
 	public static boolean isOnSameTeam(Entity entity1, Entity entity2) {
-		return entity2 != null
+		return entity1 != null && entity2 != null
 				&& ((TF2Util.getTeam(entity1) == TF2Util.getTeam(entity2) && TF2Util.getTeam(entity1) != null)
 						|| (entity1 instanceof IEntityOwnable && ((IEntityOwnable) entity1).getOwner() == entity2)
 						|| (entity2 instanceof IEntityOwnable && ((IEntityOwnable) entity2).getOwner() == entity1)
@@ -538,8 +538,8 @@ public class TF2Util {
 
 	/**
 	 * @param x        coordinates of point to be tested
-	 * @param t        coordinates of apex point of cone
-	 * @param b        coordinates of center of basement circle
+	 * @param start        coordinates of apex point of cone
+	 * @param end       coordinates of center of basement circle
 	 * @param aperture in radians
 	 */
 	static public boolean isLyingInCone(Vec3d x, Vec3d start, Vec3d end, float aperture) {
@@ -924,9 +924,9 @@ public class TF2Util {
 				boolean expJump = ent == shooter;
 				double scale = dmg;
 				if (expJump) {
-					String used = TF2Util.getWeaponUsedByClass(weapon);
+					TF2Class used = TF2Util.getWeaponUsedByClass(weapon);
 					if (used != null)
-						scale *= ItemToken.EXPLOSION_VALUES[ItemToken.getClassID(used)];
+						scale *= ItemToken.EXPLOSION_VALUES[used.getIndex()];
 				} else {
 					if (ent instanceof EntityLivingBase)
 						scale *= 1 - ((EntityLivingBase) ent)
@@ -1522,22 +1522,22 @@ public class TF2Util {
 		}
 	}
 
-	public static boolean isWeaponOfClass(ItemStack stack, int slot, String name) {
+	public static boolean isWeaponOfClass(ItemStack stack, int slot, TF2Class clazz) {
 		if (ItemFromData.getData(stack).hasProperty(PropertyType.SLOT))
-			return ItemFromData.isItemOfClassSlot(ItemFromData.getData(stack), slot, name);
+			return ItemFromData.isItemOfClassSlot(ItemFromData.getData(stack), slot, clazz);
 		else {
 			String parent = ItemFromData.getData(stack).getString(PropertyType.BASED_ON);
 			if (!parent.isEmpty())
-				return ItemFromData.isItemOfClassSlot(MapList.nameToData.get(parent), slot, name);
+				return ItemFromData.isItemOfClassSlot(MapList.nameToData.get(parent), slot, clazz);
 			else
 				return false;
 
 		}
 	}
 
-	public static String getWeaponUsedByClass(ItemStack stack) {
+	public static TF2Class getWeaponUsedByClass(ItemStack stack) {
 		if (ItemFromData.getData(stack) == ItemFromData.BLANK_DATA)
-			return null;
+			return TF2Class.NONE;
 		String parent = ItemFromData.getData(stack).getString(PropertyType.BASED_ON);
 		WeaponData data;
 		if (!parent.isEmpty() && MapList.nameToData.get(parent).hasProperty(PropertyType.SLOT))
@@ -1545,9 +1545,9 @@ public class TF2Util {
 		else
 			data = ItemFromData.getData(stack);
 		if (data.hasProperty(PropertyType.SLOT))
-			return Iterables.getFirst(data.get(PropertyType.SLOT).keySet(), null);
+			return TF2Class.getClass(Iterables.getFirst(data.get(PropertyType.SLOT).keySet(), null));
 		else
-			return null;
+			return TF2Class.NONE;
 	}
 
 	public static EntityLivingBase getOwnerIfOwnable(EntityLivingBase living) {

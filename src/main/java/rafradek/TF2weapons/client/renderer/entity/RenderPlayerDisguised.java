@@ -12,6 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.item.ItemToken;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class RenderPlayerDisguised extends RenderPlayer {
@@ -28,13 +29,8 @@ public class RenderPlayerDisguised extends RenderPlayer {
 	public ResourceLocation getEntityTexture(final AbstractClientPlayer entity) {
 		boolean isClass = WeaponsCapability.get(entity).getDisguiseType().startsWith("T:");
 		if (isClass) {
-			int clazz = ItemToken
-					.getClassID(WeaponsCapability.get(entity).getDisguiseType().substring(2).toLowerCase());
-			if (TF2Util.getTeamForDisplay(entity) == 0) {
-				return RenderTF2Character.BLU_TEXTURES[clazz];
-			} else if (TF2Util.getTeamForDisplay(entity) == 1) {
-				return RenderTF2Character.RED_TEXTURES[clazz];
-			}
+			return new ResourceLocation(RenderTF2Character.TEXTURE_PATH_BASE + (TF2Util.getTeamForDisplay(entity) == 1 ? "red" : "blu")
+					+ "/" + TF2Class.getClass(WeaponsCapability.get(entity).getUsedToken()).getName() + ".png");
 		}
 		return entity.getCapability(TF2weapons.WEAPONS_CAP, null).skinDisguise != null
 				? entity.getCapability(TF2weapons.WEAPONS_CAP, null).skinDisguise

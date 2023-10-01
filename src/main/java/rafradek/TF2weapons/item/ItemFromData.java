@@ -49,6 +49,7 @@ import rafradek.TF2weapons.common.WeaponsCapability.RageType;
 import rafradek.TF2weapons.entity.building.EntityDispenser;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 import rafradek.TF2weapons.util.WeaponData;
 
@@ -254,23 +255,23 @@ public class ItemFromData extends Item implements IItemOverlay {
 
 	}
 
-	public static ItemStack getRandomWeaponOfClass(String clazz, Random random, boolean showHidden) {
+	public static ItemStack getRandomWeaponOfClass(TF2Class clazz, Random random, boolean showHidden) {
 		ArrayList<WeaponData> weapons = new ArrayList<>();
 		for (Entry<String, WeaponData> entry : MapList.nameToData.entrySet())
 			if (!entry.getValue().getBoolean(PropertyType.HIDDEN)
 					&& (showHidden || entry.getValue().getInt(PropertyType.ROLL_HIDDEN) == 0)
-					&& entry.getValue().getString(PropertyType.CLASS).equals(clazz))
+					&& entry.getValue().getString(PropertyType.CLASS).equals(clazz.getName()))
 				weapons.add(entry.getValue());
 		if (weapons.isEmpty())
 			return ItemStack.EMPTY;
 		return getNewStack(weapons.get(random.nextInt(weapons.size())));
 	}
 
-	public static ItemStack getRandomWeaponOfSlotMob(final String mob, final int slot, Random random,
-			final boolean showHidden, float stockWeight, boolean stockOnly) {
+	public static ItemStack getRandomWeaponOfSlotMob(final TF2Class clazz, final int slot, Random random,
+													 final boolean showHidden, float stockWeight, boolean stockOnly) {
 		Predicate<WeaponData> base = input -> !input.getBoolean(PropertyType.HIDDEN)
 				&& !(input.getInt(PropertyType.ROLL_HIDDEN) > 0 && !showHidden)
-				&& ItemFromData.isItemOfClassSlot(input, slot, mob);
+				&& ItemFromData.isItemOfClassSlot(input, slot, clazz);
 
 		if (stockWeight == 1f && !stockOnly)
 			return getRandomWeapon(random, base);
@@ -295,12 +296,12 @@ public class ItemFromData extends Item implements IItemOverlay {
 		}
 	}
 
-	public static List<ItemStack> getRandomWeaponsOfSlotMob(final String mob, final int slot, Random random,
-			final boolean showHidden, int count) {
+	public static List<ItemStack> getRandomWeaponsOfSlotMob(final TF2Class clazz, final int slot, Random random,
+															final boolean showHidden, int count) {
 		return getRandomWeapons(random,
 				input -> !input.getBoolean(PropertyType.HIDDEN)
 						&& !(input.getInt(PropertyType.ROLL_HIDDEN) > 0 && !showHidden)
-						&& ItemFromData.isItemOfClassSlot(input, slot, mob),
+						&& ItemFromData.isItemOfClassSlot(input, slot, clazz),
 				count);
 	}
 
@@ -343,23 +344,23 @@ public class ItemFromData extends Item implements IItemOverlay {
 		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(getData(stack).getString(name)));
 	}
 
-	public static int getSlotForClass(WeaponData data, String name) {
-		return data.hasProperty(PropertyType.SLOT) && data.get(PropertyType.SLOT).containsKey(name)
-				? data.get(PropertyType.SLOT).get(name)
+	public static int getSlotForClass(WeaponData data, TF2Class clazz) {
+		return data.hasProperty(PropertyType.SLOT) && data.get(PropertyType.SLOT).containsKey(clazz.getName())
+				? data.get(PropertyType.SLOT).get(clazz.getName())
 				: -1;
 	}
 
-	public static int getSlotForClass(WeaponData data, EntityTF2Character name) {
-		return getSlotForClass(data, ItemToken.CLASS_NAMES[name.getClassIndex()]);
+	public static int getSlotForClass(WeaponData data, EntityTF2Character entity) {
+		return getSlotForClass(data, entity.getTF2Class());
 	}
 
-	public static boolean isItemOfClassSlot(WeaponData data, int slot, String name) {
-		return data.hasProperty(PropertyType.SLOT) && data.get(PropertyType.SLOT).containsKey(name)
-				&& data.get(PropertyType.SLOT).get(name) == slot;
+	public static boolean isItemOfClassSlot(WeaponData data, int slot, TF2Class clazz) {
+		return data.hasProperty(PropertyType.SLOT) && data.get(PropertyType.SLOT).containsKey(clazz.getName())
+				&& data.get(PropertyType.SLOT).get(clazz.getName()) == slot;
 	}
 
-	public static boolean isItemOfClass(WeaponData data, String name) {
-		return data.hasProperty(PropertyType.SLOT) && data.get(PropertyType.SLOT).containsKey(name);
+	public static boolean isItemOfClass(WeaponData data, TF2Class clazz) {
+		return data.hasProperty(PropertyType.SLOT) && data.get(PropertyType.SLOT).containsKey(clazz.getName());
 	}
 
 	@Override

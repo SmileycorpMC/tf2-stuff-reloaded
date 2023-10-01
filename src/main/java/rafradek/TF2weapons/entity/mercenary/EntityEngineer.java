@@ -22,6 +22,7 @@ import rafradek.TF2weapons.entity.building.EntityDispenser;
 import rafradek.TF2weapons.entity.building.EntitySentry;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemWrangler;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class EntityEngineer extends EntityTF2Character {
@@ -242,8 +243,8 @@ public class EntityEngineer extends EntityTF2Character {
 	}
 
 	@Override
-	public int getClassIndex() {
-		return 5;
+	public TF2Class getTF2Class() {
+		return TF2Class.ENGINEER;
 	}
 
 	@Override

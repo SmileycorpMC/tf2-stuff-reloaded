@@ -29,6 +29,7 @@ import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemStickyLauncher;
 import rafradek.TF2weapons.item.ItemWeapon;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.WeaponData;
 
 public class EntityDemoman extends EntityTF2Character {
@@ -67,7 +68,7 @@ public class EntityDemoman extends EntityTF2Character {
 				&& this.loadout.getStackInSlot(1).getItem() instanceof ItemChargingTarge) {
 			ItemStack sword = ItemFromData.getRandomWeapon(this.rand,
 					Predicates.and(ItemFromData.VISIBLE_WEAPON, (Predicate<WeaponData>) input -> !input.getBoolean(PropertyType.STOCK)
-							&& ItemFromData.isItemOfClassSlot(input, 2, "demoman")));
+							&& ItemFromData.isItemOfClassSlot(input, 2, getTF2Class())));
 			if (!sword.isEmpty())
 				this.loadout.setStackInSlot(2, sword);
 		}
@@ -243,8 +244,8 @@ public class EntityDemoman extends EntityTF2Character {
 	}
 
 	@Override
-	public int getClassIndex() {
-		return 3;
+	public TF2Class getTF2Class() {
+		return TF2Class.DEMOMAN;
 	}
 
 	public void explode() {}

@@ -15,6 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.ItemHandlerHelper;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.tileentity.TileEntityRobotDeploy;
+import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class ItemTF2 extends Item {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Token")) {
-			tooltip.add(ItemToken.CLASS_NAMES[stack.getTagCompound().getByte("Token")]);
+			tooltip.add(TF2Class.getClass(stack.getTagCompound().getByte("Token")).getLocalizedName().getFormattedText());
 		}
 		if (stack.getMetadata() == 12 || stack.getMetadata() == 13)
 			tooltip.add("Right click to gain robot parts");

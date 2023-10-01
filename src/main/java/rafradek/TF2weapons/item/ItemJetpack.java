@@ -15,6 +15,7 @@ import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class ItemJetpack extends ItemBackpack {
@@ -104,7 +105,7 @@ public class ItemJetpack extends ItemBackpack {
 	}
 
 	public boolean canActivate(ItemStack stack, EntityLivingBase player) {
-		return ItemToken.allowUse(player, "pyro")
+		return ItemToken.allowUse(player, TF2Class.PYRO)
 				&& (!stack.getTagCompound().getBoolean("Active")
 						|| TF2Attribute.getModifier("Jetpack", stack, 0f, player) > 0f)
 				&& stack.getTagCompound().getByte("Load") <= 0 && stack.getTagCompound().getByte("Charges") > 0;

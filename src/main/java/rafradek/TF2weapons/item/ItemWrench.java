@@ -33,6 +33,7 @@ import rafradek.TF2weapons.entity.building.EntityTeleporter;
 import rafradek.TF2weapons.entity.building.EntityTeleporter.TeleporterData;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.util.PropertyType;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 public class ItemWrench extends ItemMeleeWeapon implements IItemSlotNumber {
@@ -213,7 +214,7 @@ public class ItemWrench extends ItemMeleeWeapon implements IItemSlotNumber {
 
 	@Override
 	public boolean catchSlotHotkey(ItemStack stack, EntityPlayer player) {
-		return ItemToken.allowUse(player, "engineer") && !player.getActiveItemStack().isEmpty()
+		return ItemToken.allowUse(player, TF2Class.ENGINEER) && !player.getActiveItemStack().isEmpty()
 				&& player.getItemInUseCount() < 770;
 	}
 

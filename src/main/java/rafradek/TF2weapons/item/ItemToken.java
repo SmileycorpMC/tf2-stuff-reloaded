@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
+import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.Set;
 import java.util.UUID;
@@ -33,8 +34,6 @@ public class ItemToken extends Item {
 			0.4111f };
 	public static final float[] HEALTH_VALUES = { -7.5f, 0f, -2.5f, -2.5f, 10f, -7.5f, -5f, -7.5f, -7.5f };
 	public static final double[] EXPLOSION_VALUES = { 1D, 0.667D, 0.95D, 0.75D, 0.5D, 1D, 0.95D, 1D, 1D };
-	public static final String[] CLASS_NAMES = { "scout", "soldier", "pyro", "demoman", "heavy", "engineer", "medic",
-			"sniper", "spy" };
 
 	public ItemToken() {
 		this.setHasSubtypes(true);
@@ -54,7 +53,7 @@ public class ItemToken extends Item {
 		living.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).removeModifier(SPEED_UUID);
 		living.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(HEALTH_UUID);
 		living.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(HEALTH_MULT_UUID);
-		if (!stack.isEmpty() && stack.getMetadata() >= 0 && stack.getMetadata() < CLASS_NAMES.length) {
+		if (!stack.isEmpty() && stack.getMetadata() >= 0 && stack.getMetadata() < TF2Class.getClasses().size()) {
 			WeaponsCapability.get(living).setUsedToken(stack.getMetadata());
 			float livinghealth = living.getHealth() / living.getMaxHealth();
 			living.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(
@@ -76,46 +75,22 @@ public class ItemToken extends Item {
 		return new ActionResult<>(EnumActionResult.SUCCESS, living.getHeldItem(hand));
 	}
 
-	public static boolean allowUse(EntityLivingBase living, String clazz) {
+	public static boolean allowUse(EntityLivingBase living, TF2Class clazz) {
 		return allowUse(living, Sets.newHashSet(clazz));
 	}
 
-	public static boolean allowUse(EntityLivingBase living, Set<String> clazz) {
+	public static boolean allowUse(EntityLivingBase living, Set<TF2Class> clazz) {
 		return !(living instanceof EntityPlayer) || allowUse(WeaponsCapability.get(living).getUsedToken(), clazz);
 	}
 
-	public static boolean allowUse(int livingclass, Set<String> clazz) {
+	public static boolean allowUse(int livingclass, Set<TF2Class> clazz) {
 		return clazz.isEmpty()
-				|| !(livingclass >= 0 && livingclass < CLASS_NAMES.length && !clazz.contains(CLASS_NAMES[livingclass]));
+				|| !(livingclass >= 0 && livingclass < TF2Class.getClasses().size() && !clazz.contains(TF2Class.getClass(livingclass)));
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName(stack) + "." + CLASS_NAMES[stack.getMetadata()];
+		return super.getUnlocalizedName(stack) + "." + TF2Class.getClass(stack.getMetadata()).getName();
 	}
 
-	public static int getClassID(String name) {
-		switch (name) {
-		case "scout":
-			return 0;
-		case "soldier":
-			return 1;
-		case "pyro":
-			return 2;
-		case "demoman":
-			return 3;
-		case "heavy":
-			return 4;
-		case "engineer":
-			return 5;
-		case "medic":
-			return 6;
-		case "sniper":
-			return 7;
-		case "spy":
-			return 8;
-		default:
-			return -1;
-		}
-	}
 }

@@ -64,6 +64,7 @@ import rafradek.TF2weapons.inventory.InventoryWearables;
 import rafradek.TF2weapons.item.*;
 import rafradek.TF2weapons.lightsource.MuzzleFlashLightSource;
 import rafradek.TF2weapons.message.TF2Message;
+import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 import java.io.*;
@@ -169,7 +170,7 @@ public class TF2EventsClient {
 					// ((ItemJetpack)chest.getItem()).activateJetpack(chest, minecraft.player,
 					// true);
 					TF2weapons.network.sendToServer(new TF2Message.ActionMessage(30));
-				} else if (ItemToken.allowUse(minecraft.player, "soldier")
+				} else if (ItemToken.allowUse(minecraft.player, TF2Class.SOLDIER)
 						&& chest.getItem() instanceof ItemParachute) {
 					TF2weapons.network.sendToServer(new TF2Message.ActionMessage(25));
 				}
@@ -1465,7 +1466,7 @@ public class TF2EventsClient {
 					if (seeDisguise && disguiseType.startsWith("T:")) {
 						mainhanditem = player.getHeldItemMainhand();
 						player.inventory.setInventorySlotContents(player.inventory.currentItem,
-								ItemFromData.getRandomWeaponOfSlotMob(disguiseType.substring(2),
+								ItemFromData.getRandomWeaponOfSlotMob(TF2Class.getClass(disguiseType.substring(2)),
 										player.inventory.currentItem % 3, event.getEntity().getRNG(), false, 1f, true));
 						render = ClientProxy.disguiseRenderPlayer;
 					} else {

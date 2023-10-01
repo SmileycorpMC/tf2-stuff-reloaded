@@ -117,7 +117,7 @@ public class PyrolandRenderer {
     }
 
     public ModelResourceLocation getReplacementModel(ModelResourceLocation loc) {
-        return loc;
+        return MODEL_MAP.get(loc);
     }
 
 }

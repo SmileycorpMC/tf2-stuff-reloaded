@@ -36,6 +36,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import org.lwjgl.Sys;
 import rafradek.TF2weapons.NBTLiterals;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2EventsCommon;
@@ -303,6 +304,27 @@ public class ItemFromData extends Item implements IItemOverlay {
 						&& !(input.getInt(PropertyType.ROLL_HIDDEN) > 0 && !showHidden)
 						&& ItemFromData.isItemOfClassSlot(input, slot, clazz),
 				count);
+	}
+
+	public static ItemStack getDisplayWeapon(ItemStack stack, long ticks) {
+		NBTTagCompound nbt = stack.getTagCompound();
+		TF2Class clazz = TF2Class.NONE;
+		if (stack.getMetadata() == 10) {
+			clazz = TF2Class.COSMETIC;
+		} else if (nbt != null && nbt.hasKey("Token")) {
+			clazz = TF2Class.getClass(nbt.getByte("Token"));
+		}
+		ArrayList<WeaponData> weapons = new ArrayList<>();
+		for (Entry<String, WeaponData> entry : MapList.nameToData.entrySet()) {
+			if (entry.getValue().getBoolean(PropertyType.HIDDEN)) continue;
+			String weaponclass = entry.getValue().getString(PropertyType.CLASS);
+			if ((clazz == TF2Class.COSMETIC && weaponclass.equals("cosmetic")) || ((clazz == TF2Class.NONE ||
+					ItemFromData.isItemOfClass(entry.getValue(), clazz)) &! weaponclass.equals("cosmetic") &! weaponclass.equals("crate")))
+				weapons.add(entry.getValue());
+		}
+		if (weapons.isEmpty())
+			return ItemStack.EMPTY;
+		return getNewStack(weapons.get(((int)ticks % Integer.MAX_VALUE / 20) % weapons.size()));
 	}
 
 	public static int getWeaponCount(Predicate<WeaponData> predicate) {

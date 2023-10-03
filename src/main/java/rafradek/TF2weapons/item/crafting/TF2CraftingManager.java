@@ -15,17 +15,21 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.CraftingHelper.ShapedPrimer;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+import org.apache.commons.lang3.ArrayUtils;
 import rafradek.TF2weapons.TF2ConfigVars;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemFromData;
+import rafradek.TF2weapons.util.TF2Class;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -223,9 +227,7 @@ public class TF2CraftingManager {
 		addRecipe(new RecipeToScrap(-1));
 		for (int i = 0; i < 9; i++)
 			addRecipe(new RecipeToScrap(i));
-		addRecipe(new RecipeToken(null, new ItemStack(TF2weapons.itemTF2, 1, 9),
-				new Object[] { new ItemStack(TF2weapons.itemTF2, 1, 3),
-						new ItemStack(TF2weapons.itemToken, 1, OreDictionary.WILDCARD_VALUE) }));
+		addTokenRecipe(null, new ItemStack(TF2weapons.itemTF2, 1, 9), new ItemStack(TF2weapons.itemTF2, 1, 3));
 
 		//TF2 Blueprint Recipes
 		addShapelessRecipe(ItemFromData.getNewStack("cleaver"), new ItemStack(TF2weapons.itemTF2, 1, 4),
@@ -472,6 +474,10 @@ public class TF2CraftingManager {
 	public IRecipe addRecipe(IRecipe recipe) {
 		this.recipes.add(recipe);
 		return recipe;
+	}
+
+	public void addTokenRecipe(ResourceLocation group, ItemStack result, ItemStack... inputs) {
+		for (TF2Class clazz : TF2Class.getClasses()) recipes.add(new RecipeToken(group, result, inputs, clazz));
 	}
 
 	public void addRecipeCondition(IRecipe recipe, Predicate<EntityPlayer> predicate) {

@@ -1620,7 +1620,7 @@ public class TF2EventsClient {
 
 	@SubscribeEvent
 	public void addTooltip(ItemTooltipEvent event) {
-
+		if (event.getItemStack().getItem() == TF2weapons.itemTF2) return;
 		if (event.getItemStack().hasTagCompound() && event.getItemStack().getTagCompound().getBoolean("Australium")
 				&& !(event.getItemStack().getItem() instanceof ItemFromData)
 				&& !event.getItemStack().hasDisplayName()) {

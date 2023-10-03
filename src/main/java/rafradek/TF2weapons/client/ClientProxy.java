@@ -164,7 +164,7 @@ public class ClientProxy extends CommonProxy {
 		}, TF2weapons.itemPlacer);
 		Collection<Item> items = new ArrayList<>(ForgeRegistries.ITEMS.getValues());
 		items.removeIf(item -> !(item instanceof ItemFromData || item instanceof ItemTool || item instanceof ItemSword
-				|| item instanceof ItemBow));
+				|| item instanceof ItemBow || item == TF2weapons.itemTF2));
 
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler((IItemColor) (stack, tintIndex) -> {
 			if (ItemFromData.getData(stack).hasProperty(PropertyType.COLOR))

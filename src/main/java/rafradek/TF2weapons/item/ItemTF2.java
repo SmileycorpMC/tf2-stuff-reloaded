@@ -33,7 +33,12 @@ public class ItemTF2 extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + TF2weapons.MOD_ID + "." + NAMES[stack.getMetadata() % NAMES.length];
+		StringBuilder name =  new StringBuilder("item.");
+		name.append(TF2weapons.MOD_ID);
+		name.append(".");
+		name.append(NAMES[stack.getMetadata() % NAMES.length]);
+		if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("Australium")) name.append("Australium");
+		return name.toString();
 	}
 
 	@Override

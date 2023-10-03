@@ -4,15 +4,18 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
+import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.item.ItemWearable;
 import rafradek.TF2weapons.util.PropertyType;
 
 import java.util.Random;
@@ -32,6 +35,13 @@ public class RandomWeaponFunction extends LootFunction {
 
 	@Override
 	public ItemStack apply(ItemStack stack, Random rand, LootContext context) {
+		//loottweaker support
+		if (rand == null && context == null) {
+			NBTTagCompound nbt = stack.getTagCompound();
+			stack = new ItemStack(TF2weapons.itemTF2, 1, stack.getItem() instanceof ItemWearable ? 10 : 9);
+		 	stack.setTagCompound(nbt);
+			return stack;
+		}
 		if (this.valveWepChance * 0.35f < rand.nextFloat()) {
 			stack = ItemFromData.getRandomWeapon(rand,
 					input -> (!input.getBoolean(PropertyType.HIDDEN) && input.getInt(PropertyType.ROLL_HIDDEN) == 0

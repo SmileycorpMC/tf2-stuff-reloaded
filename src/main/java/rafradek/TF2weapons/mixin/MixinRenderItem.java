@@ -36,10 +36,6 @@ public abstract class MixinRenderItem {
 
     @Shadow public abstract void renderItemIntoGUI(ItemStack stack, int x, int y);
 
-    @Shadow protected abstract void renderModel(IBakedModel model, ItemStack stack);
-
-    @Shadow protected abstract void renderEffect(IBakedModel model);
-
     @Shadow protected abstract void renderModel(IBakedModel model, int color, ItemStack stack);
 
     @Shadow public float zLevel;

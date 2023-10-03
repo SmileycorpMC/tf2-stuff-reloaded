@@ -262,8 +262,8 @@ public class TF2CraftingManager {
 				ItemFromData.getNewStack("shortstop"), ItemFromData.getNewStack("critcola"));*/
 		addShapelessRecipe(ItemFromData.getNewStack("beggarbazooka"), new ItemStack(TF2weapons.itemTF2, 1, 4),
 				ItemFromData.getNewStack("directhit"), ItemFromData.getNewStack("directhit"), ItemFromData.getNewStack("directhit"));
-		/*addShapelessRecipe(ItemFromData.getNewStack("escape"), new ItemStack(TF2weapons.itemTF2, 1, 3),
-				ItemFromData.getNewStack("disciplinary"));*/
+		addShapelessRecipe(ItemFromData.getNewStack("escapeplan"), new ItemStack(TF2weapons.itemTF2, 1, 3),
+				ItemFromData.getNewStack("disciplinary"));
 		addShapelessRecipe(ItemFromData.getNewStack("original"), new ItemStack(TF2weapons.itemTF2, 1, 3),
 				new ItemStack(TF2weapons.itemTF2, 1, 3), new ItemStack(TF2weapons.itemTF2, 1, 4));
 		addShapelessRecipe(ItemFromData.getNewStack("cowmangler"), new ItemStack(TF2weapons.itemTF2, 1, 4),

@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Class;
@@ -39,7 +38,7 @@ public class SlotCraftingTF2 extends SlotCrafting {
 			// playerIn.addStat(TF2Achievements.HOME_MADE);
 			playerIn.inventory.setItemStack(stack);
 		} else if (stack.getItem() == TF2weapons.itemTF2 && stack.getMetadata() == 10) {
-			stack = ItemFromData.getRandomWeaponOfClass(TF2Class.COSMETIC, playerIn.getRNG(), false);
+			stack = ItemFromData.getRandomWeaponOfType("cosmetic", playerIn.getRNG(), false);
 			playerIn.inventory.setItemStack(stack);
 		}
 		if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("Australium")) {

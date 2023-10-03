@@ -11,7 +11,6 @@ import net.minecraft.scoreboard.Team;
 import net.minecraft.util.ResourceLocation;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.WeaponsCapability;
-import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 

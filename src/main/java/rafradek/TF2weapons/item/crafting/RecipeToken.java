@@ -1,13 +1,11 @@
 package rafradek.TF2weapons.item.crafting;
 
-import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import rafradek.TF2weapons.TF2weapons;
-import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.util.TF2Class;
 
 public class RecipeToken extends ShapelessOreRecipe {

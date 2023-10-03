@@ -9,10 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.model.ModelTF2Character;
 import rafradek.TF2weapons.client.renderer.entity.RenderTF2Character;
-import rafradek.TF2weapons.common.WeaponsCapability;
 import rafradek.TF2weapons.tileentity.TileEntityRobotDeploy;
-import rafradek.TF2weapons.util.TF2Class;
-import rafradek.TF2weapons.util.TF2Util;
 
 public class RenderRobotDeploy extends TileEntitySpecialRenderer<TileEntityRobotDeploy> {
 

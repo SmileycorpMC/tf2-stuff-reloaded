@@ -1,6 +1,5 @@
 package rafradek.TF2weapons.util;
 
-import com.google.common.collect.Lists;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.entity.mercenary.*;
@@ -23,7 +22,6 @@ public enum TF2Class {
     SNIPER("sniper", EntitySniper.class),
 
     SPY("spy", EntitySpy.class),
-    COSMETIC("cosmetic", null),
     NONE("", null);
 
     private static Random rand = new Random();

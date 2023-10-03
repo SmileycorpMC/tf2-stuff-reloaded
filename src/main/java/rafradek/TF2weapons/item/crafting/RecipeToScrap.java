@@ -8,7 +8,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.item.ItemToken;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.TF2Class;
 

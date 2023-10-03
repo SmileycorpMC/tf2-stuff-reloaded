@@ -1601,7 +1601,7 @@ public abstract class EntityTF2Character extends EntityCreature implements IMob,
 		for (int i = 0; i < hatCount; i++) {
 
 			boolean buyItem = this.rand.nextBoolean();
-			ItemStack item = ItemFromData.getRandomWeaponOfClass(TF2Class.COSMETIC, this.rand, false);
+			ItemStack item = ItemFromData.getRandomWeaponOfType("cosmetic", this.rand, false);
 			int cost = Math.max(1, ItemFromData.getData(item).getInt(PropertyType.COST));
 			if (i == 0 && this.tradeLevel == 2) {
 				((ItemWearable) item.getItem()).applyRandomEffect(item, rand);

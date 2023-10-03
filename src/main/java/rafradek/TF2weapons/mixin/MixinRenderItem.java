@@ -2,7 +2,6 @@ package rafradek.TF2weapons.mixin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -16,14 +15,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.client.PyrolandRenderer;
-import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.util.PropertyType;
 import rafradek.TF2weapons.util.WeaponData;
 
 import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Random;
 
 @Mixin(RenderItem.class)
 public abstract class MixinRenderItem {

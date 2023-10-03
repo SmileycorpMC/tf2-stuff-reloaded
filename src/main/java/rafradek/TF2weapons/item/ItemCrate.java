@@ -16,7 +16,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.MapList;
 import rafradek.TF2weapons.util.PropertyType;
-import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.WeaponData;
 
 import java.io.DataInput;
@@ -94,7 +93,7 @@ public class ItemCrate extends ItemFromData {
 
 			ItemStack stack = ItemStack.EMPTY;
 			if (playerIn.getRNG().nextInt(32) == 0) {
-				stack = ItemFromData.getRandomWeaponOfClass(TF2Class.COSMETIC, playerIn.getRNG(), false);
+				stack = ItemFromData.getRandomWeaponOfType("cosmetic", playerIn.getRNG(), false);
 				((ItemWearable) stack.getItem()).applyRandomEffect(stack, playerIn.getRNG());
 			} else {
 				int choosen = playerIn.getRNG().nextInt(getData(itemStackIn).get(PropertyType.CONTENT).maxCrateValue);

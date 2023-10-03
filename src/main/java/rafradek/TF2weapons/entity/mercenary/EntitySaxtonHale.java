@@ -40,7 +40,6 @@ import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemKnife;
 import rafradek.TF2weapons.item.ItemMonsterPlacerPlus;
 import rafradek.TF2weapons.util.PropertyType;
-import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2DamageSource;
 import rafradek.TF2weapons.util.TF2Util;
 
@@ -126,7 +125,7 @@ public class EntitySaxtonHale extends EntityCreature implements INpc, IMerchant 
 
 		for (int i = 0; i < hatCount; i++) {
 
-			ItemStack item = ItemFromData.getRandomWeaponOfClass(TF2Class.COSMETIC, this.rand, false);
+			ItemStack item = ItemFromData.getRandomWeaponOfType("cosmetic", this.rand, false);
 			int cost = ItemFromData.getData(item).getInt(PropertyType.COST);
 			this.addTradeOffer(item, cost);
 		}

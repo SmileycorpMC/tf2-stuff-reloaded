@@ -17,7 +17,6 @@ import rafradek.TF2weapons.item.ItemBuildingBox;
 import rafradek.TF2weapons.item.ItemFromData;
 import rafradek.TF2weapons.item.ItemWrench;
 import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
-import rafradek.TF2weapons.util.TF2Class;
 import rafradek.TF2weapons.util.TF2Util;
 
 import java.util.List;
@@ -161,7 +160,7 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 			if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 9)
 				itemstack1 = ItemFromData.getRandomWeapon(playerIn.getRNG(), ItemFromData.VISIBLE_WEAPON);
 			else if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 10)
-				itemstack1 = ItemFromData.getRandomWeaponOfClass(TF2Class.COSMETIC, playerIn.getRNG(), false);
+				itemstack1 = ItemFromData.getRandomWeaponOfType("cosmetic", playerIn.getRNG(), false);
 
 			itemstack = itemstack1.copy();
 

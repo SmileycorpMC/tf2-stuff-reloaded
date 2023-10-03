@@ -10,7 +10,6 @@ import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import rafradek.TF2weapons.item.ItemFromData;
-import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.Random;
 
@@ -18,16 +17,16 @@ public class EntityOfClassFunction extends LootFunction {
 
 	// public int[] possibleValues;
 	// public int[] withClass;
-	public TF2Class weaponClass;
+	public String weaponClass;
 
 	public EntityOfClassFunction(LootCondition[] conditionsIn, String weaponClass) {
 		super(conditionsIn);
-		this.weaponClass = TF2Class.getClass(weaponClass);
+		this.weaponClass = weaponClass;
 	}
 
 	@Override
 	public ItemStack apply(ItemStack stack, Random rand, LootContext context) {
-		stack = ItemFromData.getRandomWeaponOfClass(weaponClass, rand, true);
+		stack = ItemFromData.getRandomWeaponOfType(weaponClass, rand, true);
 		if (! stack.hasTagCompound()) stack.setTagCompound(new NBTTagCompound());
 		stack.getTagCompound().setBoolean("DropFrom", true);
 		return stack;
@@ -41,7 +40,7 @@ public class EntityOfClassFunction extends LootFunction {
 		@Override
 		public void serialize(JsonObject object, EntityOfClassFunction functionClazz,
 				JsonSerializationContext serializationContext) {
-			object.addProperty("weaponClass", functionClazz.weaponClass.getName());
+			object.addProperty("weaponClass", functionClazz.weaponClass);
 			// object.add("possibleValues",
 			// serializationContext.serialize(functionClazz.possibleValues));
 			// object.add("data",

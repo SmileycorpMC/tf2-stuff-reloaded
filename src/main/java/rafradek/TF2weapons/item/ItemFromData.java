@@ -3,6 +3,7 @@ package rafradek.TF2weapons.item;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
@@ -305,11 +306,26 @@ public class ItemFromData extends Item implements IItemOverlay {
 				count);
 	}
 
+	public static List<ItemStack> getRandomWeapons(ItemStack stack) {
+		NBTTagCompound nbt = stack.getTagCompound();
+		TF2Class clazz = TF2Class.NONE;
+		if (nbt != null && nbt.hasKey("Token")) clazz = TF2Class.getClass(nbt.getByte("Token"));
+		List<ItemStack> weapons = Lists.newArrayList();
+		for (Entry<String, WeaponData> entry : MapList.nameToData.entrySet()) {
+			if (entry.getValue().getBoolean(PropertyType.HIDDEN)) continue;
+			String weaponclass = entry.getValue().getString(PropertyType.CLASS);
+			if ((stack.getMetadata() == 10 && weaponclass.equals("cosmetic")) || (stack.getMetadata() == 9 && (clazz == TF2Class.NONE ||
+					ItemFromData.isItemOfClass(entry.getValue(), clazz)) &! weaponclass.equals("cosmetic") &! weaponclass.equals("crate")))
+				weapons.add(getNewStack(entry.getValue()));
+		}
+		return weapons;
+	}
+
 	public static ItemStack getDisplayWeapon(ItemStack stack, long ticks) {
 		NBTTagCompound nbt = stack.getTagCompound();
 		TF2Class clazz = TF2Class.NONE;
 		if (nbt != null && nbt.hasKey("Token")) clazz = TF2Class.getClass(nbt.getByte("Token"));
-		ArrayList<WeaponData> weapons = new ArrayList<>();
+		List<WeaponData> weapons = Lists.newArrayList();
 		for (Entry<String, WeaponData> entry : MapList.nameToData.entrySet()) {
 			if (entry.getValue().getBoolean(PropertyType.HIDDEN)) continue;
 			String weaponclass = entry.getValue().getString(PropertyType.CLASS);

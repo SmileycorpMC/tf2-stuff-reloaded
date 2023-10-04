@@ -17,6 +17,7 @@ public class TF2Plugin implements IModPlugin {
 		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 		registry.addRecipeCategories(new TF2CrafterCategory(guiHelper));
 		registry.addRecipeCategories(new AmmoFurnaceCategory(guiHelper));
+		registry.addRecipeCategories(new RandomWeaponCategory(guiHelper));
 	}
 
 	@Override
@@ -31,6 +32,9 @@ public class TF2Plugin implements IModPlugin {
 		registry.handleRecipes(AmmoFurnaceCategory.Wrapper.class, r -> r, AmmoFurnaceCategory.ID);
 		registry.addRecipes(AmmoFurnaceCategory.getRecipes(), AmmoFurnaceCategory.ID);
 		registry.addRecipeCatalyst(new ItemStack(TF2weapons.blockAmmoFurnace), AmmoFurnaceCategory.ID);
+		// random weapons
+		registry.handleRecipes(RandomWeaponCategory.Wrapper.class, r -> r, RandomWeaponCategory.ID);
+		registry.addRecipes(RandomWeaponCategory.getRecipes(), RandomWeaponCategory.ID);
 	}
 
 }

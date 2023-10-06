@@ -85,6 +85,12 @@ public class ItemTF2 extends Item {
 				stack.shrink(1);
 			}
 			return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+		} else if (stack.getMetadata() == 9 || stack.getMetadata() == 10) {
+			if (!world.isRemote) {
+				ItemStack weapon = ItemFromData.getRandomWeapon(stack, living.getRNG());
+				living.setHeldItem(hand, weapon);
+			}
+			return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 		} else
 			return new ActionResult<>(EnumActionResult.PASS, stack);
 	}

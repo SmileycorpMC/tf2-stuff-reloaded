@@ -321,6 +321,25 @@ public class ItemFromData extends Item implements IItemOverlay {
 		return weapons;
 	}
 
+	public static ItemStack getRandomWeapon(ItemStack stack, Random rand) {
+		NBTTagCompound nbt = stack.getTagCompound();
+		TF2Class clazz = TF2Class.NONE;
+		if (nbt != null && nbt.hasKey("Token")) clazz = TF2Class.getClass(nbt.getByte("Token"));
+		List<WeaponData> weapons = Lists.newArrayList();
+		for (Entry<String, WeaponData> entry : MapList.nameToData.entrySet()) {
+			if (entry.getValue().getBoolean(PropertyType.HIDDEN)) continue;
+			String weaponclass = entry.getValue().getString(PropertyType.CLASS);
+			if ((stack.getMetadata() == 10 && weaponclass.equals("cosmetic")) || (stack.getMetadata() == 9 && (clazz == TF2Class.NONE ||
+					ItemFromData.isItemOfClass(entry.getValue(), clazz)) &! weaponclass.equals("cosmetic") &! weaponclass.equals("crate")))
+				weapons.add(entry.getValue());
+		}
+		if (weapons.isEmpty())
+			return ItemStack.EMPTY;
+		ItemStack result = getNewStack(weapons.get(rand.nextInt(weapons.size())));
+		if (!result.hasTagCompound()) result.setTagCompound(new NBTTagCompound());
+		return result;
+	}
+
 	public static ItemStack getDisplayWeapon(ItemStack stack, long ticks) {
 		NBTTagCompound nbt = stack.getTagCompound();
 		TF2Class clazz = TF2Class.NONE;

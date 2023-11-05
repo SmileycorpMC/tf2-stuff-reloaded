@@ -119,7 +119,7 @@ public class TF2CraftingManager {
 		addRecipe(new ShapedOreRecipe(null,new
 				ItemStack(TF2weapons.blockAmmoFurnace), new Object[] { "RIG", "SFr", "sIM",
 						'F', new ItemStack(Blocks.FURNACE), 'I', "ingotIron", 'M', new
-						ItemStack(TF2weapons.itemAmmo, 1, 2), 'G', new ItemStack(TF2weapons.itemAmmo,
+						ItemStack(TF2weapons.itemAmmoMinigun), 'G', new ItemStack(TF2weapons.itemAmmo,
 								1, 8), 'R', new ItemStack(TF2weapons.itemAmmo, 1, 7), 'r', new
 						ItemStack(TF2weapons.itemAmmo, 1, 6), 's', new ItemStack(TF2weapons.itemAmmo,
 								1, 1), 'S', new ItemStack(TF2weapons.itemAmmo, 1, 11) }));

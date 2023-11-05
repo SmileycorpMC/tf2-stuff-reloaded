@@ -46,6 +46,10 @@ public enum TF2Class {
         return new TextComponentTranslation("entity." + name + ".name");
     }
 
+    public Class<? extends EntityTF2Character> getEntityClass() {
+        return clazz;
+    }
+
     public EntityTF2Character createEntity(World world) {
         try {
             return clazz.getConstructor(World.class).newInstance(world);

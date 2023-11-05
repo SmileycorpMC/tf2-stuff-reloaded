@@ -108,6 +108,7 @@ public class EntityBuilding extends EntityLiving implements IEntityOwnable, IEnt
 		this.charge = new ItemStackHandler(1);
 		// this.notifyDataManagerChange(LEVEL);
 		this.adjustSize();
+		enablePersistence();
 	}
 
 	public void applyTasks() {
@@ -285,7 +286,6 @@ public class EntityBuilding extends EntityLiving implements IEntityOwnable, IEnt
 		if (owner instanceof EntityPlayer) {
 			this.ownerName = owner.getName();
 			this.dataManager.set(OWNER_UUID, Optional.of(owner.getUniqueID()));
-			this.enablePersistence();
 		} else if (this.getOwnerId() != null)
 			this.dataManager.set(OWNER_UUID, Optional.absent());
 		else if (owner != null)

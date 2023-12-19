@@ -622,7 +622,7 @@ public class TF2weapons {
 
 		registerBlock(blockCabinet = new BlockCabinet().setHardness(5.0F).setResistance(10.0F)
 				.setUnlocalizedName(TF2weapons.MOD_ID + ".cabinet"), TF2weapons.MOD_ID + ":tf2workbench");
-		registerBlock(blockAmmoFurnace = new BlockAmmoFurnace().setHardness(5.0F).setResistance(10.0F)
+		registerBlock(blockAmmoFurnace = new BlockAmmoFurnace(false).setHardness(5.0F).setResistance(10.0F)
 				.setUnlocalizedName(TF2weapons.MOD_ID + ".ammoFurnace"), TF2weapons.MOD_ID + ":ammo_furnace");
 		registerBlock(
 				blockUpgradeStation = new BlockUpgradeStation().setHardness(5f).setResistance(10.0F)
@@ -908,19 +908,6 @@ public class TF2weapons {
 		GameRegistry.addSmelting(new ItemStack(blockCopperOre), new ItemStack(itemTF2, 1, 0), 0.5f);
 		GameRegistry.addSmelting(new ItemStack(blockLeadOre), new ItemStack(itemTF2, 1, 1), 0.55f);
 		GameRegistry.addSmelting(new ItemStack(blockAustraliumOre), new ItemStack(itemTF2, 1, 2), 2f);
-		GameRegistry.addSmelting(new ItemStack(itemTF2, 1, 3), new ItemStack(Items.IRON_INGOT, 2), 0.35f);
-
-		GameRegistry.addSmelting(new ItemStack(itemAmmoMinigun), new ItemStack(itemTF2, 2, 1), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmo, 13, 1), new ItemStack(itemTF2, 1, 1), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmoPistol, 4, 0), new ItemStack(itemTF2, 1, 0), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmoSMG, 3, 0), new ItemStack(itemTF2, 1, 0), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmo, 16, 4), new ItemStack(itemTF2, 1, 1), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmo, 5, 6), new ItemStack(itemTF2, 1, 0), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmo, 10, 7), new ItemStack(Items.IRON_INGOT), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmo, 10, 8), new ItemStack(Items.IRON_INGOT), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmo, 8, 11), new ItemStack(Items.IRON_INGOT), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmo, 10, 13), new ItemStack(Items.IRON_INGOT), 0.1f);
-		GameRegistry.addSmelting(new ItemStack(itemAmmoFire), new ItemStack(Items.IRON_INGOT, 2), 0.1f);
 
 		/*
 		 * GameRegistry.(new IFuelHandler() {

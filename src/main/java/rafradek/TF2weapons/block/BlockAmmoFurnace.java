@@ -30,13 +30,15 @@ public class BlockAmmoFurnace extends BlockContainer {
 
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
+	private final boolean electric;
 
-	public BlockAmmoFurnace() {
+	public BlockAmmoFurnace(boolean electric) {
 		super(Material.IRON);
 		this.setSoundType(SoundType.METAL);
 		this.setDefaultState(
 				this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
 		setCreativeTab(TF2weapons.tabsurvivaltf2);
+		this.electric = electric;
 	}
 
 	@Override

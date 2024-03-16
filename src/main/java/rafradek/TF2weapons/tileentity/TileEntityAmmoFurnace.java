@@ -90,13 +90,9 @@ public class TileEntityAmmoFurnace extends TileEntityAbstractAmmoFurnace {
 	public int getCookTime(@Nullable ItemStack stack) {
 		return 200;
 	}
-
+	
 	public static int getItemBurnTime(ItemStack stack) {
 		return TileEntityFurnace.getItemBurnTime(stack);
-	}
-
-	public static boolean isItemFuel(ItemStack stack) {
-		return getItemBurnTime(stack) > 0;
 	}
 
 	@Override

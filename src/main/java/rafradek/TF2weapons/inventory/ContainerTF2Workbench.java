@@ -157,11 +157,10 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 
-			if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 9)
-				itemstack1 = ItemFromData.getRandomWeapon(playerIn.getRNG(), ItemFromData.VISIBLE_WEAPON);
-			else if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 10)
+			if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 9 &! playerIn.world.isRemote)
+				itemstack1 = ItemFromData.getRandomWeapon(itemstack1, playerIn.getRNG());
+			else if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 10 &! playerIn.world.isRemote)
 				itemstack1 = ItemFromData.getRandomWeaponOfType("cosmetic", playerIn.getRNG(), false);
-
 			itemstack = itemstack1.copy();
 
 			if (index == 0) {

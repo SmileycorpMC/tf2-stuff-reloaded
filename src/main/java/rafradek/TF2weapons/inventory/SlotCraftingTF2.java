@@ -28,6 +28,7 @@ public class SlotCraftingTF2 extends SlotCrafting {
 
 	@Override
 	public ItemStack onTake(EntityPlayer playerIn, ItemStack stack) {
+		if (playerIn.world.isRemote) return stack;
 		if (stack.getItem() == TF2weapons.itemTF2 && stack.getMetadata() == 9) {
 			if (stack.hasTagCompound()) {
 				TF2Class clazz = TF2Class.getClass(stack.getTagCompound().getByte("Token"));

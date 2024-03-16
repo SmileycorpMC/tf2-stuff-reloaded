@@ -75,18 +75,16 @@ public class RandomWeaponCategory implements IRecipeCategory<RandomWeaponCategor
     @Override
     public void setRecipe(IRecipeLayout layout, Wrapper wrapper, IIngredients ingredients) {
         IGuiItemStackGroup items = layout.getItemStacks();
+        List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
         items.init(0, false, 75, 6);
-        for (int y = 0; y < 6; ++y) {
-            for (int x = 0; x < 4; ++x) {
-                int index = 1 + x + (y * 4);
+        for (int y = 0; y < 4; ++y) {
+            for (int x = 0; x < 9; ++x) {
+                int index = 1 + x + (y * 9);
                 items.init(index, true, 3+ x * 18, 39 + y * 18);
+                items.set(index, outputs.get(y).get(x));
             }
         }
         items.set(0, ingredients.getInputs(VanillaTypes.ITEM).get(0));
-        List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
-        for (int i = 0; i < outputs.size(); i++) {
-            items.set(i+1, outputs.get(i));
-        }
     }
 
     public static class Wrapper implements IRecipeWrapper {
@@ -97,15 +95,13 @@ public class RandomWeaponCategory implements IRecipeCategory<RandomWeaponCategor
         public Wrapper(ItemStack input) {
             this.input = input;
             List<ItemStack> stacks = ItemFromData.getRandomWeapons(input);
-            for (int i = 0; i < 36; i++) {
+            for (int y = 0; y < 4; y++) {
                 List<ItemStack> list = Lists.newArrayList();
-                for (int j = 0; j < Math.ceil(((float)stacks.size())/36f); j++) {
-                    list.add(ItemStack.EMPTY);
+                for (int x = 0; x < 9; x++) {
+                    int i = y*9 + x;
+                    list.add(i < stacks.size() ? stacks.get(i) : ItemStack.EMPTY);
                 }
                 outputs.add(list);
-            }
-            for (int i = 0; i < stacks.size(); i++) {
-                outputs.get(i % 36).set(i/36, stacks.get(i));
             }
         }
 

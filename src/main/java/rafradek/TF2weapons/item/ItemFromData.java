@@ -337,6 +337,7 @@ public class ItemFromData extends Item implements IItemOverlay {
 			return ItemStack.EMPTY;
 		ItemStack result = getNewStack(weapons.get(rand.nextInt(weapons.size())));
 		if (!result.hasTagCompound()) result.setTagCompound(new NBTTagCompound());
+		if (nbt.hasKey("Australium") && nbt.getBoolean("Australium")) result.getTagCompound().setBoolean("Australium", true);
 		return result;
 	}
 

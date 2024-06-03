@@ -1,31 +1,24 @@
 package rafradek.TF2weapons.tileentity;
 
-import com.google.common.collect.Lists;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import rafradek.TF2weapons.TF2weapons;
-import rafradek.TF2weapons.block.BlockAmmoFurnace;
 import rafradek.TF2weapons.inventory.ContainerAmmoFurnace;
-import rafradek.TF2weapons.item.crafting.TF2CraftingManager;
-import rafradek.TF2weapons.util.TF2Util;
 
 import javax.annotation.Nullable;
 import java.util.List;

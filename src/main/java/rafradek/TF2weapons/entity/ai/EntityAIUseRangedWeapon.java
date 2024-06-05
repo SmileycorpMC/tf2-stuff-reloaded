@@ -14,6 +14,7 @@ import rafradek.TF2weapons.entity.building.EntityBuilding;
 import rafradek.TF2weapons.entity.mercenary.EntityTF2Character;
 import rafradek.TF2weapons.item.ItemUsable;
 import rafradek.TF2weapons.item.ItemWeapon;
+import rafradek.TF2weapons.item.ItemMedigun;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.util.TF2Util;
 
@@ -151,7 +152,7 @@ public class EntityAIUseRangedWeapon extends EntityAIBase {
 
 		ItemStack item = this.entityHost.getHeldItem(EnumHand.MAIN_HAND);
 
-		if (!(item.getItem() instanceof ItemWeapon))
+		if (!(item.getItem() instanceof ItemWeapon) || item.getItem() instanceof ItemMedigun)
 			return;
 		ItemWeapon weapon = ((ItemWeapon) item.getItem());
 

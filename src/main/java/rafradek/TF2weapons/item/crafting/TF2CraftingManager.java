@@ -485,18 +485,18 @@ public class TF2CraftingManager {
 	 * Retrieves an ItemStack that has multiple recipes for it.
 	 */
 	@Nullable
-	public ItemStack findMatchingRecipe(InventoryCrafting craftMatrix, World worldIn, EntityPlayer player) {
+	public ItemStack findMatchingRecipe(InventoryCrafting craftMatrix, World world, EntityPlayer player) {
 		for (IRecipe irecipe : this.recipes)
 			if (!(this.recipeConditions.containsKey(irecipe) && !this.recipeConditions.get(irecipe).apply(player))
-					&& irecipe.matches(craftMatrix, worldIn))
+					&& irecipe.matches(craftMatrix, world))
 				return irecipe.getCraftingResult(craftMatrix);
 
 		return ItemStack.EMPTY;
 	}
 
-	public NonNullList<ItemStack> getRemainingItems(InventoryCrafting craftMatrix, World worldIn) {
+	public NonNullList<ItemStack> getRemainingItems(InventoryCrafting craftMatrix, World world) {
 		for (IRecipe irecipe : this.recipes)
-			if (irecipe.matches(craftMatrix, worldIn))
+			if (irecipe.matches(craftMatrix, world))
 				return irecipe.getRemainingItems(craftMatrix);
 
 		NonNullList<ItemStack> aitemstack = NonNullList.withSize(craftMatrix.getSizeInventory(), ItemStack.EMPTY);

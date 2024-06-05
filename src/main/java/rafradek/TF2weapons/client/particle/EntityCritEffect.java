@@ -7,8 +7,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityCritEffect extends Particle {
 
-	public EntityCritEffect(World worldIn, double p_i46352_2_, double p_i46352_4_, double p_i46352_6_, int color) {
-		super(worldIn, p_i46352_2_, p_i46352_4_, p_i46352_6_);
+	public EntityCritEffect(World world, double p_i46352_2_, double p_i46352_4_, double p_i46352_6_, int color) {
+		super(world, p_i46352_2_, p_i46352_4_, p_i46352_6_);
 		this.setParticleTextureIndex(65);
 		this.setPosition(this.posX + this.rand.nextFloat() * 0.15f - 0.075f,
 				this.posY + this.rand.nextFloat() * 0.15f - 0.075f, this.posZ + this.rand.nextFloat() * 0.15f - 0.075f);

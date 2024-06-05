@@ -11,8 +11,8 @@ public class ParticleBulletHole extends Particle {
 
 	RayTraceResult block;
 
-	public ParticleBulletHole(World worldIn, RayTraceResult result) {
-		super(worldIn, result.hitVec.x + result.sideHit.getFrontOffsetX() * 0.012,
+	public ParticleBulletHole(World world, RayTraceResult result) {
+		super(world, result.hitVec.x + result.sideHit.getFrontOffsetX() * 0.012,
 				result.hitVec.y + result.sideHit.getFrontOffsetY() * 0.012,
 				result.hitVec.z + result.sideHit.getFrontOffsetZ() * 0.012);
 		this.block = result;

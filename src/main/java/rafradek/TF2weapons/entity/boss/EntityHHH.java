@@ -61,8 +61,8 @@ public class EntityHHH extends EntityTF2Boss {
 	private static UUID fasterSpeed = UUID.fromString("03edb08b-0a2f-4040-9c9c-062d0c2e2b85");
 	private Vec3d lastPos = Vec3d.ZERO;
 
-	public EntityHHH(World worldIn) {
-		super(worldIn);
+	public EntityHHH(World world) {
+		super(world);
 		this.setSize(0.9f, 2.85f);
 		this.stepHeight = 1.05f;
 		this.setNoAI(true);

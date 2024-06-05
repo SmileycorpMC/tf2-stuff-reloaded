@@ -34,7 +34,7 @@ public class ItemKnife extends ItemMeleeWeapon {
 		this.addPropertyOverride(new ResourceLocation("backstab"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (entityIn == Minecraft.getMinecraft().player && Minecraft.getMinecraft().objectMouseOver != null
 						&& Minecraft.getMinecraft().objectMouseOver.entityHit != null
 						&& TF2Util.getDistanceSqBox(Minecraft.getMinecraft().objectMouseOver.entityHit, entityIn.posX,

@@ -329,7 +329,7 @@ public class TileEntityOverheadDoor extends TileEntity implements ITickable {
 	}
 
 	@Override
-	protected void setWorldCreate(World worldIn) {
-		this.setWorld(worldIn);
+	protected void setWorldCreate(World world) {
+		this.setWorld(world);
 	}
 }

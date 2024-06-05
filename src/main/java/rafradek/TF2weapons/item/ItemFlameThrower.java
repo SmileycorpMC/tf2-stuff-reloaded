@@ -166,7 +166,7 @@ public class ItemFlameThrower extends ItemAirblast {
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entityLiving) {
 		// stack.getTagCompound().setFloat("Rage", 0f);
 		// stack.getTagCompound().setBoolean("RageActive", true);
 		return stack;
@@ -192,16 +192,16 @@ public class ItemFlameThrower extends ItemAirblast {
 	 */
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		ItemStack itemStackIn = playerIn.getHeldItem(hand);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemStackIn = player.getHeldItem(hand);
 		/*
-		 * if (TF2Attribute.getModifier("Rage Crit", itemStackIn, 0, playerIn)!=0
-		 * &&playerIn.getCapability(TF2weapons.WEAPONS_CAP, null).getPhlogRage()>=20f) {
-		 * playerIn.setActiveHand(hand); playerIn.addPotionEffect(new
-		 * PotionEffect(TF2weapons.stun,40,1)); TF2Util.addAndSendEffect(playerIn, new
-		 * PotionEffect(TF2weapons.uber,40,0)); playerIn.addPotionEffect(new
+		 * if (TF2Attribute.getModifier("Rage Crit", itemStackIn, 0, player)!=0
+		 * &&player.getCapability(TF2weapons.WEAPONS_CAP, null).getPhlogRage()>=20f) {
+		 * player.setActiveHand(hand); player.addPotionEffect(new
+		 * PotionEffect(TF2weapons.stun,40,1)); TF2Util.addAndSendEffect(player, new
+		 * PotionEffect(TF2weapons.uber,40,0)); player.addPotionEffect(new
 		 * PotionEffect(TF2weapons.noKnockback,40,0));
-		 * playerIn.playSound(ItemFromData.getSound(itemStackIn,
+		 * player.playSound(ItemFromData.getSound(itemStackIn,
 		 * PropertyType.CHARGE_SOUND), 1f, 1f);
 		 * itemStackIn.getTagCompound().setBoolean("RageActive", true); return new
 		 * ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn); }

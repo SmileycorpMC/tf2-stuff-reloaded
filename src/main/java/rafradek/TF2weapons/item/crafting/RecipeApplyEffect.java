@@ -24,7 +24,7 @@ public class RecipeApplyEffect implements IRecipe, IRecipeTF2 {
 	}
 
 	@Override
-	public boolean matches(InventoryCrafting inv, World worldIn) {
+	public boolean matches(InventoryCrafting inv, World world) {
 		ItemStack effect = ItemStack.EMPTY;
 		ItemStack stack2 = ItemStack.EMPTY;
 

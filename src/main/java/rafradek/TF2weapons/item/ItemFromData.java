@@ -132,7 +132,7 @@ public class ItemFromData extends Item implements IItemOverlay {
 		this.setMaxStackSize(1);
 		this.setNoRepair();
 		this.addPropertyOverride(new ResourceLocation("team"),
-				(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) -> {
+				(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) -> {
 					if (entityIn != null) {
 						if (TF2Util.getTeamColorNumber(entityIn) == 12)
 							return 0;

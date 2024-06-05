@@ -41,7 +41,7 @@ public class ItemHuntsman extends ItemProjectileWeapon {
 		this.addPropertyOverride(new ResourceLocation("loaded"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (ItemHuntsman.this.getClip(stack) > 0)
 					return 1;
 				return 0;
@@ -50,7 +50,7 @@ public class ItemHuntsman extends ItemProjectileWeapon {
 		this.addPropertyOverride(new ResourceLocation("lighted"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("ArrowLit"))
 					return 1;
 				return 0;
@@ -59,7 +59,7 @@ public class ItemHuntsman extends ItemProjectileWeapon {
 		this.addPropertyOverride(new ResourceLocation("charge"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				return getCharge(entityIn, stack);
 			}
 		});

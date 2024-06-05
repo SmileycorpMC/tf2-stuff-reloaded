@@ -31,7 +31,7 @@ public class ItemJar extends ItemProjectileWeapon {
 		this.addPropertyOverride(new ResourceLocation("empty"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (stack.getTagCompound().getBoolean("IsEmpty"))
 					return 1;
 				return 0;

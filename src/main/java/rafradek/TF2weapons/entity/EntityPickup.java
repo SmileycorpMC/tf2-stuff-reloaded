@@ -50,14 +50,14 @@ public class EntityPickup extends Entity {
 		}
 	}
 
-	public EntityPickup(World worldIn, Type type, boolean rematerialize) {
-		this(worldIn);
+	public EntityPickup(World world, Type type, boolean rematerialize) {
+		this(world);
 		this.setType(type);
 		this.rematerialize = rematerialize;
 	}
 
-	public EntityPickup(World worldIn) {
-		super(worldIn);
+	public EntityPickup(World world) {
+		super(world);
 		this.setSize(0.25f, 0.25f);
 		this.hoverStart = (float) (Math.random() * Math.PI * 2.0D);
 	}

@@ -54,9 +54,9 @@ public class MannCoBuilding extends StructureComponent {
 	 * Spawners, it closes Mineshafts at the end, it adds Fences...
 	 */
 	@Override
-	public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn) {
+	public boolean addComponentParts(World world, Random randomIn, StructureBoundingBox structureBoundingBoxIn) {
 		if (this.averageGroundLvl < 0) {
-			this.averageGroundLvl = this.getAverageGroundLevel(worldIn, structureBoundingBoxIn);
+			this.averageGroundLvl = this.getAverageGroundLevel(world, structureBoundingBoxIn);
 
 			if (this.averageGroundLvl < 0)
 				return true;
@@ -77,50 +77,50 @@ public class MannCoBuilding extends StructureComponent {
 				TF2weapons.blockUpgradeStation.getDefaultState().withProperty(BlockUpgradeStation.HOLDER, true));
 		IBlockState iblockstate5 = this.getBiomeSpecificBlockState(Blocks.LOG.getDefaultState());
 		IBlockState iblockstate6 = this.getBiomeSpecificBlockState(Blocks.OAK_FENCE.getDefaultState());
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 0, 1, 0, 13, 16, 10, Blocks.AIR.getDefaultState(),
+		this.fillWithBlocks(world, structureBoundingBoxIn, 0, 1, 0, 13, 16, 10, Blocks.AIR.getDefaultState(),
 				Blocks.AIR.getDefaultState(), false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 0, 0, 2, 13, 15, 10, stone, Blocks.AIR.getDefaultState(),
+		this.fillWithBlocks(world, structureBoundingBoxIn, 0, 0, 2, 13, 15, 10, stone, Blocks.AIR.getDefaultState(),
 				false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 0, 3, 12, 0, 9, wood, wood, false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 4, 3, 12, 4, 9, stone, stone, false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 0, 2, 3, 0, 3, 9, Blocks.GLASS_PANE.getDefaultState(),
+		this.fillWithBlocks(world, structureBoundingBoxIn, 1, 0, 3, 12, 0, 9, wood, wood, false);
+		this.fillWithBlocks(world, structureBoundingBoxIn, 1, 4, 3, 12, 4, 9, stone, stone, false);
+		this.fillWithBlocks(world, structureBoundingBoxIn, 0, 2, 3, 0, 3, 9, Blocks.GLASS_PANE.getDefaultState(),
 				Blocks.GLASS_PANE.getDefaultState(), false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 13, 2, 3, 13, 3, 9, Blocks.GLASS_PANE.getDefaultState(),
+		this.fillWithBlocks(world, structureBoundingBoxIn, 13, 2, 3, 13, 3, 9, Blocks.GLASS_PANE.getDefaultState(),
 				Blocks.GLASS_PANE.getDefaultState(), false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 2, 2, 12, 3, 2, Blocks.GLASS_PANE.getDefaultState(),
+		this.fillWithBlocks(world, structureBoundingBoxIn, 1, 2, 2, 12, 3, 2, Blocks.GLASS_PANE.getDefaultState(),
 				Blocks.GLASS_PANE.getDefaultState(), false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 2, 10, 12, 3, 10, Blocks.GLASS_PANE.getDefaultState(),
+		this.fillWithBlocks(world, structureBoundingBoxIn, 1, 2, 10, 12, 3, 10, Blocks.GLASS_PANE.getDefaultState(),
 				Blocks.GLASS_PANE.getDefaultState(), false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 5, 0, 2, 8, 3, 2, wood, wood, false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 6, 1, 2, 7, 2, 2, Blocks.AIR.getDefaultState(),
+		this.fillWithBlocks(world, structureBoundingBoxIn, 5, 0, 2, 8, 3, 2, wood, wood, false);
+		this.fillWithBlocks(world, structureBoundingBoxIn, 6, 1, 2, 7, 2, 2, Blocks.AIR.getDefaultState(),
 				Blocks.AIR.getDefaultState(), false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 6, 0, 1, 7, 0, 1, iblockstate2, iblockstate2, false);
-		this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(), 7, 4, 6, structureBoundingBoxIn);
-		this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(), 4, 4, 6, structureBoundingBoxIn);
-		this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(), 10, 4, 6, structureBoundingBoxIn);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 1, 5, 1, 2, 7,
+		this.fillWithBlocks(world, structureBoundingBoxIn, 6, 0, 1, 7, 0, 1, iblockstate2, iblockstate2, false);
+		this.setBlockState(world, Blocks.GLOWSTONE.getDefaultState(), 7, 4, 6, structureBoundingBoxIn);
+		this.setBlockState(world, Blocks.GLOWSTONE.getDefaultState(), 4, 4, 6, structureBoundingBoxIn);
+		this.setBlockState(world, Blocks.GLOWSTONE.getDefaultState(), 10, 4, 6, structureBoundingBoxIn);
+		this.fillWithBlocks(world, structureBoundingBoxIn, 1, 1, 5, 1, 2, 7,
 				upgradeStation.withProperty(BlockUpgradeStation.FACING, EnumFacing.EAST),
 				upgradeStation.withProperty(BlockUpgradeStation.FACING, EnumFacing.WEST), false);
-		this.fillWithBlocks(worldIn, structureBoundingBoxIn, 12, 1, 5, 12, 2, 7,
+		this.fillWithBlocks(world, structureBoundingBoxIn, 12, 1, 5, 12, 2, 7,
 				upgradeStation.withProperty(BlockUpgradeStation.FACING, EnumFacing.WEST),
 				upgradeStation.withProperty(BlockUpgradeStation.FACING, EnumFacing.EAST), false);
-		this.setBlockState(worldIn, upgradeStationHolder.withProperty(BlockUpgradeStation.FACING, EnumFacing.EAST), 1,
+		this.setBlockState(world, upgradeStationHolder.withProperty(BlockUpgradeStation.FACING, EnumFacing.EAST), 1,
 				1, 6, structureBoundingBoxIn);
-		this.setBlockState(worldIn, upgradeStationHolder.withProperty(BlockUpgradeStation.FACING, EnumFacing.WEST), 12,
+		this.setBlockState(world, upgradeStationHolder.withProperty(BlockUpgradeStation.FACING, EnumFacing.WEST), 12,
 				1, 6, structureBoundingBoxIn);
 		for (int k = 0; k < 10; ++k)
 			for (int j = 0; j < 13; ++j) {
-				this.clearCurrentPositionBlocksUpwards(worldIn, j, 17, k, structureBoundingBoxIn);
-				this.replaceAirAndLiquidDownwards(worldIn, stone, j, -1, k, structureBoundingBoxIn);
+				this.clearCurrentPositionBlocksUpwards(world, j, 17, k, structureBoundingBoxIn);
+				this.replaceAirAndLiquidDownwards(world, stone, j, -1, k, structureBoundingBoxIn);
 			}
 
 		if (!this.haleSpawned) {
-			EntitySaxtonHale shopkeeper = new EntitySaxtonHale(worldIn);
+			EntitySaxtonHale shopkeeper = new EntitySaxtonHale(world);
 			shopkeeper.setLocationAndAngles(this.getXWithOffset(7, 5), this.getYWithOffset(1),
 					this.getZWithOffset(7, 5), 0.0F, 0.0F);
 			shopkeeper.enablePersistence();
 			this.haleSpawned = true;
-			worldIn.spawnEntity(shopkeeper);
+			world.spawnEntity(shopkeeper);
 		}
 		return true;
 	}
@@ -130,7 +130,7 @@ public class MannCoBuilding extends StructureComponent {
 		return blockstateIn;
 	}
 
-	protected int getAverageGroundLevel(World worldIn, StructureBoundingBox structurebb) {
+	protected int getAverageGroundLevel(World world, StructureBoundingBox structurebb) {
 		int i = 0;
 		int j = 0;
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
@@ -140,8 +140,8 @@ public class MannCoBuilding extends StructureComponent {
 				blockpos$mutableblockpos.setPos(l, 64, k);
 
 				if (structurebb.isVecInside(blockpos$mutableblockpos)) {
-					i += Math.max(worldIn.getTopSolidOrLiquidBlock(blockpos$mutableblockpos).getY(),
-							worldIn.provider.getAverageGroundLevel() - 1);
+					i += Math.max(world.getTopSolidOrLiquidBlock(blockpos$mutableblockpos).getY(),
+							world.provider.getAverageGroundLevel() - 1);
 					++j;
 				}
 			}
@@ -157,11 +157,11 @@ public class MannCoBuilding extends StructureComponent {
 	public static class Start extends StructureStart {
 		public Start() {}
 
-		public Start(World worldIn, Random random, int chunkX, int chunkZ) {
-			this(worldIn, random, chunkX, chunkZ, worldIn.getBiome(new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8)));
+		public Start(World world, Random random, int chunkX, int chunkZ) {
+			this(world, random, chunkX, chunkZ, world.getBiome(new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8)));
 		}
 
-		public Start(World worldIn, Random random, int chunkX, int chunkZ, Biome biomeIn) {
+		public Start(World world, Random random, int chunkX, int chunkZ, Biome biomeIn) {
 			super(chunkX, chunkZ);
 			EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
 			StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(chunkX * 16,
@@ -238,9 +238,9 @@ public class MannCoBuilding extends StructureComponent {
 		}
 
 		@Override
-		public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
-			this.world = worldIn;
-			return findNearestStructurePosBySpacing(worldIn, this, pos, this.distance, 8, 10387312, false, 100,
+		public BlockPos getNearestStructurePos(World world, BlockPos pos, boolean findUnexplored) {
+			this.world = world;
+			return findNearestStructurePosBySpacing(world, this, pos, this.distance, 8, 10387312, false, 100,
 					findUnexplored);
 		}
 

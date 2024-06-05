@@ -54,7 +54,7 @@ public class BlockOverheadDoor extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta) {
 		if ((meta & 4) == 4)
 			return new TileEntityOverheadDoor();
 		return null;
@@ -96,8 +96,8 @@ public class BlockOverheadDoor extends BlockContainer {
 	}
 
 	@Override
-	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-		worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn));
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		world.scheduleUpdate(pos, this, this.tickRate(world));
 	}
 
 	/*
@@ -149,15 +149,15 @@ public class BlockOverheadDoor extends BlockContainer {
 	 */
 
 	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
 			float hitZ, int meta, EntityLivingBase placer) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override
-	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
 			ItemStack stack) {
-		worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
+		world.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
 	}
 
 	@Override
@@ -188,20 +188,20 @@ public class BlockOverheadDoor extends BlockContainer {
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
 		BlockPos off = pos;
 		while (true) {
 			off = off.up();
-			if (worldIn.getBlockState(off).getBlock() == this)
-				worldIn.destroyBlock(off, true);
+			if (world.getBlockState(off).getBlock() == this)
+				world.destroyBlock(off, true);
 			else
 				break;
 		}
 		off = pos;
 		while (true) {
 			off = off.down();
-			if (worldIn.getBlockState(off).getBlock() == this)
-				worldIn.destroyBlock(off, true);
+			if (world.getBlockState(off).getBlock() == this)
+				world.destroyBlock(off, true);
 			else
 				break;
 		}
@@ -213,10 +213,10 @@ public class BlockOverheadDoor extends BlockContainer {
 	}
 
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		TileEntity ent = worldIn.getTileEntity(pos);
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
+		TileEntity ent = world.getTileEntity(pos);
 		if (ent instanceof TileEntityOverheadDoor) {
-			((TileEntityOverheadDoor) ent).powered = worldIn.isBlockPowered(pos);
+			((TileEntityOverheadDoor) ent).powered = world.isBlockPowered(pos);
 		}
 	}
 
@@ -228,13 +228,13 @@ public class BlockOverheadDoor extends BlockContainer {
 	}
 
 	@Override
-	public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
-		if (worldIn.getBlockState(pos).getValue(SLIDING))
+	public boolean isPassable(IBlockAccess world, BlockPos pos) {
+		if (world.getBlockState(pos).getValue(SLIDING))
 			return true;
 		for (int y = 0; y < 5; y++) {
 			BlockPos off = pos.add(0, y, 0);
-			if (worldIn.getTileEntity(off) instanceof TileEntityOverheadDoor) {
-				TileEntityOverheadDoor ent = (TileEntityOverheadDoor) worldIn.getTileEntity(off);
+			if (world.getTileEntity(off) instanceof TileEntityOverheadDoor) {
+				TileEntityOverheadDoor ent = (TileEntityOverheadDoor) world.getTileEntity(off);
 				return ent.allow == Allow.ENTITY || ent.allow == Allow.TEAM;
 			}
 		}

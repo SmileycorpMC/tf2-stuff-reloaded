@@ -36,11 +36,11 @@ public class ContainerUpgrades extends Container {
 	public int[] transactionsCost;// = new int[TileEntityUpgrades.UPGRADES_COUNT];
 	// public ArrayList<Integer> guiShowId = new ArrayList<>();
 
-	public ContainerUpgrades(EntityPlayer player, InventoryPlayer playerInventory, TileEntityUpgrades station,
-			World worldIn, BlockPos posIn) {
+	public ContainerUpgrades(EntityPlayer player, InventoryPlayer inventory, TileEntityUpgrades station,
+			World world, BlockPos posIn) {
 		this.station = station;
 		this.player = player;
-		this.world = worldIn;
+		this.world = world;
 		this.pos = posIn;
 		this.applicable = new ArrayList<>();
 		transactions = new int[0];
@@ -73,10 +73,10 @@ public class ContainerUpgrades extends Container {
 
 		for (int k = 0; k < 3; ++k)
 			for (int i1 = 0; i1 < 9; ++i1)
-				this.addSlotToContainer(new Slot(playerInventory, i1 + k * 9 + 9, 36 + i1 * 18, 143 + k * 18));
+				this.addSlotToContainer(new Slot(inventory, i1 + k * 9 + 9, 36 + i1 * 18, 143 + k * 18));
 
 		for (int l = 0; l < 9; ++l)
-			this.addSlotToContainer(new Slot(playerInventory, l, 36 + l * 18, 201));
+			this.addSlotToContainer(new Slot(inventory, l, 36 + l * 18, 201));
 	}
 
 	public void refreshData() {
@@ -109,21 +109,21 @@ public class ContainerUpgrades extends Container {
 	}
 
 	@Override
-	public void onContainerClosed(EntityPlayer playerIn) {
-		super.onContainerClosed(playerIn);
+	public void onContainerClosed(EntityPlayer player) {
+		super.onContainerClosed(player);
 
 		if (!this.world.isRemote) {
 			ItemStack itemstack = this.upgradedItem.removeStackFromSlot(0);
 
 			if (!itemstack.isEmpty())
-				playerIn.dropItem(itemstack, false);
+				player.dropItem(itemstack, false);
 		}
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
+	public boolean canInteractWith(EntityPlayer player) {
 		return this.world.getBlockState(this.pos).getBlock() != TF2weapons.blockUpgradeStation ? false
-				: playerIn.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D,
+				: player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D,
 						this.pos.getZ() + 0.5D) <= 64.0D;
 	}
 
@@ -132,7 +132,7 @@ public class ContainerUpgrades extends Container {
 	 */
 	@Override
 	@Nullable
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -159,19 +159,19 @@ public class ContainerUpgrades extends Container {
 			if (itemstack1.getCount() == itemstack.getCount())
 				return ItemStack.EMPTY;
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;
 	}
 
 	@Override
-	public boolean enchantItem(EntityPlayer playerIn, int id) {
+	public boolean enchantItem(EntityPlayer player, int id) {
 		ItemStack stack = this.upgradedItem.getStackInSlot(0);
 
 		NBTTagCompound stacktag = stack.getTagCompound();
 
-		int expPoints = TF2Util.getExperiencePoints(playerIn);
+		int expPoints = TF2Util.getExperiencePoints(player);
 		if (id >= 0) {
 			int idEnch = Math.min(this.applicable.size() - 1, Math.max(id / 2, 0));
 			boolean adding = id % 2 == 0;
@@ -191,7 +191,7 @@ public class ContainerUpgrades extends Container {
 					&& stacktag.getBoolean("Australium") && austrUpgrade != attr.id;
 
 			if (adding && currLevel < this.station.attributes.get(attrorig) && expPoints >= cost
-					&& cost + stacktag.getInteger("TotalSpent") <= TF2Attribute.getMaxExperience(stack, playerIn)) {
+					&& cost + stacktag.getInteger("TotalSpent") <= TF2Attribute.getMaxExperience(stack, player)) {
 				NBTTagCompound tag = stacktag.getCompoundTag("Attributes");
 				String key = String.valueOf(attr.id);
 
@@ -212,14 +212,14 @@ public class ContainerUpgrades extends Container {
 
 				// stacktag.setInteger("TotalCostReal", stacktag.getInteger("TotalCostReal") +
 				// attr.cost);
-				TF2Util.setExperiencePoints(playerIn, expPoints - cost);
+				TF2Util.setExperiencePoints(player, expPoints - cost);
 				this.transactions[idEnch]++;
 				this.transactionsCost[idEnch] += cost;
 
 				/*
-				 * playerIn.addStat(TF2Achievements.WEAPON_UPGRADE); if (attr.numLevels > 1 &&
+				 * player.addStat(TF2Achievements.WEAPON_UPGRADE); if (attr.numLevels > 1 &&
 				 * attr.calculateCurrLevel(stack) == attr.numLevels)
-				 * playerIn.addStat(TF2Achievements.FULLY_UPGRADED);
+				 * player.addStat(TF2Achievements.FULLY_UPGRADED);
 				 */
 			} else if (adding && austrAdd) {
 				NBTTagCompound tag = stacktag.getCompoundTag("Attributes");
@@ -265,7 +265,7 @@ public class ContainerUpgrades extends Container {
 							- attr.cost * (attr.numLevels > 2 ? 3 : 1.5f)));
 				// stacktag.setInteger("TotalCostReal", stacktag.getInteger("TotalCostReal") -
 				// this.transactionsCost[idEnch]);
-				TF2Util.setExperiencePoints(playerIn, expPoints + cost);
+				TF2Util.setExperiencePoints(player, expPoints + cost);
 				this.transactions[idEnch] = 0;
 				this.transactionsCost[idEnch] = 0;
 
@@ -274,7 +274,7 @@ public class ContainerUpgrades extends Container {
 			if (stacktag.hasKey("AttributesOrig") && stacktag.getInteger("TotalSpent") > 0) {
 				stacktag.setTag("Attributes", stacktag.getTag("AttributesOrig").copy());
 				stacktag.setInteger("LastUpgradesCost", 0);
-				TF2Util.setExperiencePoints(playerIn, expPoints + stacktag.getInteger("TotalSpent"));
+				TF2Util.setExperiencePoints(player, expPoints + stacktag.getInteger("TotalSpent"));
 				stacktag.setInteger("TotalSpent", 0);
 				stacktag.setInteger("TotalCost", 0);
 				for (int i = 0; i < this.transactions.length; i++) {

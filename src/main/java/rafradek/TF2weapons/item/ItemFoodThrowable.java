@@ -54,17 +54,17 @@ public class ItemFoodThrowable extends ItemFood {
 	}
 
 	@Override
-	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
-		super.onFoodEaten(stack, worldIn, player);
-		if (!worldIn.isRemote) {
+	protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
+		super.onFoodEaten(stack, world, player);
+		if (!world.isRemote) {
 			player.getCooldownTracker().setCooldown(this, TF2ConfigVars.fastItemCooldown ? waitTime / 2 : waitTime);
 		}
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		ItemStack previous = playerIn.getHeldItem(handIn);
-		ActionResult<ItemStack> result = super.onItemRightClick(worldIn, playerIn, handIn);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn) {
+		ItemStack previous = player.getHeldItem(handIn);
+		ActionResult<ItemStack> result = super.onItemRightClick(world, player, handIn);
 		if (TF2ConfigVars.freeUseItems)
 			result.getResult().setCount(previous.getCount());
 		return result;

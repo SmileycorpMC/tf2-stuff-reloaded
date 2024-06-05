@@ -16,8 +16,8 @@ public class EntitySapper extends EntityBuilding {
 	public EntityBuilding sappedBuilding;
 	public ItemStack sapperItem;
 
-	public EntitySapper(World worldIn) {
-		super(worldIn);
+	public EntitySapper(World world) {
+		super(world);
 		this.setSize(1f, 1.1f);
 	}
 

@@ -39,8 +39,8 @@ public class ContainerMercenary extends ContainerMerchant {
 	public int primaryAmmo;
 	public int secondaryAmmo;
 
-	public ContainerMercenary(EntityPlayer player, EntityTF2Character merc, World worldIn) {
-		super(player.inventory, merc, worldIn);
+	public ContainerMercenary(EntityPlayer player, EntityTF2Character merc, World world) {
+		super(player.inventory, merc, world);
 		this.mercenary = merc;
 		if (this.mercenary.hasHeldInventory()) {
 			for (int i = 0; i < 4; i++) {
@@ -50,7 +50,7 @@ public class ContainerMercenary extends ContainerMerchant {
 					this.mercenary.loadoutHeld.setStackInSlot(i, buf);
 				}
 				/*
-				 * if (!worldIn.isRemote) TF2weapons.network.sendTo(new
+				 * if (!world.isRemote) TF2weapons.network.sendTo(new
 				 * TF2Message.WearableChangeMessage(merc, i + 20,
 				 * this.mercenary.loadout.getStackInSlot(i)), (EntityPlayerMP) player);
 				 */
@@ -97,7 +97,7 @@ public class ContainerMercenary extends ContainerMerchant {
 				}
 
 				/*
-				 * @Override public boolean canTakeStack(EntityPlayer playerIn) { return
+				 * @Override public boolean canTakeStack(EntityPlayer player) { return
 				 * merc.getDropChance(); }
 				 */
 
@@ -129,8 +129,8 @@ public class ContainerMercenary extends ContainerMerchant {
 						}
 
 						@Override
-						public boolean canTakeStack(EntityPlayer playerIn) {
-							return super.canTakeStack(playerIn);
+						public boolean canTakeStack(EntityPlayer player) {
+							return super.canTakeStack(player);
 						}
 
 						@Override
@@ -192,7 +192,7 @@ public class ContainerMercenary extends ContainerMerchant {
 			this.addSlotToContainer(new SlotItemHandler(merc.loadout, i, -888888, -566788) {
 
 				@Override
-				public boolean canTakeStack(EntityPlayer playerIn) {
+				public boolean canTakeStack(EntityPlayer player) {
 					return false;
 				}
 
@@ -245,23 +245,23 @@ public class ContainerMercenary extends ContainerMerchant {
 	}
 
 	@Override
-	public boolean enchantItem(EntityPlayer playerIn, int id) {
+	public boolean enchantItem(EntityPlayer player, int id) {
 		if (id == 0 && !mercenary.isRobot()) {
-			if (mercenary.getOwner() == playerIn) {
-				ItemHandlerHelper.giveItemToPlayer(playerIn, new ItemStack(TF2weapons.itemTF2, 1, 2));
+			if (mercenary.getOwner() == player) {
+				ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(TF2weapons.itemTF2, 1, 2));
 				this.mercenary.setOwner(null);
 			} else if (mercenary.getOwnerId() == null
-					&& playerIn.inventory.hasItemStack(new ItemStack(TF2weapons.itemTF2, 1, 2))) {
-				playerIn.inventory.clearMatchingItems(TF2weapons.itemTF2, 2, 1, null);
-				this.mercenary.setOwner(playerIn);
+					&& player.inventory.hasItemStack(new ItemStack(TF2weapons.itemTF2, 1, 2))) {
+				player.inventory.clearMatchingItems(TF2weapons.itemTF2, 2, 1, null);
+				this.mercenary.setOwner(player);
 			}
 			this.mercenary.applySpeed();
 		} else if (id == 1 && !mercenary.isRobot()) {
-			if (mercenary.getOwner() == playerIn) {
-				playerIn.inventory.clearMatchingItems(TF2weapons.itemTF2, 2, 1, null);
+			if (mercenary.getOwner() == player) {
+				player.inventory.clearMatchingItems(TF2weapons.itemTF2, 2, 1, null);
 				this.mercenary.setSharing(true);
 			}
-		} else if (id >= 10 && id < 20 && mercenary.getOwner() == playerIn) {
+		} else if (id >= 10 && id < 20 && mercenary.getOwner() == player) {
 			int index = (id + 100) % EntityTF2Character.Order.values().length;
 			this.mercenary.setOrder(Order.values()[index]);
 		} else if (id >= 50 && id < 53) {
@@ -276,8 +276,8 @@ public class ContainerMercenary extends ContainerMerchant {
 	}
 
 	@Override
-	public void onContainerClosed(EntityPlayer playerIn) {
-		super.onContainerClosed(playerIn);
+	public void onContainerClosed(EntityPlayer player) {
+		super.onContainerClosed(player);
 		if (!this.mercenary.world.isRemote) {
 			for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
 				if (slot.getSlotType() == Type.ARMOR) {
@@ -317,7 +317,7 @@ public class ContainerMercenary extends ContainerMerchant {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -367,7 +367,7 @@ public class ContainerMercenary extends ContainerMerchant {
 				return ItemStack.EMPTY;
 			}
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;

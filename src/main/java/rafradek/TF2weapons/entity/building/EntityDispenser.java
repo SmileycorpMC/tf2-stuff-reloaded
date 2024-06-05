@@ -66,8 +66,8 @@ public class EntityDispenser extends EntityBuilding {
 
 	public static final int MAX_METAL = 400;
 
-	public EntityDispenser(World worldIn) {
-		super(worldIn);
+	public EntityDispenser(World world) {
+		super(world);
 		this.setSize(1f, 1.1f);
 	}
 

@@ -79,7 +79,7 @@ public abstract class ItemWeapon extends ItemUsable implements IItemNoSwitch {
 	public ItemWeapon() {
 		super();
 		this.setCreativeTab(TF2weapons.tabweapontf2);
-		this.addPropertyOverride(new ResourceLocation("inhand"), (ItemStack stack, @Nullable World worldIn,
+		this.addPropertyOverride(new ResourceLocation("inhand"), (ItemStack stack, @Nullable World world,
 				@Nullable EntityLivingBase entityIn) -> (entityIn != null && inHand) ? 1 : 0);
 	}
 

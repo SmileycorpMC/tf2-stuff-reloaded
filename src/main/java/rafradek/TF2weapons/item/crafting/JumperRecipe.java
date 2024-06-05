@@ -20,7 +20,7 @@ public class JumperRecipe extends net.minecraftforge.registries.IForgeRegistryEn
 	}
 
 	@Override
-	public boolean matches(InventoryCrafting inv, World worldIn) {
+	public boolean matches(InventoryCrafting inv, World world) {
 		int feather = 0;
 		ItemStack stack2 = ItemStack.EMPTY;
 

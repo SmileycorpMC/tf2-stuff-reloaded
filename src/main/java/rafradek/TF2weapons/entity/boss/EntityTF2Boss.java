@@ -62,8 +62,8 @@ public abstract class EntityTF2Boss extends EntityMob implements IEntityTF2 {
 
 	public WeaponsCapability weaponCap;
 
-	public EntityTF2Boss(World worldIn) {
-		super(worldIn);
+	public EntityTF2Boss(World world) {
+		super(world);
 		if (!this.world.isRemote)
 			this.setGlowing(true);
 		this.inventoryHandsDropChances = new float[] { 0, 0 };

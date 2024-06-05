@@ -24,7 +24,7 @@ public class ItemSoldierBackpack extends ItemBackpack {
 
 	public ItemSoldierBackpack() {
 		super();
-		this.addPropertyOverride(new ResourceLocation("active"), (ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) -> {
+		this.addPropertyOverride(new ResourceLocation("active"), (ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) -> {
 			if (entityIn != null && WeaponsCapability.get(entityIn) != null
 					&& WeaponsCapability.get(entityIn).isRageActive(RageType.BANNER))
 				return 1;

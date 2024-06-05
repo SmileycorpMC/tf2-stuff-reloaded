@@ -47,8 +47,8 @@ public class GuiTF2Crafting extends GuiContainer {
 
 	private boolean wasClicking;
 
-	public GuiTF2Crafting(InventoryPlayer playerInv, World worldIn, BlockPos blockPosition) {
-		super(new ContainerTF2Workbench(Minecraft.getMinecraft().player, playerInv, worldIn, blockPosition));
+	public GuiTF2Crafting(InventoryPlayer playerv, World world, BlockPos blockPosition) {
+		super(new ContainerTF2Workbench(Minecraft.getMinecraft().player, playerv, world, blockPosition));
 		// this.cabinet=cabinet;
 		this.xSize = 176;
 		this.ySize = 180;

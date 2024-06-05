@@ -30,12 +30,12 @@ public class ContainerEnergy extends Container {
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
+	public boolean canInteractWith(EntityPlayer player) {
 		return true;
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -65,7 +65,7 @@ public class ContainerEnergy extends Container {
 				return ItemStack.EMPTY;
 			}
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;

@@ -49,16 +49,16 @@ public class ItemMonsterPlacerPlus extends Item {
 	 * false if it don't. This is for ITEMS, not BLOCKS
 	 */
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		ItemStack stack = playerIn.getHeldItem(hand);
-		if (worldIn.isRemote)
+		ItemStack stack = player.getHeldItem(hand);
+		if (world.isRemote)
 			return EnumActionResult.SUCCESS;
-		else if (!playerIn.canPlayerEdit(pos.offset(facing), facing, stack))
+		else if (!player.canPlayerEdit(pos.offset(facing), facing, stack))
 			return EnumActionResult.FAIL;
 		else {
-			IBlockState iblockstate = worldIn.getBlockState(pos);
+			IBlockState iblockstate = world.getBlockState(pos);
 
 			pos = pos.offset(facing);
 			double d0 = 0.0D;
@@ -68,7 +68,7 @@ public class ItemMonsterPlacerPlus extends Item {
 
 			boolean hastag = stack.getTagCompound() != null && stack.getTagCompound().hasKey("SavedEntity");
 
-			EntityLivingBase entity = spawnCreature(playerIn, worldIn, stack.getItemDamage(), pos.getX() + 0.5D,
+			EntityLivingBase entity = spawnCreature(player, world, stack.getItemDamage(), pos.getX() + 0.5D,
 					pos.getY() + d0, pos.getZ() + 0.5D,
 					hastag ? stack.getTagCompound().getCompoundTag("SavedEntity") : null);
 
@@ -76,18 +76,18 @@ public class ItemMonsterPlacerPlus extends Item {
 				if (entity instanceof EntityLivingBase && stack.hasDisplayName())
 					entity.setCustomNameTag(stack.getDisplayName());
 
-				if (!playerIn.capabilities.isCreativeMode)
+				if (!player.capabilities.isCreativeMode)
 					stack.shrink(1);
 				if (entity instanceof EntityBuilding) {
-					if (entity instanceof EntityTeleporter || !(playerIn.isCreative() && playerIn.isSneaking()))
-						((EntityBuilding) entity).setOwner(playerIn);
+					if (entity instanceof EntityTeleporter || !(player.isCreative() && player.isSneaking()))
+						((EntityBuilding) entity).setOwner(player);
 					if (hastag) {
 						((EntityBuilding) entity).setConstructing(true);
 						((EntityBuilding) entity).redeploy = true;
 					}
-					entity.rotationYaw = playerIn.rotationYawHead;
-					entity.renderYawOffset = playerIn.rotationYawHead;
-					entity.rotationYawHead = playerIn.rotationYawHead;
+					entity.rotationYaw = player.rotationYawHead;
+					entity.renderYawOffset = player.rotationYawHead;
+					entity.rotationYawHead = player.rotationYawHead;
 					if (entity instanceof EntityTeleporter)
 						((EntityTeleporter) entity).setExit(stack.getItemDamage() > 23);
 				}
@@ -103,25 +103,25 @@ public class ItemMonsterPlacerPlus extends Item {
 	 */
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		ItemStack itemStackIn = playerIn.getHeldItem(hand);
-		if (worldIn.isRemote)
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemStackIn = player.getHeldItem(hand);
+		if (world.isRemote)
 			return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
 		else {
-			RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, true);
+			RayTraceResult raytraceresult = this.rayTrace(world, player, true);
 
 			if (raytraceresult != null && raytraceresult.typeOfHit == RayTraceResult.Type.BLOCK) {
 				BlockPos blockpos = raytraceresult.getBlockPos();
 
-				if (!(worldIn.getBlockState(blockpos).getBlock() instanceof BlockLiquid))
+				if (!(world.getBlockState(blockpos).getBlock() instanceof BlockLiquid))
 					return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
-				else if (worldIn.isBlockModifiable(playerIn, blockpos)
-						&& playerIn.canPlayerEdit(blockpos, raytraceresult.sideHit, itemStackIn)) {
+				else if (world.isBlockModifiable(player, blockpos)
+						&& player.canPlayerEdit(blockpos, raytraceresult.sideHit, itemStackIn)) {
 
 					boolean hastag = itemStackIn.getTagCompound() != null
 							&& itemStackIn.getTagCompound().hasKey("SavedEntity");
 
-					EntityLivingBase entity = spawnCreature(playerIn, worldIn, itemStackIn.getItemDamage(),
+					EntityLivingBase entity = spawnCreature(player, world, itemStackIn.getItemDamage(),
 							blockpos.getX() + 0.5D, blockpos.getY() + 0.5D, blockpos.getZ() + 0.5D,
 							hastag ? itemStackIn.getTagCompound().getCompoundTag("SavedEntity") : null);
 
@@ -131,11 +131,11 @@ public class ItemMonsterPlacerPlus extends Item {
 						if (entity instanceof EntityLivingBase && itemStackIn.hasDisplayName())
 							entity.setCustomNameTag(itemStackIn.getDisplayName());
 
-						if (!playerIn.capabilities.isCreativeMode)
+						if (!player.capabilities.isCreativeMode)
 							itemStackIn.shrink(1);
 						if (entity instanceof EntityBuilding) {
-							if (entity instanceof EntityTeleporter || !(playerIn.isCreative() && playerIn.isSneaking()))
-								((EntityBuilding) entity).setOwner(playerIn);
+							if (entity instanceof EntityTeleporter || !(player.isCreative() && player.isSneaking()))
+								((EntityBuilding) entity).setOwner(player);
 							if (hastag) {
 								((EntityBuilding) entity).setConstructing(true);
 								((EntityBuilding) entity).redeploy = true;
@@ -144,16 +144,16 @@ public class ItemMonsterPlacerPlus extends Item {
 									&& itemStackIn.getTagCompound().getBoolean("Mini"))
 								((EntitySentry) entity).setMini(true);
 
-							entity.rotationYaw = playerIn.rotationYawHead;
-							entity.renderYawOffset = playerIn.rotationYawHead;
-							entity.rotationYawHead = playerIn.rotationYawHead;
+							entity.rotationYaw = player.rotationYawHead;
+							entity.renderYawOffset = player.rotationYawHead;
+							entity.rotationYawHead = player.rotationYawHead;
 
 							/*
 							 * if(entity instanceof EntityTeleporter){ ((EntityTeleporter)
 							 * entity).setExit(itemStackIn.getItemDamage()>23); }
 							 */
 						}
-						playerIn.addStat(StatList.getObjectUseStats(this));
+						player.addStat(StatList.getObjectUseStats(this));
 						return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
 					}
 				} else

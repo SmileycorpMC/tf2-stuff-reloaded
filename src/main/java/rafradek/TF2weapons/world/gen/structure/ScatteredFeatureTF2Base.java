@@ -86,9 +86,9 @@ public class ScatteredFeatureTF2Base extends StructureComponentTemplate {
 	}
 
 	@Override
-	public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn) {
+	public boolean addComponentParts(World world, Random randomIn, StructureBoundingBox structureBoundingBoxIn) {
 		if (this.templatePosition.getY() == 64) {
-			int averageGroundLvl = this.getAverageGroundLevel(worldIn, structureBoundingBoxIn);
+			int averageGroundLvl = this.getAverageGroundLevel(world, structureBoundingBoxIn);
 
 			if (averageGroundLvl < 0)
 				return true;
@@ -96,17 +96,17 @@ public class ScatteredFeatureTF2Base extends StructureComponentTemplate {
 			this.offset(0, averageGroundLvl - this.boundingBox.minY - this.groundLevel, 0);
 		}
 
-		boolean done = super.addComponentParts(worldIn, randomIn, structureBoundingBoxIn);
+		boolean done = super.addComponentParts(world, randomIn, structureBoundingBoxIn);
 		if (done) {
 			for (int i = 0; i < this.boundingBox.getXSize(); i++)
 				for (int j = 0; j < this.boundingBox.getZSize(); j++)
-					this.replaceAirAndLiquidDownwards(worldIn, Blocks.DIRT.getDefaultState(), i, -1 + groundLevel, j,
+					this.replaceAirAndLiquidDownwards(world, Blocks.DIRT.getDefaultState(), i, -1 + groundLevel, j,
 							structureBoundingBoxIn);
 		}
 		return done;
 	}
 
-	protected int getAverageGroundLevel(World worldIn, StructureBoundingBox structurebb) {
+	protected int getAverageGroundLevel(World world, StructureBoundingBox structurebb) {
 		int i = 0;
 		int j = 0;
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
@@ -116,8 +116,8 @@ public class ScatteredFeatureTF2Base extends StructureComponentTemplate {
 				blockpos$mutableblockpos.setPos(l, 64, k);
 
 				if (structurebb.isVecInside(blockpos$mutableblockpos)) {
-					i += Math.max(worldIn.getTopSolidOrLiquidBlock(blockpos$mutableblockpos).getY(),
-							worldIn.provider.getAverageGroundLevel() - 1);
+					i += Math.max(world.getTopSolidOrLiquidBlock(blockpos$mutableblockpos).getY(),
+							world.provider.getAverageGroundLevel() - 1);
 					++j;
 				}
 			}
@@ -131,11 +131,11 @@ public class ScatteredFeatureTF2Base extends StructureComponentTemplate {
 	}
 
 	@Override
-	protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand,
+	protected void handleDataMarker(String function, BlockPos pos, World world, Random rand,
 			StructureBoundingBox sbb) {
 		if (function.startsWith("ChestB")) {
 			BlockPos off = pos.down();
-			TileEntity ent = worldIn.getTileEntity(off);
+			TileEntity ent = world.getTileEntity(off);
 			((TileEntityChest) ent).setLootTable(TF2weapons.lootTF2Base, rand.nextLong());
 		}
 	}
@@ -143,17 +143,17 @@ public class ScatteredFeatureTF2Base extends StructureComponentTemplate {
 	public static class Start extends StructureStart {
 		public Start() {}
 
-		public Start(World worldIn, Random random, IChunkGenerator provider, int chunkX, int chunkZ) {
-			this(worldIn, random, provider, chunkX, chunkZ,
-					worldIn.getBiome(new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8)));
+		public Start(World world, Random random, IChunkGenerator provider, int chunkX, int chunkZ) {
+			this(world, random, provider, chunkX, chunkZ,
+					world.getBiome(new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8)));
 		}
 
-		public Start(World worldIn, Random random, IChunkGenerator provider, int chunkX, int chunkZ, Biome biomeIn) {
+		public Start(World world, Random random, IChunkGenerator provider, int chunkX, int chunkZ, Biome biomeIn) {
 			super(chunkX, chunkZ);
 			Rotation rotation = Rotation.values()[random.nextInt(Rotation.values().length)];
 			BlockPos pos = new BlockPos(chunkX * 16 + 8, 64, chunkZ * 16 + 8);
-			this.components.add(new ScatteredFeatureTF2Base(worldIn.getSaveHandler().getStructureTemplateManager(),
-					templateNames[random.nextInt(templateNames.length)], pos, rotation, worldIn));
+			this.components.add(new ScatteredFeatureTF2Base(world.getSaveHandler().getStructureTemplateManager(),
+					templateNames[random.nextInt(templateNames.length)], pos, rotation, world));
 
 			this.updateBoundingBox();
 		}
@@ -208,9 +208,9 @@ public class ScatteredFeatureTF2Base extends StructureComponentTemplate {
 		}
 
 		@Override
-		public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
-			this.world = worldIn;
-			return findNearestStructurePosBySpacing(worldIn, this, pos, this.distance, 8, 10387312, false, 100,
+		public BlockPos getNearestStructurePos(World world, BlockPos pos, boolean findUnexplored) {
+			this.world = world;
+			return findNearestStructurePosBySpacing(world, this, pos, this.distance, 8, 10387312, false, 100,
 					findUnexplored);
 		}
 

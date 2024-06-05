@@ -65,8 +65,8 @@ public class EntitySaxtonHale extends EntityCreature implements INpc, IMerchant 
 	private final BossInfoServer bossInfo = (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE,
 			BossInfo.Overlay.PROGRESS));
 
-	public EntitySaxtonHale(World worldIn) {
-		super(worldIn);
+	public EntitySaxtonHale(World world) {
+		super(world);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.1F, false));
 		this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityTF2Character.class, 8.0F));

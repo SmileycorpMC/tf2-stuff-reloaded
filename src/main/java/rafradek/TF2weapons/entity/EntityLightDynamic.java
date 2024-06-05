@@ -13,19 +13,19 @@ public class EntityLightDynamic extends Entity {
 	public int timeToLive;
 	public Entity parent;
 
-	public EntityLightDynamic(World worldIn) {
-		super(worldIn);
+	public EntityLightDynamic(World world) {
+		super(world);
 	}
 
-	public EntityLightDynamic(World worldIn, Entity parent, int timeToLive) {
-		super(worldIn);
+	public EntityLightDynamic(World world, Entity parent, int timeToLive) {
+		super(world);
 		this.setPosition(parent.posX, parent.posY + parent.getEyeHeight(), parent.posZ);
 		this.parent = parent;
 		this.timeToLive = timeToLive;
 	}
 
-	public EntityLightDynamic(World worldIn, BlockPos pos, int timeToLive) {
-		super(worldIn);
+	public EntityLightDynamic(World world, BlockPos pos, int timeToLive) {
+		super(world);
 		this.setPosition(pos.getX(), pos.getY(), pos.getZ());
 		this.timeToLive = timeToLive;
 	}

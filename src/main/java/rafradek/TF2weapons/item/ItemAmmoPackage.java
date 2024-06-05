@@ -38,11 +38,11 @@ public class ItemAmmoPackage extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		ItemStack itemStackIn = playerIn.getHeldItem(hand);
-		if (!worldIn.isRemote) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemStackIn = player.getHeldItem(hand);
+		if (!world.isRemote) {
 			int ammoType = itemStackIn.getMetadata() % 16;
-			for (ItemStack stack : playerIn.inventory.mainInventory) {
+			for (ItemStack stack : player.inventory.mainInventory) {
 				if (!stack.isEmpty() && stack.getItem() instanceof ItemUsable
 						&& ((ItemUsable) stack.getItem()).getAmmoType(stack) != 0
 						&& ((ItemUsable) stack.getItem()).getAmmoType(stack) < ItemAmmo.AMMO_TYPES.length) {
@@ -51,11 +51,11 @@ public class ItemAmmoPackage extends Item {
 					break;
 				}
 			}
-			ItemStack out = convertPackage(itemStackIn, playerIn, ammoType);
+			ItemStack out = convertPackage(itemStackIn, player, ammoType);
 			out = TF2Util.mergeStackByDamage(
-					playerIn.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), out);
-			if (!playerIn.inventory.addItemStackToInventory(out))
-				playerIn.entityDropItem(out, 0);
+					player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), out);
+			if (!player.inventory.addItemStackToInventory(out))
+				player.entityDropItem(out, 0);
 			itemStackIn.shrink(1);
 		}
 		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);

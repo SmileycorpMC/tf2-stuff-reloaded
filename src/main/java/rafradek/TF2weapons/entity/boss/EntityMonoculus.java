@@ -52,8 +52,8 @@ public class EntityMonoculus extends EntityTF2Boss {
 	private static final DataParameter<Boolean> LASER = EntityDataManager.createKey(EntityMonoculus.class,
 			DataSerializers.BOOLEAN);
 
-	public EntityMonoculus(World worldIn) {
-		super(worldIn);
+	public EntityMonoculus(World world) {
+		super(world);
 		this.setSize(4, 4);
 		this.setHeldItem(EnumHand.MAIN_HAND, ItemFromData.getNewStack("mnceye"));
 		this.setHeldItem(EnumHand.OFF_HAND, ItemFromData.getNewStack("mnclaser"));

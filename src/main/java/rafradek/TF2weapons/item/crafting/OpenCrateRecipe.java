@@ -13,7 +13,7 @@ public class OpenCrateRecipe extends net.minecraftforge.registries.IForgeRegistr
 		implements IRecipe, IRecipeTF2 {
 
 	@Override
-	public boolean matches(InventoryCrafting inv, World worldIn) {
+	public boolean matches(InventoryCrafting inv, World world) {
 		boolean key = false;
 		ItemStack crate = ItemStack.EMPTY;
 

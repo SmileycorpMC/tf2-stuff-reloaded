@@ -26,16 +26,16 @@ public class ItemPickup extends Item {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (!worldIn.isRemote) {
+		if (!world.isRemote) {
 			BlockPos forwardpos = pos.offset(facing);
-			EntityPickup pickup = new EntityPickup(worldIn,
+			EntityPickup pickup = new EntityPickup(world,
 					EntityPickup.Type.values()[player.getHeldItem(hand).getMetadata()], true);
 			if (!player.isCreative())
 				player.getHeldItem(hand).shrink(1);
 			pickup.setPosition(forwardpos.getX() + 0.5, forwardpos.getY(), forwardpos.getZ() + 0.5);
-			worldIn.spawnEntity(pickup);
+			world.spawnEntity(pickup);
 		}
 		return EnumActionResult.SUCCESS;
 	}

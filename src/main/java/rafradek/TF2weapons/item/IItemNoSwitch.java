@@ -11,8 +11,8 @@ public interface IItemNoSwitch {
 
 	boolean stopSlotSwitch(ItemStack stack, EntityLivingBase living);
 
-	default void forceItemSlot(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (!worldIn.isRemote) {
+	default void forceItemSlot(ItemStack stack, World world, Entity entityIn, int itemSlot, boolean isSelected) {
+		if (!world.isRemote) {
 			if (!isSelected && this.stopSlotSwitch(stack, (EntityPlayer) entityIn)) {
 				ItemStack old = ((EntityPlayer) entityIn).getHeldItemMainhand();
 				if (stack == ((EntityPlayer) entityIn).inventory.getStackInSlot(itemSlot)) {

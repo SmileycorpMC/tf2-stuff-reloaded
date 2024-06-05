@@ -54,9 +54,9 @@ public class ParticleExplosion extends Particle {
 	public static class Factory implements IParticleFactory {
 
 		@Override
-		public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn,
+		public Particle createParticle(int particleID, World world, double xCoordIn, double yCoordIn, double zCoordIn,
 				double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_) {
-			return new ParticleExplosion(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
+			return new ParticleExplosion(world, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
 		}
 
 	}

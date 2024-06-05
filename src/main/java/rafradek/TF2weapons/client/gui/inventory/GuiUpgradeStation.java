@@ -49,9 +49,9 @@ public class GuiUpgradeStation extends GuiContainer {
 
 	private boolean wasClicking;
 
-	public GuiUpgradeStation(InventoryPlayer playerInv, TileEntityUpgrades station, World worldIn,
+	public GuiUpgradeStation(InventoryPlayer playerv, TileEntityUpgrades station, World world,
 			BlockPos blockPosition) {
-		super(new ContainerUpgrades(Minecraft.getMinecraft().player, playerInv, station, worldIn, blockPosition));
+		super(new ContainerUpgrades(Minecraft.getMinecraft().player, playerv, station, world, blockPosition));
 		this.station = station;
 		this.xSize = 230;
 		this.ySize = 225;

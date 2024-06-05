@@ -67,14 +67,14 @@ public class TileEntityGameConfigure extends TileEntity implements ITickable, IE
 	}
 
 	@Override
-	protected void setWorldCreate(World worldIn) {
-		this.setWorld(worldIn);
+	protected void setWorldCreate(World world) {
+		this.setWorld(world);
 	}
 
 	@Override
-	public void setWorld(World worldIn) {
-		super.setWorld(worldIn);
-		this.getOutputManager().world = worldIn;
+	public void setWorld(World world) {
+		super.setWorld(world);
+		this.getOutputManager().world = world;
 	}
 
 	@Override

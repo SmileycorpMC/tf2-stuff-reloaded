@@ -29,13 +29,13 @@ public class ContainerRobotDeploy extends Container {
 	public int maxprogress = 500;
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
-		return playerIn.world.getTileEntity(tileEntity.getPos()) != tileEntity ? false
-				: playerIn.getDistanceSq(tileEntity.getPos().getX() + 0.5D, tileEntity.getPos().getY() + 0.5D,
+	public boolean canInteractWith(EntityPlayer player) {
+		return player.world.getTileEntity(tileEntity.getPos()) != tileEntity ? false
+				: player.getDistanceSq(tileEntity.getPos().getX() + 0.5D, tileEntity.getPos().getY() + 0.5D,
 						tileEntity.getPos().getZ() + 0.5D) <= 64.0D;
 	}
 
-	public ContainerRobotDeploy(InventoryPlayer playerInventory, TileEntityRobotDeploy tileEntity) {
+	public ContainerRobotDeploy(InventoryPlayer inventory, TileEntityRobotDeploy tileEntity) {
 
 		this.tileEntity = tileEntity;
 		for (int i = 0; i < 9; i++) {
@@ -94,10 +94,10 @@ public class ContainerRobotDeploy extends Container {
 
 		for (int i = 0; i < 3; ++i)
 			for (int j = 0; j < 9; ++j)
-				this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 111 + i * 18));
+				this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 111 + i * 18));
 
 		for (int k = 0; k < 9; ++k)
-			this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 169));
+			this.addSlotToContainer(new Slot(inventory, k, 8 + k * 18, 169));
 	}
 
 	@Override
@@ -126,7 +126,7 @@ public class ContainerRobotDeploy extends Container {
 
 	@Override
 	@Nullable
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -177,7 +177,7 @@ public class ContainerRobotDeploy extends Container {
 			if (itemstack1.getCount() == itemstack.getCount())
 				return ItemStack.EMPTY;
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;

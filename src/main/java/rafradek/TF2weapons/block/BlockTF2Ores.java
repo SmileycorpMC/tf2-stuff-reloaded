@@ -14,28 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockTF2Ores extends BlockOre {
 
-	public enum EnumOreType implements IStringSerializable {
-
-		COPPER("copper"), LEAD("lead"), AUSTRALIUM("australium");
-
-		private String name;
-
-		EnumOreType(String name) {
-			this.name = name;
-		}
-
-		@Override
-		public String getName() {
-			return name;
-		}
-
-	}
-
 	public static final PropertyEnum<EnumOreType> TYPE = PropertyEnum.<EnumOreType>create("oreType", EnumOreType.class);
-
-	public BlockTF2Ores() {
-		super();
-	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -46,12 +25,9 @@ public class BlockTF2Ores extends BlockOre {
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(TYPE, EnumOreType.values()[meta]);
+		return getDefaultState().withProperty(TYPE, EnumOreType.values()[meta]);
 	}
-
-	/**
-	 * Convert the BlockState into the correct metadata value
-	 */
+	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		return state.getValue(TYPE).ordinal();
@@ -61,4 +37,22 @@ public class BlockTF2Ores extends BlockOre {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { TYPE });
 	}
+	
+	public enum EnumOreType implements IStringSerializable {
+		
+		COPPER("copper"), LEAD("lead"), AUSTRALIUM("australium");
+		
+		private String name;
+		
+		EnumOreType(String name) {
+			this.name = name;
+		}
+		
+		@Override
+		public String getName() {
+			return name;
+		}
+		
+	}
+	
 }

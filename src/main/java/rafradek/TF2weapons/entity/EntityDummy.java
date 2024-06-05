@@ -11,8 +11,8 @@ public class EntityDummy extends EntityLiving {
 
 	public WeaponsCapability cap;
 
-	public EntityDummy(World worldIn) {
-		super(worldIn);
+	public EntityDummy(World world) {
+		super(world);
 		cap = new WeaponsCapability(this);
 		this.setSize(0, 0);
 		this.setDead();

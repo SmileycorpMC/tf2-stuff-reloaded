@@ -14,12 +14,12 @@ public class GuiAmmoFurnace extends GuiContainer {
 	private static final ResourceLocation FURNACE_GUI_TEXTURES = new ResourceLocation(
 			TF2weapons.MOD_ID + ":textures/gui/container/ammofurnace.png");
 	/** The player inventory bound to this GUI. */
-	private final InventoryPlayer playerInventory;
+	private final InventoryPlayer inventory;
 	private final IInventory tileFurnace;
 
-	public GuiAmmoFurnace(InventoryPlayer playerInv, IInventory furnaceInv) {
-		super(new ContainerAmmoFurnace(playerInv, furnaceInv));
-		this.playerInventory = playerInv;
+	public GuiAmmoFurnace(InventoryPlayer playerv, IInventory furnaceInv) {
+		super(new ContainerAmmoFurnace(playerv, furnaceInv));
+		this.inventory = playerv;
 		this.tileFurnace = furnaceInv;
 	}
 
@@ -38,7 +38,7 @@ public class GuiAmmoFurnace extends GuiContainer {
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		String s = this.tileFurnace.getDisplayName().getUnformattedText();
 		this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
-		this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2,
+		this.fontRenderer.drawString(this.inventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2,
 				4210752);
 	}
 

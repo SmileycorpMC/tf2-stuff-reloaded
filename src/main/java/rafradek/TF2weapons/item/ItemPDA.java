@@ -52,7 +52,7 @@ public class ItemPDA extends ItemFromData implements IItemSlotNumber, IItemOverl
 		this.addPropertyOverride(new ResourceLocation("building"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (!stack.hasTagCompound() || (stack.getTagCompound().getByte("Building") == 0)) {
 					return 0f;
 				} else {
@@ -96,9 +96,9 @@ public class ItemPDA extends ItemFromData implements IItemSlotNumber, IItemOverl
 	}
 
 	@Override
-	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		this.forceItemSlot(stack, worldIn, entityIn, itemSlot, isSelected);
-		if (!worldIn.isRemote) {
+	public void onUpdate(ItemStack stack, World world, Entity entityIn, int itemSlot, boolean isSelected) {
+		this.forceItemSlot(stack, world, entityIn, itemSlot, isSelected);
+		if (!world.isRemote) {
 
 			if (!stack.hasTagCompound())
 				stack.setTagCompound(new NBTTagCompound());
@@ -125,20 +125,20 @@ public class ItemPDA extends ItemFromData implements IItemSlotNumber, IItemOverl
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-		ItemStack stack = playerIn.getHeldItem(hand);
-		if (worldIn.isRemote) {
+		ItemStack stack = player.getHeldItem(hand);
+		if (world.isRemote) {
 			if ((!stack.hasTagCompound() || stack.getTagCompound().getByte("Building") == 0))
 				return EnumActionResult.PASS;
 			else
 				return EnumActionResult.SUCCESS;
-		} else if (!playerIn.canPlayerEdit(pos.offset(facing), facing, stack) || !stack.hasTagCompound()
+		} else if (!player.canPlayerEdit(pos.offset(facing), facing, stack) || !stack.hasTagCompound()
 				|| stack.getTagCompound().getByte("Building") == 0)
 			return EnumActionResult.PASS;
 		else {
-			IBlockState iblockstate = worldIn.getBlockState(pos);
+			IBlockState iblockstate = world.getBlockState(pos);
 
 			pos = pos.offset(facing);
 			double d0 = 0.0D;
@@ -154,30 +154,30 @@ public class ItemPDA extends ItemFromData implements IItemSlotNumber, IItemOverl
 			else if (disposable)
 				id = 18;
 
-			EntityBuilding entity = (EntityBuilding) ItemMonsterPlacerPlus.spawnCreature(playerIn, worldIn, id,
-					pos.getX() + 0.5D, pos.getY() + d0, pos.getZ() + 0.5D, TF2PlayerCapability.get(playerIn).carrying);
+			EntityBuilding entity = (EntityBuilding) ItemMonsterPlacerPlus.spawnCreature(player, world, id,
+					pos.getX() + 0.5D, pos.getY() + d0, pos.getZ() + 0.5D, TF2PlayerCapability.get(player).carrying);
 
 			if (entity != null) {
 
-				entity.setEntTeam(TF2Util.getTeamForDisplay(playerIn));
-				entity.setOwner(playerIn);
+				entity.setEntTeam(TF2Util.getTeamForDisplay(player));
+				entity.setOwner(player);
 				if (entity instanceof EntitySentry) {
 					((EntitySentry) entity).attackRateMult = TF2Attribute.getModifier("Sentry Fire Rate", stack, 1,
-							playerIn);
+							player);
 					TF2Util.addModifierSafe(entity, SharedMonsterAttributes.FOLLOW_RANGE, new AttributeModifier(
 							"upgraderange", TF2Attribute.getModifier("Sentry Range", stack, 1f, entity) - 1f, 2), true);
-					((EntitySentry) entity).setHeat((int) TF2Attribute.getModifier("Piercing", stack, 0, playerIn));
+					((EntitySentry) entity).setHeat((int) TF2Attribute.getModifier("Piercing", stack, 0, player));
 					if (disposable || !TF2Util
-							.getFirstItem(playerIn.inventory,
+							.getFirstItem(player.inventory,
 									stackL -> stackL.getItem() instanceof ItemWrench
-											&& TF2Attribute.getModifier("Weapon Mode", stackL, 0, playerIn) == 2)
+											&& TF2Attribute.getModifier("Weapon Mode", stackL, 0, player) == 2)
 							.isEmpty()) {
 						((EntitySentry) entity).setMini(true);
 						if (entity.getLevel() > 1)
 							entity.onDeath(DamageSource.GENERIC);
 					}
 				}
-				if (TF2PlayerCapability.get(playerIn).carrying != null) {
+				if (TF2PlayerCapability.get(player).carrying != null) {
 					entity.setConstructing(true);
 					entity.redeploy = true;
 				}
@@ -189,24 +189,24 @@ public class ItemPDA extends ItemFromData implements IItemSlotNumber, IItemOverl
 					((EntityDispenser) entity).setRange(TF2Attribute.getModifier("Dispenser Range", stack, 1, entity));
 				}
 
-				entity.rotationYaw = playerIn.rotationYawHead;
-				entity.renderYawOffset = playerIn.rotationYawHead;
-				entity.rotationYawHead = playerIn.rotationYawHead;
+				entity.rotationYaw = player.rotationYawHead;
+				entity.renderYawOffset = player.rotationYawHead;
+				entity.rotationYawHead = player.rotationYawHead;
 				entity.fromPDA = true;
 				if (stack.getTagCompound().getByte("Building") == 5 && entity.getDisposableID() == -1)
-					entity.setDisposableID(PlayerPersistStorage.get(playerIn).disposableBuildings.size());
+					entity.setDisposableID(PlayerPersistStorage.get(player).disposableBuildings.size());
 
 				if (entity instanceof EntityTeleporter) {
 					((EntityTeleporter) entity).setID(127);
 					((EntityTeleporter) entity).setExit(stack.getTagCompound().getByte("Building") == 4);
 				}
-				PlayerPersistStorage.get(playerIn).setBuilding(entity,
-						TF2PlayerCapability.get(playerIn).calculateMaxSentries());
-				TF2PlayerCapability.get(playerIn).carrying = null;
-				if (!playerIn.capabilities.isCreativeMode && TF2PlayerCapability.get(playerIn).carrying == null)
-					WeaponsCapability.get(playerIn).consumeMetal(EntityBuilding.getCost(
+				PlayerPersistStorage.get(player).setBuilding(entity,
+						TF2PlayerCapability.get(player).calculateMaxSentries());
+				TF2PlayerCapability.get(player).carrying = null;
+				if (!player.capabilities.isCreativeMode && TF2PlayerCapability.get(player).carrying == null)
+					WeaponsCapability.get(player).consumeMetal(EntityBuilding.getCost(
 							stack.getTagCompound().getByte("Building") - 1,
-							TF2Util.getFirstItem(playerIn.inventory, stackL -> stackL.getItem() instanceof ItemWrench)),
+							TF2Util.getFirstItem(player.inventory, stackL -> stackL.getItem() instanceof ItemWrench)),
 							false);
 			}
 

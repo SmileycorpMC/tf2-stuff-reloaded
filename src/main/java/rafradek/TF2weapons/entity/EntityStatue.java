@@ -40,12 +40,12 @@ public class EntityStatue extends Entity implements IEntityAdditionalSpawnData {
 	public GameProfile profile;
 	public float armSwing;
 
-	public EntityStatue(World worldIn) {
-		super(worldIn);
+	public EntityStatue(World world) {
+		super(world);
 	}
 
-	public EntityStatue(World worldIn, EntityLivingBase toCopy, boolean isFeign) {
-		super(worldIn);
+	public EntityStatue(World world, EntityLivingBase toCopy, boolean isFeign) {
+		super(world);
 		this.setPosition(toCopy.posX, toCopy.posY, toCopy.posZ);
 		this.width = toCopy.width;
 		this.height = toCopy.height;

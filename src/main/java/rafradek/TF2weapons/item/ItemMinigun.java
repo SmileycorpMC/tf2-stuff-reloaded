@@ -33,7 +33,7 @@ public class ItemMinigun extends ItemBulletWeapon {
 		this.addPropertyOverride(new ResourceLocation("spin"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (entityIn != null && entityIn.hasCapability(TF2weapons.WEAPONS_CAP, null)
 						&& entityIn.getCapability(TF2weapons.WEAPONS_CAP, null).chargeTicks > 0)
 					return 1;
@@ -154,8 +154,8 @@ public class ItemMinigun extends ItemBulletWeapon {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 	}
 
 	@Override

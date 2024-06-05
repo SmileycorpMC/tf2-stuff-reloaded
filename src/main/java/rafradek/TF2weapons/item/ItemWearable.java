@@ -62,9 +62,9 @@ public class ItemWearable extends ItemFromData {
 
 	public ItemWearable() {
 		super();
-		this.addPropertyOverride(new ResourceLocation("bodyModel"), (ItemStack stack, @Nullable World worldIn,
+		this.addPropertyOverride(new ResourceLocation("bodyModel"), (ItemStack stack, @Nullable World world,
 				@Nullable EntityLivingBase entityIn) -> (ItemWearable.usedModel == 1) ? 1 : 0);
-		this.addPropertyOverride(new ResourceLocation("headModel"), (ItemStack stack, @Nullable World worldIn,
+		this.addPropertyOverride(new ResourceLocation("headModel"), (ItemStack stack, @Nullable World world,
 				@Nullable EntityLivingBase entityIn) -> (ItemWearable.usedModel == 2) ? 1 : 0);
 	}
 

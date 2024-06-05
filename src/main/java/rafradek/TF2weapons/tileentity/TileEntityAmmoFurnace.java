@@ -111,8 +111,8 @@ public class TileEntityAmmoFurnace extends TileEntityAbstractAmmoFurnace {
 	}
 
 	@Override
-	public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-		return new ContainerAmmoFurnace(playerInventory, this);
+	public Container createContainer(InventoryPlayer inventory, EntityPlayer player) {
+		return new ContainerAmmoFurnace(inventory, this);
 	}
 
 	@Override

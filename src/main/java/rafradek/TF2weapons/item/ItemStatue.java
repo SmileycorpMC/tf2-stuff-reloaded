@@ -28,20 +28,20 @@ public class ItemStatue extends Item {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
-		ItemStack stack = playerIn.getHeldItem(hand);
-		if (!worldIn.isRemote && stack.hasTagCompound() && stack.getTagCompound().hasKey("Statue")) {
-			EntityStatue statue = new EntityStatue(worldIn);
+		ItemStack stack = player.getHeldItem(hand);
+		if (!world.isRemote && stack.hasTagCompound() && stack.getTagCompound().hasKey("Statue")) {
+			EntityStatue statue = new EntityStatue(world);
 			statue.readEntityFromNBT(stack.getTagCompound().getCompoundTag("Statue"));
 			BlockPos off = pos.offset(facing);
 			statue.setPosition(off.getX() + 0.5, off.getY(), off.getZ() + 0.5);
-			statue.rotationYaw = playerIn.rotationYawHead;
-			statue.renderYawOffset = playerIn.rotationYawHead;
+			statue.rotationYaw = player.rotationYawHead;
+			statue.renderYawOffset = player.rotationYawHead;
 
 			statue.ticksLeft = -1;
-			worldIn.spawnEntity(statue);
-			if (!playerIn.capabilities.isCreativeMode)
+			world.spawnEntity(statue);
+			if (!player.capabilities.isCreativeMode)
 				stack.shrink(1);
 			return EnumActionResult.SUCCESS;
 		}

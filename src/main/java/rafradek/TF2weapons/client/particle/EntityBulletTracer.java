@@ -196,9 +196,9 @@ public class EntityBulletTracer extends Particle {
 	public static class Factory implements IParticleFactory {
 
 		@Override
-		public Particle createParticle(int particleID, World worldIn, double xCoordIn, double yCoordIn, double zCoordIn,
+		public Particle createParticle(int particleID, World world, double xCoordIn, double yCoordIn, double zCoordIn,
 				double xSpeedIn, double ySpeedIn, double zSpeedIn, int... p_178902_15_) {
-			return new EntityBulletTracer(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn,
+			return new EntityBulletTracer(world, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn,
 					p_178902_15_[0], p_178902_15_[1], (p_178902_15_[2] / 64f));
 		}
 

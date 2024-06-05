@@ -31,12 +31,12 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 	public EntityPlayer player;
 	public int currentRecipe = -1;
 
-	public ContainerTF2Workbench(EntityPlayer player, InventoryPlayer playerInventory, World worldIn, BlockPos posIn) {
+	public ContainerTF2Workbench(EntityPlayer player, InventoryPlayer inventory, World world, BlockPos posIn) {
 		this.player = player;
-		this.world = worldIn;
+		this.world = world;
 		this.pos = posIn;
 		this.addSlotToContainer(
-				new SlotCraftingTF2(playerInventory.player, this.craftMatrix, this.craftResult, 0, 148, 41));
+				new SlotCraftingTF2(inventory.player, this.craftMatrix, this.craftResult, 0, 148, 41));
 
 		for (int i = 0; i < 3; ++i)
 			for (int j = 0; j < 3; ++j)
@@ -52,10 +52,10 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 
 		for (int k = 0; k < 3; ++k)
 			for (int i1 = 0; i1 < 9; ++i1)
-				this.addSlotToContainer(new Slot(playerInventory, i1 + k * 9 + 9, 8 + i1 * 18, 98 + k * 18));
+				this.addSlotToContainer(new Slot(inventory, i1 + k * 9 + 9, 8 + i1 * 18, 98 + k * 18));
 
 		for (int l = 0; l < 9; ++l)
-			this.addSlotToContainer(new Slot(playerInventory, l, 8 + l * 18, 156));
+			this.addSlotToContainer(new Slot(inventory, l, 8 + l * 18, 156));
 
 		this.onCraftMatrixChanged(this.craftMatrix);
 	}
@@ -127,22 +127,22 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 	 * Called when the container is closed.
 	 */
 	@Override
-	public void onContainerClosed(EntityPlayer playerIn) {
-		super.onContainerClosed(playerIn);
+	public void onContainerClosed(EntityPlayer player) {
+		super.onContainerClosed(player);
 
 		if (!this.world.isRemote)
 			for (int i = 0; i < 9; ++i) {
 				ItemStack itemstack = this.craftMatrix.removeStackFromSlot(i);
 
 				if (!itemstack.isEmpty())
-					playerIn.dropItem(itemstack, false);
+					player.dropItem(itemstack, false);
 			}
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
+	public boolean canInteractWith(EntityPlayer player) {
 		return this.world.getBlockState(this.pos).getBlock() != TF2weapons.blockCabinet ? false
-				: playerIn.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D,
+				: player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D,
 						this.pos.getZ() + 0.5D) <= 64.0D;
 	}
 
@@ -150,17 +150,17 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 	 * Take a stack from the specified inventory slot.
 	 */
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 
-			if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 9 &! playerIn.world.isRemote)
-				itemstack1 = ItemFromData.getRandomWeapon(itemstack1, playerIn.getRNG());
-			else if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 10 &! playerIn.world.isRemote)
-				itemstack1 = ItemFromData.getRandomWeaponOfType("cosmetic", playerIn.getRNG(), false);
+			if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 9 &! player.world.isRemote)
+				itemstack1 = ItemFromData.getRandomWeapon(itemstack1, player.getRNG());
+			else if (itemstack1.getItem() == TF2weapons.itemTF2 && itemstack1.getMetadata() == 10 &! player.world.isRemote)
+				itemstack1 = ItemFromData.getRandomWeaponOfType("cosmetic", player.getRNG(), false);
 			itemstack = itemstack1.copy();
 
 			if (index == 0) {
@@ -185,7 +185,7 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 			if (itemstack1.getCount() == itemstack.getCount())
 				return ItemStack.EMPTY;
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;
@@ -202,7 +202,7 @@ public class ContainerTF2Workbench extends Container implements IRecipeContainer
 	}
 
 	@Override
-	public boolean enchantItem(EntityPlayer playerIn, int id) {
+	public boolean enchantItem(EntityPlayer player, int id) {
 		this.currentRecipe = id;
 		this.onCraftMatrixChanged(null);
 		return true;

@@ -32,7 +32,7 @@ public class ItemCloak extends ItemFromData {
 		this.addPropertyOverride(new ResourceLocation("active"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (entityIn != null && isFeignDeath(stack, entityIn) && WeaponsCapability.get(entityIn).isFeign())
 					return 1;
 				return 0;

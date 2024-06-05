@@ -66,8 +66,8 @@ public class EntityTeleporter extends EntityBuilding {
 	private static final DataParameter<Byte> COLOR = EntityDataManager.createKey(EntityTeleporter.class,
 			DataSerializers.BYTE);
 
-	public EntityTeleporter(World worldIn) {
-		super(worldIn);
+	public EntityTeleporter(World world) {
+		super(world);
 		this.setSize(1f, 0.2f);
 	}
 
@@ -662,8 +662,8 @@ public class EntityTeleporter extends EntityBuilding {
 
 		public BlockPos target;
 
-		public TeleporterDim(WorldServer worldIn, BlockPos targetPos) {
-			super(worldIn);
+		public TeleporterDim(WorldServer world, BlockPos targetPos) {
+			super(world);
 			target = targetPos;
 		}
 

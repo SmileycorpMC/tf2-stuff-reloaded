@@ -28,11 +28,11 @@ public class GuiMercenary extends GuiMerchant {
 	public GuiButton[] mainWeaponButton = new GuiButton[3];
 	public InventoryPlayer inv;
 
-	public GuiMercenary(InventoryPlayer inv, EntityTF2Character mercenary, World worldIn) {
-		super(inv, mercenary, worldIn);
+	public GuiMercenary(InventoryPlayer inv, EntityTF2Character mercenary, World world) {
+		super(inv, mercenary, world);
 		this.mercenary = mercenary;
 		this.inv = inv;
-		this.inventorySlots = new ContainerMercenary(Minecraft.getMinecraft().player, mercenary, worldIn);
+		this.inventorySlots = new ContainerMercenary(Minecraft.getMinecraft().player, mercenary, world);
 
 		this.xSize += 54;
 		// merInv=mercenary.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,

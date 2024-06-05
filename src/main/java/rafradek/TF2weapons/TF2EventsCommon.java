@@ -898,7 +898,7 @@ public class TF2EventsCommon {
 	}
 
 	/*
-	 * @SubscribeEvent public void stopInteract(PlayerInteractEvent event){
+	 * @SubscribeEvent public void stopInteract(playerteractEvent event){
 	 * if(!((event.==PlayerInteractEvent.Action.RIGHT_CLICK_AIR||event.action==
 	 * PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK)&&event.getEntity()Player.
 	 * getHeldItem(EnumHand.MAIN_HAND)!=null&&(event.getEntity()Player.
@@ -1025,8 +1025,8 @@ public class TF2EventsCommon {
 	 * public static class MovePacketHack extends NetHandlerPlayServer{
 	 *
 	 * public MovePacketHack(MinecraftServer server, NetworkManager
-	 * networkManagerIn, EntityPlayerMP playerIn) { super(server, networkManagerIn,
-	 * playerIn); } public void processPlayer(C03PacketPlayer packetIn) {
+	 * networkManagerIn, EntityPlayerMP player) { super(server, networkManagerIn,
+	 * player); } public void processPlayer(C03PacketPlayer packetIn) {
 	 * System.out.println("send"); super.processPlayer(packetIn); } }
 	 */
 	@SubscribeEvent

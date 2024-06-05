@@ -39,7 +39,7 @@ public class BlockResupplyCabinet extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta) {
 		if ((meta & 4) == 4) {
 			TileEntityResupplyCabinet upgrades = new TileEntityResupplyCabinet();
 			// upgrades.generateUpgrades();
@@ -49,78 +49,78 @@ public class BlockResupplyCabinet extends BlockContainer {
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
 			EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (!worldIn.isRemote) {}
+		if (!world.isRemote) {}
 		return false;
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
 			float hitZ, int meta, EntityLivingBase placer) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override
-	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-		this.updateState(worldIn, pos, state);
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		this.updateState(world, pos, state);
 	}
 
-	private void updateState(World worldIn, BlockPos pos, IBlockState state) {
-		TileEntity ent = worldIn.getTileEntity(pos);
+	private void updateState(World world, BlockPos pos, IBlockState state) {
+		TileEntity ent = world.getTileEntity(pos);
 		if (ent instanceof TileEntityResupplyCabinet)
 			if (((TileEntityResupplyCabinet) ent).redstoneActivate)
-				((TileEntityResupplyCabinet) ent).setEnabled(worldIn.isBlockPowered(pos));
+				((TileEntityResupplyCabinet) ent).setEnabled(world.isBlockPowered(pos));
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
 
 	}
 
 	@Override
-	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		this.updateState(worldIn, fromPos, state);
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
+		this.updateState(world, fromPos, state);
 	}
 
 	@Override
-	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
 			ItemStack stack) {
-		worldIn.setBlockState(pos, state = state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
+		world.setBlockState(pos, state = state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
 
 		if (placer instanceof EntityPlayer) {
 
 		}
-		if (worldIn.isAirBlock(pos.up()))
-			worldIn.setBlockState(pos.up(), state.withProperty(HOLDER, false), 2);
+		if (world.isAirBlock(pos.up()))
+			world.setBlockState(pos.up(), state.withProperty(HOLDER, false), 2);
 	}
 
 	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 
 		if (state.getValue(HOLDER)) {
-			if (worldIn.getBlockState(pos.up()).getBlock() == this) {
-				worldIn.setBlockToAir(pos.up());
+			if (world.getBlockState(pos.up()).getBlock() == this) {
+				world.setBlockToAir(pos.up());
 			}
 		} else {
-			if (worldIn.getBlockState(pos.down()).getBlock() == this) {
-				worldIn.setBlockToAir(pos.down());
+			if (world.getBlockState(pos.down()).getBlock() == this) {
+				world.setBlockToAir(pos.down());
 			}
-			if (worldIn.getBlockState(pos.up()).getBlock() == this
-					&& !worldIn.getBlockState(pos.up()).getValue(HOLDER)) {
-				worldIn.setBlockToAir(pos.up());
+			if (world.getBlockState(pos.up()).getBlock() == this
+					&& !world.getBlockState(pos.up()).getValue(HOLDER)) {
+				world.setBlockToAir(pos.up());
 			}
 		}
-		TileEntity ent = worldIn.getTileEntity(pos);
+		TileEntity ent = world.getTileEntity(pos);
 		if (ent instanceof TileEntityRobotDeploy) {
 			((TileEntityRobotDeploy) ent).dropInventory();
 		}
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return super.canPlaceBlockAt(worldIn, pos)
-				&& worldIn.getBlockState(pos.up()).getBlock().isReplaceable(worldIn, pos.up());
+	public boolean canPlaceBlockAt(World world, BlockPos pos) {
+		return super.canPlaceBlockAt(world, pos)
+				&& world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up());
 	}
 
 	@Override
@@ -177,9 +177,9 @@ public class BlockResupplyCabinet extends BlockContainer {
 	}
 
 	@Override
-	public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos) {
-		if (!(worldIn.getTileEntity(pos) instanceof TileEntityResupplyCabinet))
+	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos) {
+		if (!(world.getTileEntity(pos) instanceof TileEntityResupplyCabinet))
 			return 0;
-		return ((TileEntityResupplyCabinet) worldIn.getTileEntity(pos)).cooldownUse.size() > 0 ? 15 : 0;
+		return ((TileEntityResupplyCabinet) world.getTileEntity(pos)).cooldownUse.size() > 0 ? 15 : 0;
 	}
 }

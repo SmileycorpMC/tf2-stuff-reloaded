@@ -24,7 +24,7 @@ public class RecipeToScrap extends net.minecraftforge.registries.IForgeRegistryE
 	}
 
 	@Override
-	public boolean matches(InventoryCrafting inv, World worldIn) {
+	public boolean matches(InventoryCrafting inv, World world) {
 		ArrayList<ItemStack> stacks = new ArrayList<>();
 
 		HashSet<String> classnames = new HashSet<>();

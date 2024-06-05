@@ -100,8 +100,8 @@ public class EntityBuilding extends EntityLiving implements IEntityOwnable, IEnt
 	private int disposableID = -1;
 	public UUID ownerEntityID;
 
-	public EntityBuilding(World worldIn) {
-		super(worldIn);
+	public EntityBuilding(World world) {
+		super(world);
 		this.applyTasks();
 		this.setHealth(0.1f);
 		this.energy = new EnergyStorage(40000);

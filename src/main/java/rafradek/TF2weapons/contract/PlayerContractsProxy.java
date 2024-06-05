@@ -13,8 +13,8 @@ public class PlayerContractsProxy extends NetHandlerPlayServer {
 
 	private NetHandlerPlayServer origin;
 
-	public PlayerContractsProxy(NetHandlerPlayServer origin, MinecraftServer server, EntityPlayerMP playerIn) {
-		super(server, new NetworkManager(EnumPacketDirection.SERVERBOUND), playerIn);
+	public PlayerContractsProxy(NetHandlerPlayServer origin, MinecraftServer server, EntityPlayerMP player) {
+		super(server, new NetworkManager(EnumPacketDirection.SERVERBOUND), player);
 		this.origin = origin;
 	}
 

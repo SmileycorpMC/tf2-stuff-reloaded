@@ -41,7 +41,7 @@ public class ItemHorn extends Item implements IBackpackItem {
 	}
 
 	@Override
-	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft) {
 		ItemStack backpack = ItemBackpack.getBackpack(entityLiving);
 		if (backpack.getItem() instanceof ItemSoldierBackpack
 				&& this.getMaxItemUseDuration(stack) - timeLeft >= ItemFromData.getData(backpack)
@@ -51,16 +51,16 @@ public class ItemHorn extends Item implements IBackpackItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		ItemStack itemStackIn = playerIn.getHeldItem(hand);
-		ItemStack backpack = ItemBackpack.getBackpack(playerIn);
-		if (ItemToken.allowUse(playerIn, TF2Class.SOLDIER) && backpack.getItem() instanceof ItemSoldierBackpack
-				&& (WeaponsCapability.get(playerIn).getRage(RageType.BANNER) >= 1f)) {
-			playerIn.setActiveHand(hand);
-			if (TF2Util.getTeamForDisplay(playerIn) == 1)
-				playerIn.playSound(ItemFromData.getSound(backpack, PropertyType.HORN_BLU_SOUND), 0.8f, 1f);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemStackIn = player.getHeldItem(hand);
+		ItemStack backpack = ItemBackpack.getBackpack(player);
+		if (ItemToken.allowUse(player, TF2Class.SOLDIER) && backpack.getItem() instanceof ItemSoldierBackpack
+				&& (WeaponsCapability.get(player).getRage(RageType.BANNER) >= 1f)) {
+			player.setActiveHand(hand);
+			if (TF2Util.getTeamForDisplay(player) == 1)
+				player.playSound(ItemFromData.getSound(backpack, PropertyType.HORN_BLU_SOUND), 0.8f, 1f);
 			else
-				playerIn.playSound(ItemFromData.getSound(backpack, PropertyType.HORN_RED_SOUND), 0.8f, 1f);
+				player.playSound(ItemFromData.getSound(backpack, PropertyType.HORN_RED_SOUND), 0.8f, 1f);
 			return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
 		}
 		return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);

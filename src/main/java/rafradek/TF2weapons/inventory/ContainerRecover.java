@@ -16,7 +16,7 @@ public class ContainerRecover extends Container {
 
 	private final ItemStackHandler lostItemsHandler;
 
-	public ContainerRecover(IInventory playerInventory, ItemStackHandler dispenserInventoryIn) {
+	public ContainerRecover(IInventory inventory, ItemStackHandler dispenserInventoryIn) {
 		this.lostItemsHandler = dispenserInventoryIn;
 
 		for (int i = 0; i < 3; ++i) {
@@ -32,12 +32,12 @@ public class ContainerRecover extends Container {
 
 		for (int k = 0; k < 3; ++k) {
 			for (int i1 = 0; i1 < 9; ++i1) {
-				this.addSlotToContainer(new Slot(playerInventory, i1 + k * 9 + 27, 8 + i1 * 18, 85 + k * 18));
+				this.addSlotToContainer(new Slot(inventory, i1 + k * 9 + 27, 8 + i1 * 18, 85 + k * 18));
 			}
 		}
 
 		for (int l = 0; l < 9; ++l) {
-			this.addSlotToContainer(new Slot(playerInventory, l, 8 + l * 18, 143));
+			this.addSlotToContainer(new Slot(inventory, l, 8 + l * 18, 143));
 		}
 	}
 
@@ -61,7 +61,7 @@ public class ContainerRecover extends Container {
 	 * Determines whether supplied player can use this container
 	 */
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
+	public boolean canInteractWith(EntityPlayer player) {
 		return true;
 	}
 
@@ -70,7 +70,7 @@ public class ContainerRecover extends Container {
 	 */
 	@Override
 	@Nullable
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -96,7 +96,7 @@ public class ContainerRecover extends Container {
 				return ItemStack.EMPTY;
 			}
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;

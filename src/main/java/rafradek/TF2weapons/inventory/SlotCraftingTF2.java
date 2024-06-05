@@ -27,29 +27,29 @@ public class SlotCraftingTF2 extends SlotCrafting {
 	}
 
 	@Override
-	public ItemStack onTake(EntityPlayer playerIn, ItemStack stack) {
-		if (playerIn.world.isRemote) return stack;
+	public ItemStack onTake(EntityPlayer player, ItemStack stack) {
+		if (player.world.isRemote) return stack;
 		if (stack.getItem() == TF2weapons.itemTF2 && stack.getMetadata() == 9) {
 			if (stack.hasTagCompound()) {
 				TF2Class clazz = TF2Class.getClass(stack.getTagCompound().getByte("Token"));
-				stack = ItemFromData.getRandomWeapon(playerIn.getRNG(), Predicates.<WeaponData>and(
+				stack = ItemFromData.getRandomWeapon(player.getRNG(), Predicates.<WeaponData>and(
 						ItemFromData.VISIBLE_WEAPON, test -> test.get(PropertyType.SLOT).containsKey(clazz.getName())));
 			} else
-				stack = ItemFromData.getRandomWeapon(playerIn.getRNG(), ItemFromData.VISIBLE_WEAPON);
-			// playerIn.addStat(TF2Achievements.HOME_MADE);
-			playerIn.inventory.setItemStack(stack);
+				stack = ItemFromData.getRandomWeapon(player.getRNG(), ItemFromData.VISIBLE_WEAPON);
+			// player.addStat(TF2Achievements.HOME_MADE);
+			player.inventory.setItemStack(stack);
 		} else if (stack.getItem() == TF2weapons.itemTF2 && stack.getMetadata() == 10) {
-			stack = ItemFromData.getRandomWeaponOfType("cosmetic", playerIn.getRNG(), false);
-			playerIn.inventory.setItemStack(stack);
+			stack = ItemFromData.getRandomWeaponOfType("cosmetic", player.getRNG(), false);
+			player.inventory.setItemStack(stack);
 		}
 		if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("Australium")) {
-			// playerIn.addStat(TF2Achievements.SHINY);
+			// player.addStat(TF2Achievements.SHINY);
 		}
-		net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerCraftingEvent(playerIn, stack, craftMatrix);
+		net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerCraftingEvent(player, stack, craftMatrix);
 		this.onCrafting(stack);
-		net.minecraftforge.common.ForgeHooks.setCraftingPlayer(playerIn);
+		net.minecraftforge.common.ForgeHooks.setCraftingPlayer(player);
 		NonNullList<ItemStack> aitemstack = TF2CraftingManager.INSTANCE.getRemainingItems(this.craftMatrix,
-				playerIn.world);
+				player.world);
 		net.minecraftforge.common.ForgeHooks.setCraftingPlayer(null);
 
 		for (int i = 0; i < aitemstack.size(); ++i) {

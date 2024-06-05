@@ -32,12 +32,12 @@ public class ItemTarget extends Item {
 	 * Called when a Block is right-clicked with this Item
 	 */
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (facing == EnumFacing.DOWN) {
 			return EnumActionResult.FAIL;
 		} else {
-			boolean flag = worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos);
+			boolean flag = world.getBlockState(pos).getBlock().isReplaceable(world, pos);
 			BlockPos blockpos = flag ? pos : pos.offset(facing);
 			ItemStack itemstack = player.getHeldItem(hand);
 
@@ -45,10 +45,10 @@ public class ItemTarget extends Item {
 				return EnumActionResult.FAIL;
 			} else {
 				BlockPos blockpos1 = blockpos.up();
-				boolean flag1 = !worldIn.isAirBlock(blockpos)
-						&& !worldIn.getBlockState(blockpos).getBlock().isReplaceable(worldIn, blockpos);
-				flag1 = flag1 | (!worldIn.isAirBlock(blockpos1)
-						&& !worldIn.getBlockState(blockpos1).getBlock().isReplaceable(worldIn, blockpos1));
+				boolean flag1 = !world.isAirBlock(blockpos)
+						&& !world.getBlockState(blockpos).getBlock().isReplaceable(world, blockpos);
+				flag1 = flag1 | (!world.isAirBlock(blockpos1)
+						&& !world.getBlockState(blockpos1).getBlock().isReplaceable(world, blockpos1));
 
 				if (flag1) {
 					return EnumActionResult.FAIL;
@@ -56,24 +56,24 @@ public class ItemTarget extends Item {
 					double d0 = blockpos.getX();
 					double d1 = blockpos.getY();
 					double d2 = blockpos.getZ();
-					List<Entity> list = worldIn.getEntitiesWithinAABBExcludingEntity((Entity) null,
+					List<Entity> list = world.getEntitiesWithinAABBExcludingEntity((Entity) null,
 							new AxisAlignedBB(d0, d1, d2, d0 + 1.0D, d1 + 2.0D, d2 + 1.0D));
 
 					if (!list.isEmpty()) {
 						return EnumActionResult.FAIL;
 					} else {
-						if (!worldIn.isRemote) {
-							worldIn.setBlockToAir(blockpos);
-							worldIn.setBlockToAir(blockpos1);
-							EntityTarget entityarmorstand = new EntityTarget(worldIn, d0 + 0.5D, d1, d2 + 0.5D,
+						if (!world.isRemote) {
+							world.setBlockToAir(blockpos);
+							world.setBlockToAir(blockpos1);
+							EntityTarget entityarmorstand = new EntityTarget(world, d0 + 0.5D, d1, d2 + 0.5D,
 									player.capabilities.isCreativeMode);
 							float f = MathHelper.floor(
 									(MathHelper.wrapDegrees(player.rotationYaw - 180.0F) + 22.5F) / 45.0F) * 45.0F;
 							entityarmorstand.setLocationAndAngles(d0 + 0.5D, d1, d2 + 0.5D, f, 0.0F);
-							this.applyRandomRotations(entityarmorstand, worldIn.rand);
-							ItemMonsterPlacer.applyItemEntityDataToEntity(worldIn, player, itemstack, entityarmorstand);
-							worldIn.spawnEntity(entityarmorstand);
-							worldIn.playSound((EntityPlayer) null, entityarmorstand.posX, entityarmorstand.posY,
+							this.applyRandomRotations(entityarmorstand, world.rand);
+							ItemMonsterPlacer.applyItemEntityDataToEntity(world, player, itemstack, entityarmorstand);
+							world.spawnEntity(entityarmorstand);
+							world.playSound((EntityPlayer) null, entityarmorstand.posX, entityarmorstand.posY,
 									entityarmorstand.posZ, SoundEvents.ENTITY_ARMORSTAND_PLACE, SoundCategory.BLOCKS,
 									0.75F, 0.8F);
 						}

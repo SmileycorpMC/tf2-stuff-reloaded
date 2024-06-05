@@ -19,11 +19,11 @@ public class ContainerConfigurable extends Container {
 	public EntityPlayer player;
 	public IEntityConfigurable config;
 
-	public ContainerConfigurable(EntityPlayer player, InventoryPlayer playerInventory, IEntityConfigurable config,
-			World worldIn, BlockPos posIn) {
+	public ContainerConfigurable(EntityPlayer player, InventoryPlayer inventory, IEntityConfigurable config,
+			World world, BlockPos posIn) {
 		this.config = config;
 		this.player = player;
-		this.world = worldIn;
+		this.world = world;
 		this.pos = posIn;
 		/*
 		 * this.addSlotToContainer(new Slot(upgradedItem, 0, 108, 8) {
@@ -48,10 +48,10 @@ public class ContainerConfigurable extends Container {
 
 		for (int k = 0; k < 3; ++k)
 			for (int i1 = 0; i1 < 9; ++i1)
-				this.addSlotToContainer(new Slot(playerInventory, i1 + k * 9 + 9, 36 + i1 * 18, 143 + k * 18 + 300));
+				this.addSlotToContainer(new Slot(inventory, i1 + k * 9 + 9, 36 + i1 * 18, 143 + k * 18 + 300));
 
 		for (int l = 0; l < 9; ++l)
-			this.addSlotToContainer(new Slot(playerInventory, l, 36 + l * 18, 201 + 300));
+			this.addSlotToContainer(new Slot(inventory, l, 36 + l * 18, 201 + 300));
 	}
 
 	@Override
@@ -64,16 +64,16 @@ public class ContainerConfigurable extends Container {
 	public void updateProgressBar(int id, int data) {}
 
 	@Override
-	public void onContainerClosed(EntityPlayer playerIn) {
-		super.onContainerClosed(playerIn);
+	public void onContainerClosed(EntityPlayer player) {
+		super.onContainerClosed(player);
 
 		if (!this.world.isRemote) {}
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
+	public boolean canInteractWith(EntityPlayer player) {
 		return this.world.getTileEntity(pos) != this.config ? false
-				: playerIn.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D,
+				: player.getDistanceSq(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D,
 						this.pos.getZ() + 0.5D) <= 64.0D;
 	}
 
@@ -82,7 +82,7 @@ public class ContainerConfigurable extends Container {
 	 */
 	@Override
 	@Nullable
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -109,14 +109,14 @@ public class ContainerConfigurable extends Container {
 			if (itemstack1.getCount() == itemstack.getCount())
 				return ItemStack.EMPTY;
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;
 	}
 
 	@Override
-	public boolean enchantItem(EntityPlayer playerIn, int id) {
+	public boolean enchantItem(EntityPlayer player, int id) {
 
 		return true;
 	}

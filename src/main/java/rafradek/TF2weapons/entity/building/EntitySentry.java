@@ -84,8 +84,8 @@ public class EntitySentry extends EntityBuilding {
 	private static final AttributeModifier MINI_HEALTH_MODIFIER = new AttributeModifier(
 			UUID.fromString("1184831d-b1dc-40c8-86e6-34fa8f5abada"), "minisentry", -6, 0);
 
-	public EntitySentry(World worldIn) {
-		super(worldIn);
+	public EntitySentry(World world) {
+		super(world);
 		this.setSize(0.8f, 0.8f);
 		try {
 			ReflectionAccess.entityLookHelper.set(this, new SentryLookHelper(this));

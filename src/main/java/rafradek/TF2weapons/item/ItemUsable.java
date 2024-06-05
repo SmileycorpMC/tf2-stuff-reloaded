@@ -47,11 +47,11 @@ public abstract class ItemUsable extends ItemFromData {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		ItemStack itemStackIn = playerIn.getHeldItem(hand);
-		return new ActionResult<>((this.canAltFire(worldIn, playerIn, itemStackIn)
-				&& this.getAltFiringSpeed(itemStackIn, playerIn) != Short.MAX_VALUE) || TF2ConfigVars.swapAttackButton
-				|| playerIn.getCapability(TF2weapons.WEAPONS_CAP, null).getPrimaryCooldown() > 0
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemStackIn = player.getHeldItem(hand);
+		return new ActionResult<>((this.canAltFire(world, player, itemStackIn)
+				&& this.getAltFiringSpeed(itemStackIn, player) != Short.MAX_VALUE) || TF2ConfigVars.swapAttackButton
+				|| player.getCapability(TF2weapons.WEAPONS_CAP, null).getPrimaryCooldown() > 0
 						? EnumActionResult.SUCCESS
 						: EnumActionResult.PASS,
 				itemStackIn);

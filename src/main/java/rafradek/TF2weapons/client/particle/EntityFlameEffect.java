@@ -15,9 +15,9 @@ import rafradek.TF2weapons.item.ItemProjectileWeapon;
 
 public class EntityFlameEffect extends Particle {
 
-	protected EntityFlameEffect(World worldIn, double p_i1209_2_, double p_i1209_4_, double p_i1209_6_, double motionX,
+	protected EntityFlameEffect(World world, double p_i1209_2_, double p_i1209_4_, double p_i1209_6_, double motionX,
 			double motionY, double motionZ, int time) {
-		super(worldIn, p_i1209_2_, p_i1209_4_, p_i1209_6_);
+		super(world, p_i1209_2_, p_i1209_4_, p_i1209_6_);
 		this.motionX = motionX;
 		this.motionY = motionY;
 		this.motionZ = motionZ;

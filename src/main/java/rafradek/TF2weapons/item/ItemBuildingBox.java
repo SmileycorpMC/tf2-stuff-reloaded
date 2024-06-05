@@ -44,21 +44,21 @@ public class ItemBuildingBox extends ItemMonsterPlacerPlus implements IItemNoSwi
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ItemToken.allowUse(playerIn, TF2Class.ENGINEER)) {
-			return super.onItemUse(playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+		if (ItemToken.allowUse(player, TF2Class.ENGINEER)) {
+			return super.onItemUse(player, world, pos, hand, facing, hitX, hitY, hitZ);
 		} else {
 			return EnumActionResult.FAIL;
 		}
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		if (ItemToken.allowUse(playerIn, TF2Class.ENGINEER)) {
-			return super.onItemRightClick(worldIn, playerIn, hand);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		if (ItemToken.allowUse(player, TF2Class.ENGINEER)) {
+			return super.onItemRightClick(world, player, hand);
 		} else {
-			return new ActionResult<>(EnumActionResult.FAIL, playerIn.getHeldItem(hand));
+			return new ActionResult<>(EnumActionResult.FAIL, player.getHeldItem(hand));
 		}
 	}
 
@@ -94,8 +94,8 @@ public class ItemBuildingBox extends ItemMonsterPlacerPlus implements IItemNoSwi
 	}
 
 	@Override
-	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		this.forceItemSlot(stack, worldIn, entityIn, itemSlot, isSelected);
+	public void onUpdate(ItemStack stack, World world, Entity entityIn, int itemSlot, boolean isSelected) {
+		this.forceItemSlot(stack, world, entityIn, itemSlot, isSelected);
 	}
 
 	@Override

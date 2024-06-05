@@ -47,22 +47,22 @@ public class BlockAmmoFurnace extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityAmmoFurnace();
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
 			EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (!worldIn.isRemote)
-			FMLNetworkHandler.openGui(playerIn, TF2weapons.instance, 3, worldIn, pos.getX(), pos.getY(), pos.getZ());
+		if (!world.isRemote)
+			FMLNetworkHandler.openGui(player, TF2weapons.instance, 3, world, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings("incomplete-switch")
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+	public void randomDisplayTick(IBlockState stateIn, World world, BlockPos pos, Random rand) {
 		if (stateIn.getValue(BURNING)) {
 			EnumFacing enumfacing = stateIn.getValue(FACING);
 			double d0 = pos.getX() + 0.5D;
@@ -72,46 +72,46 @@ public class BlockAmmoFurnace extends BlockContainer {
 			double d4 = rand.nextDouble() * 0.6D - 0.3D;
 
 			if (rand.nextDouble() < 0.1D)
-				worldIn.playSound(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D,
+				world.playSound(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D,
 						SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
 
 			switch (enumfacing) {
 			case WEST:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D,
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D,
 						new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[0]);
+				world.spawnParticle(EnumParticleTypes.FLAME, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[0]);
 				break;
 			case EAST:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D,
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D,
 						new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[0]);
+				world.spawnParticle(EnumParticleTypes.FLAME, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[0]);
 				break;
 			case NORTH:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D,
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D,
 						new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
+				world.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
 				break;
 			case SOUTH:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D,
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D,
 						new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
+				world.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 		}
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
 			float hitZ, int meta, EntityLivingBase placer) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override
-	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
 			ItemStack stack) {
-		worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
+		world.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
 
 		if (stack.hasDisplayName()) {
-			TileEntity tileentity = worldIn.getTileEntity(pos);
+			TileEntity tileentity = world.getTileEntity(pos);
 
 			if (tileentity instanceof TileEntityAmmoFurnace)
 				((TileEntityAmmoFurnace) tileentity).setCustomInventoryName(stack.getDisplayName());
@@ -119,15 +119,15 @@ public class BlockAmmoFurnace extends BlockContainer {
 	}
 
 	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		TileEntity tileentity = worldIn.getTileEntity(pos);
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		TileEntity tileentity = world.getTileEntity(pos);
 
 		if (tileentity instanceof TileEntityAmmoFurnace) {
-			InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityAmmoFurnace) tileentity);
-			worldIn.updateComparatorOutputLevel(pos, this);
+			InventoryHelper.dropInventoryItems(world, pos, (TileEntityAmmoFurnace) tileentity);
+			world.updateComparatorOutputLevel(pos, this);
 		}
 
-		super.breakBlock(worldIn, pos, state);
+		super.breakBlock(world, pos, state);
 	}
 
 	/**
@@ -162,15 +162,15 @@ public class BlockAmmoFurnace extends BlockContainer {
 		return new BlockStateContainer(this, new IProperty[] { FACING, BURNING });
 	}
 
-	public static void setState(boolean active, World worldIn, BlockPos pos) {
-		IBlockState iblockstate = worldIn.getBlockState(pos);
-		TileEntity tileentity = worldIn.getTileEntity(pos);
+	public static void setState(boolean active, World world, BlockPos pos) {
+		IBlockState iblockstate = world.getBlockState(pos);
+		TileEntity tileentity = world.getTileEntity(pos);
 
-		worldIn.setBlockState(pos, iblockstate.withProperty(BURNING, active));
+		world.setBlockState(pos, iblockstate.withProperty(BURNING, active));
 
 		if (tileentity != null) {
 			tileentity.validate();
-			worldIn.setTileEntity(pos, tileentity);
+			world.setTileEntity(pos, tileentity);
 		}
 	}
 }

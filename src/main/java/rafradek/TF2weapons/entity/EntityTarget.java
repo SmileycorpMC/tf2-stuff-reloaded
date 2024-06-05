@@ -19,13 +19,13 @@ import java.text.DecimalFormat;
 
 public class EntityTarget extends EntityArmorStand {
 
-	public EntityTarget(World worldIn) {
-		super(worldIn);
+	public EntityTarget(World world) {
+		super(world);
 		this.setSize(0.6F, 1.8625F);
 	}
 
-	public EntityTarget(World worldIn, double d, double d1, double e, boolean creative) {
-		super(worldIn, d, d1, e);
+	public EntityTarget(World world, double d, double d1, double e, boolean creative) {
+		super(world, d, d1, e);
 		this.setSize(0.6F, 1.8625F);
 		this.creative = creative;
 	}

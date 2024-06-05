@@ -51,19 +51,19 @@ public class ItemBonk extends ItemFromData {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		ItemStack itemStackIn = playerIn.getHeldItem(hand);
-		Integer value = playerIn.getCapability(TF2weapons.WEAPONS_CAP, null).effectsCool
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemStackIn = player.getHeldItem(hand);
+		Integer value = player.getCapability(TF2weapons.WEAPONS_CAP, null).effectsCool
 				.get(getData(itemStackIn).getName());
 		if (value == null || value <= 0) {
-			playerIn.setActiveHand(hand);
+			player.setActiveHand(hand);
 			return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
 		}
 		return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entityLiving) {
 
 		entityLiving.getCapability(TF2weapons.WEAPONS_CAP, null).effectsCool.put(getData(stack).getName(),
 				(int) (getData(stack).getInt(PropertyType.COOLDOWN)

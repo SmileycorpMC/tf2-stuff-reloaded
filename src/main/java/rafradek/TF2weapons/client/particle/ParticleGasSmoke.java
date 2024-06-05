@@ -5,8 +5,8 @@ import net.minecraft.world.World;
 
 public class ParticleGasSmoke extends Particle {
 
-	public ParticleGasSmoke(World worldIn, double p_i46352_2_, double p_i46352_4_, double p_i46352_6_, int color) {
-		super(worldIn, p_i46352_2_, p_i46352_4_, p_i46352_6_);
+	public ParticleGasSmoke(World world, double p_i46352_2_, double p_i46352_4_, double p_i46352_6_, int color) {
+		super(world, p_i46352_2_, p_i46352_4_, p_i46352_6_);
 		this.setPosition(this.posX, this.posY, this.posZ);
 		this.particleScale *= this.rand.nextFloat() * 0.1F + 0.3F;
 		this.setRBGColorF((color >> 16) / 255f, (color >> 8 & 255) / 255f, (color & 255) / 255f);

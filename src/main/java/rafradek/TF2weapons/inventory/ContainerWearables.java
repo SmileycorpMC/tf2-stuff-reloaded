@@ -42,7 +42,7 @@ public class ContainerWearables extends Container {
 	public static IItemHandler nullInv = new ItemStackHandler(9);
 	public boolean ammoBelt;
 
-	public ContainerWearables(final InventoryPlayer playerInventory, final InventoryWearables wearables,
+	public ContainerWearables(final InventoryPlayer inventory, final InventoryWearables wearables,
 			boolean localWorld, EntityPlayer player) {
 		this.isLocalWorld = localWorld;
 		this.player = player;
@@ -59,7 +59,7 @@ public class ContainerWearables extends Container {
 		// slot 0-3
 		for (int k = 0; k < 4; ++k) {
 			final EntityEquipmentSlot entityequipmentslot = VALID_EQUIPMENT_SLOTS[k];
-			this.addSlotToContainer(new Slot(playerInventory, 36 + (3 - k), 8, 8 + k * 18) {
+			this.addSlotToContainer(new Slot(inventory, 36 + (3 - k), 8, 8 + k * 18) {
 				/**
 				 * Returns the maximum stack size for a given slot (usually the same as
 				 * getInventoryStackLimit(), but 1 in the case of armor slots)
@@ -219,11 +219,11 @@ public class ContainerWearables extends Container {
 		// slot 8-34
 		for (int l = 0; l < 3; ++l)
 			for (int j1 = 0; j1 < 9; ++j1)
-				this.addSlotToContainer(new Slot(playerInventory, j1 + (l + 1) * 9, 8 + j1 * 18, 84 + l * 18));
+				this.addSlotToContainer(new Slot(inventory, j1 + (l + 1) * 9, 8 + j1 * 18, 84 + l * 18));
 
 		// slot 35-43
 		for (int i1 = 0; i1 < 9; ++i1)
-			this.addSlotToContainer(new Slot(playerInventory, i1, 8 + i1 * 18, 142));
+			this.addSlotToContainer(new Slot(inventory, i1, 8 + i1 * 18, 142));
 
 		// slot 44
 		this.addSlotToContainer(new Slot(wearables, 4, 77, 62) {
@@ -306,21 +306,21 @@ public class ContainerWearables extends Container {
 	 */
 
 	@Override
-	public void onContainerClosed(EntityPlayer playerIn) {
-		super.onContainerClosed(playerIn);
+	public void onContainerClosed(EntityPlayer player) {
+		super.onContainerClosed(player);
 
-		if (!playerIn.world.isRemote && !WeaponsCapability.get(playerIn).forcedClass)
-			((ItemToken) TF2weapons.itemToken).updateAttributes(this.wearables.getStackInSlot(4), playerIn);
+		if (!player.world.isRemote && !WeaponsCapability.get(player).forcedClass)
+			((ItemToken) TF2weapons.itemToken).updateAttributes(this.wearables.getStackInSlot(4), player);
 		/*
 		 * if (this.wearables.getStackInSlot(3) == null) for (int i = 4; i < 13; ++i) {
 		 * ItemStack itemstack = this.wearables.removeStackFromSlot(i);
 		 * 
-		 * if (item!stack.isEmpty()) playerIn.dropItem(itemstack, false); }
+		 * if (item!stack.isEmpty()) player.dropItem(itemstack, false); }
 		 */
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
+	public boolean canInteractWith(EntityPlayer player) {
 		return true;
 	}
 
@@ -353,7 +353,7 @@ public class ContainerWearables extends Container {
 	 */
 	@Override
 	@Nullable
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -410,7 +410,7 @@ public class ContainerWearables extends Container {
 			if (itemstack1.getCount() == itemstack.getCount())
 				return ItemStack.EMPTY;
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;

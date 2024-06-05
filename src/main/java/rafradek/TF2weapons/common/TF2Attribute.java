@@ -644,8 +644,8 @@ public class TF2Attribute {
 		return !stack.isEmpty() && this.canApply.apply(stack);
 	}
 
-	public static int getMaxExperience(ItemStack stack, EntityPlayer playerIn) {
-		if (playerIn != null && playerIn.capabilities.isCreativeMode)
+	public static int getMaxExperience(ItemStack stack, EntityPlayer player) {
+		if (player != null && player.capabilities.isCreativeMode)
 			return 99999;
 		int base = 1400;
 		if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("Australium"))

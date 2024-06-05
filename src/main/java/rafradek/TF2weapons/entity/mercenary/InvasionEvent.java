@@ -552,12 +552,12 @@ public class InvasionEvent implements INBTSerializable<NBTTagCompound> {
 		this.lowestInvasionBeaten = nbt.getByte("lowinvasion");
 	}
 
-	private static BlockPos getRandomChunkPosition(World worldIn, int x, int z) {
-		Chunk chunk = worldIn.getChunkFromChunkCoords(x, z);
-		int i = x * 16 + worldIn.rand.nextInt(16);
-		int j = z * 16 + worldIn.rand.nextInt(16);
+	private static BlockPos getRandomChunkPosition(World world, int x, int z) {
+		Chunk chunk = world.getChunkFromChunkCoords(x, z);
+		int i = x * 16 + world.rand.nextInt(16);
+		int j = z * 16 + world.rand.nextInt(16);
 		int k = MathHelper.roundUp(chunk.getHeight(new BlockPos(i, 0, j)) + 1, 16);
-		int l = worldIn.rand.nextInt(k > 0 ? k : chunk.getTopFilledSegment() + 16 - 1);
+		int l = world.rand.nextInt(k > 0 ? k : chunk.getTopFilledSegment() + 16 - 1);
 		return new BlockPos(i, l, j);
 	}
 

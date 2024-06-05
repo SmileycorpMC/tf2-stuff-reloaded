@@ -19,21 +19,21 @@ public class ContainerAmmoFurnace extends Container {
 	private int furnaceBurnTime;
 	private int currentItemBurnTime;
 
-	public ContainerAmmoFurnace(InventoryPlayer playerInventory, IInventory furnaceInventory) {
+	public ContainerAmmoFurnace(InventoryPlayer inventory, IInventory furnaceInventory) {
 		this.tileFurnace = furnaceInventory;
 		for (int i = 0; i < 9; i++)
 			this.addSlotToContainer(new Slot(furnaceInventory, i, 9 + (i % 3) * 18, 17 + (i / 3) * 18));
 		this.addSlotToContainer(new SlotFurnaceFuel(furnaceInventory, 9, 80, 53));
 		for (int i = 0; i < 9; i++)
-			this.addSlotToContainer(new SlotFurnaceOutput(playerInventory.player, furnaceInventory, i + 10,
+			this.addSlotToContainer(new SlotFurnaceOutput(inventory.player, furnaceInventory, i + 10,
 					116 + (i % 3) * 18, 17 + (i / 3) * 18));
 
 		for (int i = 0; i < 3; ++i)
 			for (int j = 0; j < 9; ++j)
-				this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+				this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 
 		for (int k = 0; k < 9; ++k)
-			this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 142));
+			this.addSlotToContainer(new Slot(inventory, k, 8 + k * 18, 142));
 	}
 
 	@Override
@@ -78,8 +78,8 @@ public class ContainerAmmoFurnace extends Container {
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer playerIn) {
-		return this.tileFurnace.isUsableByPlayer(playerIn);
+	public boolean canInteractWith(EntityPlayer player) {
+		return this.tileFurnace.isUsableByPlayer(player);
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class ContainerAmmoFurnace extends Container {
 	 */
 	@Override
 	@Nullable
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
@@ -123,7 +123,7 @@ public class ContainerAmmoFurnace extends Container {
 			if (itemstack1.getCount() == itemstack.getCount())
 				return ItemStack.EMPTY;
 
-			slot.onTake(playerIn, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;

@@ -38,7 +38,7 @@ public class ItemBackpack extends ItemFromData {
 		this.addPropertyOverride(new ResourceLocation("bodyModel"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (ItemWearable.usedModel == 1)
 					return 1;
 				return 0;
@@ -47,7 +47,7 @@ public class ItemBackpack extends ItemFromData {
 		this.addPropertyOverride(new ResourceLocation("headModel"), new IItemPropertyGetter() {
 			@Override
 			@SideOnly(Side.CLIENT)
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) {
 				if (ItemWearable.usedModel == 2)
 					return 1;
 				return 0;

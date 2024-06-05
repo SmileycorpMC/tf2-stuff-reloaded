@@ -58,8 +58,8 @@ public class EntityMerasmus extends EntityTF2Boss {
 	private static final DataParameter<Boolean> SPELL_BOMB = EntityDataManager.createKey(EntityMerasmus.class,
 			DataSerializers.BOOLEAN);
 
-	public EntityMerasmus(World worldIn) {
-		super(worldIn);
+	public EntityMerasmus(World world) {
+		super(world);
 		this.setSize(1.15f, 3.5f);
 		this.stepHeight = 1.05f;
 		this.setNoAI(true);
@@ -115,8 +115,8 @@ public class EntityMerasmus extends EntityTF2Boss {
 
 	}
 
-	protected PathNavigate getNewNavigator(World worldIn) {
-		return new PathNavigateClimber(this, worldIn);
+	protected PathNavigate getNewNavigator(World world) {
+		return new PathNavigateClimber(this, world);
 	}
 
 	@Override

@@ -43,9 +43,9 @@ public class GuiConfigurable extends GuiContainer {
 	public Gui[] fields = new Gui[0];
 	public BlockPos pos;
 
-	public GuiConfigurable(InventoryPlayer playerInv, IEntityConfigurable station, World worldIn,
+	public GuiConfigurable(InventoryPlayer playerv, IEntityConfigurable station, World world,
 			BlockPos blockPosition) {
-		super(new ContainerConfigurable(Minecraft.getMinecraft().player, playerInv, station, worldIn, blockPosition));
+		super(new ContainerConfigurable(Minecraft.getMinecraft().player, playerv, station, world, blockPosition));
 		this.xSize = 230;
 		this.ySize = 225;
 		this.pos = blockPosition;

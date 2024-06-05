@@ -15,7 +15,7 @@ public class ItemParachute extends ItemBackpack implements ISpecialArmor {
 
 	public ItemParachute() {
 		this.setMaxDamage(1000);
-		this.addPropertyOverride(new ResourceLocation("active"), (ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) -> {
+		this.addPropertyOverride(new ResourceLocation("active"), (ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entityIn) -> {
 			if (entityIn != null && stack.getTagCompound().getBoolean("Deployed"))
 				return 1;
 			return 0;

@@ -8,8 +8,8 @@ import rafradek.TF2weapons.client.TF2EventsClient;
 
 public class EntityBisonEffect extends Particle {
 
-	public EntityBisonEffect(World worldIn, double p_i46352_2_, double p_i46352_4_, double p_i46352_6_, int color) {
-		super(worldIn, p_i46352_2_, p_i46352_4_, p_i46352_6_);
+	public EntityBisonEffect(World world, double p_i46352_2_, double p_i46352_4_, double p_i46352_6_, int color) {
+		super(world, p_i46352_2_, p_i46352_4_, p_i46352_6_);
 		this.setParticleTexture(TF2EventsClient.bisonIcon);
 		this.setPosition(this.posX,
 				this.posY, this.posZ);

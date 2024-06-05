@@ -28,25 +28,25 @@ public class ItemConfigure extends Item {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (!worldIn.isRemote) {
-			TileEntity ent = worldIn.getTileEntity(pos);
+		if (!world.isRemote) {
+			TileEntity ent = world.getTileEntity(pos);
 			if (ent instanceof IEntityConfigurable) {
-				// FMLNetworkHandler.openGui(player, TF2weapons.instance, 7, worldIn,
+				// FMLNetworkHandler.openGui(player, TF2weapons.instance, 7, world,
 				// pos.getX(),
 				// pos.getY(), pos.getZ());
 				TF2weapons.network.sendTo(new TF2Message.GuiConfigMessage(
 						((IEntityConfigurable) ent).writeConfig(new NBTTagCompound()), pos), (EntityPlayerMP) player);
 			} else {
 				BlockPos forwardpos = pos.offset(facing);
-				for (EntityPickup pickup : worldIn.getEntitiesWithinAABB(EntityPickup.class,
+				for (EntityPickup pickup : world.getEntitiesWithinAABB(EntityPickup.class,
 						new AxisAlignedBB(forwardpos))) {
 					pickup.setDead();
 				}
 			}
 		} else {
-			TileEntity ent = worldIn.getTileEntity(pos);
+			TileEntity ent = world.getTileEntity(pos);
 			if (!(ent instanceof IEntityConfigurable)) {
 				GuiScreen.setClipboardString(pos.getX() + " " + pos.getY() + " " + pos.getZ());
 				player.sendMessage(
@@ -57,20 +57,20 @@ public class ItemConfigure extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		if (worldIn.isRemote) {
-			RayTraceResult ray = worldIn.rayTraceBlocks(playerIn.getPositionEyes(1f),
-					playerIn.getPositionEyes(1f).add(playerIn.getLookVec().scale(256)), false);
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn) {
+		if (world.isRemote) {
+			RayTraceResult ray = world.rayTraceBlocks(player.getPositionEyes(1f),
+					player.getPositionEyes(1f).add(player.getLookVec().scale(256)), false);
 			if (ray != null && ray.getBlockPos() != null) {
 				BlockPos pos = ray.getBlockPos();
-				TileEntity ent = worldIn.getTileEntity(pos);
+				TileEntity ent = world.getTileEntity(pos);
 				if (!(ent instanceof IEntityConfigurable)) {
 					GuiScreen.setClipboardString(pos.getX() + " " + pos.getY() + " " + pos.getZ());
-					playerIn.sendMessage(new TextComponentString(
+					player.sendMessage(new TextComponentString(
 							"Copied coordinates to clipboard: " + GuiScreen.getClipboardString()));
 				}
 			}
 		}
-		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+		return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
 	}
 }

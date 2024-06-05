@@ -80,23 +80,23 @@ public class ItemCrate extends ItemFromData {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		ItemStack itemStackIn = playerIn.getHeldItem(hand);
-		if (!worldIn.isRemote && !itemStackIn.getTagCompound().getBoolean("Open")) {
-			if (playerIn.inventory.hasItemStack(new ItemStack(TF2weapons.itemTF2, 1, 7))) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+		ItemStack itemStackIn = player.getHeldItem(hand);
+		if (!world.isRemote && !itemStackIn.getTagCompound().getBoolean("Open")) {
+			if (player.inventory.hasItemStack(new ItemStack(TF2weapons.itemTF2, 1, 7))) {
 				itemStackIn.getTagCompound().setBoolean("Open", true);
-				playerIn.inventory.clearMatchingItems(TF2weapons.itemTF2, 7, 1, null);
+				player.inventory.clearMatchingItems(TF2weapons.itemTF2, 7, 1, null);
 			}
 		}
-		if (!worldIn.isRemote && itemStackIn.getTagCompound().getBoolean("Open")) {
+		if (!world.isRemote && itemStackIn.getTagCompound().getBoolean("Open")) {
 			// ArrayList<String> list = new ArrayList<String>();
 
 			ItemStack stack = ItemStack.EMPTY;
-			if (playerIn.getRNG().nextInt(32) == 0) {
-				stack = ItemFromData.getRandomWeaponOfType("cosmetic", playerIn.getRNG(), false);
-				((ItemWearable) stack.getItem()).applyRandomEffect(stack, playerIn.getRNG());
+			if (player.getRNG().nextInt(32) == 0) {
+				stack = ItemFromData.getRandomWeaponOfType("cosmetic", player.getRNG(), false);
+				((ItemWearable) stack.getItem()).applyRandomEffect(stack, player.getRNG());
 			} else {
-				int choosen = playerIn.getRNG().nextInt(getData(itemStackIn).get(PropertyType.CONTENT).maxCrateValue);
+				int choosen = player.getRNG().nextInt(getData(itemStackIn).get(PropertyType.CONTENT).maxCrateValue);
 				int currVal = 0;
 				for (Entry<String, Integer> entry : getData(itemStackIn).get(PropertyType.CONTENT).content.entrySet()) {
 					currVal += entry.getValue();
@@ -113,14 +113,14 @@ public class ItemCrate extends ItemFromData {
 			if (!(stack.getItem() instanceof ItemWearable))
 				stack.getTagCompound().setBoolean("Strange", true);
 
-			if (!playerIn.inventory.addItemStackToInventory(stack))
-				playerIn.dropItem(stack, true);
-			// playerIn.addStat(TF2Achievements.LOOT_CRATE);
-			playerIn.addStat(TF2weapons.cratesOpened);
+			if (!player.inventory.addItemStackToInventory(stack))
+				player.dropItem(stack, true);
+			// player.addStat(TF2Achievements.LOOT_CRATE);
+			player.addStat(TF2weapons.cratesOpened);
 			/*
-			 * if(!worldIn.isRemote &&
-			 * ((EntityPlayerMP)playerIn).getStatFile().readStat(TF2weapons.cratesOpened)>=9
-			 * ){ playerIn.addStat(TF2Achievements.CRATES_10); }
+			 * if(!world.isRemote &&
+			 * ((EntityPlayerMP)player).getStatFile().readStat(TF2weapons.cratesOpened)>=9
+			 * ){ player.addStat(TF2Achievements.CRATES_10); }
 			 */
 			itemStackIn.shrink(1);
 			return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);

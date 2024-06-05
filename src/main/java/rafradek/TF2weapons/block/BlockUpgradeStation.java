@@ -47,47 +47,38 @@ public class BlockUpgradeStation extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		if ((meta & 8) == 8) {
-			TileEntityUpgrades upgrades = new TileEntityUpgrades(worldIn);
-			// upgrades.generateUpgrades();
-			return upgrades;
-		}
-		return null;
+	public TileEntity createNewTileEntity(World world, int meta) {
+		return  ((meta & 8) == 8) ? new TileEntityUpgrades(world) : null;
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
 			EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (!worldIn.isRemote)
-
-			if (state.getValue(HOLDER))
-				FMLNetworkHandler.openGui(playerIn, TF2weapons.instance, 2, worldIn, pos.getX(), pos.getY(),
-						pos.getZ());
-			else
-				for (int x = -1; x < 2; x++)
-					for (int y = -1; y < 2; y++)
-						for (int z = -1; z < 2; z++)
-							if (worldIn.getBlockState(pos.add(x, y, z)).getBlock() instanceof BlockUpgradeStation
-									&& worldIn.getBlockState(pos.add(x, y, z)).getValue(HOLDER)) {
-								FMLNetworkHandler.openGui(playerIn, TF2weapons.instance, 2, worldIn, pos.getX() + x,
-										pos.getY() + y, pos.getZ() + z);
-								return true;
-							}
+		if (!world.isRemote)
+			if (state.getValue(HOLDER)) FMLNetworkHandler.openGui(player, TF2weapons.instance, 2, world, pos.getX(), pos.getY(), pos.getZ());
+			else for (int x = -1; x < 2; x++)
+				for (int y = -1; y < 2; y++)
+					for (int z = -1; z < 2; z++)
+						if (world.getBlockState(pos.add(x, y, z)).getBlock() instanceof BlockUpgradeStation
+								&& world.getBlockState(pos.add(x, y, z)).getValue(HOLDER)) {
+							FMLNetworkHandler.openGui(player, TF2weapons.instance, 2, world, pos.getX() + x,
+									pos.getY() + y, pos.getZ() + z);
+							return true;
+						}
 		return true;
 	}
 
 	@Override
 	@Deprecated
-	public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
+	public float getBlockHardness(IBlockState blockState, World world, BlockPos pos) {
 		if (!blockState.getValue(PLACED))
 			return -1;
 		return this.blockHardness;
 	}
 
 	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		TileEntity tileentity = worldIn.getTileEntity(pos);
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		TileEntity tileentity = world.getTileEntity(pos);
 
 		if (state.getValue(PLACED) && tileentity instanceof TileEntityUpgrades) {
 			ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
@@ -97,60 +88,60 @@ public class BlockUpgradeStation extends BlockContainer {
 			nbttagcompound.removeTag("id");
 			nbttagcompound.setTag("BlockEntityTag", nbttagcompound1);
 			itemstack.setTagCompound(nbttagcompound);
-			spawnAsEntity(worldIn, pos, itemstack);
+			spawnAsEntity(world, pos, itemstack);
 		}
 
-		super.breakBlock(worldIn, pos, state);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
 			float hitZ, int meta, EntityLivingBase placer) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override
-	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
 			ItemStack stack) {
 		state = state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()).withProperty(PLACED, true);
-		worldIn.setBlockState(pos, state, 2);
+		world.setBlockState(pos, state, 2);
 		EnumFacing dirop = placer.getHorizontalFacing().rotateY();
 		IBlockState statehelp = state.withProperty(HOLDER, false);
-		if (worldIn.isAirBlock(pos.offset(dirop)))
-			worldIn.setBlockState(pos.offset(dirop), statehelp);
-		if (worldIn.isAirBlock(pos.offset(dirop, -1)))
-			worldIn.setBlockState(pos.offset(dirop, -1), statehelp);
-		if (worldIn.isAirBlock(pos.offset(dirop, -1).up()))
-			worldIn.setBlockState(pos.offset(dirop, -1).up(), statehelp);
-		if (worldIn.isAirBlock(pos.up()))
-			worldIn.setBlockState(pos.up(), statehelp);
-		if (worldIn.isAirBlock(pos.offset(dirop).up()))
-			worldIn.setBlockState(pos.offset(dirop).up(), statehelp);
+		if (world.isAirBlock(pos.offset(dirop)))
+			world.setBlockState(pos.offset(dirop), statehelp);
+		if (world.isAirBlock(pos.offset(dirop, -1)))
+			world.setBlockState(pos.offset(dirop, -1), statehelp);
+		if (world.isAirBlock(pos.offset(dirop, -1).up()))
+			world.setBlockState(pos.offset(dirop, -1).up(), statehelp);
+		if (world.isAirBlock(pos.up()))
+			world.setBlockState(pos.up(), statehelp);
+		if (world.isAirBlock(pos.offset(dirop).up()))
+			world.setBlockState(pos.offset(dirop).up(), statehelp);
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
-		super.onBlockDestroyedByPlayer(worldIn, pos, state);
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
+		super.onBlockDestroyedByPlayer(world, pos, state);
 		if (state.getValue(HOLDER))
-			breakBlockAround(worldIn, pos, state);
+			breakBlockAround(world, pos, state);
 		for (int x = -1; x < 2; x++)
 			for (int y = -1; y < 2; y++)
 				for (int z = -1; z < 2; z++)
-					if (worldIn.getBlockState(pos.add(x, y, z)).getBlock() instanceof BlockUpgradeStation
-							&& worldIn.getBlockState(pos.add(x, y, z)).getValue(HOLDER)) {
-						breakBlockAround(worldIn, pos.add(x, y, z), state);
-						worldIn.destroyBlock(pos.add(x, y, z), true);
+					if (world.getBlockState(pos.add(x, y, z)).getBlock() instanceof BlockUpgradeStation
+							&& world.getBlockState(pos.add(x, y, z)).getValue(HOLDER)) {
+						breakBlockAround(world, pos.add(x, y, z), state);
+						world.destroyBlock(pos.add(x, y, z), true);
 						return;
 					}
 	}
 
-	public void breakBlockAround(World worldIn, BlockPos pos, IBlockState state) {
+	public void breakBlockAround(World world, BlockPos pos, IBlockState state) {
 		for (int x = -1; x <= 1; x++) {
 			for (int y = -1; y <= 1; y++) {
 				for (int z = -1; z <= 1; z++) {
-					if (worldIn.getBlockState(pos.add(x, y, z)).getBlock() instanceof BlockUpgradeStation
-							&& !worldIn.getBlockState(pos.add(x, y, z)).getValue(HOLDER)) {
-						worldIn.setBlockToAir(pos.add(x, y, z));
+					if (world.getBlockState(pos.add(x, y, z)).getBlock() instanceof BlockUpgradeStation
+							&& !world.getBlockState(pos.add(x, y, z)).getValue(HOLDER)) {
+						world.setBlockToAir(pos.add(x, y, z));
 					}
 				}
 			}

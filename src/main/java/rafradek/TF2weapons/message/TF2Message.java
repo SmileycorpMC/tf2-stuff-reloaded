@@ -367,7 +367,7 @@ public abstract class TF2Message implements IMessage {
 	}
 
 	public static class GameArenaMessage extends TF2Message {
-		Map<UUID, List<EntityDataManager.DataEntry<?>>> playerInfoUUID = new HashMap<>();
+		Map<UUID, List<EntityDataManager.DataEntry<?>>> playerfoUUID = new HashMap<>();
 		int arenaId;
 		Type type;
 
@@ -383,9 +383,9 @@ public abstract class TF2Message implements IMessage {
 			if (type != Type.REMOVE) {
 				for (Entry<UUID, EntityDataManager> entry : arena.playerInfoUUID.entrySet()) {
 					if (type == Type.ADD) {
-						playerInfoUUID.put(entry.getKey(), entry.getValue().getAll());
+						playerfoUUID.put(entry.getKey(), entry.getValue().getAll());
 					} else {
-						playerInfoUUID.put(entry.getKey(), entry.getValue().getDirty());
+						playerfoUUID.put(entry.getKey(), entry.getValue().getDirty());
 					}
 				}
 			}
@@ -398,7 +398,7 @@ public abstract class TF2Message implements IMessage {
 			while (buf.readableBytes() > 0) {
 				try {
 					UUID uuid = new PacketBuffer(buf).readUniqueId();
-					playerInfoUUID.put(uuid, EntityDataManager.readEntries(new PacketBuffer(buf)));
+					playerfoUUID.put(uuid, EntityDataManager.readEntries(new PacketBuffer(buf)));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -409,7 +409,7 @@ public abstract class TF2Message implements IMessage {
 		public void toBytes(ByteBuf buf) {
 			buf.writeByte(this.type.ordinal());
 			buf.writeInt(this.arenaId);
-			for (Entry<UUID, List<EntityDataManager.DataEntry<?>>> entry : playerInfoUUID.entrySet()) {
+			for (Entry<UUID, List<EntityDataManager.DataEntry<?>>> entry : playerfoUUID.entrySet()) {
 				new PacketBuffer(buf).writeUniqueId(entry.getKey());
 				try {
 					EntityDataManager.writeEntries(entry.getValue(), new PacketBuffer(buf));

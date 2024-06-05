@@ -22,7 +22,7 @@ public class AustraliumRecipe implements IRecipe, IRecipeTF2 {
 	}
 
 	@Override
-	public boolean matches(InventoryCrafting inv, World worldIn) {
+	public boolean matches(InventoryCrafting inv, World world) {
 		int australium = 0;
 		ItemStack stack2 = ItemStack.EMPTY;
 

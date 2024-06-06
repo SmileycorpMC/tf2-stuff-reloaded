@@ -29,16 +29,12 @@ public class BlockGameConfigure extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		TileEntityGameConfigure upgrades = new TileEntityGameConfigure();
-		return upgrades;
+		return new TileEntityGameConfigure();
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
-			EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (!world.isRemote) {
-
-		}
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		if (!world.isRemote) {}
 		return false;
 	}
 
@@ -50,9 +46,7 @@ public class BlockGameConfigure extends BlockContainer {
 	private void updateState(World world, BlockPos pos, IBlockState state) {}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
-
-	}
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {}
 
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
@@ -60,16 +54,12 @@ public class BlockGameConfigure extends BlockContainer {
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
-			ItemStack stack) {}
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {}
 
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-
 		TileEntity ent = world.getTileEntity(pos);
-		if (ent instanceof TileEntityGameConfigure) {
-			((TileEntityGameConfigure) ent).removeGameArena();
-		}
+		if (ent instanceof TileEntityGameConfigure) ((TileEntityGameConfigure) ent).removeGameArena();
 	}
 
 	@Override
@@ -85,8 +75,7 @@ public class BlockGameConfigure extends BlockContainer {
 
 	@Override
 	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos) {
-		if (!(world.getTileEntity(pos) instanceof TileEntityResupplyCabinet))
-			return 0;
-		return ((TileEntityResupplyCabinet) world.getTileEntity(pos)).cooldownUse.size() > 0 ? 15 : 0;
+		return world.getTileEntity(pos) instanceof TileEntityResupplyCabinet &&
+				((TileEntityResupplyCabinet) world.getTileEntity(pos)).cooldownUse.size() > 0 ? 15 : 0;
 	}
 }

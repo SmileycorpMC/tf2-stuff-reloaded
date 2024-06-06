@@ -102,17 +102,14 @@ public class BlockAmmoFurnace extends BlockContainer {
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
 			float hitZ, int meta, EntityLivingBase placer) {
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+		return getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
-			ItemStack stack) {
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		world.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
-
 		if (stack.hasDisplayName()) {
 			TileEntity tileentity = world.getTileEntity(pos);
-
 			if (tileentity instanceof TileEntityAmmoFurnace)
 				((TileEntityAmmoFurnace) tileentity).setCustomInventoryName(stack.getDisplayName());
 		}
@@ -121,12 +118,10 @@ public class BlockAmmoFurnace extends BlockContainer {
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		TileEntity tileentity = world.getTileEntity(pos);
-
 		if (tileentity instanceof TileEntityAmmoFurnace) {
 			InventoryHelper.dropInventoryItems(world, pos, (TileEntityAmmoFurnace) tileentity);
 			world.updateComparatorOutputLevel(pos, this);
 		}
-
 		super.breakBlock(world, pos, state);
 	}
 
@@ -149,7 +144,7 @@ public class BlockAmmoFurnace extends BlockContainer {
 		EnumFacing facing = EnumFacing.getFront(meta & 7);
 		if (facing.getAxis() == EnumFacing.Axis.Y)
 			facing = EnumFacing.NORTH;
-		return this.getDefaultState().withProperty(FACING, facing).withProperty(BURNING, (meta & 8) == 8);
+		return getDefaultState().withProperty(FACING, facing).withProperty(BURNING, (meta & 8) == 8);
 	}
 
 	@Override
@@ -165,9 +160,7 @@ public class BlockAmmoFurnace extends BlockContainer {
 	public static void setState(boolean active, World world, BlockPos pos) {
 		IBlockState iblockstate = world.getBlockState(pos);
 		TileEntity tileentity = world.getTileEntity(pos);
-
 		world.setBlockState(pos, iblockstate.withProperty(BURNING, active));
-
 		if (tileentity != null) {
 			tileentity.validate();
 			world.setTileEntity(pos, tileentity);

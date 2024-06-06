@@ -29,8 +29,7 @@ public class BlockResupplyCabinet extends BlockContainer {
 
 	public BlockResupplyCabinet() {
 		super(Material.IRON);
-		this.setDefaultState(
-				this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(HOLDER, true));
+		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(HOLDER, true));
 	}
 
 	@Override
@@ -40,25 +39,18 @@ public class BlockResupplyCabinet extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		if ((meta & 4) == 4) {
-			TileEntityResupplyCabinet upgrades = new TileEntityResupplyCabinet();
-			// upgrades.generateUpgrades();
-			return upgrades;
-		}
-		return null;
+		return  ((meta & 4) == 4) ? new TileEntityResupplyCabinet() : null;
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
-			EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote) {}
 		return false;
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer) {
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		return getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override
@@ -68,9 +60,8 @@ public class BlockResupplyCabinet extends BlockContainer {
 
 	private void updateState(World world, BlockPos pos, IBlockState state) {
 		TileEntity ent = world.getTileEntity(pos);
-		if (ent instanceof TileEntityResupplyCabinet)
-			if (((TileEntityResupplyCabinet) ent).redstoneActivate)
-				((TileEntityResupplyCabinet) ent).setEnabled(world.isBlockPowered(pos));
+		if (ent instanceof TileEntityResupplyCabinet && ((TileEntityResupplyCabinet) ent).redstoneActivate)
+			((TileEntityResupplyCabinet) ent).setEnabled(world.isBlockPowered(pos));
 	}
 
 	@Override
@@ -84,37 +75,23 @@ public class BlockResupplyCabinet extends BlockContainer {
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
-			ItemStack stack) {
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		world.setBlockState(pos, state = state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
-
-		if (placer instanceof EntityPlayer) {
-
-		}
+		if (placer instanceof EntityPlayer) {}
 		if (world.isAirBlock(pos.up()))
 			world.setBlockState(pos.up(), state.withProperty(HOLDER, false), 2);
 	}
 
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-
 		if (state.getValue(HOLDER)) {
-			if (world.getBlockState(pos.up()).getBlock() == this) {
-				world.setBlockToAir(pos.up());
-			}
+			if (world.getBlockState(pos.up()).getBlock() == this) world.setBlockToAir(pos.up());
 		} else {
-			if (world.getBlockState(pos.down()).getBlock() == this) {
-				world.setBlockToAir(pos.down());
-			}
-			if (world.getBlockState(pos.up()).getBlock() == this
-					&& !world.getBlockState(pos.up()).getValue(HOLDER)) {
-				world.setBlockToAir(pos.up());
-			}
+			if (world.getBlockState(pos.down()).getBlock() == this) world.setBlockToAir(pos.down());
+			if (world.getBlockState(pos.up()).getBlock() == this && !world.getBlockState(pos.up()).getValue(HOLDER)) world.setBlockToAir(pos.up());
 		}
 		TileEntity ent = world.getTileEntity(pos);
-		if (ent instanceof TileEntityRobotDeploy) {
-			((TileEntityRobotDeploy) ent).dropInventory();
-		}
+		if (ent instanceof TileEntityRobotDeploy) ((TileEntityRobotDeploy) ent).dropInventory();
 	}
 
 	@Override
@@ -135,8 +112,7 @@ public class BlockResupplyCabinet extends BlockContainer {
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront((meta & 3) + 2)).withProperty(HOLDER,
-				(meta & 4) == 4);
+		return getDefaultState().withProperty(FACING, EnumFacing.getFront((meta & 3) + 2)).withProperty(HOLDER, (meta & 4) == 4);
 	}
 
 	@Override
@@ -178,8 +154,7 @@ public class BlockResupplyCabinet extends BlockContainer {
 
 	@Override
 	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos) {
-		if (!(world.getTileEntity(pos) instanceof TileEntityResupplyCabinet))
-			return 0;
-		return ((TileEntityResupplyCabinet) world.getTileEntity(pos)).cooldownUse.size() > 0 ? 15 : 0;
+		return  world.getTileEntity(pos) instanceof TileEntityResupplyCabinet
+				&& ((TileEntityResupplyCabinet) world.getTileEntity(pos)).cooldownUse.size() > 0 ? 15 : 0;
 	}
 }

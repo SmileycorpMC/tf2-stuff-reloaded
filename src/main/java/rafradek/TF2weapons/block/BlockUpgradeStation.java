@@ -35,10 +35,10 @@ public class BlockUpgradeStation extends BlockContainer {
 
 	public BlockUpgradeStation() {
 		super(Material.IRON);
-		this.setSoundType(SoundType.METAL);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH)
+		setSoundType(SoundType.METAL);
+		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH)
 				.withProperty(HOLDER, true).withProperty(PLACED, false));
-		this.setCreativeTab(TF2weapons.tabutilitytf2);
+		setCreativeTab(TF2weapons.tabutilitytf2);
 	}
 
 	@Override
@@ -52,8 +52,7 @@ public class BlockUpgradeStation extends BlockContainer {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
-			EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote)
 			if (state.getValue(HOLDER)) FMLNetworkHandler.openGui(player, TF2weapons.instance, 2, world, pos.getX(), pos.getY(), pos.getZ());
 			else for (int x = -1; x < 2; x++)
@@ -71,33 +70,28 @@ public class BlockUpgradeStation extends BlockContainer {
 	@Override
 	@Deprecated
 	public float getBlockHardness(IBlockState blockState, World world, BlockPos pos) {
-		if (!blockState.getValue(PLACED))
-			return -1;
-		return this.blockHardness;
+		return blockState.getValue(PLACED) ? blockHardness : -1;
 	}
 
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		TileEntity tileentity = world.getTileEntity(pos);
-
 		if (state.getValue(PLACED) && tileentity instanceof TileEntityUpgrades) {
 			ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
-			NBTTagCompound nbttagcompound = new NBTTagCompound();
-			NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-			((TileEntityUpgrades) tileentity).writeToNBT(nbttagcompound1);
-			nbttagcompound.removeTag("id");
-			nbttagcompound.setTag("BlockEntityTag", nbttagcompound1);
-			itemstack.setTagCompound(nbttagcompound);
+			NBTTagCompound nbt = new NBTTagCompound();
+			NBTTagCompound tetag = new NBTTagCompound();
+			((TileEntityUpgrades) tileentity).writeToNBT(tetag);
+			nbt.removeTag("id");
+			nbt.setTag("BlockEntityTag", tetag);
+			itemstack.setTagCompound(nbt);
 			spawnAsEntity(world, pos, itemstack);
 		}
-
 		super.breakBlock(world, pos, state);
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer) {
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+		return getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override

@@ -25,9 +25,9 @@ public class BlockCabinet extends Block {
 
 	public BlockCabinet() {
 		super(Material.IRON);
-		this.setSoundType(SoundType.METAL);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		this.setCreativeTab(TF2weapons.tabsurvivaltf2);
+		setSoundType(SoundType.METAL);
+		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		setCreativeTab(TF2weapons.tabsurvivaltf2);
 	}
 
 	@Override
@@ -36,24 +36,19 @@ public class BlockCabinet extends Block {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
-			EnumHand hand, @Nullable EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (!world.isRemote)
-			FMLNetworkHandler.openGui(player, TF2weapons.instance, 1, world, pos.getX(), pos.getY(), pos.getZ());
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable EnumFacing side, float hitX, float hitY, float hitZ) {
+		if (!world.isRemote) FMLNetworkHandler.openGui(player, TF2weapons.instance, 1, world, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer) {
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
-			ItemStack stack) {
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		world.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
-
 	}
 
 	/**

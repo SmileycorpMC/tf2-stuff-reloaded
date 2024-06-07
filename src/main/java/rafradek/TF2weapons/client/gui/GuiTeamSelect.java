@@ -28,10 +28,9 @@ public class GuiTeamSelect extends GuiScreen {
 	@Override
 	public void initGui() {
 		for (int i = 0; i < teams.size(); i++) {
-			GuiButton button = new GuiButton(i, this.width / 2 - (int) ((teams.size() / 2f) * 100) - 35 + i * 100, 110,
-					70, 20, teams.get(i));
+			GuiButton button = new GuiButton(i, width / 2 - (int) ((teams.size() / 2f) * 100) - 35 + i * 100, 110, 70, 20, teams.get(i));
 			button.enabled = allowed[i];
-			this.buttonList.add(button);
+			buttonList.add(button);
 		}
 	}
 
@@ -42,7 +41,7 @@ public class GuiTeamSelect extends GuiScreen {
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		TF2weapons.network.sendToServer(new TF2Message.ActionMessage(120 + button.id));
-		this.mc.displayGuiScreen(null);
+		mc.displayGuiScreen(null);
 	}
 
 	/**
@@ -50,12 +49,9 @@ public class GuiTeamSelect extends GuiScreen {
 	 */
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		this.drawDefaultBackground();
-		this.drawCenteredString(this.fontRenderer, "Team Selection", this.width / 2, 70, 16777215);
-		for (int i = 0; i < teams.size(); i++)
-			this.drawCenteredString(this.fontRenderer, "x" + numbers[i],
-					this.width / 2 - (int) ((teams.size() / 2f) * 100) - 35 + i * 100, 98, 16777215);
-
+		drawDefaultBackground();
+		drawCenteredString(fontRenderer, "Team Selection", width / 2, 70, 16777215);
+		for (int i = 0; i < teams.size(); i++) drawCenteredString(fontRenderer, "x" + numbers[i], width / 2 - (int) ((teams.size() / 2f) * 100) - 35 + i * 100, 98, 16777215);
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 }

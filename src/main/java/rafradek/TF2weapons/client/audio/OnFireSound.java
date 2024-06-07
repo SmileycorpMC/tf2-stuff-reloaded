@@ -10,22 +10,21 @@ public class OnFireSound extends MovingSound {
 
 	public OnFireSound(SoundEvent soundIn, Entity target) {
 		super(soundIn, target.getSoundCategory());
-		this.xPosF = (float) target.posX;
-		this.yPosF = (float) target.posY;
-		this.zPosF = (float) target.posZ;
-		this.volume = 0.6f;
-		this.pitch = 1f;
+		xPosF = (float) target.posX;
+		yPosF = (float) target.posY;
+		zPosF = (float) target.posZ;
+		volume = 0.6f;
+		pitch = 1f;
 		this.target = target;
-		this.repeat = true;
+		repeat = true;
 	}
 
 	@Override
 	public void update() {
-		this.xPosF = (float) target.posX;
-		this.yPosF = (float) target.posY;
-		this.zPosF = (float) target.posZ;
-		if (this.target.ticksExisted - this.target.getEntityData().getInteger("LastHitBurn") > 5)
-			this.donePlaying = true;
+		xPosF = (float) target.posX;
+		yPosF = (float) target.posY;
+		zPosF = (float) target.posZ;
+		if (target.ticksExisted - target.getEntityData().getInteger("LastHitBurn") > 5) donePlaying = true;
 	}
 
 }

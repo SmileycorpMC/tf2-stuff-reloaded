@@ -31,8 +31,7 @@ public class GuiUpgradeStation extends GuiContainer {
 		super(inventorySlotsIn);
 	}
 
-	private static final ResourceLocation UPGRADES_GUI_TEXTURES = new ResourceLocation(TF2weapons.MOD_ID,
-			"textures/gui/container/upgrades.png");
+	private static final ResourceLocation UPGRADES_GUI_TEXTURES = new ResourceLocation(TF2weapons.MOD_ID, "textures/gui/container/upgrades.png");
 
 	// public ItemStack[] itemsToRender;
 	public ArrayList<GuiTooltip> tooltip = new ArrayList<>();
@@ -53,26 +52,21 @@ public class GuiUpgradeStation extends GuiContainer {
 			BlockPos blockPosition) {
 		super(new ContainerUpgrades(Minecraft.getMinecraft().player, playerv, station, world, blockPosition));
 		this.station = station;
-		this.xSize = 230;
-		this.ySize = 225;
+		xSize = 230;
+		ySize = 225;
 		// this.itemsToRender=new ItemStack[9];
 	}
 
 	@Override
 	public void initGui() {
 		super.initGui();
-		this.tooltip.clear();
-		for (int x = 0; x < 2; x++)
-			for (int y = 0; y < 3; y++) {
-				this.buttonList.add(buttons[x * 2 + y * 4] = new GuiButton(x * 2 + y * 4, this.guiLeft + 81 + x * 101,
-						this.guiTop + 47 + y * 30, 12, 12, "+"));
-				this.buttonList.add(buttons[x * 2 + y * 4 + 1] = new GuiButton(x * 2 + y * 4 + 1,
-						this.guiLeft + 94 + x * 101, this.guiTop + 47 + y * 30, 12, 12, "-"));
-			}
-		this.tooltip.add(new GuiTooltip(this.guiLeft + 128, this.guiTop + 15, 100, 12,
-				I18n.format("container.upgrades.info"), this));
-		this.buttonList.add(refund = new GuiButton(12, this.guiLeft + 123, this.guiTop + 121, 100, 20,
-				I18n.format("container.upgrades.refund")));
+		tooltip.clear();
+		for (int x = 0; x < 2; x++) for (int y = 0; y < 3; y++) {
+			buttonList.add(buttons[x * 2 + y * 4] = new GuiButton(x * 2 + y * 4, guiLeft + 81 + x * 101, guiTop + 47 + y * 30, 12, 12, "+"));
+			buttonList.add(buttons[x * 2 + y * 4 + 1] = new GuiButton(x * 2 + y * 4 + 1, guiLeft + 94 + x * 101, guiTop + 47 + y * 30, 12, 12, "-"));
+		}
+		tooltip.add(new GuiTooltip(guiLeft + 128, guiTop + 15, 100, 12, I18n.format("container.upgrades.info"), this));
+		buttonList.add(refund = new GuiButton(12, guiLeft + 123, guiTop + 121, 100, 20, I18n.format("container.upgrades.refund")));
 		setButtons();
 	}
 
@@ -93,41 +87,29 @@ public class GuiUpgradeStation extends GuiContainer {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();
 		boolean flag = Mouse.isButtonDown(0);
-		int i = this.guiLeft;
-		int j = this.guiTop;
+		int i = guiLeft;
+		int j = guiTop;
 		int k = i + 209;
 		int l = j + 30;
 		int i1 = k + 14;
 		int j1 = l + 96;
-
-		if (!this.wasClicking && flag && mouseX >= k && mouseY >= l && mouseX < i1 && mouseY < j1)
-			this.isScrolling = true;
-
-		if (!flag)
-			this.isScrolling = false;
-
-		this.wasClicking = flag;
-
-		if (this.isScrolling) {
-			int size = ((ContainerUpgrades) this.inventorySlots).applicable.size();
+		if (!wasClicking && flag && mouseX >= k && mouseY >= l && mouseX < i1 && mouseY < j1) isScrolling = true;
+		if (!flag) isScrolling = false;
+		wasClicking = flag;
+		if (isScrolling) {
+			int size = ((ContainerUpgrades) inventorySlots).applicable.size();
 			if (size >= 6) {
-				this.scroll = (mouseY - l - 7.5F) / (j1 - l - 15.0F);
-				this.scroll = MathHelper.clamp(this.scroll, 0.0F, 1.0F);
-				this.firstIndex = Math.round(this.scroll * (size - 6) / 2) * 2;
-				this.setButtons();
+				scroll = (mouseY - l - 7.5F) / (j1 - l - 15.0F);
+				scroll = MathHelper.clamp(scroll, 0.0F, 1.0F);
+				firstIndex = Math.round(scroll * (size - 6) / 2) * 2;
+				setButtons();
 			}
 		}
-
-		this.refund.enabled = !this.inventorySlots.inventorySlots.get(0).getStack().isEmpty()
-				&& this.inventorySlots.inventorySlots.get(0).getStack().getTagCompound().getInteger("TotalSpent") > 0;
+		refund.enabled = !inventorySlots.inventorySlots.get(0).getStack().isEmpty()
+				&& inventorySlots.inventorySlots.get(0).getStack().getTagCompound().getInteger("TotalSpent") > 0;
 		super.drawScreen(mouseX, mouseY, partialTicks);
-		this.renderHoveredToolTip(mouseX, mouseY);
-		for (GuiTooltip tooltip : this.tooltip) {
-			tooltip.drawButton(mc, mouseX, mouseY, partialTicks);
-		}
-		for (int m = 0; m < 6; m++) {
-
-		}
+		renderHoveredToolTip(mouseX, mouseY);
+		for (GuiTooltip tooltip : tooltip) tooltip.drawButton(mc, mouseX, mouseY, partialTicks);
 	}
 
 	@Override
@@ -137,10 +119,8 @@ public class GuiUpgradeStation extends GuiContainer {
 
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
-		if (button.id < 12)
-			this.mc.playerController.sendEnchantPacket(this.inventorySlots.windowId, button.id + this.firstIndex * 2);
-		else if (button.id == 12)
-			this.mc.playerController.sendEnchantPacket(this.inventorySlots.windowId, -1);
+		if (button.id < 12) mc.playerController.sendEnchantPacket(inventorySlots.windowId, button.id + firstIndex * 2);
+		else if (button.id == 12) mc.playerController.sendEnchantPacket(inventorySlots.windowId, -1);
 	}
 
 	/**
@@ -149,12 +129,12 @@ public class GuiUpgradeStation extends GuiContainer {
 	 */
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		int expPoints = ((ContainerUpgrades) this.inventorySlots).playerCredits;
-		int size = ((ContainerUpgrades) this.inventorySlots).applicable.size();
-		ItemStack stack = this.inventorySlots.inventorySlots.get(0).getStack();
+		int expPoints = ((ContainerUpgrades) inventorySlots).playerCredits;
+		int size = ((ContainerUpgrades) inventorySlots).applicable.size();
+		ItemStack stack = inventorySlots.inventorySlots.get(0).getStack();
 		for (int i = 0; i < 6; i++) {
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-			this.mc.getTextureManager().bindTexture(UPGRADES_GUI_TEXTURES);
+			mc.getTextureManager().bindTexture(UPGRADES_GUI_TEXTURES);
 			if (i + firstIndex < size) {
 				TF2Attribute attr = ((ContainerUpgrades) this.inventorySlots).applicable.get(i + firstIndex)
 						.getAttributeReplacement(stack);
@@ -174,52 +154,36 @@ public class GuiUpgradeStation extends GuiContainer {
 						&& stack.getTagCompound().getBoolean("Australium") && austrUpgrade != attr.id;
 				boolean hasAustr = austrUpgrade == attr.id;
 
-				for (int j = 0; j < this.station.attributes.get(attrorig); j++) {
-					// System.out.println("render: "+currLevel+"
-					// "+this.inventorySlots.inventorySlots.get(0).getStack());
-					this.drawTexturedModalRect(9 + xOffset + j * 9, 50 + yOffset, currLevel > j ? 240 : 248,
-							!hasAustr ? 24 : 32, 8, 8);
-
-				}
+				for (int j = 0; j < station.attributes.get(attrorig); j++) drawTexturedModalRect(9 + xOffset + j * 9, 50 + yOffset,
+						currLevel > j ? 240 : 248, !hasAustr ? 24 : 32, 8, 8);
 				int cost = austr ? 0 : attr.getUpgradeCost(stack);
-
-				if (currLevel < this.station.attributes.get(attrorig))
-					this.fontRenderer.drawString(String.valueOf(cost), 56 + xOffset, 50 + yOffset, 16777215);
-				this.fontRenderer.drawSplitString(
-						attr.getTranslatedString((attr.typeOfValue == Type.ADDITIVE ? 0 : 1)
-								+ attr.getPerLevel(stack) * (austr ? attr.austrUpgrade : 1f), false),
-						9 + xOffset, 32 + yOffset, 98, 16777215);
-				this.buttons[i * 2].visible = true;
-				this.buttons[i * 2 + 1].visible = true;
-
-				if (!attr.canApply(stack) || (currLevel >= this.station.attributes.get(attrorig) && !austr)
-						|| cost > expPoints || cost + stack.getTagCompound().getInteger("TotalSpent") > TF2Attribute
-								.getMaxExperience(stack, mc.player)) {
+				if (currLevel < station.attributes.get(attrorig)) fontRenderer.drawString(String.valueOf(cost), 56 + xOffset, 50 + yOffset, 16777215);
+				fontRenderer.drawSplitString(attr.getTranslatedString((attr.typeOfValue == Type.ADDITIVE ? 0 : 1)
+						+ attr.getPerLevel(stack) * (austr ? attr.austrUpgrade : 1f), false), 9 + xOffset, 32 + yOffset, 98, 16777215);
+				buttons[i * 2].visible = true;
+				buttons[i * 2 + 1].visible = true;
+				if (!attr.canApply(stack) || (currLevel >= station.attributes.get(attrorig) && !austr)
+						|| cost > expPoints || cost + stack.getTagCompound().getInteger("TotalSpent") > TF2Attribute.getMaxExperience(stack, mc.player)) {
 					// System.out.println("DrawingRect");
-					this.buttons[i * 2].enabled = false;
-					this.buttons[i * 2 + 1].enabled = currLevel > 0;
-					this.drawGradientRect(8 + xOffset, 31 + yOffset, 107 + xOffset, 59 + yOffset, 0x77000000,
-							0x77000000);
+					buttons[i * 2].enabled = false;
+					buttons[i * 2 + 1].enabled = currLevel > 0;
+					drawGradientRect(8 + xOffset, 31 + yOffset, 107 + xOffset, 59 + yOffset, 0x77000000, 0x77000000);
 				} else {
-					this.buttons[i * 2].enabled = true;
-					this.buttons[i * 2 + 1].enabled = currLevel > 0;
+					buttons[i * 2].enabled = true;
+					buttons[i * 2 + 1].enabled = currLevel > 0;
 				}
 			} else {
-				this.buttons[i * 2].visible = false;
-				this.buttons[i * 2 + 1].visible = false;
+				buttons[i * 2].visible = false;
+				buttons[i * 2 + 1].visible = false;
 			}
 		}
-		this.fontRenderer.drawString(I18n.format("container.upgrades", new Object[0]), 8, 5, 4210752);
-		this.fontRenderer.drawString(I18n.format("container.currency", new Object[] { String.valueOf(expPoints) }), 128,
-				5, 4210752);
-		if (!stack.isEmpty())
-			this.fontRenderer.drawString(
-					I18n.format("container.currencyLeft",
-							new Object[] { String.valueOf(stack.getTagCompound().getInteger("TotalSpent")),
+		fontRenderer.drawString(I18n.format("container.upgrades", new Object[0]), 8, 5, 4210752);
+		fontRenderer.drawString(I18n.format("container.currency", new Object[] { String.valueOf(expPoints) }), 128, 5, 4210752);
+		if (!stack.isEmpty()) fontRenderer.drawString(I18n.format("container.currencyLeft",
+						new Object[] { String.valueOf(stack.getTagCompound().getInteger("TotalSpent")),
 									String.valueOf(TF2Attribute.getMaxExperience(stack, mc.player)) }),
 					128, 15, 4210752);
-		this.fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 36, this.ySize - 96 + 3,
-				4210752);
+		fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 36, ySize - 96 + 3, 4210752);
 	}
 
 	/**
@@ -228,17 +192,16 @@ public class GuiUpgradeStation extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(UPGRADES_GUI_TEXTURES);
-		int x = (this.width - this.xSize) / 2;
-		int y = (this.height - this.ySize) / 2;
-		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
+		mc.getTextureManager().bindTexture(UPGRADES_GUI_TEXTURES);
+		int x = (width - xSize) / 2;
+		int y = (height - ySize) / 2;
+		drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
 		// this.drawTab(0);
 		// this.drawTab(1);
-
-		x = this.guiLeft + 210;
-		y = this.guiTop + 31;
+		x = guiLeft + 210;
+		y = guiTop + 31;
 		int k = y + 96;
-
-		this.drawTexturedModalRect(x, y + (int) ((k - y - 17) * this.scroll), 232, 0, 12, 15);
+		drawTexturedModalRect(x, y + (int) ((k - y - 17) * scroll), 232, 0, 12, 15);
 	}
+	
 }

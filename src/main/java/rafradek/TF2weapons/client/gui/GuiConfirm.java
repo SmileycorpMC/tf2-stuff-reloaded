@@ -18,10 +18,10 @@ public class GuiConfirm extends GuiScreen {
 	/** The text shown for the second button in GuiYesNo */
 	protected int parentButtonClickedId;
 
-	public GuiConfirm(String p_i1082_2_, String p_i1082_3_) {
-		this.messageLine1 = p_i1082_2_;
-		this.messageLine2 = p_i1082_3_;
-		this.confirmButtonText = I18n.format("gui.ok", new Object[0]);
+	public GuiConfirm(String line1, String line2) {
+		messageLine1 = line1;
+		messageLine2 = line2;
+		confirmButtonText = I18n.format("gui.ok", new Object[0]);
 	}
 
 	/**
@@ -31,9 +31,9 @@ public class GuiConfirm extends GuiScreen {
 	 */
 	@Override
 	public void initGui() {
-		this.buttonList.add(new GuiOptionButton(0, this.width / 2 - 75, this.height / 6 + 96, this.confirmButtonText));
-		this.listLines.clear();
-		this.listLines.addAll(this.fontRenderer.listFormattedStringToWidth(this.messageLine2, this.width - 50));
+		buttonList.add(new GuiOptionButton(0, width / 2 - 75, height / 6 + 96, confirmButtonText));
+		listLines.clear();
+		listLines.addAll(fontRenderer.listFormattedStringToWidth(messageLine2, width - 50));
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class GuiConfirm extends GuiScreen {
 	 */
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
-		this.mc.displayGuiScreen(null);
+		mc.displayGuiScreen(null);
 	}
 
 	/**
@@ -50,15 +50,13 @@ public class GuiConfirm extends GuiScreen {
 	 */
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		this.drawDefaultBackground();
-		this.drawCenteredString(this.fontRenderer, this.messageLine1, this.width / 2, 70, 16777215);
+		drawDefaultBackground();
+		drawCenteredString(fontRenderer, messageLine1, width / 2, 70, 16777215);
 		int i = 90;
-
-		for (String s : this.listLines) {
-			this.drawCenteredString(this.fontRenderer, s, this.width / 2, i, 16777215);
-			i += this.fontRenderer.FONT_HEIGHT;
+		for (String s : listLines) {
+			drawCenteredString(fontRenderer, s, width / 2, i, 16777215);
+			i += fontRenderer.FONT_HEIGHT;
 		}
-
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 }

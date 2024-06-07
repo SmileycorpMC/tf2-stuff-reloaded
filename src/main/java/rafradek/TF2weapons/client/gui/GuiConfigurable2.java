@@ -16,6 +16,7 @@ import net.minecraftforge.fml.client.config.IConfigElement;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.message.TF2Message;
 import rafradek.TF2weapons.tileentity.IEntityConfigurable;
+import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.ArrayList;
 import java.util.Map.Entry;
@@ -28,8 +29,6 @@ public class GuiConfigurable2 extends GuiConfig {
 	public BlockPos pos;
 	public static ConfigCategory copyConfig;
 	private GuiButton pasteButton;
-	private static final String[] CLASS_SELECT_NAMES = { "none", "scout", "soldier", "pyro", "demoman", "heavy",
-			"engineer", "medic", "sniper", "spy" };
 
 	public GuiConfigurable2(GuiScreen parentScreen, ArrayList<IConfigElement> elements, ConfigCategory category,
 			ConfigCategory outcategory, BlockPos pos) {
@@ -43,7 +42,6 @@ public class GuiConfigurable2 extends GuiConfig {
 		IEntityConfigurable entity = (IEntityConfigurable) Minecraft.getMinecraft().world.getTileEntity(pos);
 		ArrayList<IConfigElement> configElements = new ArrayList<>();
 		ConfigCategory category = new ConfigCategory("root");
-
 		for (String key : tag.getKeySet()) {
 			if (!key.equals("Outputs")) {
 				Property prop = null;
@@ -72,8 +70,7 @@ public class GuiConfigurable2 extends GuiConfig {
 				}
 				if (prop != null) {
 					String[] allowed = entity.getAllowedValues(key);
-					if (allowed != null)
-						prop.setValidValues(allowed);
+					if (allowed != null) prop.setValidValues(allowed);
 					category.put(key, prop);
 				}
 			}
@@ -100,11 +97,10 @@ public class GuiConfigurable2 extends GuiConfig {
 	@Override
 	public void initGui() {
 		super.initGui();
-		this.pasteButton = new GuiButton(2501, this.width - 60, 0, 50, 20, "Paste");
-		this.buttonList.add(new GuiButton(2500, 10, 0, 50, 20, "Copy"));
-		this.buttonList.add(pasteButton);
-		if (copyConfig == null)
-			pasteButton.enabled = false;
+		pasteButton = new GuiButton(2501, width - 60, 0, 50, 20, "Paste");
+		buttonList.add(new GuiButton(2500, 10, 0, 50, 20, "Copy"));
+		buttonList.add(pasteButton);
+		if (copyConfig == null) pasteButton.enabled = false;
 	}
 
 	public static Property addString(ConfigCategory cat, String name, NBTTagString tag) {
@@ -119,18 +115,14 @@ public class GuiConfigurable2 extends GuiConfig {
 				i++;
 			}
 			prop.setValidValues(teams);
-		} else if (name.startsWith("C:")) {
-			prop.setValidValues(CLASS_SELECT_NAMES);
-		}
+		} else if (name.startsWith("C:")) prop.setValidValues(TF2Class.getClassNames());
 		return prop;
 	}
 
 	public static Property addIntArray(ConfigCategory cat, String name, NBTTagIntArray tag) {
 		if (name.startsWith("L:")) {
 			String[] values = new String[tag.getIntArray().length];
-			for (int i = 0; i < values.length; i++) {
-				values[i] = String.valueOf(tag.getIntArray()[i]);
-			}
+			for (int i = 0; i < values.length; i++) values[i] = String.valueOf(tag.getIntArray()[i]);
 			Property prop = new Property(name, values, Type.INTEGER);
 			return prop;
 		} else {
@@ -138,60 +130,40 @@ public class GuiConfigurable2 extends GuiConfig {
 			int[] array = tag.getIntArray();
 			for (int i = 0; i < array.length; i++) {
 				builder.append(array[i]);
-				if (i != array.length - 1) {
-					builder.append(' ');
-				}
+				if (i != array.length - 1) builder.append(' ');
 			}
 			Property prop = new Property(name, builder.toString(), Type.STRING);
 			prop.setComment("position");
 			return prop;
 		}
-
 	}
 
 	public static Property addPrimitive(ConfigCategory cat, String name, NBTPrimitive tag) {
-
-		Property prop = new Property(name, tag.toString(),
-				(tag instanceof NBTTagFloat || tag instanceof NBTTagDouble) ? Type.DOUBLE : Type.INTEGER);
-		return prop;
-
+		return new Property(name, tag.toString(), (tag instanceof NBTTagFloat || tag instanceof NBTTagDouble) ? Type.DOUBLE : Type.INTEGER);
 	}
 
 	public static Property addByte(ConfigCategory cat, String name, NBTTagByte tag) {
-		Property prop = new Property(name, tag.getByte() != 0 ? "true" : "false", Type.BOOLEAN);
-		return prop;
+		return new Property(name, tag.getByte() != 0 ? "true" : "false", Type.BOOLEAN);
 	}
 
 	private void copyCategory(ConfigCategory src, ConfigCategory dest) {
-		for (Entry<String, Property> entry : src.entrySet()) {
-			if (dest.containsKey(entry.getKey())) {
-				dest.put(entry.getKey(), entry.getValue());
-			}
-		}
-		for (ConfigCategory config : src.getChildren()) {
-			String name = config.getName();
-			for (ConfigCategory config2 : dest.getChildren()) {
-				if (name.equals(config2.getName()))
-					this.copyCategory(config, config2);
-			}
-		}
+		for (Entry<String, Property> entry : src.entrySet()) if (dest.containsKey(entry.getKey())) dest.put(entry.getKey(), entry.getValue());
+		for (ConfigCategory config : src.getChildren()) for (ConfigCategory config2 : dest.getChildren())
+			if (config.getName().equals(config2.getName())) copyCategory(config, config2);
 	}
 
 	@Override
 	protected void actionPerformed(GuiButton button) {
 		super.actionPerformed(button);
-		if (button.id == 2000) {
-			sendChanges();
-		} else if (button.id == 2500) {
+		if (button.id == 2000) sendChanges();
+		else if (button.id == 2500) {
 			copyConfig = new ConfigCategory(category.getName());
 			copyConfig.putAll(category);
 			pasteButton.enabled = true;
-		} else if (button.id == 2501) {
-			if (copyConfig != null) {
-				this.copyCategory(copyConfig, category);
-				this.sendChanges();
-				this.mc.displayGuiScreen(this.parentScreen);
-			}
+		} else if (button.id == 2501 && copyConfig != null) {
+			copyCategory(copyConfig, category);
+			sendChanges();
+			mc.displayGuiScreen(parentScreen);
 		}
 	}
 

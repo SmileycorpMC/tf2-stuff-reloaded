@@ -19,34 +19,32 @@ public class WeaponSound extends MovingSound {
 	public boolean endsnextTick;
 	public WeaponSound playOnEnd;
 
-	public WeaponSound(SoundEvent p_i45104_1_, EntityLivingBase entity, int type, WeaponData conf) {
-		super(p_i45104_1_, SoundCategory.NEUTRAL);
+	public WeaponSound(SoundEvent sound, EntityLivingBase entity, int type, WeaponData conf) {
+		super(sound, SoundCategory.NEUTRAL);
 		this.type = type;
 		this.entity = entity;
 		this.conf = conf;
-		this.volume = entity instanceof EntityPlayer ? TF2ConfigVars.gunVolume : TF2ConfigVars.mercenaryVolume;
+		volume = entity instanceof EntityPlayer ? TF2ConfigVars.gunVolume : TF2ConfigVars.mercenaryVolume;
 	}
 
 	@Override
 	public void update() {
-		if (this.endsnextTick)
-			this.setDone();
-		this.xPosF = (float) entity.posX;
-		this.yPosF = (float) entity.posY;
-		this.zPosF = (float) entity.posZ;
+		if (endsnextTick) setDone();
+		xPosF = (float) entity.posX;
+		yPosF = (float) entity.posY;
+		zPosF = (float) entity.posZ;
 		if (/*
 			 * !(entity instanceof EntityPlayer &&
 			 * ((EntityPlayer)entity).inventory.currentItem != slot)
-			 */ItemFromData.getData(entity.getHeldItem(EnumHand.MAIN_HAND)) != conf || this.entity.isDead)
-			this.setDone();
+			 */ItemFromData.getData(entity.getHeldItem(EnumHand.MAIN_HAND)) != conf || entity.isDead) setDone();
 	}
 
 	public void setDone() {
 		ClientProxy.fireSounds.remove(entity);
-		if (this.playOnEnd != null) {
+		if (playOnEnd != null) {
 			Minecraft.getMinecraft().getSoundHandler().playSound(playOnEnd);
 			ClientProxy.fireSounds.put(entity, playOnEnd);
 		}
-		this.donePlaying = true;
+		donePlaying = true;
 	}
 }

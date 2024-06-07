@@ -12,10 +12,10 @@ public class ReloadSound extends PositionedSound implements ITickableSound {
 
 	public ReloadSound(SoundEvent soundResource, Entity entity) {
 		super(soundResource, SoundCategory.NEUTRAL);
-		this.xPosF = (float) entity.posX;
-		this.yPosF = (float) entity.posY;
-		this.zPosF = (float) entity.posZ;
-		this.volume = 0.6f;
+		xPosF = (float) entity.posX;
+		yPosF = (float) entity.posY;
+		zPosF = (float) entity.posZ;
+		volume = 0.6f;
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class ReloadSound extends PositionedSound implements ITickableSound {
 
 	@Override
 	public boolean isDonePlaying() {
-		return this.done;
+		return done;
 	}
 
 }

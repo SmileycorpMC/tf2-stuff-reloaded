@@ -27,8 +27,8 @@ public class GuiWearables extends InventoryEffectRenderer {
 
 	public GuiWearables(ContainerWearables container) {
 		super(container);
-		this.allowUserInput = true;
-		this.xSize = 199;
+		allowUserInput = true;
+		xSize = 199;
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class GuiWearables extends InventoryEffectRenderer {
 	 */
 	@Override
 	public void initGui() {
-		this.buttonList.clear();
+		buttonList.clear();
 		super.initGui();
 	}
 
@@ -54,7 +54,7 @@ public class GuiWearables extends InventoryEffectRenderer {
 	 */
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		this.fontRenderer.drawString(I18n.format("item.rafradek_tf2_weapons.ammoBelt.name", new Object[0]), 97, 8, 4210752);
+		fontRenderer.drawString(I18n.format("item.rafradek_tf2_weapons.ammoBelt.name", new Object[0]), 97, 8, 4210752);
 	}
 
 	/**
@@ -62,11 +62,11 @@ public class GuiWearables extends InventoryEffectRenderer {
 	 */
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		this.drawDefaultBackground();
+		drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
-		this.oldMouseX = mouseX;
-		this.oldMouseY = mouseY;
-		this.renderHoveredToolTip(mouseX, mouseY);
+		oldMouseX = mouseX;
+		oldMouseY = mouseY;
+		renderHoveredToolTip(mouseX, mouseY);
 	}
 
 	/**
@@ -75,18 +75,17 @@ public class GuiWearables extends InventoryEffectRenderer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(WEARABLES_TEXTURE);
-		int i = this.guiLeft;
-		int j = this.guiTop;
-		this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
-		drawEntityOnScreen(i + 51, j + 75, 30, i + 51 - this.oldMouseX, j + 75 - 50 - this.oldMouseY, this.mc.player);
+		mc.getTextureManager().bindTexture(WEARABLES_TEXTURE);
+		int i = guiLeft;
+		int j = guiTop;
+		drawTexturedModalRect(i, j, 0, 0, xSize, ySize);
+		drawEntityOnScreen(i + 51, j + 75, 30, i + 51 - oldMouseX, j + 75 - 50 - oldMouseY, mc.player);
 	}
 
 	/**
 	 * Draws an entity on the screen looking toward the cursor.
 	 */
-	public static void drawEntityOnScreen(int posX, int posY, int scale, float mouseX, float mouseY,
-			EntityLivingBase ent) {
+	public static void drawEntityOnScreen(int posX, int posY, int scale, float mouseX, float mouseY, EntityLivingBase ent) {
 		GlStateManager.enableColorMaterial();
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(posX, posY, 50.0F);
@@ -135,8 +134,6 @@ public class GuiWearables extends InventoryEffectRenderer {
 		 * if (button.id == 0) this.mc.displayGuiScreen(new GuiAchievements(this,
 		 * this.mc.player.getStatFileWriter()));
 		 */
-
-		if (button.id == 1)
-			this.mc.displayGuiScreen(new GuiStats(this, this.mc.player.getStatFileWriter()));
+		if (button.id == 1) mc.displayGuiScreen(new GuiStats(this, mc.player.getStatFileWriter()));
 	}
 }

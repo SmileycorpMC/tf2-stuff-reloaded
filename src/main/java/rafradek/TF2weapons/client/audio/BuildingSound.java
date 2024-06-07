@@ -13,22 +13,21 @@ public class BuildingSound extends MovingSound {
 	public BuildingSound(EntityBuilding sentry, SoundEvent location, int state) {
 		super(location, SoundCategory.NEUTRAL);
 		this.sentry = sentry;
-		this.volume = 0.65f;
-		this.repeat = true;
+		volume = 0.65f;
+		repeat = true;
 		this.state = state;
 	}
 
 	@Override
 	public void update() {
-		this.xPosF = (float) sentry.posX;
-		this.yPosF = (float) sentry.posY;
-		this.zPosF = (float) sentry.posZ;
-		if (this.sentry.getHealth() <= 0 || this.sentry.isDead)
-			this.stopPlaying();
+		xPosF = (float) sentry.posX;
+		yPosF = (float) sentry.posY;
+		zPosF = (float) sentry.posZ;
+		if (sentry.getHealth() <= 0 || sentry.isDead) stopPlaying();
 	}
 
 	public void stopPlaying() {
-		this.donePlaying = true;
+		donePlaying = true;
 	}
 
 }

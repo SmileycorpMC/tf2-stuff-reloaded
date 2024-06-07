@@ -28,8 +28,7 @@ public class GuiConfigurable extends GuiContainer {
 		super(inventorySlotsIn);
 	}
 
-	private static final ResourceLocation UPGRADES_GUI_TEXTURES = new ResourceLocation(TF2weapons.MOD_ID,
-			"textures/gui/container/upgrades.png");
+	private static final ResourceLocation UPGRADES_GUI_TEXTURES = new ResourceLocation(TF2weapons.MOD_ID, "textures/gui/container/upgrades.png");
 
 	// public ItemStack[] itemsToRender;
 
@@ -55,9 +54,8 @@ public class GuiConfigurable extends GuiContainer {
 	@Override
 	public void initGui() {
 		super.initGui();
-
 		int i = 0;
-		this.buttonList.clear();
+		buttonList.clear();
 		if (tag != null) {
 			keys = new String[tag.getSize()];
 			types = new int[tag.getSize()];
@@ -104,38 +102,26 @@ public class GuiConfigurable extends GuiContainer {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();
 		boolean flag = Mouse.isButtonDown(0);
-		int i = this.guiLeft;
-		int j = this.guiTop;
+		int i = guiLeft;
+		int j = guiTop;
 		int k = i + 209;
 		int l = j + 30;
 		int i1 = k + 14;
 		int j1 = l + 96;
-
-		if (!this.wasClicking && flag && mouseX >= k && mouseY >= l && mouseX < i1 && mouseY < j1)
-			this.isScrolling = true;
-
-		if (!flag)
-			this.isScrolling = false;
-
-		this.wasClicking = flag;
-
-		if (this.isScrolling) {
-			int size = this.keys.length;
+		if (!wasClicking && flag && mouseX >= k && mouseY >= l && mouseX < i1 && mouseY < j1) isScrolling = true;
+		if (!flag) isScrolling = false;
+		wasClicking = flag;
+		if (isScrolling) {
+			int size = keys.length;
 			if (size >= 6) {
-				this.scroll = (mouseY - l - 7.5F) / (j1 - l - 15.0F);
-				this.scroll = MathHelper.clamp(this.scroll, 0.0F, 1.0F);
-				this.firstIndex = Math.round(this.scroll * (size - 6) / 2) * 2;
-				this.setButtons();
+				scroll = (mouseY - l - 7.5F) / (j1 - l - 15.0F);
+				scroll = MathHelper.clamp(scroll, 0.0F, 1.0F);
+				firstIndex = Math.round(scroll * (size - 6) / 2) * 2;
+				setButtons();
 			}
 		}
 		super.drawScreen(mouseX, mouseY, partialTicks);
-
-		if (this.tag != null)
-			for (int t = 0; t < this.keys.length; t++) {
-				if (fields[t] instanceof GuiTextField) {
-					((GuiTextField) fields[t]).drawTextBox();
-				}
-			}
+		if (tag != null) for (int t = 0; t < keys.length; t++) if (fields[t] instanceof GuiTextField) ((GuiTextField) fields[t]).drawTextBox();
 		/*
 		 * this.refund.enabled =
 		 * !this.inventorySlots.inventorySlots.get(0).getStack().isEmpty() &&
@@ -154,54 +140,37 @@ public class GuiConfigurable extends GuiContainer {
 
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
-		if (button.id < 12)
-			this.mc.playerController.sendEnchantPacket(this.inventorySlots.windowId, button.id + this.firstIndex * 2);
-		else if (button.id == 12)
-			this.mc.playerController.sendEnchantPacket(this.inventorySlots.windowId, -1);
+		if (button.id < 12) mc.playerController.sendEnchantPacket(inventorySlots.windowId, button.id + firstIndex * 2);
+		else if (button.id == 12) mc.playerController.sendEnchantPacket(inventorySlots.windowId, -1);
 	}
 
 	@Override
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		super.mouseClicked(mouseX, mouseY, mouseButton);
-		for (int t = 0; t < this.keys.length; t++) {
-			if (fields[t] instanceof GuiTextField) {
-				((GuiTextField) fields[t]).mouseClicked(mouseX, mouseY, mouseButton);
-			}
-		}
+		for (int t = 0; t < keys.length; t++) if (fields[t] instanceof GuiTextField)
+			((GuiTextField) fields[t]).mouseClicked(mouseX, mouseY, mouseButton);
 	}
 
 	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
-
 		boolean entered = false;
-		for (int t = 0; t < this.keys.length; t++) {
-			if (fields[t] instanceof GuiTextField) {
-				entered |= ((GuiTextField) fields[t]).textboxKeyTyped(typedChar, keyCode);
-			}
-		}
+		for (int t = 0; t < this.keys.length; t++) if (fields[t] instanceof GuiTextField)
+			entered |= ((GuiTextField) fields[t]).textboxKeyTyped(typedChar, keyCode);
 		if (!entered) {
-			if (keyCode == 1 || this.mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode)) {
-				this.sendChanges();
-			}
+			if (keyCode == 1 || this.mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode)) sendChanges();
 			super.keyTyped(typedChar, keyCode);
 		}
-
 		// this.teleportField.setText(Integer.toString(channel));
 	}
 
 	@Override
 	public void onGuiClosed() {
 		super.onGuiClosed();
-
 	}
 
 	public void sendChanges() {
 		NBTTagCompound newtag = new NBTTagCompound();
-		for (int t = 0; t < this.keys.length; t++) {
-			if (types[t] == 8) {
-				newtag.setString(keys[t], ((GuiTextField) fields[t]).getText());
-			}
-		}
+		for (int t = 0; t < keys.length; t++) if (types[t] == 8) newtag.setString(keys[t], ((GuiTextField) fields[t]).getText());
 		TF2weapons.network.sendToServer(new TF2Message.GuiConfigMessage(newtag, this.pos));
 	}
 
@@ -211,11 +180,7 @@ public class GuiConfigurable extends GuiContainer {
 	 */
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		for (int i = 0; i < 6; i++) {
-
-		}
-		this.fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 36, this.ySize - 96 + 3,
-				4210752);
+		fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 36, ySize - 96 + 3, 4210752);
 	}
 
 	/**
@@ -224,17 +189,15 @@ public class GuiConfigurable extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(UPGRADES_GUI_TEXTURES);
-		int x = (this.width - this.xSize) / 2;
-		int y = (this.height - this.ySize) / 2;
-		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
+		mc.getTextureManager().bindTexture(UPGRADES_GUI_TEXTURES);
+		int x = (width - xSize) / 2;
+		int y = (height - ySize) / 2;
+		drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
 		// this.drawTab(0);
 		// this.drawTab(1);
-
-		x = this.guiLeft + 210;
-		y = this.guiTop + 31;
+		x = guiLeft + 210;
+		y = guiTop + 31;
 		int k = y + 96;
-
-		this.drawTexturedModalRect(x, y + (int) ((k - y - 17) * this.scroll), 232, 0, 12, 15);
+		drawTexturedModalRect(x, y + (int) ((k - y - 17) * scroll), 232, 0, 12, 15);
 	}
 }

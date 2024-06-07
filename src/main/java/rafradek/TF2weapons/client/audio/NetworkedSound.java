@@ -25,26 +25,24 @@ public class NetworkedSound extends MovingSound {
 	public NetworkedSound(Vec3d pos, SoundEvent soundIn, SoundCategory categoryIn, float volume, float pitch, int id,
 			boolean repeat) {
 		super(soundIn, categoryIn);
-		this.isStatic = true;
+		isStatic = true;
 		this.volume = volume;
 		this.pitch = pitch;
 		this.id = id;
 		this.repeat = repeat;
-		this.xPosF = (float) pos.x;
-		this.yPosF = (float) pos.y;
-		this.zPosF = (float) pos.z;
+		xPosF = (float) pos.x;
+		yPosF = (float) pos.y;
+		zPosF = (float) pos.z;
 	}
 
 	@Override
 	public void update() {
-		if (!this.isStatic) {
-			if (parent != null && !parent.isDead) {
-				this.xPosF = (float) parent.posX;
-				this.yPosF = (float) parent.posY;
-				this.zPosF = (float) parent.posZ;
-			} else
-				this.donePlaying = true;
-		}
+		if (isStatic) return;
+		if (parent != null && !parent.isDead) {
+			xPosF = (float) parent.posX;
+			yPosF = (float) parent.posY;
+			zPosF = (float) parent.posZ;
+		} else donePlaying = true;
 	}
 
 }

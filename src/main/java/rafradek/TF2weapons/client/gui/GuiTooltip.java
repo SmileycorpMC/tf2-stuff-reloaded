@@ -16,8 +16,8 @@ public class GuiTooltip extends GuiButton {
 	public GuiTooltip(int buttonId, int x, int y, int widthIn, int heightIn, List<String> text, GuiScreen screen) {
 		super(buttonId, x, y, widthIn, heightIn, text.get(0));
 		this.screen = screen;
-		this.list = text;
-		this.enabled = false;
+		list = text;
+		enabled = false;
 	}
 
 	public GuiTooltip(int x, int y, int widthIn, int heightIn, String text, GuiScreen screen) {
@@ -25,19 +25,14 @@ public class GuiTooltip extends GuiButton {
 	}
 
 	public void setText(String string) {
-		this.list = Arrays.asList(string.split(Pattern.quote("\\n")));
-		this.displayString = string;
+		list = Arrays.asList(string.split(Pattern.quote("\\n")));
+		displayString = string;
 	}
 
 	@Override
 	public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
-		if (this.visible) {
-			this.hovered = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width
-					&& mouseY < this.y + this.height;
-
-			if (this.hovered) {
-				this.screen.drawHoveringText(list, mouseX, mouseY);
-			}
-		}
+		if (!visible) return;
+		hovered = mouseX >= x && mouseY >= y && mouseX < x + width && mouseY < y + height;
+		if (hovered) screen.drawHoveringText(list, mouseX, mouseY);
 	}
 }

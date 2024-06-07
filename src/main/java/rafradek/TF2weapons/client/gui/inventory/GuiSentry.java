@@ -32,102 +32,81 @@ public class GuiSentry extends GuiContainer {
 	private GuiButton attackFriendlyMobsBtn;
 	public int attackFlags;
 
-	private static final ResourceLocation GUI_TEXTURES = new ResourceLocation(TF2weapons.MOD_ID,
-			"textures/gui/container/building.png");
+	private static final ResourceLocation GUI_TEXTURES = new ResourceLocation(TF2weapons.MOD_ID, "textures/gui/container/building.png");
 
 	public GuiSentry(EntitySentry sentry) {
 		super(new ContainerEnergy(sentry, Minecraft.getMinecraft().player.inventory));
 		this.sentry = sentry;
-		this.attackFlags = sentry.getAttackFlags();
-		this.xSize = 212;
-		this.ySize = 195;
+		attackFlags = sentry.getAttackFlags();
+		xSize = 212;
+		ySize = 195;
 	}
 
 	@Override
 	public void initGui() {
-		super.initGui();
-		this.buttonList.clear();
-		this.buttonList
-				.add(this.attackOnHurtBtn = new GuiButton(1, this.guiLeft + 181, this.guiTop + 14, 25, 20, "no"));
-		this.buttonList
-				.add(this.attackOtherPlayersBtn = new GuiButton(2, this.guiLeft + 181, this.guiTop + 34, 25, 20, "no"));
-		this.buttonList
-				.add(this.attackHostileMobsBtn = new GuiButton(3, this.guiLeft + 181, this.guiTop + 54, 25, 20, "no"));
-		this.buttonList
-				.add(this.attackFriendlyMobsBtn = new GuiButton(4, this.guiLeft + 181, this.guiTop + 74, 25, 20, "no"));
-		this.buttonList.add(this.grab = new GuiButton(5, this.guiLeft + 86, this.guiTop + 90, 40, 20,
-				I18n.format("gui.teleporter.drop", new Object[0])));
+		initGui();
+		buttonList.clear();
+		buttonList.add(attackOnHurtBtn = new GuiButton(1, guiLeft + 181, guiTop + 14, 25, 20, "no"));
+		buttonList.add(attackOtherPlayersBtn = new GuiButton(2, guiLeft + 181, guiTop + 34, 25, 20, "no"));
+		buttonList.add(attackHostileMobsBtn = new GuiButton(3, guiLeft + 181, guiTop + 54, 25, 20, "no"));
+		buttonList.add(attackFriendlyMobsBtn = new GuiButton(4, guiLeft + 181, guiTop + 74, 25, 20, "no"));
+		buttonList.add(grab = new GuiButton(5, guiLeft + 86, guiTop + 90, 40, 20, I18n.format("gui.teleporter.drop", new Object[0])));
 	}
 
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
-		if (button.enabled)
-			if (button.id >= 1 && button.id <= 4) {
-				attackFlags ^= 1 << (button.id - 1);
-				if ((attackFlags & (1 << (button.id - 1))) == 0)
-					button.displayString = "no";
-				else
-					button.displayString = "yes";
-				TF2weapons.network.sendToServer(
-						new TF2Message.BuildingConfigMessage(this.sentry.getEntityId(), (byte) 0, attackFlags));
-			} else if (button.id == 5) {
-				this.mc.displayGuiScreen(null);
-				TF2weapons.network
-						.sendToServer(new TF2Message.BuildingConfigMessage(this.sentry.getEntityId(), (byte) 127, 1));
-			}
+		if (!button.enabled) return;
+		if (button.id >= 1 && button.id <= 4) {
+			attackFlags ^= 1 << (button.id - 1);
+			if ((attackFlags & (1 << (button.id - 1))) == 0) button.displayString = "no";
+			else button.displayString = "yes";
+			TF2weapons.network.sendToServer(new TF2Message.BuildingConfigMessage(sentry.getEntityId(), (byte) 0, attackFlags));
+		} else if (button.id == 5) {
+			mc.displayGuiScreen(null);
+			TF2weapons.network.sendToServer(new TF2Message.BuildingConfigMessage(sentry.getEntityId(), (byte) 127, 1));
+		}
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-		this.fontRenderer.drawString(I18n.format("gui.sentry.info", new Object[0]), 8, 5, 4210752);
-		this.fontRenderer.drawString(I18n.format("gui.sentry.onhurt", new Object[0]), 25, 20, 4210752);
-		this.fontRenderer.drawString(I18n.format("gui.sentry.player", new Object[0]), 25, 40, 4210752);
-		this.fontRenderer.drawString(I18n.format("gui.sentry.hostile", new Object[0]), 25, 60, 4210752);
-		this.fontRenderer.drawString(I18n.format("gui.sentry.friendly", new Object[0]), 25, 80, 4210752);
-		this.fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 25, 99, 4210752);
+		fontRenderer.drawString(I18n.format("gui.sentry.info", new Object[0]), 8, 5, 4210752);
+		fontRenderer.drawString(I18n.format("gui.sentry.onhurt", new Object[0]), 25, 20, 4210752);
+		fontRenderer.drawString(I18n.format("gui.sentry.player", new Object[0]), 25, 40, 4210752);
+		fontRenderer.drawString(I18n.format("gui.sentry.hostile", new Object[0]), 25, 60, 4210752);
+		fontRenderer.drawString(I18n.format("gui.sentry.friendly", new Object[0]), 25, 80, 4210752);
+		fontRenderer.drawString(I18n.format("container.inventory", new Object[0]), 25, 99, 4210752);
 	}
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		this.attackOnHurtBtn.displayString = (attackFlags & 1) == 0 ? "no" : "yes";
-		this.attackOtherPlayersBtn.displayString = (attackFlags & 2) == 0 ? "no" : "yes";
-		this.attackHostileMobsBtn.displayString = (attackFlags & 4) == 0 ? "no" : "yes";
-		this.attackFriendlyMobsBtn.displayString = (attackFlags & 8) == 0 ? "no" : "yes";
-
-		this.drawDefaultBackground();
-
+		attackOnHurtBtn.displayString = (attackFlags & 1) == 0 ? "no" : "yes";
+		attackOtherPlayersBtn.displayString = (attackFlags & 2) == 0 ? "no" : "yes";
+		attackHostileMobsBtn.displayString = (attackFlags & 4) == 0 ? "no" : "yes";
+		attackFriendlyMobsBtn.displayString = (attackFlags & 8) == 0 ? "no" : "yes";
+		drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
-		if (mouseX >= this.guiLeft + 7 && mouseX < this.guiLeft + 23 && mouseY >= this.guiTop + 15
-				&& mouseY < guiTop + 75) {
-			if (ClientProxy.buildingsUseEnergy)
-				this.drawHoveringText(
-						"Energy: " + this.sentry.getInfoEnergy() + "/" + this.sentry.energy.getMaxEnergyStored(),
-						mouseX, mouseY);
-			else
-				this.drawHoveringText("Energy use is disabled", mouseX, mouseY);
+		if (mouseX >= guiLeft + 7 && mouseX < guiLeft + 23 && mouseY >= guiTop + 15 && mouseY < guiTop + 75) {
+			if (ClientProxy.buildingsUseEnergy) drawHoveringText("Energy: " + sentry.getInfoEnergy() + "/" + sentry.energy.getMaxEnergyStored(), mouseX, mouseY);
+			else drawHoveringText("Energy use is disabled", mouseX, mouseY);
 		}
-		if (mouseX >= this.guiLeft + 5 && mouseX < this.guiLeft + 23 && mouseY >= this.guiTop + 112
-				&& mouseY < guiTop + 130) {
-			List<String> list = new ArrayList<>(
-					Arrays.asList(I18n.format("gui.sentry.help", this.sentry.getLevel() == 1 ? "6.4" : "12.8")
+		if (mouseX >= guiLeft + 5 && mouseX < guiLeft + 23 && mouseY >= guiTop + 112 && mouseY < guiTop + 130) {
+			List<String> list = new ArrayList<>(Arrays.asList(I18n.format("gui.sentry.help", sentry.getLevel() == 1 ? "6.4" : "12.8")
 							.split(Pattern.quote("\\n"))));
-			if (this.sentry.getLevel() > 2)
-				list.add(I18n.format("gui.sentry.help.rockets"));
-			this.drawHoveringText(list, mouseX, mouseY);
+			if (sentry.getLevel() > 2) list.add(I18n.format("gui.sentry.help.rockets"));
+			drawHoveringText(list, mouseX, mouseY);
 		}
-		this.renderHoveredToolTip(mouseX, mouseY);
+		renderHoveredToolTip(mouseX, mouseY);
 	}
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(GUI_TEXTURES);
-		int x = (this.width - this.xSize) / 2;
-		int y = (this.height - this.ySize) / 2;
-		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
-		this.drawGradientRect(this.guiLeft + 7, this.guiTop + 75
-				- (int) (((float) this.sentry.getInfoEnergy() / (float) this.sentry.energy.getMaxEnergyStored()) * 60f),
-				this.guiLeft + 23, this.guiTop + 75, 0xFFBF0000, 0xFF7F0000);
+		mc.getTextureManager().bindTexture(GUI_TEXTURES);
+		int x = (width - xSize) / 2;
+		int y = (height - ySize) / 2;
+		drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+		drawGradientRect(guiLeft + 7, guiTop + 75 - (int) (((float) sentry.getInfoEnergy() /
+						(float) sentry.energy.getMaxEnergyStored()) * 60f), guiLeft + 23, guiTop + 75, 0xFFBF0000, 0xFF7F0000);
 	}
 }

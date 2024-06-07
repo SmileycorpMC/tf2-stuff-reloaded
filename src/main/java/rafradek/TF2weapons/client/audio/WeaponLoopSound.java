@@ -14,10 +14,9 @@ public class WeaponLoopSound extends WeaponSound {
 	private boolean firing;
 	private boolean crit;
 
-	public WeaponLoopSound(SoundEvent p_i45104_1_, EntityLivingBase entity, boolean firing, WeaponData conf,
-			boolean crit, int type) {
-		super(p_i45104_1_, entity, type, conf);
-		this.repeat = true;
+	public WeaponLoopSound(SoundEvent sound, EntityLivingBase entity, boolean firing, WeaponData conf, boolean crit, int type) {
+		super(sound, entity, type, conf);
+		repeat = true;
 		this.firing = firing;
 		this.crit = crit;
 	}
@@ -25,9 +24,8 @@ public class WeaponLoopSound extends WeaponSound {
 	@Override
 	public void update() {
 		super.update();
-		if (this.endsnextTick || this.donePlaying)
-			return;
-		ItemStack stack = this.entity.getHeldItem(EnumHand.MAIN_HAND);
+		if (endsnextTick || donePlaying) return;
+		ItemStack stack = entity.getHeldItem(EnumHand.MAIN_HAND);
 		boolean boost = TF2Util.calculateCritPre(stack, entity) == 2;
 		boolean playThis = (boost && crit) || (!boost && !crit);
 		if (((ItemUsable) stack.getItem()).canFireInternal(entity.world, entity, stack,
@@ -38,8 +36,7 @@ public class WeaponLoopSound extends WeaponSound {
 			int action = entity.getCapability(TF2weapons.WEAPONS_CAP, null).state;
 			if (((action & 1) != 0 && firing && playThis) || (!firing && (action & 3) == 2)) {
 				// this.volume=1.0f;
-			} else
-				this.setDone();
+			} else setDone();
 		} else
 			this.setDone();
 	}

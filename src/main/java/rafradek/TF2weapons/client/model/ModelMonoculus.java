@@ -13,24 +13,24 @@ public class ModelMonoculus extends ModelBase {
 	public ModelRenderer shape3;
 
 	public ModelMonoculus() {
-		this.textureWidth = 128;
-		this.textureHeight = 128;
-		this.shape2 = new ModelRenderer(this, 0, 0);
-		this.shape2.setRotationPoint(0.0F, 8f, 0.0F);
-		this.shape2.addBox(-13.0F, -16.0F, -13.0F, 26, 32, 26, 0.0F);
-		this.shape3 = new ModelRenderer(this, 0, 64);
-		this.shape3.setRotationPoint(0.0F, 8f, 0.0F);
-		this.shape3.addBox(-13.0F, -13.0F, -16.0F, 26, 26, 32, 0.0F);
-		this.shape1 = new ModelRenderer(this, 0, 0);
-		this.shape1.setRotationPoint(0.0F, 8f, 0.0F);
-		this.shape1.addBox(-16.0F, -13.0F, -13.0F, 32, 26, 26, 0.0F);
+		textureWidth = 128;
+		textureHeight = 128;
+		shape2 = new ModelRenderer(this, 0, 0);
+		shape2.setRotationPoint(0.0F, 8f, 0.0F);
+		shape2.addBox(-13.0F, -16.0F, -13.0F, 26, 32, 26, 0.0F);
+		shape3 = new ModelRenderer(this, 0, 64);
+		shape3.setRotationPoint(0.0F, 8f, 0.0F);
+		shape3.addBox(-13.0F, -13.0F, -16.0F, 26, 26, 32, 0.0F);
+		shape1 = new ModelRenderer(this, 0, 0);
+		shape1.setRotationPoint(0.0F, 8f, 0.0F);
+		shape1.addBox(-16.0F, -13.0F, -13.0F, 32, 26, 26, 0.0F);
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		this.shape2.render(f5);
-		this.shape3.render(f5);
-		this.shape1.render(f5);
+		shape2.render(f5);
+		shape3.render(f5);
+		shape1.render(f5);
 	}
 
 	/**
@@ -47,8 +47,8 @@ public class ModelMonoculus extends ModelBase {
 			float p_78087_5_, float p_78087_6_, Entity entityIn) {
 		// System.out.println("rotY: "+p_78087_5_);
 
-		this.shape1.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
-		this.shape2.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
-		this.shape3.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
+		shape1.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
+		shape2.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
+		shape3.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
 	}
 }

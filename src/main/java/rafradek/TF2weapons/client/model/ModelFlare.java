@@ -11,16 +11,16 @@ public class ModelFlare extends ModelBase {
 	public ModelRenderer shape1;
 
 	public ModelFlare() {
-		this.textureWidth = 16;
-		this.textureHeight = 16;
-		this.shape1 = new ModelRenderer(this, 0, 0);
-		this.shape1.setRotationPoint(-2.5F, -1.0F, -1.0F);
-		this.shape1.addBox(0.0F, 0.0F, 0.0F, 5, 2, 2, 0.0F);
+		textureWidth = 16;
+		textureHeight = 16;
+		shape1 = new ModelRenderer(this, 0, 0);
+		shape1.setRotationPoint(-2.5F, -1.0F, -1.0F);
+		shape1.addBox(0.0F, 0.0F, 0.0F, 5, 2, 2, 0.0F);
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		this.shape1.render(f5);
+		shape1.render(f5);
 	}
 
 	/**

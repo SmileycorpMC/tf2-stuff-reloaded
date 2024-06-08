@@ -10,23 +10,21 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityBubbleEffect extends Particle {
 
-	protected EntityBubbleEffect(World world, double p_i1209_2_, double p_i1209_4_, double p_i1209_6_, double motionX,
-                                 double motionY, double motionZ, int time) {
+	protected EntityBubbleEffect(World world, double p_i1209_2_, double p_i1209_4_, double p_i1209_6_, double motionX, double motionY, double motionZ, int time) {
 		super(world, p_i1209_2_, p_i1209_4_, p_i1209_6_);
-		this.motionX = motionX;
-		this.motionY = motionY;
-		this.motionZ = motionZ;
-		// this.noClip=false;
-		this.particleMaxAge = time;
-		this.particleRed = this.particleGreen = this.particleBlue = 1.0F;
-		this.particleScale = 0.5f;
-		this.particleMaxAge = 20;
-		this.setParticleTextureIndex(32);
+		motionX = motionX;
+		motionY = motionY;
+		motionZ = motionZ;
+		// noClip=false;
+		particleMaxAge = time;
+		particleRed = particleGreen = particleBlue = 1.0F;
+		particleScale = 0.5f;
+		particleMaxAge = 20;
+		setParticleTextureIndex(32);
 	}
 
 	@Override
-	public void renderParticle(BufferBuilder p_180434_1_, Entity p_180434_2_, float p_180434_3_, float p_180434_4_,
-			float p_180434_5_, float p_180434_6_, float p_180434_7_, float p_180434_8_) {
+	public void renderParticle(BufferBuilder p_180434_1_, Entity p_180434_2_, float p_180434_3_, float p_180434_4_, float p_180434_5_, float p_180434_6_, float p_180434_7_, float p_180434_8_) {
 		super.renderParticle(p_180434_1_, p_180434_2_, p_180434_3_, p_180434_4_, p_180434_5_, p_180434_6_, p_180434_7_,
 				p_180434_8_);
 	}
@@ -34,7 +32,7 @@ public class EntityBubbleEffect extends Particle {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		this.particleAlpha *= 0.9f;
+		particleAlpha *= 0.9f;
 	}
 
 	@Override
@@ -44,7 +42,6 @@ public class EntityBubbleEffect extends Particle {
 	}
 
 	public static EntityBubbleEffect createNewEffect(World world, Vec3d pos, Vec3d motion) {
-		return new EntityBubbleEffect(world, pos.x, pos.y, pos.z,
-				motion.x, motion.y, motion.z, 5);
+		return new EntityBubbleEffect(world, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z, 5);
 	}
 }

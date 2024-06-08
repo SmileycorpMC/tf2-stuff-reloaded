@@ -10,22 +10,20 @@ public class EntityBisonEffect extends Particle {
 
 	public EntityBisonEffect(World world, double p_i46352_2_, double p_i46352_4_, double p_i46352_6_, int color) {
 		super(world, p_i46352_2_, p_i46352_4_, p_i46352_6_);
-		this.setParticleTexture(TF2EventsClient.bisonIcon);
-		this.setPosition(this.posX,
-				this.posY, this.posZ);
-		this.particleScale *= this.rand.nextFloat() * 0.1F + 0.3F;
-		this.setRBGColorF((color >> 16) / 255f, (color >> 8 & 255) / 255f, (color & 255) / 255f);
-		//this.particleAlpha = Math.min(1 / this.particleScale * 3, 1);
-		this.particleMaxAge = 15;
+		setParticleTexture(TF2EventsClient.bisonIcon);
+		setPosition(posX,
+				posY, posZ);
+		particleScale *= rand.nextFloat() * 0.1F + 0.3F;
+		setRBGColorF((color >> 16) / 255f, (color >> 8 & 255) / 255f, (color & 255) / 255f);
+		//particleAlpha = Math.min(1 / particleScale * 3, 1);
+		particleMaxAge = 15;
 	}
 
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if (this.particleAge < 5)
-			this.particleScale += 0.2F;
-		else
-			this.particleScale -=0.12F;
+		if (particleAge < 5) particleScale += 0.2F;
+		else particleScale -=0.12F;
 	}
 
 	@Override

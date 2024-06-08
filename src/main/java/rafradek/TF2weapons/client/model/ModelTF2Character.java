@@ -13,25 +13,25 @@ public class ModelTF2Character extends ModelBiped {
 	
 	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
-        this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
+        setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
         GlStateManager.pushMatrix();
 
-        if (this.isChild)
+        if (isChild)
         {
             float f = 2.0F;
             GlStateManager.scale(0.75F, 0.75F, 0.75F);
             GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
-            this.bipedHead.render(scale);
+            bipedHead.render(scale);
             GlStateManager.popMatrix();
             GlStateManager.pushMatrix();
             GlStateManager.scale(0.5F, 0.5F, 0.5F);
             GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
-            this.bipedBody.render(scale);
-            this.bipedRightArm.render(scale);
-            this.bipedLeftArm.render(scale);
-            this.bipedRightLeg.render(scale);
-            this.bipedLeftLeg.render(scale);
-            this.bipedHeadwear.render(scale);
+            bipedBody.render(scale);
+            bipedRightArm.render(scale);
+            bipedLeftArm.render(scale);
+            bipedRightLeg.render(scale);
+            bipedLeftLeg.render(scale);
+            bipedHeadwear.render(scale);
         }
         else
         {
@@ -42,22 +42,22 @@ public class ModelTF2Character extends ModelBiped {
             if (entityIn instanceof EntityTF2Character && ((EntityTF2Character) entityIn).isGiant()) {
             	GlStateManager.scale(0.75F, 0.75F, 0.75F);
                 GlStateManager.translate(0.0F, 0, 0.0F);
-                this.bipedHead.render(scale);
-            	this.bipedHeadwear.render(scale);
+                bipedHead.render(scale);
+            	bipedHeadwear.render(scale);
                 GlStateManager.popMatrix();
                 GlStateManager.pushMatrix();
             	
             	
             }
             else {
-            	this.bipedHead.render(scale);
-            	this.bipedHeadwear.render(scale);
+            	bipedHead.render(scale);
+            	bipedHeadwear.render(scale);
             }
-            this.bipedBody.render(scale);
-            this.bipedRightArm.render(scale);
-            this.bipedLeftArm.render(scale);
-            this.bipedRightLeg.render(scale);
-            this.bipedLeftLeg.render(scale);
+            bipedBody.render(scale);
+            bipedRightArm.render(scale);
+            bipedLeftArm.render(scale);
+            bipedRightLeg.render(scale);
+            bipedLeftLeg.render(scale);
             
         }
 

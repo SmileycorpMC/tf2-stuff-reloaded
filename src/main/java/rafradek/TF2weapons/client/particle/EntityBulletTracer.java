@@ -22,52 +22,47 @@ public class EntityBulletTracer extends Particle {
 
 	private boolean motionless;
 
-	public EntityBulletTracer(World par1World, double startX, double startY, double startZ, double x, double y,
-			double z, int speed, int color, float length) {
+	public EntityBulletTracer(World par1World, double startX, double startY, double startZ, double x, double y, double z, int speed, int color, float length) {
 		super(par1World, startX, startY, startZ);
-		this.particleScale = 0.2f;
-		// this.special = special;
+		particleScale = 0.2f;
+		// special = special;
 		double dist = new Vec3d(startX, startY, startZ).distanceTo(new Vec3d(x, y, z));
 		if (speed > 0) {
-			this.duration = (float) dist / speed;
-			this.motionX = (x - startX) / duration;
-			this.motionY = (y - startY) / duration;
-			this.motionZ = (z - startZ) / duration;
+			duration = (float) dist / speed;
+			motionX = (x - startX) / duration;
+			motionY = (y - startY) / duration;
+			motionZ = (z - startZ) / duration;
 			this.length = length;
-
 		} else {
-			this.motionless = true;
-			this.duration = length;
+			motionless = true;
+			duration = length;
 			this.length = (float) dist * 1000;
-			this.motionX = (x - startX) / dist * 0.001;
-			this.motionY = (y - startY) / dist * 0.001;
-			this.motionZ = (z - startZ) / dist * 0.001;
+			motionX = (x - startX) / dist * 0.001;
+			motionY = (y - startY) / dist * 0.001;
+			motionZ = (z - startZ) / dist * 0.001;
 		}
 		/*
-		 * if (type == 1) { crits=2; this.motionX *= 0.001; this.motionY *= 0.001;
-		 * this.motionZ *= 0.001; }
+		 * if (type == 1) { crits=2; motionX *= 0.001; motionY *= 0.001;
+		 * motionZ *= 0.001; }
 		 */
-		this.particleMaxAge = 200;
-		this.setSize(0.025f, 0.025f);
-		// this.setParticleIcon(Item.itemsList[2498+256].getIconFromDamage(0));
-		this.setParticleTexture(TF2EventsClient.pelletIcon[0]);
-		// this.setParticleTextureIndex(81);
-		this.multipleParticleScaleBy(2);
+		particleMaxAge = 200;
+		setSize(0.025f, 0.025f);
+		// setParticleIcon(Item.itemsList[2498+256].getIconFromDamage(0));
+		setParticleTexture(TF2EventsClient.pelletIcon[0]);
+		// setParticleTextureIndex(81);
+		multipleParticleScaleBy(2);
 
-		if (color == 0)
-			this.setRBGColorF(0.97f, 0.76f, 0.51f);
-		else
-			this.setRBGColorF((color >> 16) / 255f, (color >> 8 & 255) / 255f, (color & 255) / 255f);
+		if (color == 0) setRBGColorF(0.97f, 0.76f, 0.51f);
+		else setRBGColorF((color >> 16) / 255f, (color >> 8 & 255) / 255f, (color & 255) / 255f);
 	}
 
-	public EntityBulletTracer(World par1World, double startX, double startY, double startZ, double x, double y,
-			double z, int duration, int crits, EntityLivingBase shooter, int type, float length) {
+	public EntityBulletTracer(World par1World, double startX, double startY, double startZ, double x, double y, double z, int duration, int crits, EntityLivingBase shooter, int type, float length) {
 		this(par1World, startX, startY, startZ, x, y, z, duration, 0, length);
 		if (crits != 2)
-			this.setRBGColorF(0.97f, 0.76f, 0.51f);
+			setRBGColorF(0.97f, 0.76f, 0.51f);
 		else {
 			int color = TF2Util.getTeamColor(shooter);
-			this.setRBGColorF(MathHelper.clamp((color >> 16) / 255f, 0.2f, 1f),
+			setRBGColorF(MathHelper.clamp((color >> 16) / 255f, 0.2f, 1f),
 					MathHelper.clamp((color >> 8 & 255) / 255f, 0.2f, 1f),
 					MathHelper.clamp((color & 255) / 255f, 0.2f, 1f));
 		}
@@ -76,17 +71,17 @@ public class EntityBulletTracer extends Particle {
 	@Override
 	public void onUpdate() {
 		if (nextDead)
-			this.setExpired();
+			setExpired();
 		nextDead = true;
-		// this.setVelocity(0, 0, 0);
+		// setVelocity(0, 0, 0);
 		super.onUpdate();
-		this.motionX *= 1.025D;
-		this.motionY *= 1.025D;
-		this.motionZ *= 1.025D;
+		motionX *= 1.025D;
+		motionY *= 1.025D;
+		motionZ *= 1.025D;
 		if (duration > 0) {
 			duration--;
 			if (duration <= 0)
-				this.setExpired();
+				setExpired();
 		}
 	}
 
@@ -94,15 +89,15 @@ public class EntityBulletTracer extends Particle {
 	public void renderParticle(BufferBuilder worldRendererIn, Entity entityIn, float partialTicks, float rotationX,
 			float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
 
-		float x = (float) (this.prevPosX + (this.posX - this.prevPosX) * partialTicks - interpPosX);
-		float y = (float) (this.prevPosY + (this.posY - this.prevPosY) * partialTicks - interpPosY);
-		float z = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * partialTicks - interpPosZ);
-		Vec3d rightVec = new Vec3d(this.motionX, this.motionY, this.motionZ)
+		float x = (float) (prevPosX + (posX - prevPosX) * partialTicks - interpPosX);
+		float y = (float) (prevPosY + (posY - prevPosY) * partialTicks - interpPosY);
+		float z = (float) (prevPosZ + (posZ - prevPosZ) * partialTicks - interpPosZ);
+		Vec3d rightVec = new Vec3d(motionX, motionY, motionZ)
 				.crossProduct(Minecraft.getMinecraft().getRenderViewEntity().getLook(1)).normalize();
 		// System.out.println(rightVec);
-		float f4 = 0.1F * this.particleScale;
+		float f4 = 0.1F * particleScale;
 
-		int i = this.getBrightnessForRender(partialTicks);
+		int i = getBrightnessForRender(partialTicks);
 		int j = i >> 16 & 65535;
 		int k = i & 65535;
 
@@ -111,59 +106,58 @@ public class EntityBulletTracer extends Particle {
 		float zNext;
 
 		if (motionless) {
-			xNext = (float) (x + this.motionX * length);
-			yNext = (float) (y + this.motionY * length);
-			zNext = (float) (z + this.motionZ * length);
+			xNext = (float) (x + motionX * length);
+			yNext = (float) (y + motionY * length);
+			zNext = (float) (z + motionZ * length);
 		} else {
 			float length = 2 * this.length;
-			if (this.duration < 1)
-				length *= this.duration - (int) this.duration;
-			xNext = (float) (x + this.motionX * length);
-			yNext = (float) (y + this.motionY * length);
-			zNext = (float) (z + this.motionZ * length);
+			if (duration < 1) length *= duration - (int) duration;
+			xNext = (float) (x + motionX * length);
+			yNext = (float) (y + motionY * length);
+			zNext = (float) (z + motionZ * length);
 		}
 
-		float xMin = this.particleTexture.getMinU();
-		float xMax = this.particleTexture.getMaxU();
-		float yMin = this.particleTexture.getMinV();
-		float yMax = this.particleTexture.getMaxV();
+		float xMin = particleTexture.getMinU();
+		float xMax = particleTexture.getMaxU();
+		float yMin = particleTexture.getMinV();
+		float yMax = particleTexture.getMaxV();
 
 		worldRendererIn.pos(x - rightVec.x * f4, y - rightVec.y * f4, z - rightVec.z * f4).tex(xMax, yMax)
-				.color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k)
+				.color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(j, k)
 				.endVertex();
 		;
 		worldRendererIn.pos(x + rightVec.x * f4, y + rightVec.y * f4, z + rightVec.z * f4).tex(xMax, yMin)
-				.color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k)
+				.color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(j, k)
 				.endVertex();
 		;
 		worldRendererIn.pos(xNext + rightVec.x * f4, yNext + rightVec.y * f4, zNext + rightVec.z * f4).tex(xMin, yMin)
-				.color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k)
+				.color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(j, k)
 				.endVertex();
 		;
 		worldRendererIn.pos(xNext - rightVec.x * f4, yNext - rightVec.y * f4, zNext - rightVec.z * f4).tex(xMin, yMax)
-				.color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k)
+				.color(particleRed, particleGreen, particleBlue, particleAlpha).lightmap(j, k)
 				.endVertex();
 		;
 
 		/*
 		 * worldRendererIn.pos((double)(x + rightVec.x * f4), (double)(y+rightVec.y*f4),
 		 * (double)(z+rightVec.z*f4)).tex((double)xMax,
-		 * (double)yMax).color(this.particleRed, this.particleGreen, this.particleBlue,
-		 * this.particleAlpha).lightmap(j, k).endVertex();;
+		 * (double)yMax).color(particleRed, particleGreen, particleBlue,
+		 * particleAlpha).lightmap(j, k).endVertex();;
 		 * worldRendererIn.pos((double)(x - rightVec.x * f4), (double)(y-rightVec.y*f4),
 		 * (double)(z-rightVec.z*f4)).tex((double)xMax,
-		 * (double)yMin).color(this.particleRed, this.particleGreen, this.particleBlue,
-		 * this.particleAlpha).lightmap(j, k).endVertex();;
+		 * (double)yMin).color(particleRed, particleGreen, particleBlue,
+		 * particleAlpha).lightmap(j, k).endVertex();;
 		 * worldRendererIn.pos((double)(xNext - rightVec.x * f4),
 		 * (double)(yNext-rightVec.y*f4),
 		 * (double)(zNext-rightVec.z*f4)).tex((double)xMin,
-		 * (double)yMin).color(this.particleRed, this.particleGreen, this.particleBlue,
-		 * this.particleAlpha).lightmap(j, k).endVertex();;
+		 * (double)yMin).color(particleRed, particleGreen, particleBlue,
+		 * particleAlpha).lightmap(j, k).endVertex();;
 		 * worldRendererIn.pos((double)(xNext + rightVec.x * f4 ),
 		 * (double)(yNext+rightVec.y*f4),
 		 * (double)(zNext+rightVec.z*f4)).tex((double)xMin,
-		 * (double)yMin).color(this.particleRed, this.particleGreen, this.particleBlue,
-		 * this.particleAlpha).lightmap(j, k).endVertex();;
+		 * (double)yMin).color(particleRed, particleGreen, particleBlue,
+		 * particleAlpha).lightmap(j, k).endVertex();;
 		 */
 		// System.out.println("Rotation X: "+rotationX+" Rotation Z:
 		// "+rotationZ+" Rotation YZ: "+rotationYZ+" Rotation XY: "+rotationXY+"
@@ -174,8 +168,8 @@ public class EntityBulletTracer extends Particle {
 
 	@Override
 	public void move(double x, double y, double z) {
-		this.setBoundingBox(this.getBoundingBox().offset(x, y, z));
-		this.resetPositionToBB();
+		setBoundingBox(getBoundingBox().offset(x, y, z));
+		resetPositionToBB();
 	}
 
 	@Override

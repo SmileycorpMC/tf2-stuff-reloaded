@@ -130,10 +130,8 @@ public class TF2EventsClient {
 		event.getMap().registerSprite(new ResourceLocation(TF2weapons.MOD_ID, "items/robot_part_3_2_empty"));
 		event.getMap().registerSprite(new ResourceLocation(TF2weapons.MOD_ID, "items/robot_part_1_3_empty"));
 
-		for (int i = 0; i < ContainerWearables.CURRENCY_EMPTY.length; i++) {
+		for (int i = 0; i < ContainerWearables.CURRENCY_EMPTY.length; i++)
 			event.getMap().registerSprite(new ResourceLocation(ContainerWearables.CURRENCY_EMPTY[i]));
-		}
-
 		// }
 	}
 
@@ -271,7 +269,7 @@ public class TF2EventsClient {
 		stringbuilder.append("// This is approximately ").append(String.format("%.2f", tickSpan / (timeSpan / 1000.0F)))
 				.append(" ticks per second. It should be ").append(20).append(" ticks per second\n\n");
 		stringbuilder.append("--- BEGIN PROFILE DUMP ---\n\n");
-		this.appendProfilerResults(0, "root", stringbuilder, server);
+		appendProfilerResults(0, "root", stringbuilder, server);
 		stringbuilder.append("--- END PROFILE DUMP ---\n\n");
 		return stringbuilder.toString();
 	}
@@ -279,26 +277,21 @@ public class TF2EventsClient {
 	private void appendProfilerResults(int depth, String sectionName, StringBuilder builder, Profiler server) {
 		List<Profiler.Result> list = server.getProfilingData(sectionName);
 
-		if (list != null && list.size() >= 3) {
-			for (int i = 1; i < list.size(); ++i) {
-				Profiler.Result profiler$result = list.get(i);
-				builder.append(String.format("[%02d] ", depth));
-
-				for (int j = 0; j < depth; ++j) {
-					builder.append("|   ");
-				}
-
-				builder.append(profiler$result.profilerName).append(" - ")
-						.append(String.format("%.2f", profiler$result.usePercentage)).append("%/")
-						.append(String.format("%.2f", profiler$result.totalUsePercentage)).append("%\n");
-
-				if (!"unspecified".equals(profiler$result.profilerName)) {
-					try {
-						this.appendProfilerResults(depth + 1, sectionName + "." + profiler$result.profilerName, builder,
-								server);
-					} catch (Exception exception) {
-						builder.append("[[ EXCEPTION ").append(exception).append(" ]]");
-					}
+		if (list == null) return;
+		if (list.size() < 3) return;
+		for (int i = 1; i < list.size(); ++i) {
+			Profiler.Result profiler$result = list.get(i);
+			builder.append(String.format("[%02d] ", depth));
+			for (int j = 0; j < depth; ++j) builder.append("|   ");
+			builder.append(profiler$result.profilerName).append(" - ")
+					.append(String.format("%.2f", profiler$result.usePercentage)).append("%/")
+					.append(String.format("%.2f", profiler$result.totalUsePercentage)).append("%\n");
+			if (!"unspecified".equals(profiler$result.profilerName)) {
+				try {
+					this.appendProfilerResults(depth + 1, sectionName + "." + profiler$result.profilerName, builder,
+							server);
+				} catch (Exception exception) {
+					builder.append("[[ EXCEPTION ").append(exception).append(" ]]");
 				}
 			}
 		}
@@ -324,13 +317,10 @@ public class TF2EventsClient {
 
 	public int getPressedHotbarKey(KeyBinding[] keys, boolean press) {
 		int sel = -1;
-		for (int i = 0; i < keys.length; i++) {
-			if (keys[i].isKeyDown()) {
-				sel = i;
-				if (press)
-					keys[i].isPressed();
-				break;
-			}
+		for (int i = 0; i < keys.length; i++) if (keys[i].isKeyDown()) {
+			sel = i;
+			if (press) keys[i].isPressed();
+			break;
 		}
 		return sel;
 	}

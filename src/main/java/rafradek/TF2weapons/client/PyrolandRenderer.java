@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import rafradek.TF2weapons.TF2weapons;
 import rafradek.TF2weapons.common.TF2Attribute;
 import rafradek.TF2weapons.item.ItemWearable;
+import rafradek.TF2weapons.util.TF2Class;
 
 import java.util.Map;
 
@@ -32,8 +33,8 @@ public class PyrolandRenderer {
     private final Map<ModelResourceLocation, ModelResourceLocation> MODEL_MAP = Maps.newHashMap();
 
     private PyrolandRenderer() {
-        String[] classes = {"demoman", "engineer", "heavy", "medic", "pyro", "scout", "soldier", "sniper", "spy"};
-        for (String name : classes) {
+        for (TF2Class clazz : TF2Class.getClasses()) {
+            String name = clazz.getName();
             registerSoundReplacement(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".hurt"),
                     new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".laughshort"));
             registerSoundReplacement(new ResourceLocation(TF2weapons.MOD_ID, "mob."+ name +".death"),
@@ -44,13 +45,8 @@ public class PyrolandRenderer {
     @SubscribeEvent
     public void clientTick(TickEvent.ClientTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
-        if (shouldRenderPyrovision()) {
-            if (!isShaderLoaded()) {
-                enableShader();
-            }
-        } else if (isShaderLoaded()) {
-            disableShader();
-        }
+        if (shouldRenderPyrovision()) if (!isShaderLoaded()) enableShader();
+        else if (isShaderLoaded()) disableShader();
     }
 
     @SubscribeEvent
@@ -78,9 +74,8 @@ public class PyrolandRenderer {
         for (EnumHand hand : EnumHand.values()) if (shouldRenderPyrovision(entity.getHeldItem(hand), entity, false)) return true;
         if (shouldRenderPyrovision(entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD), entity, true)) return true;
         if (!entity.hasCapability(TF2weapons.INVENTORY_CAP, null)) return false;
-        for (int i = 0; i < 2; i++) {
-            if (shouldRenderPyrovision(entity.getCapability(TF2weapons.INVENTORY_CAP, null).getStackInSlot(i), entity, true)) return true;
-        }
+        for (int i = 0; i < 2; i++) if (shouldRenderPyrovision(entity.getCapability(TF2weapons.INVENTORY_CAP, null)
+                .getStackInSlot(i), entity, true)) return true;
         return false;
     }
 
